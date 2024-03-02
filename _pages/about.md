@@ -2,12 +2,12 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='https://web.cs.toronto.edu/'>Computer Science Undergraduate student at University of Toronto</a>
 
 profile:
   align: right
   image: IMG_4730.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
   more_info: >
     <p>Toronto, Ontario, Canada</p>
 

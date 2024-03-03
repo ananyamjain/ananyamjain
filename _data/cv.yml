@@ -22,22 +22,22 @@
   type: time_table
   contents:
     - title: Web App Developer, Knowledge Graph Engineer
-      institution: Urban Data Center, UofT
+      institution: <a href="https://urbandatacentre.ca/our-team">Urban Data Center, UofT</a>
       year: 2023
       description:
-        - Working on TOVE Twin City project under Prof. Mark Fox
+        - Working on TOVE Twin City project under Prof. Mark Foxs
         - Researching how to generate SPARQL queries for ontologies using chatGPT.
   
     - title: Quantum Computing Undergraduate Researcher
       institution: <a href="https://www.matter.toronto.edu/">Matter Lab, UofT</a>
-      year: May 2023 - Sep 2023
+      year: May-Sep 2023
       description:
         - Researcher for the “Quantum Optimization for Planning Domain Definition Language” Project under Prof. Alan Aspuru-Guzik.
         - Worked with robotic AI planning tasks, ran simulations using dimod packages.
 
     - title: Software Engineering Intern
       institution: <a href="https://www.openg2p.org/">OpenG2P</a>
-      year: May 2023 - Sep 2023
+      year: May-Sep 2023
       description:
         - Led the development of SmartScanner Application.
         - Designed an efficient caching mechanism and authentication framework

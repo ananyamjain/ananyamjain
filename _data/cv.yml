@@ -42,19 +42,12 @@
         - Led the development of SmartScanner Application.
         - Designed an efficient caching mechanism and authentication framework
 
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
 - title: Leadership
   type: time_table
   contents:
     - title: President
-    - institution: <a href="https://uoftwics.netlify.app/"> Women in Computer Science club</a>
-    - year: April 2023
+      institution: <a href="https://uoftwics.netlify.app/">Women in Computer Science club</a>
+      year: April 2023
 
 # - title: Academic Interests
 #   type: nested_list

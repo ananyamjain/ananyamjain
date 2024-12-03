@@ -3,53 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Tech Student</title>
+    <title>My MacBook UI</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="desktop">
-        <header class="toolbar">
+        <header class="menu-bar">
             <ul>
-                <li><a href="#home"><i class="fas fa-home"></i></a></li>
-                <li><a href="#projects"><i class="fas fa-briefcase"></i></a></li>
-                <li><a href="#news"><i class="fas fa-newspaper"></i></a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i></a></li>
+                <li>Finder</li>
+                <li>File</li>
+                <li>Edit</li>
+                <li>View</li>
+                <li>Go</li>
+                <li>Window</li>
+                <li>Help</li>
             </ul>
         </header>
 
-        <div class="content">
-            <section id="home" class="hero">
-                <h1>Your Name</h1>
-                <p>Tech Enthusiast & Aspiring Developer</p>
-            </section>
-
-            <section id="projects">
-                <h2>Projects</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3>Project Title</h3>
-                        <p>Short description of the project.</p>
-                        <a href="#" class="project-link">View More</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="news">
-                <h2>News</h2>
-                <p>Latest updates and news.</p>
-            </section>
-
-            <section id="contact">
-                <h2>Contact</h2>
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit">Send</button>
-                </form>
-            </section>
+        <div class="desktop-icons">
+            <div class="icon"><i class="fas fa-folder"></i><span>Folder 1</span></div>
+            <div class="icon"><i class="fas fa-folder"></i><span>Folder 2</span></div>
+            <div class="icon"><i class="fas fa-file"></i><span>File 1</span></div>
         </div>
+
+        <footer class="dock">
+            <ul>
+                <li><i class="fas fa-home"></i></li>
+                <li><i class="fas fa-briefcase"></i></li>
+                <li><i class="fas fa-newspaper"></i></li>
+                <li><i class="fas fa-envelope"></i></li>
+            </ul>
+        </footer>
     </div>
 
     <script src="scripts.js"></script>

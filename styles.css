@@ -35,6 +35,7 @@ body, html {
 .menu-bar ul li {
     margin: 0 15px;
     cursor: pointer;
+    color: #333;
 }
 
 .desktop-icons {

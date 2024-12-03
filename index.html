@@ -6,69 +6,52 @@
     <title>Your Name - Tech Student</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 </head>
 <body>
-    <header>
-        <nav>
+    <div class="desktop">
+        <header class="toolbar">
             <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#projects"><i class="fas fa-briefcase"></i></a></li>
+                <li><a href="#news"><i class="fas fa-newspaper"></i></a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i></a></li>
             </ul>
-        </nav>
-        <div class="hero">
-            <h1>Your Name</h1>
-            <p>Tech Enthusiast & Aspiring Developer</p>
-            <a href="#projects" class="cta-button">Explore My Work</a>
+        </header>
+
+        <div class="content">
+            <section id="home" class="hero">
+                <h1>Your Name</h1>
+                <p>Tech Enthusiast & Aspiring Developer</p>
+            </section>
+
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Project Title</h3>
+                        <p>Short description of the project.</p>
+                        <a href="#" class="project-link">View More</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="news">
+                <h2>News</h2>
+                <p>Latest updates and news.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
         </div>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Brief introduction about yourself.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <!-- Example Project Card -->
-            <div class="project-card">
-                <h3>Project Title</h3>
-                <p>Short description of the project.</p>
-                <a href="#" class="project-link">View More</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-chart">
-            <!-- Skill bars or charts go here -->
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
-    </footer>
+    </div>
 
     <script src="scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </body>
 </html> 

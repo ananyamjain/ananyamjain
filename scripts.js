@@ -1,3 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add any dynamic JavaScript functionality here
+    // Initialize AOS library for animations
+    AOS.init({
+        duration: 1200,
+    });
 }); 

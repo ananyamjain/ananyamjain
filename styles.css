@@ -7,7 +7,9 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    background: white;
+    /* Subtle gradient background */
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8edf5 100%);
+    min-height: 100vh;
 }
 
 .container {
@@ -16,37 +18,41 @@ body {
     padding: 2rem;
 }
 
-/* Header Styles */
+/* Header Styles - Now Centered */
 header {
-    text-align: left;
-    margin-bottom: 3rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    padding-top: 2rem;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 0.5rem;
+    color: #2d3748;
 }
 
 .subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 1.5rem;
 }
 
 .social-links {
     display: flex;
     gap: 1.5rem;
+    justify-content: center;
 }
 
 .social-links a {
-    color: #666;
+    color: #4a5568;
     font-size: 1.5rem;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .social-links a:hover {
     color: #4169E1;
+    transform: translateY(-2px);
 }
 
 /* Mind Map Styles */
@@ -64,11 +70,12 @@ h1 {
 }
 
 .profile-image {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    border: 3px solid #4169E1;
+    border: 4px solid #4169E1;
     object-fit: cover;
+    box-shadow: 0 0 25px rgba(65, 105, 225, 0.2);
 }
 
 .floating-items {
@@ -82,24 +89,24 @@ h1 {
     padding: 1rem 2rem;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-/* Position floating items */
-.float-item:nth-child(1) { top: 20%; left: 20%; }
-.float-item:nth-child(2) { top: 20%; right: 20%; }
-.float-item:nth-child(3) { bottom: 30%; right: 25%; }
-.float-item:nth-child(4) { bottom: 30%; left: 25%; }
-.float-item:nth-child(5) { top: 50%; right: 30%; }
+/* Adjusted positions for better spacing */
+.float-item:nth-child(1) { top: 25%; left: 25%; } /* Skills */
+.float-item:nth-child(2) { top: 25%; right: 25%; } /* Projects */
+.float-item:nth-child(3) { bottom: 20%; right: 20%; } /* Experience - moved further */
+.float-item:nth-child(4) { bottom: 35%; left: 30%; } /* About */
+.float-item:nth-child(5) { bottom: 20%; left: 20%; } /* Contact - moved further */
 
-/* Floating animations */
-.float-item:nth-child(1) { animation: float1 4s infinite ease-in-out; }
-.float-item:nth-child(2) { animation: float2 5s infinite ease-in-out; }
-.float-item:nth-child(3) { animation: float3 4.5s infinite ease-in-out; }
-.float-item:nth-child(4) { animation: float4 5.5s infinite ease-in-out; }
-.float-item:nth-child(5) { animation: float5 4.8s infinite ease-in-out; }
+/* Enhanced floating animations */
+.float-item:nth-child(1) { animation: float1 5s infinite ease-in-out; }
+.float-item:nth-child(2) { animation: float2 5.5s infinite ease-in-out; }
+.float-item:nth-child(3) { animation: float3 6s infinite ease-in-out; }
+.float-item:nth-child(4) { animation: float4 5.8s infinite ease-in-out; }
+.float-item:nth-child(5) { animation: float5 5.3s infinite ease-in-out; }
 
 @keyframes float1 {
     0%, 100% { transform: translate(0, 0); }
@@ -128,8 +135,9 @@ h1 {
 
 .float-item:hover {
     transform: scale(1.1);
-    background: #4169E1;
+    background: linear-gradient(135deg, #4169E1, #5c7ff7);
     color: white;
+    box-shadow: 0 10px 25px rgba(65, 105, 225, 0.3);
 }
 
 /* Responsive Design */
@@ -139,15 +147,22 @@ h1 {
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .profile-image {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
     }
 
     .float-item {
         padding: 0.8rem 1.5rem;
     }
+    
+    /* Adjust positions for mobile */
+    .float-item:nth-child(1) { top: 20%; left: 15%; }
+    .float-item:nth-child(2) { top: 20%; right: 15%; }
+    .float-item:nth-child(3) { bottom: 15%; right: 15%; }
+    .float-item:nth-child(4) { bottom: 30%; left: 20%; }
+    .float-item:nth-child(5) { bottom: 15%; left: 15%; }
 }

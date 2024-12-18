@@ -3,40 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My MacBook UI</title>
+    <title>Ananya Jain</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="desktop">
-        <header class="menu-bar">
-            <ul>
-                <li>Finder</li>
-                <li>File</li>
-                <li>Edit</li>
-                <li>View</li>
-                <li>Go</li>
-                <li>Window</li>
-                <li>Help</li>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <a href="#home">AJ</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
             </ul>
-        </header>
-
-        <div class="desktop-icons">
-            <div class="icon"><i class="fas fa-folder"></i><span>Folder 1</span></div>
-            <div class="icon"><i class="fas fa-folder"></i><span>Folder 2</span></div>
-            <div class="icon"><i class="fas fa-file"></i><span>File 1</span></div>
         </div>
+    </nav>
 
-        <footer class="dock">
-            <ul>
-                <li><i class="fas fa-home"></i></li>
-                <li><i class="fas fa-briefcase"></i></li>
-                <li><i class="fas fa-newspaper"></i></li>
-                <li><i class="fas fa-envelope"></i></li>
-            </ul>
-        </footer>
-    </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Ananya Jain</h1>
+            <p>Student • Researcher • Developer</p>
+            <div class="social-links">
+                <a href="https://github.com/ananyamjain" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/your-linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
 
-    <script src="scripts.js"></script>
+    <section id="about">
+        <div class="section-content">
+            <h2>About Me</h2>
+            <p>I am a passionate student researcher interested in [Your Interests]. Currently pursuing [Your Degree] at [Your University], I focus on [Your Focus Areas].</p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-content">
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <!-- Add your experiences here -->
+                <div class="experience-card">
+                    <h3>Position Title</h3>
+                    <p class="company">Company Name</p>
+                    <p class="date">Date - Present</p>
+                    <ul>
+                        <li>Achievement or responsibility 1</li>
+                        <li>Achievement or responsibility 2</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-content">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <!-- Add your projects here -->
+                <div class="project-card">
+                    <h3>Project Name</h3>
+                    <p>Project description goes here</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Project</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ananya Jain. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html> 

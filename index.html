@@ -6,13 +6,23 @@
     <title>Ananya Jain</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        window.onload = function() {
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const themeIcon = themeToggleBtn.querySelector('i');
+            const html = document.documentElement;
+
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+                themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+            });
+        };
+    </script>
 </head>
 <body>
-    <div class="theme-toggle">
-        <button id="theme-toggle-btn">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
+    <button id="theme-toggle-btn" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"><i class="fas fa-moon"></i></button>
 
     <div class="container">
         <header>

@@ -1,18 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add scroll reveal animation
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    // Typing animation for commands
+    const commands = document.querySelectorAll('.command');
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-
-    timelineItems.forEach(item => {
-        observer.observe(item);
+    commands.forEach((command, index) => {
+        const text = command.textContent;
+        command.textContent = '';
+        
+        setTimeout(() => {
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < text.length) {
+                    command.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 50);
+        }, index * 1000);
     });
 }); 

@@ -5,70 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ananya Jain</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="profile">
-            <img src="profile.jpg" alt="Ananya Jain" class="profile-img">
-            <h1>Ananya Jain</h1>
-            <p class="subtitle">Student • Researcher • Developer</p>
-            <div class="social-links">
-                <a href="https://github.com/ananyamjain"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/ananyamjain"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:contact@ananyajain.com"><i class="fas fa-envelope"></i></a>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+            <div class="terminal-title">ananya@portfolio ~ </div>
         </div>
-    </header>
+        
+        <div class="terminal-content">
+            <div class="line">
+                <span class="prompt">$</span>
+                <span class="command">whoami</span>
+            </div>
+            <div class="output">
+                <pre class="ascii-art">
+ █████╗ ███╗   ██╗ █████╗ ███╗   ██╗██╗   ██╗ █████╗     ██╗ █████╗ ██╗███╗   ██╗
+██╔══██╗████╗  ██║██╔══██╗████╗  ██║╚██╗ ██╔╝██╔══██╗    ██║██╔══██╗██║████╗  ██║
+███████║██╔██╗ ██║███████║██╔██╗ ██║ ╚████╔╝ ███████║    ██║███████║██║██╔██╗ ██║
+██╔══██║██║╚██╗██║██╔══██║██║╚██╗██║  ╚██╔╝  ██╔══██║    ██║██╔══██║██║██║╚██╗██║
+██║  ██║██║ ╚████║██║  ██║██║ ╚████║   ██║   ██║  ██║    ██║██║  ██║██║██║ ╚████║
+╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝    ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+                </pre>
+                <p>Student • Researcher • Developer</p>
+            </div>
 
-    <!-- Timeline Section -->
-    <main class="timeline">
-        <!-- Experience Section -->
-        <section class="timeline-section">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline-item" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Research Assistant</h3>
-                    <span class="date">2023 - Present</span>
+            <div class="line">
+                <span class="prompt">$</span>
+                <span class="command">cat experience.txt</span>
+            </div>
+            <div class="output">
+                <div class="section">
+                    <h2>Research Assistant</h2>
+                    <p class="date">2023 - Present</p>
                     <p>Description of your research work and achievements.</p>
                 </div>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Software Development Intern</h3>
-                    <span class="date">2022</span>
+                <div class="section">
+                    <h2>Software Development Intern</h2>
+                    <p class="date">2022</p>
                     <p>Description of internship responsibilities and projects.</p>
                 </div>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section class="timeline-section">
-            <h2 class="section-title">Projects</h2>
-            <div class="timeline-item" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Project Name</h3>
-                    <div class="project-tags">
-                        <span>React</span>
-                        <span>Node.js</span>
-                    </div>
-                    <p>Project description and key achievements.</p>
-                </div>
+            <div class="line">
+                <span class="prompt">$</span>
+                <span class="command">ls ./skills/</span>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="timeline-section">
-            <h2 class="section-title">Skills</h2>
-            <div class="timeline-item" data-aos="fade-up">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content skills-grid">
+            <div class="output">
+                <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Languages</h3>
                         <ul>
@@ -87,7 +76,25 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="line">
+                <span class="prompt">$</span>
+                <span class="command">contact --info</span>
+            </div>
+            <div class="output">
+                <div class="social-links">
+                    <a href="https://github.com/ananyamjain">github/ananyamjain</a>
+                    <a href="https://linkedin.com/in/ananyamjain">linkedin/ananyamjain</a>
+                    <a href="mailto:contact@ananyajain.com">contact@ananyajain.com</a>
+                </div>
+            </div>
+
+            <div class="line">
+                <span class="prompt">$</span>
+                <span class="cursor"></span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html> 

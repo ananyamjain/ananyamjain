@@ -79,51 +79,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Skills popup functionality
-    const skillsButton = document.querySelector('.float-item');
-    const skillsPopup = document.createElement('div');
-    skillsPopup.className = 'skills-popup';
-    skillsPopup.innerHTML = `
-        <div class="skills-category">
-            <h3>Programming Languages</h3>
-            <div class="skills-list">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Java</span>
-            </div>
-        </div>
-        <div class="skills-category">
-            <h3>Web Technologies</h3>
-            <div class="skills-list">
-                <span class="skill-tag">HTML/CSS</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
-            </div>
-        </div>
-        <div class="skills-category">
-            <h3>Tools & Frameworks</h3>
-            <div class="skills-list">
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">AWS</span>
-            </div>
-        </div>
-    `;
+    // Updated Skills popup functionality
+    const skillsButton = document.querySelector('.float-item:contains("Skills")') || 
+                        document.querySelector('.float-item');
+    
+    // Create skills popup if button exists
+    if (skillsButton) {
+        console.log('Skills button found:', skillsButton); // Debug line
 
-    document.body.appendChild(skillsPopup);
+        const skillsPopup = document.createElement('div');
+        skillsPopup.className = 'skills-popup';
+        skillsPopup.innerHTML = `
+            <div class="skills-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Java</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Web Technologies</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Tools & Frameworks</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">AWS</span>
+                </div>
+            </div>
+        `;
 
-    skillsButton.addEventListener('click', (e) => {
-        const buttonRect = skillsButton.getBoundingClientRect();
-        skillsPopup.style.top = `${buttonRect.top}px`;
-        skillsPopup.style.left = `${buttonRect.right + 20}px`;
-        skillsPopup.classList.toggle('active');
-        e.stopPropagation();
-    });
+        document.body.appendChild(skillsPopup);
 
-    // Close popup when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!skillsPopup.contains(e.target) && !skillsButton.contains(e.target)) {
-            skillsPopup.classList.remove('active');
-        }
-    });
+        skillsButton.addEventListener('click', (e) => {
+            console.log('Skills button clicked'); // Debug line
+            const buttonRect = skillsButton.getBoundingClientRect();
+            skillsPopup.style.top = `${buttonRect.top}px`;
+            skillsPopup.style.left = `${buttonRect.right + 20}px`;
+            skillsPopup.classList.toggle('active');
+            e.stopPropagation();
+        });
+
+        // Close popup when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!skillsPopup.contains(e.target) && !skillsButton.contains(e.target)) {
+                skillsPopup.classList.remove('active');
+            }
+        });
+    } else {
+        console.error('Skills button not found!'); // Debug line
+    }
 }); 

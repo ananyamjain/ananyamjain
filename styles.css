@@ -4,11 +4,33 @@
     box-sizing: border-box;
 }
 
+/* Add these CSS variables for theme colors */
+:root[data-theme="light"] {
+    --primary-color: #333333;
+    --secondary-color: #666666;
+    --accent-color: #4169E1;
+    --background-color: linear-gradient(135deg, #f5f7fa 0%, #e8edf5 100%);
+    --text-color: #2d3748;
+    --modal-bg: #ffffff;
+    --modal-shadow: rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="dark"] {
+    --primary-color: #ffffff;
+    --secondary-color: #cccccc;
+    --accent-color: #6495ED;
+    --background-color: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+    --text-color: #ffffff;
+    --modal-bg: #2d3748;
+    --modal-shadow: rgba(0, 0, 0, 0.3);
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    /* Subtle gradient background */
-    background: linear-gradient(135deg, #f5f7fa 0%, #e8edf5 100%);
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
     min-height: 100vh;
 }
 
@@ -165,4 +187,102 @@ h1 {
     .float-item:nth-child(3) { bottom: 15%; right: 15%; }
     .float-item:nth-child(4) { bottom: 30%; left: 20%; }
     .float-item:nth-child(5) { bottom: 15%; left: 15%; }
+}
+
+/* Add these new styles */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    background: rgba(65, 105, 225, 0.1);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: var(--modal-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 10px 25px var(--modal-shadow);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-category h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.skill-category li::before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
 }

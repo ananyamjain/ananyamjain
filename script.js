@@ -24,4 +24,36 @@ document.addEventListener('DOMContentLoaded', () => {
             previewContainer.classList.remove('active');
         }
     });
+
+    // Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeIcon = themeToggleBtn.querySelector('i');
+    
+    themeToggleBtn.addEventListener('click', () => {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        html.setAttribute('data-theme', newTheme);
+        themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    });
+
+    // Modal Functionality
+    const skillsItem = document.querySelector('.float-item');
+    const modal = document.getElementById('skills-modal');
+    const closeModal = document.querySelector('.close-modal');
+
+    skillsItem.addEventListener('click', () => {
+        modal.classList.add('active');
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
 }); 

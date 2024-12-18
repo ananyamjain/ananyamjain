@@ -28,18 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     const themeIcon = themeToggleBtn.querySelector('i');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    themeIcon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
     
     themeToggleBtn.addEventListener('click', () => {
-        const html = document.documentElement;
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
         html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
         themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
     });
 
-    // Modal Functionality
-    const skillsItem = document.querySelector('.float-item');
+    // Modal Functionality for each floating item
+    const skillsItem = document.querySelector('.float-item:nth-child(1)'); // Skills
     const modal = document.getElementById('skills-modal');
     const closeModal = document.querySelector('.close-modal');
 

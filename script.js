@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Theme Toggle
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    console.log('Theme button:', themeToggleBtn); // Debug line
+
+    if (!themeToggleBtn) {
+        console.error('Theme toggle button not found!');
+        return;
+    }
+
     const themeIcon = themeToggleBtn.querySelector('i');
     const html = document.documentElement;
     
@@ -37,12 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Theme toggle functionality
     themeToggleBtn.addEventListener('click', () => {
+        console.log('Button clicked!'); // Debug line
         const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        console.log('Current theme:', currentTheme); // Debug line
         
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
+        themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        
+        console.log('New theme:', newTheme); // Debug line
     });
 
     function updateThemeIcon(theme) {

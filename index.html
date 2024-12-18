@@ -6,67 +6,88 @@
     <title>Ananya Jain</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Add Playfair Display and Inter fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Ananya Jain</h1>
-                <div class="subtitle">Student • Researcher • Developer</div>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="profile">
+            <img src="profile.jpg" alt="Ananya Jain" class="profile-img">
+            <h1>Ananya Jain</h1>
+            <p class="subtitle">Student • Researcher • Developer</p>
+            <div class="social-links">
+                <a href="https://github.com/ananyamjain"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/ananyamjain"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:contact@ananyajain.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <div class="hero-image">
-                <img src="profile.jpg" alt="Ananya Jain">
-            </div>
-        </section>
+        </div>
+    </header>
 
-        <!-- About Section -->
-        <section class="about">
-            <div class="section-title">About</div>
-            <div class="about-content">
-                <p class="large-text">Creating meaningful experiences through technology and research.</p>
-                <div class="social-links">
-                    <a href="https://github.com/ananyamjain"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/ananyamjain"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:contact@ananyajain.com"><i class="fas fa-envelope"></i></a>
+    <!-- Timeline Section -->
+    <main class="timeline">
+        <!-- Experience Section -->
+        <section class="timeline-section">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Research Assistant</h3>
+                    <span class="date">2023 - Present</span>
+                    <p>Description of your research work and achievements.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Software Development Intern</h3>
+                    <span class="date">2022</span>
+                    <p>Description of internship responsibilities and projects.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Grid -->
-        <section class="projects">
-            <div class="section-title">Selected Works</div>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-number">01</div>
+        <!-- Projects Section -->
+        <section class="timeline-section">
+            <h2 class="section-title">Projects</h2>
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
                     <h3>Project Name</h3>
-                    <p>Project description goes here. Brief overview of what was accomplished.</p>
                     <div class="project-tags">
                         <span>React</span>
                         <span>Node.js</span>
                     </div>
-                </article>
-                <!-- Add more project cards -->
+                    <p>Project description and key achievements.</p>
+                </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section class="skills">
-            <div class="section-title">Expertise</div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>Java</li>
-                    </ul>
+        <section class="timeline-section">
+            <h2 class="section-title">Skills</h2>
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>Java</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Technologies</h3>
+                        <ul>
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>AWS</li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- Add more skill categories -->
             </div>
         </section>
-    </div>
+    </main>
 </body>
 </html> 

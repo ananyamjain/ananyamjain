@@ -15,48 +15,41 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: var(--background-color);
-    overflow-x: hidden;
 }
 
 .main-container {
     min-height: 100vh;
-    position: relative;
 }
 
 /* Header Styles */
 .header {
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     padding: 2rem;
 }
 
 .header h1 {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    animation: fadeIn 1s ease;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--secondary-color);
-    margin-bottom: 2rem;
-    animation: fadeIn 1s ease 0.3s backwards;
+    margin-bottom: 1rem;
 }
 
 .social-links {
     display: flex;
+    justify-content: center;
     gap: 2rem;
-    animation: fadeIn 1s ease 0.6s backwards;
+    margin-bottom: 2rem;
 }
 
 .social-links a {
     color: var(--secondary-color);
-    font-size: 1.8rem;
-    transition: color 0.3s ease;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .social-links a:hover {
@@ -65,15 +58,28 @@ body {
 
 /* Mind Map Styles */
 .mind-map-container {
-    height: 50vh;
     position: relative;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.center-profile {
+    position: absolute;
+    z-index: 2;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
 .mind-map-items {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
 }
@@ -85,16 +91,41 @@ body {
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-/* Different float animations for each item */
-.mind-map-item:nth-child(1) { animation: float1 4s ease-in-out infinite; }
-.mind-map-item:nth-child(2) { animation: float2 5s ease-in-out infinite; }
-.mind-map-item:nth-child(3) { animation: float3 4.5s ease-in-out infinite; }
-.mind-map-item:nth-child(4) { animation: float4 5.5s ease-in-out infinite; }
-.mind-map-item:nth-child(5) { animation: float5 4.8s ease-in-out infinite; }
+/* Position items in a circle around the center */
+.mind-map-item:nth-child(1) { 
+    top: 30%; 
+    left: 25%;
+    animation: float1 4s ease-in-out infinite; 
+}
 
+.mind-map-item:nth-child(2) { 
+    top: 20%; 
+    right: 25%;
+    animation: float2 5s ease-in-out infinite; 
+}
+
+.mind-map-item:nth-child(3) { 
+    bottom: 30%; 
+    right: 25%;
+    animation: float3 4.5s ease-in-out infinite; 
+}
+
+.mind-map-item:nth-child(4) { 
+    bottom: 20%; 
+    left: 25%;
+    animation: float4 5.5s ease-in-out infinite; 
+}
+
+.mind-map-item:nth-child(5) { 
+    top: 50%; 
+    right: 20%;
+    animation: float5 4.8s ease-in-out infinite; 
+}
+
+/* Floating animations */
 @keyframes float1 {
     0% { transform: translate(0, 0) rotate(0deg); }
     50% { transform: translate(-10px, -15px) rotate(2deg); }
@@ -125,7 +156,6 @@ body {
     100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-/* Update hover effect to work with animations */
 .mind-map-item:hover {
     transform: scale(1.1);
     background: var(--accent-color);
@@ -133,58 +163,19 @@ body {
     animation-play-state: paused;
 }
 
-/* Position items in a circle */
-.mind-map-item:nth-child(1) { top: 20%; left: 30%; }
-.mind-map-item:nth-child(2) { top: 20%; right: 30%; }
-.mind-map-item:nth-child(3) { top: 50%; right: 20%; }
-.mind-map-item:nth-child(4) { bottom: 20%; right: 30%; }
-.mind-map-item:nth-child(5) { bottom: 20%; left: 30%; }
-
-/* Preview Section Styles */
-.preview-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    transform: translateX(100%);
-    transition: transform 0.5s ease;
-}
-
-.preview-section {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    display: none;
-}
-
-.preview-section.active {
-    display: block;
-}
-
-.preview-container.active {
-    transform: translateX(0);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .header h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
-    .subtitle {
-        font-size: 1.2rem;
+    .profile-image {
+        width: 150px;
+        height: 150px;
     }
 
     .mind-map-item {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
     }
-} 
+}

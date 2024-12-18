@@ -1,78 +1,52 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ananya Jain</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script>
-        window.onload = function() {
-            const themeToggleBtn = document.getElementById('theme-toggle-btn');
-            const themeIcon = themeToggleBtn.querySelector('i');
-            const html = document.documentElement;
-
-            themeToggleBtn.addEventListener('click', () => {
-                const currentTheme = html.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                html.setAttribute('data-theme', newTheme);
-                themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-            });
-        };
-    </script>
 </head>
 <body>
-    <button id="theme-toggle-btn" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"><i class="fas fa-moon"></i></button>
-
-    <div class="container">
-        <header>
-            <h1>Ananya Jain</h1>
-            <p class="subtitle">Student • Researcher • Developer</p>
-            <div class="social-links">
-                <a href="https://github.com/ananyamjain" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/ananyamjain" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </header>
-
-        <div class="mind-map">
-            <div class="profile-container">
-                <img src="profile.jpg" alt="Ananya Jain" class="profile-image">
-            </div>
-            
-            <div class="floating-items">
-                <div class="float-item">Skills</div>
-                <div class="float-item">Projects</div>
-                <div class="float-item">Experience</div>
-                <div class="float-item">About</div>
-                <div class="float-item">Contact</div>
-            </div>
+    <div class="editor">
+        <!-- Sidebar with file structure -->
+        <div class="sidebar">
+            <div class="file active">profile.js</div>
+            <div class="file">projects.js</div>
+            <div class="file">experience.js</div>
+            <div class="file">skills.js</div>
+            <div class="file">contact.js</div>
         </div>
-    </div>
 
-    <!-- Skills Modal -->
-    <div class="modal" id="skills-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <!-- Add your skills -->
-                    </ul>
+        <!-- Main editor area -->
+        <div class="editor-main">
+            <!-- Editor tabs -->
+            <div class="tabs">
+                <div class="tab active">profile.js</div>
+            </div>
+
+            <!-- Code area -->
+            <div class="code-area">
+                <div class="line-numbers">
+                    1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
                 </div>
-                <div class="skill-category">
-                    <h3>Web Technologies</h3>
-                    <ul>
-                        <li>HTML/CSS</li>
-                        <li>React</li>
-                        <!-- Add your skills -->
-                    </ul>
+                <div class="code-content">
+                    <pre><code>
+const profile = {
+    name: "Ananya Jain",
+    title: "Student • Researcher • Developer",
+    
+    about: `Passionate about technology and innovation.
+           Currently focused on developing solutions 
+           that make a difference.`,
+    
+    links: {
+        github: "github.com/ananyamjain",
+        linkedin: "linkedin.com/in/ananyamjain",
+        email: "contact@ananyajain.com"
+    }
+};</code></pre>
                 </div>
-                <!-- Add more categories -->
             </div>
         </div>
     </div>

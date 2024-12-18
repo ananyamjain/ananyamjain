@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+            <div class="nav-links">
+                {% for item in site.navigation %}
+                <a href="{{ item.url | relative_url }}" class="nav-link">{{ item.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="content">
+        {{ content }}
+    </main>
+
+    <footer class="footer">
+        <div class="social-links">
+            {% if site.github_username %}
+            <a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fab fa-github"></i></a>
+            {% endif %}
+            {% if site.linkedin_username %}
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+            {% endif %}
+            {% if site.scholar_username %}
+            <a href="https://scholar.google.com/citations?user={{ site.scholar_username }}" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+            {% endif %}
+        </div>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

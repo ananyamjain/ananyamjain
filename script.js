@@ -30,19 +30,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeIcon = themeToggleBtn.querySelector('i');
     const html = document.documentElement;
     
-    // Check for saved theme preference
+    // Check saved theme preference
     const savedTheme = localStorage.getItem('theme') || 'light';
     html.setAttribute('data-theme', savedTheme);
-    themeIcon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    updateThemeIcon(savedTheme);
     
+    // Theme toggle functionality
     themeToggleBtn.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        updateThemeIcon(newTheme);
     });
+
+    function updateThemeIcon(theme) {
+        themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
 
     // Modal Functionality for each floating item
     const skillsItem = document.querySelector('.float-item:nth-child(1)'); // Skills

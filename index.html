@@ -1,56 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ananya Jain</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Add Playfair Display and Inter fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="editor">
-        <!-- Sidebar with file structure -->
-        <div class="sidebar">
-            <div class="file active">profile.js</div>
-            <div class="file">projects.js</div>
-            <div class="file">experience.js</div>
-            <div class="file">skills.js</div>
-            <div class="file">contact.js</div>
-        </div>
-
-        <!-- Main editor area -->
-        <div class="editor-main">
-            <!-- Editor tabs -->
-            <div class="tabs">
-                <div class="tab active">profile.js</div>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Ananya Jain</h1>
+                <div class="subtitle">Student • Researcher • Developer</div>
             </div>
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Ananya Jain">
+            </div>
+        </section>
 
-            <!-- Code area -->
-            <div class="code-area">
-                <div class="line-numbers">
-                    1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
-                </div>
-                <div class="code-content">
-                    <pre><code>
-const profile = {
-    name: "Ananya Jain",
-    title: "Student • Researcher • Developer",
-    
-    about: `Passionate about technology and innovation.
-           Currently focused on developing solutions 
-           that make a difference.`,
-    
-    links: {
-        github: "github.com/ananyamjain",
-        linkedin: "linkedin.com/in/ananyamjain",
-        email: "contact@ananyajain.com"
-    }
-};</code></pre>
+        <!-- About Section -->
+        <section class="about">
+            <div class="section-title">About</div>
+            <div class="about-content">
+                <p class="large-text">Creating meaningful experiences through technology and research.</p>
+                <div class="social-links">
+                    <a href="https://github.com/ananyamjain"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/ananyamjain"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:contact@ananyajain.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects">
+            <div class="section-title">Selected Works</div>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-number">01</div>
+                    <h3>Project Name</h3>
+                    <p>Project description goes here. Brief overview of what was accomplished.</p>
+                    <div class="project-tags">
+                        <span>React</span>
+                        <span>Node.js</span>
+                    </div>
+                </article>
+                <!-- Add more project cards -->
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills">
+            <div class="section-title">Expertise</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <!-- Add more skill categories -->
+            </div>
+        </section>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html> 

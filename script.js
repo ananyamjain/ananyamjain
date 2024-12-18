@@ -1,29 +1,27 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+document.addEventListener('DOMContentLoaded', () => {
+    const mindMapItems = document.querySelectorAll('.mind-map-item');
+    const previewContainer = document.querySelector('.preview-container');
+
+    mindMapItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const section = item.getAttribute('data-section');
+            const previewSection = document.getElementById(section);
+            
+            // Hide all sections
+            document.querySelectorAll('.preview-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            previewSection.classList.add('active');
+            previewContainer.classList.add('active');
         });
     });
-});
 
-// Add active class to nav links on scroll
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 60) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').substring(1) === current) {
-            link.classList.add('active');
+    // Close preview when clicking outside
+    previewContainer.addEventListener('click', (e) => {
+        if (e.target === previewContainer) {
+            previewContainer.classList.remove('active');
         }
     });
 }); 

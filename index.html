@@ -8,91 +8,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <div class="logo">
-                <a href="#home">AJ</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
+    <div class="main-container">
+        <!-- Header Section -->
+        <div class="header">
             <h1>Ananya Jain</h1>
-            <p>Student • Researcher • Developer</p>
+            <p class="subtitle">Student • Researcher • Developer</p>
             <div class="social-links">
-                <a href="https://github.com/ananyamjain" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/your-linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-    </section>
 
-    <div class="mind-map-container">
-        <div class="center-profile">
-            <img src="your-image.jpg" alt="Ananya Jain" class="profile-image">
+        <!-- Mind Map Section -->
+        <div class="mind-map-container">
+            <div class="mind-map-items">
+                <div class="mind-map-item" data-section="about">About</div>
+                <div class="mind-map-item" data-section="projects">Projects</div>
+                <div class="mind-map-item" data-section="experience">Experience</div>
+                <div class="mind-map-item" data-section="courses">Courses</div>
+                <div class="mind-map-item" data-section="skills">Skills</div>
+            </div>
         </div>
-        <div class="mind-map-items">
-            <a href="#about" class="mind-map-item about">About</a>
-            <a href="#projects" class="mind-map-item projects">Projects</a>
-            <a href="#experience" class="mind-map-item experience">Experience</a>
-            <a href="#courses" class="mind-map-item courses">Courses</a>
-            <a href="#skills" class="mind-map-item skills">Skills</a>
-            <!-- Add more items as needed -->
+
+        <!-- Preview Sections -->
+        <div class="preview-container">
+            <div class="preview-section" id="about">
+                <h2>About</h2>
+                <p>Your about content here...</p>
+            </div>
+            <div class="preview-section" id="projects">
+                <h2>Projects</h2>
+                <p>Your projects content here...</p>
+            </div>
+            <!-- Add other preview sections similarly -->
         </div>
     </div>
-
-    <section id="about">
-        <div class="section-content">
-            <h2>About Me</h2>
-            <p>I am a passionate student researcher interested in [Your Interests]. Currently pursuing [Your Degree] at [Your University], I focus on [Your Focus Areas].</p>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="section-content">
-            <h2>Experience</h2>
-            <div class="experience-grid">
-                <!-- Add your experiences here -->
-                <div class="experience-card">
-                    <h3>Position Title</h3>
-                    <p class="company">Company Name</p>
-                    <p class="date">Date - Present</p>
-                    <ul>
-                        <li>Achievement or responsibility 1</li>
-                        <li>Achievement or responsibility 2</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="section-content">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <!-- Add your projects here -->
-                <div class="project-card">
-                    <h3>Project Name</h3>
-                    <p>Project description goes here</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank">View Project</a>
-                        <a href="#" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Ananya Jain. All rights reserved.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

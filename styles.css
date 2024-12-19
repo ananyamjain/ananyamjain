@@ -246,6 +246,7 @@ body {
     width: 280px;
     background: var(--terminal-bg);
     padding: 1.5rem;
+    padding-top: 2.5rem;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
@@ -280,6 +281,7 @@ body {
     border-radius: 50%;
     box-shadow: 20px 0 0 #ffbd2e,
                 40px 0 0 #27c93f;
+    z-index: 2;
 }
 
 .cheatsheet-content {

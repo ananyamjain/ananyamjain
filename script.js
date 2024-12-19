@@ -57,17 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Basic cursor position update
-    commandInput.addEventListener('input', () => {
-        const text = commandInput.value;
-        const textWidth = getTextWidth(text, '1rem "JetBrains Mono", monospace');
-        cursor.style.left = `${textWidth}px`;
-    });
-
-    function getTextWidth(text, font) {
+    // Update the cursor positioning logic
+    function updateCursorPosition() {
+        const text = commandInput.value.substring(0, commandInput.selectionStart);
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
-        context.font = font;
-        return context.measureText(text).width;
+        context.font = getComputedStyle(commandInput).font;
+        const textWidth = context.measureText(text).width;
+        cursor.style.left = `${textWidth}px`;
     }
+
+    // Listen to all relevant events
+    commandInput.addEventListener('input', updateCursorPosition);
+    commandInput.addEventListener('keydown', () => setTimeout(updateCursorPosition, 0));
+    commandInput.addEventListener('click', updateCursorPosition);
+    commandInput.addEventListener('keyup', updateCursorPosition);
+    commandInput.addEventListener('mouseup', updateCursorPosition);
+
+    // Initial cursor position
+    updateCursorPosition();
 }); 

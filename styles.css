@@ -112,6 +112,7 @@ body {
 }
 
 .command-input {
+    position: relative;
     background: transparent;
     border: none;
     color: var(--command-color);
@@ -127,6 +128,8 @@ body {
 .cursor-container {
     position: relative;
     flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .cursor {
@@ -138,6 +141,7 @@ body {
     height: 1.2rem;
     background-color: var(--text-color);
     animation: blink 1s infinite;
+    transition: left 0.05s ease;
 }
 
 .line .cursor {

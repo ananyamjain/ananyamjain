@@ -52,9 +52,10 @@ body {
 .terminal {
     position: relative;
     z-index: 1;
-    max-width: 1200px;
-    width: 95%;
+    max-width: 900px;
+    width: 70%;
     margin: 0 auto;
+    margin-right: 320px;
     background: #2B2B2B;
     border-radius: 10px;
     box-shadow: 
@@ -93,7 +94,10 @@ body {
 }
 
 .terminal-content {
-    padding: 2rem 3rem;
+    position: relative;
+    height: calc(100vh - 200px);
+    overflow-y: auto;
+    padding: 2rem;
 }
 
 .line {
@@ -310,7 +314,11 @@ body {
 
 /* Command input styles */
 .command-input-container {
-    display: none;
+    position: sticky;
+    bottom: 0;
+    background: var(--terminal-bg);
+    padding: 1rem 0;
+    margin-top: 2rem;
 }
 
 /* Cheatsheet styles */
@@ -324,7 +332,8 @@ body {
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
+    width: 280px;
+    z-index: 1000;
 }
 
 .cheatsheet h3 {

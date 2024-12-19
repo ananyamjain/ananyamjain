@@ -46,7 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             const command = commandInput.value.trim();
             
-            // Create command line
+            // Get the current input container
+            const currentInput = commandInput.parentElement;
+            
+            // Create command line with the entered command
             const commandLine = document.createElement('div');
             commandLine.className = 'line';
             commandLine.innerHTML = `<span class="prompt">$</span> <span class="command">${command}</span>`;
@@ -56,22 +59,28 @@ document.addEventListener('DOMContentLoaded', () => {
             output.className = 'output';
             
             if (command === 'clear') {
-                terminalContent.innerHTML = '';
-            } else if (commands[command.replace('cat ', '').replace('ls ./', '')]) {
+                // Clear all content except the current input
+                while (terminalContent.firstChild !== currentInput) {
+                    terminalContent.removeChild(terminalContent.firstChild);
+                }
+                commandInput.value = '';
+                return;
+            }
+            
+            // Process command and add output
+            if (commands[command.replace('cat ', '').replace('ls ./', '')]) {
                 output.innerHTML = `<pre>${commands[command.replace('cat ', '').replace('ls ./', '')]}</pre>`;
             } else {
                 output.innerHTML = 'Command not found. Type "help" for available commands.';
             }
             
-            if (command !== 'clear') {
-                terminalContent.appendChild(commandLine);
-                terminalContent.appendChild(output);
-            }
+            // Insert command and output before the input container
+            terminalContent.insertBefore(commandLine, currentInput);
+            terminalContent.insertBefore(output, currentInput);
             
+            // Clear input and scroll to bottom
             commandInput.value = '';
-            
-            // Scroll to bottom
-            terminalContent.scrollTop = terminalContent.scrollHeight;
+            currentInput.scrollIntoView({ behavior: 'smooth' });
         }
     });
 }); 

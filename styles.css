@@ -158,6 +158,7 @@ body {
     justify-content: space-between;
     padding: 1rem 2rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .skill-category {
@@ -170,6 +171,7 @@ body {
     color: var(--accent-color);
     margin-bottom: 2rem;
     font-size: 1.1rem;
+    white-space: nowrap;
 }
 
 .skill-category ul {
@@ -280,11 +282,16 @@ body {
                 40px 0 0 #27c93f;
 }
 
+.cheatsheet-content {
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
 .cheatsheet h3 {
     color: var(--accent-color);
     margin: 1.5rem 0 1rem 0;
     font-size: 0.9rem;
-    padding-top: 0.5rem;
 }
 
 .cheatsheet ul {

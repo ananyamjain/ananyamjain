@@ -46,9 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             const command = commandInput.value.trim();
             
-            // Get the current input container
-            const currentInput = commandInput.parentElement;
-            
             // Create command line with the entered command
             const commandLine = document.createElement('div');
             commandLine.className = 'line';
@@ -59,10 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
             output.className = 'output';
             
             if (command === 'clear') {
-                // Clear all content except the current input
-                while (terminalContent.firstChild !== currentInput) {
-                    terminalContent.removeChild(terminalContent.firstChild);
-                }
+                // Clear all content except the input
+                const inputContainer = document.querySelector('.command-input-container');
+                terminalContent.innerHTML = '';
+                terminalContent.appendChild(inputContainer);
                 commandInput.value = '';
                 return;
             }
@@ -74,13 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 output.innerHTML = 'Command not found. Type "help" for available commands.';
             }
             
-            // Insert command and output before the input container
-            terminalContent.insertBefore(commandLine, currentInput);
-            terminalContent.insertBefore(output, currentInput);
+            // Insert command and output
+            terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
+            terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
             
             // Clear input and scroll to bottom
             commandInput.value = '';
-            currentInput.scrollIntoView({ behavior: 'smooth' });
+            
+            // Ensure smooth scrolling to the bottom
+            setTimeout(() => {
+                terminalContent.scrollTop = terminalContent.scrollHeight;
+            }, 0);
         }
     });
 }); 

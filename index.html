@@ -8,142 +8,144 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background-effect"></div>
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="terminal-buttons">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="container">
+        <div class="terminal">
+            <div class="background-effect"></div>
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="terminal-controls">
+                    <button class="theme-toggle" title="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <div class="terminal-title">ananya@portfolio ~ </div>
             </div>
-            <div class="terminal-controls">
-                <button class="theme-toggle" title="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-            <div class="terminal-title">ananya@portfolio ~ </div>
-        </div>
-        
-        <div class="terminal-content">
-            <div class="loading">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            
+            <div class="terminal-content">
+                <div class="loading">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
 
-            <!-- Introduction -->
-            <div class="line">
-                <span class="prompt">$</span>
-                <span class="command">whoami</span>
-            </div>
-            <div class="output">
-                <pre class="ascii-art">
+                <!-- Introduction -->
+                <div class="line">
+                    <span class="prompt">$</span>
+                    <span class="command">whoami</span>
+                </div>
+                <div class="output">
+                    <pre class="ascii-art">
  █████╗ ███╗   ██╗ █████╗ ███╗   ██╗██╗   ██╗ █████╗         ██╗ █████╗ ██╗███╗   ██╗
 ██╔══██╗████╗  ██║██╔══██╗████╗  ██║╚██╗ ██╔╝██╔══██╗        ██║██╔══██╗██║████╗  ██║
 ███████║██╔██╗ ██║███████║██╔██╗ ██║ ╚████╔╝ ███████║        ██║███████║██║██╔██╗ ██║
 ██╔══██║██║╚██╗██║██╔══██║██║╚██╗██║  ╚██╔╝  ██╔══██║   ██   ██║██╔══██║██║██║╚██╗██║
 ██║  ██║██║ ╚████║██║  ██║██║ ╚████║   ██║   ██║  ██║    █████╔╝██║  ██║██║██║ ╚████║
 ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝    ╚════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
-                </pre>
-                <p>Student • Researcher • Developer</p>
-            </div>
-
-            <!-- Experience -->
-            <div class="line">
-                <span class="prompt">$</span>
-                <span class="command">cat experience.txt</span>
-            </div>
-            <div class="output">
-                <div class="section">
-                    <h2>Research Assistant</h2>
-                    <p class="company">University of California, Berkeley</p>
-                    <p class="location">Berkeley, CA</p>
-                    <p class="date">2023 - Present</p>
-                    <p>Description of your research work and achievements.</p>
+                    </pre>
+                    <p>Student • Researcher • Developer</p>
                 </div>
-                <div class="section">
-                    <h2>Software Development Intern</h2>
-                    <p class="company">Microsoft</p>
-                    <p class="location">Redmond, WA</p>
-                    <p class="date">2022</p>
-                    <p>Description of internship responsibilities and projects.</p>
-                </div>
-            </div>
 
-            <!-- Education -->
-            <div class="line">
-                <span class="prompt">$</span>
-                <span class="command">cat education.txt</span>
-            </div>
-            <div class="output">
-                <div class="section">
-                    <h2>University of California, Berkeley</h2>
-                    <p class="degree">Bachelor of Science in Computer Science</p>
-                    <p class="location">Berkeley, CA</p>
-                    <p class="date">2020 - 2024</p>
-                    <p>Relevant Coursework: Data Structures, Algorithms, Machine Learning</p>
+                <!-- Experience -->
+                <div class="line">
+                    <span class="prompt">$</span>
+                    <span class="command">cat experience.txt</span>
                 </div>
-            </div>
-
-            <!-- Skills -->
-            <div class="line">
-                <span class="prompt">$</span>
-                <span class="command">ls ./skills/</span>
-            </div>
-            <div class="output">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Languages</h3>
-                        <ul>
-                            <li>Python</li>
-                            <li>JavaScript</li>
-                            <li>Java</li>
-                        </ul>
+                <div class="output">
+                    <div class="section">
+                        <h2>Research Assistant</h2>
+                        <p class="company">University of California, Berkeley</p>
+                        <p class="location">Berkeley, CA</p>
+                        <p class="date">2023 - Present</p>
+                        <p>Description of your research work and achievements.</p>
                     </div>
-                    <div class="skill-category">
-                        <h3>Technologies</h3>
-                        <ul>
-                            <li>React</li>
-                            <li>Node.js</li>
-                            <li>AWS</li>
-                        </ul>
+                    <div class="section">
+                        <h2>Software Development Intern</h2>
+                        <p class="company">Microsoft</p>
+                        <p class="location">Redmond, WA</p>
+                        <p class="date">2022</p>
+                        <p>Description of internship responsibilities and projects.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Contact (now last) -->
-            <div class="line">
-                <span class="prompt">$</span>
-                <span class="command">contact --info</span>
-            </div>
-            <div class="output">
-                <div class="social-links">
-                    <a href="https://github.com/ananyamjain">github/ananyamjain</a>
-                    <a href="https://www.linkedin.com/in/ananya-m-jain">linkedin/ananya-m-jain</a>
-                    <a href="mailto:contact@ananyajain.com">contact@ananyajain.com</a>
+                <!-- Education -->
+                <div class="line">
+                    <span class="prompt">$</span>
+                    <span class="command">cat education.txt</span>
                 </div>
-            </div>
+                <div class="output">
+                    <div class="section">
+                        <h2>University of California, Berkeley</h2>
+                        <p class="degree">Bachelor of Science in Computer Science</p>
+                        <p class="location">Berkeley, CA</p>
+                        <p class="date">2020 - 2024</p>
+                        <p>Relevant Coursework: Data Structures, Algorithms, Machine Learning</p>
+                    </div>
+                </div>
 
-            <div class="line">
-                <span class="prompt">$</span>
-                <span class="cursor"></span>
-            </div>
+                <!-- Skills -->
+                <div class="line">
+                    <span class="prompt">$</span>
+                    <span class="command">ls ./skills/</span>
+                </div>
+                <div class="output">
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Languages</h3>
+                            <ul>
+                                <li>Python</li>
+                                <li>JavaScript</li>
+                                <li>Java</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Technologies</h3>
+                            <ul>
+                                <li>React</li>
+                                <li>Node.js</li>
+                                <li>AWS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="command-input-container">
-                <span class="prompt">$</span>
-                <input type="text" class="command-input" autofocus placeholder="Type a command...">
+                <!-- Contact (now last) -->
+                <div class="line">
+                    <span class="prompt">$</span>
+                    <span class="command">contact --info</span>
+                </div>
+                <div class="output">
+                    <div class="social-links">
+                        <a href="https://github.com/ananyamjain">github/ananyamjain</a>
+                        <a href="https://www.linkedin.com/in/ananya-m-jain">linkedin/ananya-m-jain</a>
+                        <a href="mailto:contact@ananyajain.com">contact@ananyajain.com</a>
+                    </div>
+                </div>
+
+                <div class="line">
+                    <span class="prompt">$</span>
+                    <span class="cursor"></span>
+                </div>
+
+                <div class="command-input-container">
+                    <span class="prompt">$</span>
+                    <input type="text" class="command-input" autofocus placeholder="Type a command...">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="cheatsheet">
-        <h3>Try these commands:</h3>
-        <ul>
-            <li><span class="command-example">cat about.txt</span> - Learn more about me</li>
-            <li><span class="command-example">cat leadership.txt</span> - Leadership experiences</li>
-            <li><span class="command-example">ls ./certificates/</span> - View certifications</li>
-            <li><span class="command-example">cat achievements.txt</span> - Awards & achievements</li>
-            <li><span class="command-example">cat interests.txt</span> - Hobbies & interests</li>
-        </ul>
+        <div class="cheatsheet">
+            <h3>Try these commands:</h3>
+            <ul>
+                <li><span class="command-example">cat about.txt</span> - Learn more about me</li>
+                <li><span class="command-example">cat leadership.txt</span> - Leadership experiences</li>
+                <li><span class="command-example">ls ./certificates/</span> - View certifications</li>
+                <li><span class="command-example">cat achievements.txt</span> - Awards & achievements</li>
+                <li><span class="command-example">cat interests.txt</span> - Hobbies & interests</li>
+            </ul>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

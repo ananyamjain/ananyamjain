@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const commandText = document.querySelector('.command-text');
     const terminal = document.querySelector('.terminal');
     
+    // Only extra commands that users can input
     const commands = {
-        'whoami': generateIntro,
-        'cat experience.txt': generateExperience,
-        'cat education.txt': generateEducation,
-        'ls ./skills/': generateSkills,
-        'contact --info': generateContact,
+        'cat about.txt': generateAbout,
+        'cat projects.txt': generateProjects,
+        'cat achievements.txt': generateAchievements,
+        'ls ./certificates/': generateCertificates,
         'clear': clearTerminal
     };
     
@@ -27,27 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const command = commandInput.value.trim();
             
             if (command) {
-                // Add command to history
                 addToTerminal('command', command);
                 
-                // Process command
                 if (commands[command]) {
                     commands[command]();
                 } else {
-                    addToTerminal('error', 'Command not found. Type "help" for available commands.');
+                    addToTerminal('error', 'Command not found. Check the cheatsheet for available commands.');
                 }
             }
             
-            // Clear input
             commandInput.value = '';
             commandText.textContent = '';
-            
-            // Scroll to bottom
             terminalContent.scrollTop = terminalContent.scrollHeight;
         }
     });
 
-    // Helper function to add content to terminal
     function addToTerminal(type, content) {
         const line = document.createElement('div');
         line.className = 'line';
@@ -62,25 +56,54 @@ document.addEventListener('DOMContentLoaded', () => {
         terminalContent.insertBefore(line, document.querySelector('.command-input-container'));
     }
 
-    // Command functions
-    function generateIntro() {
-        // Add your ASCII art and intro here
+    // Extra command functions
+    function generateAbout() {
+        addToTerminal('output', `
+            <div class="section">
+                <h2>About Me</h2>
+                <p>I'm passionate about building innovative solutions and exploring new technologies.</p>
+                <p>Currently focused on AI, web development, and creating impactful user experiences.</p>
+            </div>
+        `);
     }
 
-    function generateExperience() {
-        // Add your experience content here
+    function generateProjects() {
+        addToTerminal('output', `
+            <div class="section">
+                <h2>Featured Projects</h2>
+                <div class="project">
+                    <h3>Project Name</h3>
+                    <p>Description of the project and technologies used.</p>
+                    <a href="#">View Project →</a>
+                </div>
+            </div>
+        `);
     }
 
-    function generateEducation() {
-        // Add your education content here
+    function generateAchievements() {
+        addToTerminal('output', `
+            <div class="section">
+                <h2>Achievements</h2>
+                <ul>
+                    <li>Dean's List - All Semesters</li>
+                    <li>Hackathon Winner - Best Innovation</li>
+                    <li>Department Excellence Award</li>
+                </ul>
+            </div>
+        `);
     }
 
-    function generateSkills() {
-        // Add your skills content here
-    }
-
-    function generateContact() {
-        // Add your contact info here
+    function generateCertificates() {
+        addToTerminal('output', `
+            <div class="section">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>AWS Certified Developer</li>
+                    <li>Google Cloud Professional</li>
+                    <li>Microsoft Azure Fundamentals</li>
+                </ul>
+            </div>
+        `);
     }
 
     function clearTerminal() {
@@ -94,7 +117,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial focus
     commandInput.focus();
-    
-    // Execute initial command
-    commands['whoami']();
 }); 

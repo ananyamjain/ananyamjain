@@ -259,3 +259,37 @@ a:hover {
     margin-top: 0.5rem;
     white-space: pre-wrap;
 }
+
+.input-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.command-text {
+    color: var(--command-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    white-space: pre;
+}
+
+.command-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.cursor {
+    color: var(--text-color);
+    animation: blink 1s infinite;
+    margin-left: -1ch;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}

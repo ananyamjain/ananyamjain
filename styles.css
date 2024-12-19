@@ -103,7 +103,6 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .prompt {
@@ -112,36 +111,34 @@ body {
 }
 
 .command-input {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: transparent;
     border: none;
     color: var(--command-color);
     font-family: 'JetBrains Mono', monospace;
     font-size: 1rem;
-    width: 100%;
     outline: none;
-    padding: 0;
-    margin: 0;
     caret-color: transparent;
-    z-index: 1;
 }
 
 .cursor-container {
     position: relative;
     flex: 1;
-    display: inline-block;
 }
 
 .cursor {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 8px;
     height: 1.2rem;
     background-color: var(--text-color);
     animation: blink 1s infinite;
-    pointer-events: none;
-    z-index: 0;
+    transition: left 0.05s ease;
 }
 
 .line .cursor {
@@ -256,4 +253,9 @@ a:hover {
 .prompt, .command-input {
     line-height: 1.2rem;
     font-size: 1rem;
+}
+
+.output {
+    margin-top: 0.5rem;
+    white-space: pre-wrap;
 }

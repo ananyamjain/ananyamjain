@@ -12,71 +12,76 @@ document.addEventListener('DOMContentLoaded', () => {
         'interests.txt': '• Open Source Contributing\n• Tech Blogging\n• Competitive Programming\n• Photography'
     };
 
-    // Process commands
+    function processCommand(command) {
+        const output = document.createElement('div');
+        output.className = 'output';
+
+        if (command === 'clear') {
+            terminalContent.innerHTML = '';
+            return;
+        }
+
+        // Add the command to terminal
+        const commandLine = document.createElement('div');
+        commandLine.className = 'line';
+        commandLine.innerHTML = `<span class="prompt">$</span> ${command}`;
+        terminalContent.appendChild(commandLine);
+
+        // Process command and add output
+        if (command === 'contact --info') {
+            output.innerHTML = 'github/ananyamjain linkedin/ananya-m-jain contact@ananyajain.com';
+            terminalContent.appendChild(output);
+        } else if (command === 'help') {
+            output.innerHTML = 'Available commands:\n• cat about.txt\n• cat leadership.txt\n• ls ./certificates/\n• cat achievements.txt\n• cat interests.txt\n• contact --info\n• clear';
+            terminalContent.appendChild(output);
+        } else {
+            const cmd = command.replace('cat ', '').replace('ls ./', '');
+            if (commands[cmd]) {
+                output.innerHTML = commands[cmd];
+                terminalContent.appendChild(output);
+            } else if (command) {
+                output.innerHTML = 'Command not found. Type "help" for available commands.';
+                terminalContent.appendChild(output);
+            }
+        }
+
+        // Scroll to bottom
+        terminalContent.scrollTop = terminalContent.scrollHeight;
+    }
+
+    // Handle command input
     commandInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             const command = commandInput.value.trim();
-            
-            // Create command line
-            const commandLine = document.createElement('div');
-            commandLine.className = 'line';
-            commandLine.innerHTML = `<span class="prompt">$</span> ${command}`;
-            
-            let output = '';
-            
-            if (command === 'clear') {
-                terminalContent.innerHTML = '';
-            } else if (command === 'contact --info') {
-                output = 'github/ananyamjain linkedin/ananya-m-jain contact@ananyajain.com';
-            } else {
-                const cmd = command.replace('cat ', '').replace('ls ./', '');
-                if (commands[cmd]) {
-                    output = commands[cmd];
-                } else if (command === 'help') {
-                    output = 'Available commands:\n• cat about.txt\n• cat leadership.txt\n• ls ./certificates/\n• cat achievements.txt\n• cat interests.txt\n• contact --info\n• clear';
-                } else {
-                    output = 'Command not found. Type "help" for available commands.';
-                }
-            }
-
-            if (command !== 'clear') {
-                terminalContent.appendChild(commandLine);
-                if (output) {
-                    const outputDiv = document.createElement('div');
-                    outputDiv.className = 'output';
-                    outputDiv.innerHTML = `<pre>${output}</pre>`;
-                    terminalContent.appendChild(outputDiv);
-                }
-            }
-            
-            // Clear input
+            processCommand(command);
             commandInput.value = '';
-            
-            // Scroll to bottom
-            terminalContent.scrollTop = terminalContent.scrollHeight;
+            cursor.style.left = '0px';
         }
     });
 
-    function updateCursorPosition() {
-        requestAnimationFrame(() => {
-            const inputRect = commandInput.getBoundingClientRect();
-            const textWidth = measureText(commandInput.value.substring(0, commandInput.selectionStart));
-            cursor.style.transform = `translateX(${textWidth}px)`;
-        });
-    }
-
-    function measureText(text) {
+    // Update cursor position
+    function updateCursor() {
+        const text = commandInput.value;
+        const cursorPosition = commandInput.selectionStart;
+        const textBeforeCursor = text.substring(0, cursorPosition);
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
-        context.font = window.getComputedStyle(commandInput).font;
-        return context.measureText(text).width;
+        context.font = getComputedStyle(commandInput).font;
+        const width = context.measureText(textBeforeCursor).width;
+        cursor.style.left = `${width}px`;
     }
 
-    // Update cursor position on all possible text changes
-    ['input', 'keydown', 'keyup', 'click', 'mousedown', 'mouseup', 'select', 'selectstart'].forEach(eventType => {
-        commandInput.addEventListener(eventType, updateCursorPosition);
+    ['input', 'keydown', 'keyup', 'click', 'mousedown', 'mouseup'].forEach(event => {
+        commandInput.addEventListener(event, () => {
+            requestAnimationFrame(updateCursor);
+        });
     });
 
-    // Initial cursor position
-    updateCursorPosition();
+    // Focus input when clicking anywhere in terminal
+    document.querySelector('.terminal').addEventListener('click', () => {
+        commandInput.focus();
+    });
+
+    // Initial focus
+    commandInput.focus();
 }); 

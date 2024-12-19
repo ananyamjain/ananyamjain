@@ -126,20 +126,18 @@ body {
 
 .cursor-container {
     position: relative;
-    display: inline-flex;
     flex: 1;
 }
 
 .cursor {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 8px;
     height: 1.2rem;
     background-color: var(--text-color);
     animation: blink 1s infinite;
-    transform: translateX(0);
-    transition: transform 0.1s;
 }
 
 .line .cursor {

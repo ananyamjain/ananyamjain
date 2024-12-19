@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'leadership.txt': '• President, Computer Science Club (2022-2023)\n• Team Lead, Hackathon Project\n• Mentor, First-Year Student Program',
         'certificates/': '📜 AWS Certified Cloud Practitioner\n📜 Google IT Automation with Python\n📜 Meta Frontend Developer Certificate',
         'achievements.txt': '🏆 Dean\'s List (2020-2023)\n🏆 Best Project Award - CS Senior Design\n🏆 1st Place - University Hackathon',
-        'interests.txt': '• Open Source Contributing\n• Tech Blogging\n• Competitive Programming\n• Photography',
-        '--info': 'github/ananyamjain linkedin/ananya-m-jain contact@ananyajain.com'
+        'interests.txt': '• Open Source Contributing\n• Tech Blogging\n• Competitive Programming\n• Photography'
     };
 
     // Process commands
@@ -18,65 +17,55 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             const command = commandInput.value.trim();
             
-            // Create command line without the extra prompt
+            // Create command line
             const commandLine = document.createElement('div');
             commandLine.className = 'line';
-            commandLine.innerHTML = `<span class="prompt">$</span> <span class="command">${command}</span>`;
+            commandLine.innerHTML = `<span class="prompt">$</span> ${command}`;
             
-            // Create output
-            const output = document.createElement('div');
-            output.className = 'output';
+            let output = '';
             
             if (command === 'clear') {
-                while (terminalContent.firstChild) {
-                    if (!terminalContent.firstChild.classList?.contains('command-input-container')) {
-                        terminalContent.removeChild(terminalContent.firstChild);
-                    }
-                }
+                terminalContent.innerHTML = '';
+            } else if (command === 'contact --info') {
+                output = 'github/ananyamjain linkedin/ananya-m-jain contact@ananyajain.com';
             } else {
-                const cmd = command.replace('cat ', '').replace('ls ./', '').replace('contact ', '');
+                const cmd = command.replace('cat ', '').replace('ls ./', '');
                 if (commands[cmd]) {
-                    output.innerHTML = `<pre>${commands[cmd]}</pre>`;
-                    terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
-                    terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
+                    output = commands[cmd];
                 } else if (command === 'help') {
-                    output.innerHTML = `Available commands:\n• cat about.txt\n• cat leadership.txt\n• ls ./certificates/\n• cat achievements.txt\n• cat interests.txt\n• contact --info\n• clear`;
-                    terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
-                    terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
-                } else if (command) {
-                    output.innerHTML = 'Command not found. Type "help" for available commands.';
-                    terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
-                    terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
+                    output = 'Available commands:\n• cat about.txt\n• cat leadership.txt\n• ls ./certificates/\n• cat achievements.txt\n• cat interests.txt\n• contact --info\n• clear';
+                } else {
+                    output = 'Command not found. Type "help" for available commands.';
+                }
+            }
+
+            if (command !== 'clear') {
+                terminalContent.appendChild(commandLine);
+                if (output) {
+                    const outputDiv = document.createElement('div');
+                    outputDiv.className = 'output';
+                    outputDiv.innerHTML = `<pre>${output}</pre>`;
+                    terminalContent.appendChild(outputDiv);
                 }
             }
             
-            // Clear input and update cursor
+            // Clear input
             commandInput.value = '';
-            cursor.style.transform = 'translateX(0)';
             
             // Scroll to bottom
             terminalContent.scrollTop = terminalContent.scrollHeight;
         }
     });
 
-    // Update cursor position based on input and selection
-    function updateCursorPosition() {
-        const inputValue = commandInput.value;
-        const selectionStart = commandInput.selectionStart;
-        const textBeforeCursor = inputValue.substring(0, selectionStart);
-        const textWidth = getTextWidth(textBeforeCursor, getComputedStyle(commandInput).font);
-        cursor.style.transform = `translateX(${textWidth}px)`;
-    }
+    // Basic cursor position update
+    commandInput.addEventListener('input', () => {
+        const text = commandInput.value;
+        const textWidth = getTextWidth(text, '1rem "JetBrains Mono", monospace');
+        cursor.style.left = `${textWidth}px`;
+    });
 
-    // Listen for all events that might change cursor position
-    commandInput.addEventListener('input', updateCursorPosition);
-    commandInput.addEventListener('keydown', (e) => setTimeout(updateCursorPosition, 0));
-    commandInput.addEventListener('click', updateCursorPosition);
-    commandInput.addEventListener('select', updateCursorPosition);
-
-    // Helper function to calculate text width
     function getTextWidth(text, font) {
-        const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement('canvas'));
+        const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         context.font = font;
         return context.measureText(text).width;

@@ -6,6 +6,17 @@
     --command-color: #89DDFF;
     --date-color: #F78C6C;
     --link-color: #82AAFF;
+    --bg-primary: #1a1a1a;
+    --terminal-bg: #2B2B2B;
+    --text-primary: #A9B7C6;
+    --text-secondary: #607B96;
+}
+
+[data-theme="light"] {
+    --bg-primary: #f0f0f0;
+    --terminal-bg: #ffffff;
+    --text-primary: #2B2B2B;
+    --text-secondary: #4A4A4A;
 }
 
 * {
@@ -16,7 +27,7 @@
 
 body {
     margin: 0;
-    padding: 2rem;
+    padding: 1.5rem;
     min-height: 100vh;
     background: #1a1a1a;
     background-image: 
@@ -41,7 +52,8 @@ body {
 .terminal {
     position: relative;
     z-index: 1;
-    max-width: 1000px;
+    max-width: 1200px;
+    width: 95%;
     margin: 0 auto;
     background: #2B2B2B;
     border-radius: 10px;
@@ -81,7 +93,7 @@ body {
 }
 
 .terminal-content {
-    padding: 2rem;
+    padding: 2rem 3rem;
 }
 
 .line {
@@ -299,4 +311,83 @@ body {
 /* Command input styles */
 .command-input-container {
     display: none;
+}
+
+/* Cheatsheet styles */
+.cheatsheet {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--terminal-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+}
+
+.cheatsheet h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.cheatsheet ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cheatsheet li {
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.command-example {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Theme toggle */
+.terminal-controls {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+/* Command input styles */
+.command-input-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.command-input {
+    background: transparent;
+    border: none;
+    color: var(--command-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    flex: 1;
+    outline: none;
 }

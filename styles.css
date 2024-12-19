@@ -56,6 +56,7 @@ body {
         transparent 70%
     );
     pointer-events: none;
+    z-index: 1;
 }
 
 .terminal-header {
@@ -90,6 +91,28 @@ body {
     height: calc(90vh - 60px);
     scrollbar-width: thin;
     scrollbar-color: rgba(136, 192, 208, 0.2) transparent;
+    position: relative;
+    z-index: 2;
+}
+
+.terminal-content::-webkit-scrollbar {
+    width: 6px;
+    height: 100%;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px 0;
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 192, 208, 0.2);
+    border-radius: 3px;
+    min-height: 40px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(136, 192, 208, 0.4);
 }
 
 .line {
@@ -134,6 +157,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    margin-top: 1rem;
 }
 
 .cheatsheet {
@@ -221,32 +245,6 @@ body {
     margin-left: 1rem;
 }
 
-/* For Webkit browsers (Chrome, Safari) */
-.terminal-content::-webkit-scrollbar {
-    width: 6px;
-    height: 100%;
-}
-
-.terminal-content::-webkit-scrollbar-track {
-    background: transparent;
-    margin: 4px 0;
-}
-
-.terminal-content::-webkit-scrollbar-thumb {
-    background-color: rgba(136, 192, 208, 0.2);
-    border-radius: 3px;
-    min-height: 40px;
-}
-
-.terminal-content::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(136, 192, 208, 0.4);
-}
-
-.terminal-content {
-    margin-right: 0;
-}
-
-/* Add hover effects for skills */
 .skill-category li {
     margin-bottom: 0.8rem;
     padding: 6px 12px;
@@ -255,6 +253,7 @@ body {
     cursor: pointer;
     position: relative;
     background: transparent;
+    list-style: none;
 }
 
 .skill-category li:hover {
@@ -276,11 +275,4 @@ body {
 .skill-category li:hover::before {
     opacity: 1;
     left: -5px;
-}
-
-/* Update skills grid layout */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
 }

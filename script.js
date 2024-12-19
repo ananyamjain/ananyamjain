@@ -91,6 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         terminalContent.insertBefore(tempDiv.firstChild, commandInputContainer);
     }
 
+    // Scroll to top after initial content is loaded
+    terminalContent.scrollTop = 0;
+
     // Extra commands that users can input
     const commands = {
         'cat about.txt': generateAbout,

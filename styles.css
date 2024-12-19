@@ -43,24 +43,54 @@ body {
 
 .terminal-header {
     background: #1a1a1a;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-buttons span:nth-child(1) {
+    background: #ff5f56;
+}
+
+.terminal-buttons span:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.terminal-buttons span:nth-child(3) {
+    background: #27c93f;
+}
+
+.terminal-title {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 .terminal-content {
     flex: 1;
     overflow-y: auto;
     padding: 1rem;
-    padding-bottom: 60px;
     position: relative;
 }
 
-.command-line {
+.line {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 4px 0;
-    position: relative;
+    margin-bottom: 4px;
 }
 
 .command-input-container {
@@ -98,7 +128,14 @@ body {
     background-color: var(--text-color);
     animation: blink 1s infinite;
     display: inline-block;
-    position: relative;
+}
+
+.line .cursor {
+    display: none;
+}
+
+.command-input-container .cursor {
+    display: inline-block;
 }
 
 h2, .section h2 {

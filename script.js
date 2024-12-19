@@ -4,7 +4,94 @@ document.addEventListener('DOMContentLoaded', () => {
     const commandText = document.querySelector('.command-text');
     const terminal = document.querySelector('.terminal');
     
-    // Only extra commands that users can input
+    // Initial content to be displayed
+    const initialContent = `
+        <div class="line">
+            <span class="prompt">$</span>
+            <span class="command">whoami</span>
+        </div>
+        <div class="output">
+            <pre class="ascii-art">
+ █████╗ ███╗   ██╗ █████╗ ███╗   ██╗██╗   ██╗ █████╗         ██╗ █████╗ ██╗███╗   ██╗
+██╔══██╗████╗  ██║██╔══██╗████╗  ██║╚██╗ ██╔╝██╔══██╗        ██║██╔══██╗██║████╗  ██║
+███████║██╔██╗ ██║███████║██╔██╗ ██║ ╚████╔╝ ███████║        ██║███████║██║██╔██╗ ██║
+██╔══██║██║╚██╗██║██╔══██║██║╚██╗██║   ██╔╝  ██╔══██║   ██   ██║██╔══██║██║██║╚██╗██║
+██║  ██║██║ ╚████║██║  ██║██║ ╚████║   ██║   ██║  ██║    █████╔╝██║  ██║██║██║ ╚████║
+╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝    ╚════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+            </pre>
+            <p>Student • Researcher • Developer</p>
+        </div>
+
+        <div class="line">
+            <span class="prompt">$</span>
+            <span class="command">cat experience.txt</span>
+        </div>
+        <div class="output">
+            <div class="section">
+                <h2>Research Assistant</h2>
+                <p class="company">University of California, Berkeley</p>
+                <p class="location">Berkeley, CA</p>
+                <p class="date">2023 - Present</p>
+                <p>Description of your research work and achievements.</p>
+            </div>
+            <div class="section">
+                <h2>Software Development Intern</h2>
+                <p class="company">Microsoft</p>
+                <p class="location">Redmond, WA</p>
+                <p class="date">2022</p>
+                <p>Description of internship responsibilities and projects.</p>
+            </div>
+        </div>
+
+        <div class="line">
+            <span class="prompt">$</span>
+            <span class="command">cat education.txt</span>
+        </div>
+        <div class="output">
+            <div class="section">
+                <h2>University of California, Berkeley</h2>
+                <p>Bachelor of Science in Computer Science</p>
+                <p class="location">Berkeley, CA</p>
+                <p class="date">2020 - 2024</p>
+                <p>Relevant Coursework: Data Structures, Algorithms, Machine Learning</p>
+            </div>
+        </div>
+
+        <div class="line">
+            <span class="prompt">$</span>
+            <span class="command">ls ./skills/</span>
+        </div>
+        <div class="output">
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technologies</h3>
+                    <ul>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>AWS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Insert initial content before the command input container
+    const commandInputContainer = document.querySelector('.command-input-container');
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = initialContent;
+    while (tempDiv.firstChild) {
+        terminalContent.insertBefore(tempDiv.firstChild, commandInputContainer);
+    }
+
+    // Extra commands that users can input
     const commands = {
         'cat about.txt': generateAbout,
         'cat projects.txt': generateProjects,
@@ -44,19 +131,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addToTerminal(type, content) {
         const line = document.createElement('div');
-        line.className = 'line';
         
         if (type === 'command') {
+            line.className = 'line';
             line.innerHTML = `<span class="prompt">$</span> <span class="command">${content}</span>`;
+        } else if (type === 'error') {
+            line.className = 'error';
+            line.textContent = content;
         } else {
             line.className = 'output';
             line.innerHTML = content;
         }
         
-        terminalContent.insertBefore(line, document.querySelector('.command-input-container'));
+        terminalContent.insertBefore(line, commandInputContainer);
     }
 
-    // Extra command functions
+    // Command functions remain the same
     function generateAbout() {
         addToTerminal('output', `
             <div class="section">

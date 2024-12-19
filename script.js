@@ -3,6 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const commandInput = document.querySelector('.command-input');
     const cursor = document.querySelector('.cursor');
     
+    // Available commands
+    const commands = {
+        'about.txt': 'I am a passionate technologist with a focus on innovation and problem-solving.',
+        'leadership.txt': '• President, Computer Science Club (2022-2023)\n• Team Lead, Hackathon Project\n• Mentor, First-Year Student Program',
+        'certificates/': '📜 AWS Certified Cloud Practitioner\n📜 Google IT Automation with Python\n📜 Meta Frontend Developer Certificate',
+        'achievements.txt': '🏆 Dean\'s List (2020-2023)\n🏆 Best Project Award - CS Senior Design\n🏆 1st Place - University Hackathon',
+        'interests.txt': '• Open Source Contributing\n• Tech Blogging\n• Competitive Programming\n• Photography'
+    };
+
     // Remove any existing cursors from previous commands
     function removePreviousCursors() {
         const oldCursors = document.querySelectorAll('.cursor:not(:last-child)');
@@ -14,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             const command = commandInput.value.trim();
             
-            // Create command line without cursor
+            // Create command line
             const commandLine = document.createElement('div');
             commandLine.className = 'line';
             commandLine.innerHTML = `<span class="prompt">$</span> <span class="command">${command}</span>`;
@@ -29,19 +38,28 @@ document.addEventListener('DOMContentLoaded', () => {
                         terminalContent.removeChild(terminalContent.firstChild);
                     }
                 }
-            } else if (commands[command.replace('cat ', '').replace('ls ./', '')]) {
-                output.innerHTML = `<pre>${commands[command.replace('cat ', '').replace('ls ./', '')]}</pre>`;
-                terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
-                terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
             } else {
-                output.innerHTML = 'Command not found. Type "help" for available commands.';
-                terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
-                terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
+                const cmd = command.replace('cat ', '').replace('ls ./', '');
+                if (commands[cmd]) {
+                    output.innerHTML = `<pre>${commands[cmd]}</pre>`;
+                    terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
+                    terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
+                } else if (command === 'help') {
+                    output.innerHTML = `Available commands:\n• cat about.txt\n• cat leadership.txt\n• ls ./certificates/\n• cat achievements.txt\n• cat interests.txt\n• clear`;
+                    terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
+                    terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
+                } else if (command) {
+                    output.innerHTML = 'Command not found. Type "help" for available commands.';
+                    terminalContent.insertBefore(commandLine, document.querySelector('.command-input-container'));
+                    terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
+                }
             }
             
-            // Clear input and scroll to bottom
+            // Clear input and update cursor
             commandInput.value = '';
-            removePreviousCursors();
+            cursor.style.transform = 'translateX(0)';
+            
+            // Scroll to bottom
             terminalContent.scrollTop = terminalContent.scrollHeight;
         }
     });

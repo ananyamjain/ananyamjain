@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const commandText = document.querySelector('.command-text');
     const terminal = document.querySelector('.terminal');
     
+    const commands = {
+        'whoami': generateIntro,
+        'cat experience.txt': generateExperience,
+        'cat education.txt': generateEducation,
+        'ls ./skills/': generateSkills,
+        'contact --info': generateContact,
+        'clear': clearTerminal
+    };
+    
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
     
@@ -19,26 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (command) {
                 // Add command to history
-                const line = document.createElement('div');
-                line.className = 'line';
-                line.innerHTML = `<span class="prompt">$</span> ${command}`;
-                terminalContent.insertBefore(line, document.querySelector('.command-input-container'));
+                addToTerminal('command', command);
                 
                 // Process command
-                if (command === 'clear') {
-                    const elements = Array.from(terminalContent.children);
-                    elements.forEach(el => {
-                        if (!el.classList.contains('command-input-container')) {
-                            el.remove();
-                        }
-                    });
-                } else if (command === 'contact --info') {
-                    const output = document.createElement('div');
-                    output.className = 'output';
-                    output.textContent = 'github/ananyamjain linkedin/ananya-m-jain contact@ananyajain.com';
-                    terminalContent.insertBefore(output, document.querySelector('.command-input-container'));
+                if (commands[command]) {
+                    commands[command]();
+                } else {
+                    addToTerminal('error', 'Command not found. Type "help" for available commands.');
                 }
-                // ... rest of your command processing ...
             }
             
             // Clear input
@@ -50,6 +47,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Helper function to add content to terminal
+    function addToTerminal(type, content) {
+        const line = document.createElement('div');
+        line.className = 'line';
+        
+        if (type === 'command') {
+            line.innerHTML = `<span class="prompt">$</span> <span class="command">${content}</span>`;
+        } else {
+            line.className = 'output';
+            line.innerHTML = content;
+        }
+        
+        terminalContent.insertBefore(line, document.querySelector('.command-input-container'));
+    }
+
+    // Command functions
+    function generateIntro() {
+        // Add your ASCII art and intro here
+    }
+
+    function generateExperience() {
+        // Add your experience content here
+    }
+
+    function generateEducation() {
+        // Add your education content here
+    }
+
+    function generateSkills() {
+        // Add your skills content here
+    }
+
+    function generateContact() {
+        // Add your contact info here
+    }
+
+    function clearTerminal() {
+        const elements = Array.from(terminalContent.children);
+        elements.forEach(el => {
+            if (!el.classList.contains('command-input-container')) {
+                el.remove();
+            }
+        });
+    }
+
     // Initial focus
     commandInput.focus();
+    
+    // Execute initial command
+    commands['whoami']();
 }); 

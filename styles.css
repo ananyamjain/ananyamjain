@@ -1,15 +1,11 @@
 :root {
-    --bg-color: #1E1E1E;
+    --bg-color: #1a1a1a;
+    --terminal-bg: #2B2B2B;
     --text-color: #A9B7C6;
     --accent-color: #88C0D0;
-    --prompt-color: #C3E88D;
-    --command-color: #89DDFF;
-    --date-color: #F78C6C;
-    --link-color: #82AAFF;
-    --bg-primary: #1a1a1a;
-    --terminal-bg: #2B2B2B;
-    --text-primary: #A9B7C6;
-    --text-secondary: #607B96;
+    --prompt-color: #98C379;
+    --command-color: #88C0D0;
+    --date-color: #E06C75;
 }
 
 [data-theme="light"] {
@@ -29,11 +25,12 @@ body {
     margin: 0;
     padding: 20px;
     min-height: 100vh;
-    background: #1a1a1a;
+    background: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'JetBrains Mono', monospace;
+    color: var(--text-color);
 }
 
 .background-effect {
@@ -43,14 +40,13 @@ body {
 .terminal {
     flex: 1;
     max-width: 900px;
-    min-width: 300px;
     height: 90vh;
-    margin: 0;
-    background: #2B2B2B;
+    background: var(--terminal-bg);
     border-radius: 10px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .terminal-header {
@@ -82,11 +78,10 @@ body {
 }
 
 .terminal-content {
-    position: relative;
-    height: calc(100vh - 200px);
+    flex: 1;
     overflow-y: auto;
     padding: 2rem;
-    padding-bottom: 60px;
+    padding-bottom: 0;
 }
 
 .line {
@@ -198,7 +193,7 @@ body {
     height: 1.2rem;
     background-color: var(--text-color);
     animation: blink 1s infinite;
-    margin-left: 8px;
+    margin-left: 4px;
 }
 
 @keyframes blink {
@@ -303,16 +298,14 @@ body {
 
 /* Command input styles */
 .command-input-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--terminal-bg);
     padding: 1rem 2rem;
+    background: var(--terminal-bg);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+    position: sticky;
+    bottom: 0;
 }
 
 .command-input {
@@ -345,9 +338,7 @@ body {
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    height: fit-content;
-    position: sticky;
-    top: 20px;
+    color: var(--text-color);
 }
 
 .cheatsheet h3 {
@@ -412,16 +403,18 @@ body {
     .container {
         flex-direction: column;
         align-items: center;
+        height: auto;
+        padding: 10px;
     }
 
     .terminal {
-        width: 100%;
+        width: 95%;
+        height: 80vh;
         margin-bottom: 20px;
     }
 
     .cheatsheet {
-        width: 100%;
-        max-width: 900px;
+        width: 95%;
         position: static;
     }
 }
@@ -432,7 +425,7 @@ body {
     }
 
     .terminal {
-        height: 80vh;
+        height: 70vh;
     }
 
     .terminal-content {
@@ -440,8 +433,24 @@ body {
     }
 
     .ascii-art {
-        font-size: 0.5rem;
-        line-height: 0.7;
+        font-size: 0.4rem;
+        line-height: 1;
+    }
+
+    .command-input-container {
+        padding: 0.8rem 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h2, .section h2 {
+        font-size: 1.2rem;
+    }
+
+    .company, .location, .date {
+        font-size: 0.9rem;
     }
 }
 
@@ -450,11 +459,27 @@ body {
         padding: 0.5rem;
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
+    .terminal-title {
+        font-size: 0.9rem;
     }
 
-    .command-input-container {
-        padding: 0.5rem 1rem;
+    .terminal-content {
+        padding: 0.8rem;
+    }
+
+    .command-input {
+        font-size: 0.9rem;
+    }
+
+    .cheatsheet {
+        padding: 1rem;
+    }
+
+    .cheatsheet h3 {
+        font-size: 0.9rem;
+    }
+
+    .cheatsheet li {
+        font-size: 0.8rem;
     }
 }

@@ -123,6 +123,18 @@ body {
 
 .skill-category li {
     margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.skill-category li:hover {
+    color: var(--accent-color);
+    background: rgba(136, 192, 208, 0.1);
+    transform: translateX(10px);
+    box-shadow: 0 2px 8px rgba(136, 192, 208, 0.2);
 }
 
 .social-links {
@@ -202,19 +214,6 @@ body {
     background: #6a98a4;
 }
 
-/* Skill hover effects */
-.skill-category li {
-    margin-bottom: 0.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: inline-block;
-}
-
-.skill-category li:hover {
-    color: var(--accent-color);
-    transform: translateX(10px);
-}
-
 /* Loading animation */
 .loading {
     display: flex;
@@ -263,18 +262,5 @@ body {
 
 /* Command input styles */
 .command-input-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.command-input {
-    background: transparent;
-    border: none;
-    color: var(--command-color);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    flex: 1;
-    outline: none;
+    display: none;
 }

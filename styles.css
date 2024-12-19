@@ -338,3 +338,25 @@ a:hover {
         gap: 1rem;
     }
 }
+
+.section-title {
+    color: var(--accent-color);
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.terminal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.terminal-list li {
+    color: var(--text-color);
+    padding: 0.2rem 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.output {
+    margin-left: 1rem;
+}

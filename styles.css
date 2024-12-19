@@ -16,9 +16,14 @@
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 2rem;
     min-height: 100vh;
     background: #1a1a1a;
+    background-image: 
+        radial-gradient(rgba(88, 192, 208, 0.05) 1px, transparent 1px),
+        radial-gradient(rgba(88, 192, 208, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
     font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
     color: var(--text-color);
@@ -30,41 +35,15 @@ body {
 }
 
 .background-effect {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(to bottom,
-            rgba(20, 20, 20, 0.9),
-            rgba(20, 20, 20, 0.95)
-        ),
-        repeating-linear-gradient(
-            45deg,
-            rgba(88, 192, 208, 0.05) 0px,
-            rgba(88, 192, 208, 0.05) 1px,
-            transparent 1px,
-            transparent 10px
-        ),
-        repeating-linear-gradient(
-            -45deg,
-            rgba(88, 192, 208, 0.05) 0px,
-            rgba(88, 192, 208, 0.05) 1px,
-            transparent 1px,
-            transparent 10px
-        );
-    background-size: 100% 100%, 20px 20px, 20px 20px;
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
 .terminal {
     position: relative;
     z-index: 1;
     max-width: 1000px;
-    margin: 2rem auto;
-    background: rgba(43, 43, 43, 0.95);
+    margin: 0 auto;
+    background: #2B2B2B;
     border-radius: 10px;
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.4),

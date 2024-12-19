@@ -123,25 +123,25 @@ body {
     padding: 0;
     margin: 0;
     caret-color: transparent;
+    z-index: 1;
 }
 
 .cursor-container {
     position: relative;
     flex: 1;
-    display: flex;
-    align-items: center;
+    display: inline-block;
 }
 
 .cursor {
     position: absolute;
+    top: 0;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
     width: 8px;
     height: 1.2rem;
     background-color: var(--text-color);
     animation: blink 1s infinite;
-    transition: left 0.05s ease;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .line .cursor {
@@ -250,4 +250,10 @@ a:hover {
 .skill-category li:hover::before {
     opacity: 1;
     left: -5px;
+}
+
+/* Ensure text and cursor align perfectly */
+.prompt, .command-input {
+    line-height: 1.2rem;
+    font-size: 1rem;
 }

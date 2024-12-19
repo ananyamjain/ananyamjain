@@ -57,22 +57,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Update the cursor positioning logic
     function updateCursorPosition() {
-        const text = commandInput.value.substring(0, commandInput.selectionStart);
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-        context.font = getComputedStyle(commandInput).font;
-        const textWidth = context.measureText(text).width;
-        cursor.style.left = `${textWidth}px`;
+        requestAnimationFrame(() => {
+            const inputRect = commandInput.getBoundingClientRect();
+            const textWidth = measureText(commandInput.value.substring(0, commandInput.selectionStart));
+            cursor.style.transform = `translateX(${textWidth}px)`;
+        });
     }
 
-    // Listen to all relevant events
-    commandInput.addEventListener('input', updateCursorPosition);
-    commandInput.addEventListener('keydown', () => setTimeout(updateCursorPosition, 0));
-    commandInput.addEventListener('click', updateCursorPosition);
-    commandInput.addEventListener('keyup', updateCursorPosition);
-    commandInput.addEventListener('mouseup', updateCursorPosition);
+    function measureText(text) {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        context.font = window.getComputedStyle(commandInput).font;
+        return context.measureText(text).width;
+    }
+
+    // Update cursor position on all possible text changes
+    ['input', 'keydown', 'keyup', 'click', 'mousedown', 'mouseup', 'select', 'selectstart'].forEach(eventType => {
+        commandInput.addEventListener(eventType, updateCursorPosition);
+    });
 
     // Initial cursor position
     updateCursorPosition();

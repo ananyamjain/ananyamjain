@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 20px;
     min-height: 100vh;
-    background: var(--bg-color);
+    background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,12 +31,11 @@ body {
 .terminal {
     flex: 1;
     height: 90vh;
-    background: var(--terminal-bg);
+    background: rgba(28, 28, 28, 0.95);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 50px rgba(136, 192, 208, 0.1),
-                inset 0 0 30px rgba(136, 192, 208, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -76,12 +75,18 @@ body {
 .terminal-buttons span {
     width: 12px;
     height: 12px;
+    margin-right: 8px;
     border-radius: 50%;
+    transition: transform 0.2s;
 }
 
 .terminal-buttons span:nth-child(1) { background: #ff5f56; }
 .terminal-buttons span:nth-child(2) { background: #ffbd2e; }
 .terminal-buttons span:nth-child(3) { background: #27c93f; }
+
+.terminal-buttons span:hover {
+    transform: scale(1.1);
+}
 
 .terminal-content {
     flex: 1;
@@ -96,18 +101,18 @@ body {
 }
 
 .terminal-content::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
     height: 100%;
 }
 
 .terminal-content::-webkit-scrollbar-track {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     margin: 4px 0;
 }
 
 .terminal-content::-webkit-scrollbar-thumb {
-    background-color: rgba(136, 192, 208, 0.2);
-    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
     min-height: 40px;
 }
 
@@ -156,7 +161,7 @@ body {
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2rem;
     padding: 1rem 2rem;
 }
 
@@ -258,14 +263,12 @@ body {
 
 .cheatsheet {
     width: 280px;
-    background: var(--terminal-bg);
+    background: rgba(40, 40, 40, 0.95);
     padding: 1.5rem;
     padding-top: 2.5rem;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
-                0 0 30px rgba(136, 192, 208, 0.05),
-                inset 0 0 30px rgba(136, 192, 208, 0.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     height: fit-content;
     position: relative;
     overflow: hidden;
@@ -332,7 +335,11 @@ body {
 }
 
 .command-example {
-    color: var(--command-color);
+    color: #0f0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(0, 255, 0, 0.1);
+    font-weight: bold;
     display: inline-block;
     margin-bottom: 2px;
     transition: all 0.2s ease;
@@ -363,6 +370,11 @@ body {
     align-items: center;
     gap: 8px;
     margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.command-input-container:focus-within {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .command-input {
@@ -372,8 +384,9 @@ body {
 }
 
 .cursor {
-    color: var(--text-color);
-    animation: blink 1s infinite;
+    color: #0f0;
+    animation: blink 1s step-end infinite;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
 }
 
 @keyframes blink {
@@ -485,4 +498,50 @@ body {
 
 .cheatsheet-content {
     padding-top: 30px;
+}
+
+/* Add hover effects to command examples */
+.command-example:hover {
+    background: rgba(0, 255, 0, 0.15);
+}
+
+/* Add a subtle transition to command input */
+.command-input-container {
+    transition: all 0.3s ease;
+}
+
+.command-input-container:focus-within {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Add scrollbar styling */
+.terminal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+/* Add responsive design improvements */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .terminal, .cheatsheet {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
+
+/* Add smooth transitions */
+* {
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }

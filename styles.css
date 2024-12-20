@@ -166,6 +166,16 @@ body {
     width: 45%;
 }
 
+.skill-category:last-child {
+    align-items: flex-end;
+}
+
+.skill-category:last-child h3,
+.skill-category:last-child ul {
+    text-align: right;
+    width: 100%;
+}
+
 .skill-category h3,
 .skill-category ul {
     text-align: left;
@@ -399,3 +409,22 @@ body {
     color: #E06C75;
     margin-left: 1rem;
 }
+
+.cheatsheet-buttons {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+}
+
+.cheatsheet-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
+.cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
+.cheatsheet-buttons span:nth-child(3) { background: #27c93f; }

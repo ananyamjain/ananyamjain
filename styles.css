@@ -154,10 +154,10 @@ body {
 }
 
 .skills-grid {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     padding: 1rem 2rem;
-    width: 100%;
 }
 
 .skill-category {
@@ -428,3 +428,61 @@ body {
 .cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
 .cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
 .cheatsheet-buttons span:nth-child(3) { background: #27c93f; }
+
+/* Left column (Languages) */
+.skill-category:first-child {
+    justify-self: start;
+}
+
+.skill-category:first-child h3,
+.skill-category:first-child li {
+    text-align: left;
+}
+
+/* Right column (Technologies) */
+.skill-category:last-child {
+    justify-self: end;
+}
+
+.skill-category:last-child h3,
+.skill-category:last-child li {
+    text-align: right;
+}
+
+/* Cheatsheet window controls - completely new approach */
+.cheatsheet {
+    position: relative;
+    margin-top: 10px;
+}
+
+.cheatsheet-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 6px;
+}
+
+.cheatsheet-buttons span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.cheatsheet-buttons span:first-child {
+    background-color: #ff5f56;
+}
+
+.cheatsheet-buttons span:nth-child(2) {
+    background-color: #ffbd2e;
+}
+
+.cheatsheet-buttons span:last-child {
+    background-color: #27c93f;
+}
+
+.cheatsheet-content {
+    padding-top: 30px;
+}

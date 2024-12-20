@@ -158,13 +158,17 @@ body {
     justify-content: space-between;
     padding: 1rem 2rem;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .skill-category {
     display: flex;
     flex-direction: column;
     width: 45%;
+}
+
+.skill-category h3,
+.skill-category ul {
+    text-align: left;
 }
 
 .skill-category h3 {

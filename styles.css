@@ -103,7 +103,6 @@ body {
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 .terminal-content::-webkit-scrollbar {
@@ -551,4 +550,8 @@ body {
 /* Add smooth transitions */
 * {
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.command-input-container {
+    margin-top: auto;
 }

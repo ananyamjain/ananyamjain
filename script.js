@@ -4,7 +4,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const commandText = document.querySelector('.command-text');
     const terminal = document.querySelector('.terminal');
     
-    // Initial content to be displayed
+    // Clear any existing content first
+    while (terminalContent.firstChild) {
+        terminalContent.removeChild(terminalContent.firstChild);
+    }
+
+    // Add command input container back
+    const commandInputContainer = document.createElement('div');
+    commandInputContainer.className = 'command-input-container';
+    commandInputContainer.innerHTML = `
+        <span class="prompt">$</span>
+        <span class="command-text"></span>
+        <span class="cursor">▋</span>
+        <input type="text" class="command-input" autofocus>
+    `;
+    terminalContent.appendChild(commandInputContainer);
+
+    // Your initial content
     const initialContent = `
         <div class="line">
             <span class="prompt">$</span>
@@ -21,91 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
             </pre>
             <p>Student • Developer • Researcher</p>
         </div>
-
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">cat experience.txt</span>
-        </div>
-        <div class="output">
-            <div class="section">
-                <h2>Software Engineering Intern</h2>
-                <p class="company">Uber</p>
-                <p class="location">San Francisco, CA</p>
-                <p class="date">Sep 2024 - Present</p>
-                <p>Enhanced the end-to-end ML model development experience on Uber's Michelangelo platform by implementing
-                    a configurable integration testing pipeline.</p>
-                <p>Enabled users to add and integrate their own custom integration testing pipelines using Flipr, a dynamic
-                    configuration management tool developed in-house.</p>
-                <p>Designed and implemented the pipeline in Python, leveraging tools like Piper and Buildkite to ensure seamless
-                    automation and scalability.</p>
-            </div>
-            <div class="section">
-                <h2>Data Engineering and AI Intern</h2>
-                <p class="company">Bell Canada</p>
-                <p class="location">Toronto, ON</p>
-                <p class="date">May 2024 - August 2024</p>
-                <p>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform</p>
-                <p>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</p>
-                <p>Optimized data processing workflows to handle large-scale datasets effectively.</p>
-                <p>Enhanced a churn prediction model, increasing detection rates and business impact.</p>
-            </div>
-        </div>
-
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">cat education.txt</span>
-        </div>
-        <div class="output">
-            <div class="section">
-                <h2>University of Toronto</h2>
-                <p>Bachelor of Science in Computer Science</p>
-                <p class="location">Toronto, ON</p>
-                <p class="date">2021 - 2026</p>
-                <p>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Analysis and Complexity</p>
-            </div>
-        </div>
-
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">ls ./skills/</span>
-        </div>
-        <div class="output">
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>Kotlin</li>
-                        <li>SQL</li>
-                        <li>SPARQL</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Technologies and Libraries</h3>
-                    <ul>
-                        <li>React</li>
-                        <li>Numpy</li>
-                        <li>PyTorch</li>
-                        <li>Tensorflow</li>
-                        <li>dimod</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <!-- Rest of your content -->
     `;
 
     // Insert initial content before the command input container
-    const commandInputContainer = document.querySelector('.command-input-container');
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = initialContent.trim();
     while (tempDiv.firstChild) {
         terminalContent.insertBefore(tempDiv.firstChild, commandInputContainer);
     }
 
-    // Force scroll to top
+    // Force scroll to top immediately and after a small delay to ensure it works
     terminalContent.scrollTop = 0;
-    
+    setTimeout(() => {
+        terminalContent.scrollTop = 0;
+    }, 100);
+
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
     
@@ -131,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             commandInput.value = '';
             commandText.textContent = '';
+            // Remove the auto-scroll on command
+            // terminalContent.scrollTop = terminalContent.scrollHeight;
         }
     });
 

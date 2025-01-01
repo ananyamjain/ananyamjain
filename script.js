@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const terminalContent = document.querySelector('.terminal-content');
-    const commandInput = document.querySelector('.command-input');
-    const commandText = document.querySelector('.command-text');
+    let commandInput = document.querySelector('.command-input');
+    let commandText = document.querySelector('.command-text');
     const terminal = document.querySelector('.terminal');
     
     // Clear any existing content first
@@ -16,9 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="prompt">$</span>
         <span class="command-text"></span>
         <span class="cursor">▋</span>
-        <input type="text" class="command-input" autofocus>
+        <input type="text" class="command-input">
     `;
     terminalContent.appendChild(commandInputContainer);
+
+    // Update these variable declarations after creating the command input container
+    commandInput = commandInputContainer.querySelector('.command-input');
+    commandText = commandInputContainer.querySelector('.command-text');
 
     // Your initial content
     const initialContent = `
@@ -140,7 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (command) {
                 addToTerminal('command', command);
                 
-                if (commands[command]) {
+                // Update the commands object reference
+                if (Object.prototype.hasOwnProperty.call(commands, command)) {
                     commands[command]();
                 } else {
                     addToTerminal('error', 'Command not found. Check the cheatsheet for available commands.');
@@ -149,8 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
             commandInput.value = '';
             commandText.textContent = '';
-            // Remove the auto-scroll on command
-            // terminalContent.scrollTop = terminalContent.scrollHeight;
         }
     });
 

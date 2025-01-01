@@ -361,7 +361,7 @@ body {
 }
 
 .command-input {
-    opacity: 1; /* Ensure input is visible */
+    opacity: 0; /* Ensure input is visible */
     position: relative;
     width: auto;
     height: auto;

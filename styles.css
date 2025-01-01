@@ -173,18 +173,22 @@ body {
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    padding: 1.2rem 2.5rem;
+    gap: 1rem;
+    padding: 1.2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .skill-category {
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 100%;
 }
 
 .skill-category:last-child {
-    align-items: flex-end;
+    justify-self: end;
+    padding-left: 2rem;
 }
 
 .skill-category:last-child h3,
@@ -215,33 +219,26 @@ body {
     color: var(--text-color);
     margin-bottom: 1.5rem;
     font-size: 1rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
     padding: 6px 12px;
     border-radius: 4px;
+    cursor: default;
+    position: relative;
+    width: auto;
+    display: inline-block;
 }
 
+.skill-category:first-child {
+    justify-self: start;
+    padding-right: 2rem;
+}
+
+.skill-category:first-child h3,
 .skill-category:first-child li {
     text-align: left;
 }
 
 .skill-category:last-child li {
     text-align: right;
-}
-
-.skill-category:first-child li:hover {
-    transform: translateX(10px);
-}
-
-.skill-category:last-child li:hover {
-    transform: translateX(-10px);
-}
-
-.skill-category li:hover {
-    color: var(--accent-color);
-    background: rgba(136, 192, 208, 0.15);
-    box-shadow: 0 2px 10px rgba(136, 192, 208, 0.2);
 }
 
 .skill-category:first-child li::before {
@@ -442,19 +439,23 @@ body {
     justify-self: start;
 }
 
-.skill-category:first-child h3,
-.skill-category:first-child li {
-    text-align: left;
-}
-
 /* Right column (Technologies) */
 .skill-category:last-child {
     justify-self: end;
 }
 
-.skill-category:last-child h3,
-.skill-category:last-child li {
-    text-align: right;
+.skill-category li:hover,
+.skill-category:first-child li:hover,
+.skill-category:last-child li:hover {
+    transform: none;
+    background: transparent;
+    color: var(--text-color);
+}
+
+/* Remove arrow indicators */
+.skill-category:first-child li::before,
+.skill-category:last-child li::before {
+    display: none;
 }
 
 /* Cheatsheet window controls - completely new approach */

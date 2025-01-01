@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
     while (tempDiv.firstChild) {
         terminalContent.insertBefore(tempDiv.firstChild, commandInputContainer);
     }
+    
+    // Force scroll to top after initial content is added
+    terminalContent.scrollTop = 0;
 
     // Extra commands that users can input
     const commands = {
@@ -207,4 +210,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial focus
     commandInput.focus();
+
+    // Add this function to scroll to top after content is added
+    function scrollToTop() {
+        const terminalContent = document.querySelector('.terminal-content');
+        terminalContent.scrollTop = 0;
+    }
+
+    // Call this function after adding new content
+    // For example, after your initial content load:
+    window.onload = function() {
+        // Your existing initialization code...
+        
+        // Add this line at the end of your content initialization
+        scrollToTop();
+    }
+
+    // Also ensure the terminal-content div starts empty and content is added properly
+    document.querySelector('.terminal-content').innerHTML = `
+        <!-- Your initial content -->
+    `;
+    scrollToTop();
 });

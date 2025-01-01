@@ -4,27 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let commandText = document.querySelector('.command-text');
     const terminal = document.querySelector('.terminal');
     
-    // Clear any existing content first
-    while (terminalContent.firstChild) {
-        terminalContent.removeChild(terminalContent.firstChild);
-    }
-
-    // Add command input container back
-    const commandInputContainer = document.createElement('div');
-    commandInputContainer.className = 'command-input-container';
-    commandInputContainer.innerHTML = `
-        <span class="prompt">$</span>
-        <span class="command-text"></span>
-        <span class="cursor">▋</span>
-        <input type="text" class="command-input">
-    `;
-    terminalContent.appendChild(commandInputContainer);
-
-    // Update these variable declarations after creating the command input container
-    commandInput = commandInputContainer.querySelector('.command-input');
-    commandText = commandInputContainer.querySelector('.command-text');
-
-    // Your initial content
+    // Move the initial content insertion before clearing the terminal content
     const initialContent = `
         <div class="line">
             <span class="prompt">$</span>
@@ -115,12 +95,34 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // Insert initial content before the command input container
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = initialContent.trim();
-    while (tempDiv.firstChild) {
-        terminalContent.insertBefore(tempDiv.firstChild, commandInputContainer);
-    }
+    // Clear terminal content and set up command input
+    document.addEventListener('DOMContentLoaded', () => {
+        // First, insert the initial content
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = initialContent.trim();
+        terminalContent.innerHTML = ''; // Clear existing content
+        terminalContent.appendChild(tempDiv);
+
+        // Then add the command input container
+        const commandInputContainer = document.createElement('div');
+        commandInputContainer.className = 'command-input-container';
+        commandInputContainer.innerHTML = `
+            <span class="prompt">$</span>
+            <span class="command-text"></span>
+            <span class="cursor">▋</span>
+            <input type="text" class="command-input">
+        `;
+        terminalContent.appendChild(commandInputContainer);
+
+        // Update references to input elements
+        commandInput = commandInputContainer.querySelector('.command-input');
+        commandText = commandInputContainer.querySelector('.command-text');
+
+        // Focus the input
+        commandInput.focus();
+
+        // ... rest of your event listeners and functions ...
+    });
 
     // Force scroll to top immediately and after a small delay to ensure it works
     terminalContent.scrollTop = 0;
@@ -244,7 +246,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Initial focus
-    commandInput.focus();
 });

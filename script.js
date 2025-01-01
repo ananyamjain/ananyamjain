@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const terminalContent = document.querySelector('.terminal-content');
-    let commandInput = document.querySelector('.command-input');
-    let commandText = document.querySelector('.command-text');
+    let commandInput;
+    let commandText;
     const terminal = document.querySelector('.terminal');
-    
-    // Move the initial content insertion before clearing the terminal content
+    let commandInputContainer;
+
     const initialContent = `
         <div class="line">
             <span class="prompt">$</span>
@@ -21,117 +21,41 @@ document.addEventListener('DOMContentLoaded', () => {
             </pre>
             <p>Student • Developer • Researcher</p>
         </div>
-       
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">cat experience.txt</span>
-        </div>
-        <div class="output">
-            <div class="section">
-                <h2>Software Engineering Intern</h2>
-                <p class="company">Uber</p>
-                <p class="location">San Francisco, CA</p>
-                <p class="date">Sep 2024 - Present</p>
-                <p>Enhanced the end-to-end ML model development experience on Uber's Michelangelo platform by implementing
-                    a configurable integration testing pipeline.</p>
-                <p>Enabled users to add and integrate their own custom integration testing pipelines using Flipr, a dynamic
-                    configuration management tool developed in-house.</p>
-                <p>Designed and implemented the pipeline in Python, leveraging tools like Piper and Buildkite to ensure seamless
-                    automation and scalability.</p>
-            </div>
-            <div class="section">
-                <h2>Data Engineering and AI Intern</h2>
-                <p class="company">Bell Canada</p>
-                <p class="location">Toronto, ON</p>
-                <p class="date">May 2024 - August 2024</p>
-                <p>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform</p>
-                <p>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</p>
-                <p>Optimized data processing workflows to handle large-scale datasets effectively.</p>
-                <p>Enhanced a churn prediction model, increasing detection rates and business impact.</p>
-            </div>
-        </div>
-
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">cat education.txt</span>
-        </div>
-        <div class="output">
-            <div class="section">
-                <h2>University of Toronto</h2>
-                <p>Bachelor of Science in Computer Science</p>
-                <p class="location">Toronto, ON</p>
-                <p class="date">2021 - 2026</p>
-                <p>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Analysis and Complexity</p>
-            </div>
-        </div>
-
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">ls ./skills/</span>
-        </div>
-        <div class="output">
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>Kotlin</li>
-                        <li>SQL</li>
-                        <li>SPARQL</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Technologies and Libraries</h3>
-                    <ul>
-                        <li>React</li>
-                        <li>Numpy</li>
-                        <li>PyTorch</li>
-                        <li>Tensorflow</li>
-                        <li>dimod</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <!-- Add more initial content as needed -->
     `;
 
-    // Clear terminal content and set up command input
-    document.addEventListener('DOMContentLoaded', () => {
-        // First, insert the initial content
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = initialContent.trim();
-        terminalContent.innerHTML = ''; // Clear existing content
-        terminalContent.appendChild(tempDiv);
+    const commands = {
+        'cat about.txt': generateAbout,
+        'cat projects.txt': generateProjects,
+        'cat achievements.txt': generateAchievements,
+        'ls ./certificates/': generateCertificates,
+        'clear': clearTerminal
+    };
 
-        // Then add the command input container
-        const commandInputContainer = document.createElement('div');
-        commandInputContainer.className = 'command-input-container';
-        commandInputContainer.innerHTML = `
-            <span class="prompt">$</span>
-            <span class="command-text"></span>
-            <span class="cursor">▋</span>
-            <input type="text" class="command-input">
-        `;
-        terminalContent.appendChild(commandInputContainer);
+    // Insert initial content
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = initialContent.trim();
+    terminalContent.innerHTML = ''; // Clear existing content
+    terminalContent.appendChild(tempDiv);
 
-        // Update references to input elements
-        commandInput = commandInputContainer.querySelector('.command-input');
-        commandText = commandInputContainer.querySelector('.command-text');
+    // Create command input container
+    commandInputContainer = document.createElement('div');
+    commandInputContainer.className = 'command-input-container';
+    commandInputContainer.innerHTML = `
+        <span class="prompt">$</span>
+        <span class="command-text"></span>
+        <span class="cursor">▋</span>
+        <input type="text" class="command-input">
+    `;
+    terminalContent.appendChild(commandInputContainer);
 
-        // Focus the input
-        commandInput.focus();
-
-        // ... rest of your event listeners and functions ...
-    });
-
-    // Force scroll to top immediately and after a small delay to ensure it works
-    terminalContent.scrollTop = 0;
-    setTimeout(() => {
-        terminalContent.scrollTop = 0;
-    }, 100);
+    // Update references
+    commandInput = commandInputContainer.querySelector('.command-input');
+    commandText = commandInputContainer.querySelector('.command-text');
 
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
+    commandInput.focus();
     
     // Update visible text
     commandInput.addEventListener('input', () => {
@@ -146,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (command) {
                 addToTerminal('command', command);
                 
-                // Update the commands object reference
                 if (Object.prototype.hasOwnProperty.call(commands, command)) {
                     commands[command]();
                 } else {
@@ -158,15 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             commandText.textContent = '';
         }
     });
-
-    // Extra commands that users can input
-    const commands = {
-        'cat about.txt': generateAbout,
-        'cat projects.txt': generateProjects,
-        'cat achievements.txt': generateAchievements,
-        'ls ./certificates/': generateCertificates,
-        'clear': clearTerminal
-    };
 
     function addToTerminal(type, content) {
         const line = document.createElement('div');
@@ -185,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         terminalContent.insertBefore(line, commandInputContainer);
     }
 
-    // Command functions
+    // Define command functions
     function generateAbout() {
         addToTerminal('output', `
             <div class="section">

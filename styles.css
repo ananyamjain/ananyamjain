@@ -91,18 +91,15 @@ body {
 }
 
 .terminal-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1.2rem;
-    padding-right: 16px;
-    height: calc(90vh - 60px);
-    scrollbar-width: thin;
-    scrollbar-color: rgba(136, 192, 208, 0.2) transparent;
-    position: relative;
-    z-index: 2;
-    line-height: 1.6;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    padding: 1.2rem;
+    height: calc(90vh - 60px);
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    color: var(--text-color); /* Ensure text color is set */
 }
 
 .terminal-content::-webkit-scrollbar {
@@ -364,11 +361,10 @@ body {
 }
 
 .command-input {
-    opacity: 0;
-    position: absolute;
-    left: -1000px;
-    width: 1px;
-    height: 1px;
+    opacity: 1; /* Ensure input is visible */
+    position: relative;
+    width: auto;
+    height: auto;
 }
 
 .command-text {

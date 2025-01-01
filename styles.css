@@ -173,7 +173,7 @@ body {
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 2.5rem;
     padding: 1.2rem;
     width: 100%;
     max-width: 800px;
@@ -223,8 +223,8 @@ body {
     border-radius: 4px;
     cursor: default;
     position: relative;
-    width: auto;
-    display: inline-block;
+    display: block;
+    width: fit-content;
 }
 
 .skill-category:first-child {
@@ -437,13 +437,24 @@ body {
 /* Left column (Languages) */
 .skill-category:first-child {
     justify-self: start;
+    padding-right: 2rem;
+}
+
+.skill-category:first-child li {
+    margin-right: auto;
 }
 
 /* Right column (Technologies) */
 .skill-category:last-child {
     justify-self: end;
+    padding-left: 2rem;
 }
 
+.skill-category:last-child li {
+    margin-left: auto;
+}
+
+/* Remove all hover effects */
 .skill-category li:hover,
 .skill-category:first-child li:hover,
 .skill-category:last-child li:hover {

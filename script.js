@@ -90,9 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
     while (tempDiv.firstChild) {
         terminalContent.insertBefore(tempDiv.firstChild, commandInputContainer);
     }
-    
-    // Force scroll to top after initial content is added
+
+    // Force scroll to top immediately and after a small delay to ensure it works
     terminalContent.scrollTop = 0;
+    setTimeout(() => {
+        terminalContent.scrollTop = 0;
+    }, 100);
 
     // Extra commands that users can input
     const commands = {

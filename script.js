@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
  █████╗ ███╗   ██╗ █████╗ ███╗   ██╗██╗   ██╗ █████╗         ██╗ █████╗ ██╗███╗   ██╗
 ██╔══██╗████╗  ██║██╔══██╗████╗  ██║╚██╗ ██╔╝██╔══██╗        ██║██╔══██╗██║████╗  ██║
 ███████║██╔██╗ ██║███████║██╔██╗ ██║ ╚████╔╝ ███████║        ██║███████║██║██╔██╗ ██║
-██╔══██║██║╚██╗██║██╔══██║██║╚██╗██║   ██╔╝  ██╔══██║   ██   ██║██╔══██║██║██║╚██╗██║
+██╔══██║██║╚██╗██║██╔══██║██║╚██╗██║  ╚██╔╝  ██╔══██║   ██   ██║██╔══██║██║██║╚██╗██║
 ██║  ██║██║ ╚████║██║  ██║██║ ╚████║   ██║   ██║  ██║    █████╔╝██║  ██║██║██║ ╚████║
 ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝    ╚════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
             </pre>
@@ -86,25 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Insert initial content before the command input container
     const commandInputContainer = document.querySelector('.command-input-container');
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = initialContent;
+    tempDiv.innerHTML = initialContent.trim();
     while (tempDiv.firstChild) {
         terminalContent.insertBefore(tempDiv.firstChild, commandInputContainer);
     }
 
-    // Add these lines to force scroll to top
+    // Force scroll to top
     terminalContent.scrollTop = 0;
-    setTimeout(() => {
-        terminalContent.scrollTop = 0;
-    }, 100);
-
-    // Extra commands that users can input
-    const commands = {
-        'cat about.txt': generateAbout,
-        'cat projects.txt': generateProjects,
-        'cat achievements.txt': generateAchievements,
-        'ls ./certificates/': generateCertificates,
-        'clear': clearTerminal
-    };
     
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
@@ -131,9 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
             
             commandInput.value = '';
             commandText.textContent = '';
-            terminalContent.scrollTop = terminalContent.scrollHeight;
         }
     });
+
+    // Extra commands that users can input
+    const commands = {
+        'cat about.txt': generateAbout,
+        'cat projects.txt': generateProjects,
+        'cat achievements.txt': generateAchievements,
+        'ls ./certificates/': generateCertificates,
+        'clear': clearTerminal
+    };
 
     function addToTerminal(type, content) {
         const line = document.createElement('div');
@@ -152,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         terminalContent.insertBefore(line, commandInputContainer);
     }
 
-    // Command functions remain the same
+    // Command functions
     function generateAbout() {
         addToTerminal('output', `
             <div class="section">
@@ -213,25 +209,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial focus
     commandInput.focus();
-
-    // Add this function to scroll to top after content is added
-    function scrollToTop() {
-        const terminalContent = document.querySelector('.terminal-content');
-        terminalContent.scrollTop = 0;
-    }
-
-    // Call this function after adding new content
-    // For example, after your initial content load:
-    window.onload = function() {
-        // Your existing initialization code...
-        
-        // Add this line at the end of your content initialization
-        scrollToTop();
-    }
-
-    // Also ensure the terminal-content div starts empty and content is added properly
-    document.querySelector('.terminal-content').innerHTML = `
-        <!-- Your initial content -->
-    `;
-    scrollToTop();
 });

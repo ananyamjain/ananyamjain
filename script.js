@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         terminalContent.insertBefore(tempDiv.firstChild, commandInputContainer);
     }
 
-    // Force scroll to top immediately and after a small delay to ensure it works
+    // Add these lines to force scroll to top
     terminalContent.scrollTop = 0;
     setTimeout(() => {
         terminalContent.scrollTop = 0;

@@ -454,7 +454,7 @@ body {
     margin-left: auto;
 }
 
-/* Remove all hover effects */
+/* Remove hover effects */
 .skill-category li:hover,
 .skill-category:first-child li:hover,
 .skill-category:last-child li:hover {

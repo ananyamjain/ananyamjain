@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ██║  ██║██║ ╚████║██║  ██║██║ ╚████║   ██║   ██║  ██║    █████╔╝██║  ██║██║██║ ╚████║
 ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝    ╚════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
             </pre>
-            <p>Student • Researcher • Developer</p>
+            <p>Student • Developer • Researcher</p>
         </div>
 
         <div class="line">
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="company">Uber</p>
                 <p class="location">San Francisco, CA</p>
                 <p class="date">Sep 2024 - Present</p>
-                <p>Enhanced the end-to-end ML model development experience on Uber’s Michelangelo platform by implementing
+                <p>Enhanced the end-to-end ML model development experience on Uber's Michelangelo platform by implementing
                     a configurable integration testing pipeline.</p>
                 <p>Enabled users to add and integrate their own custom integration testing pipelines using Flipr, a dynamic
                     configuration management tool developed in-house.</p>
@@ -43,12 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2>Data Engineering and AI Intern</h2>
                 <p class="company">Bell Canada</p>
                 <p class="location">Toronto, ON</p>
-                <p class="date">May 2024 - Agust2024</p>
+                <p class="date">May 2024 - August 2024</p>
                 <p>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform</p>
                 <p>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</p>
                 <p>Optimized data processing workflows to handle large-scale datasets effectively.</p>
                 <p>Enhanced a churn prediction model, increasing detection rates and business impact.</p>
-                <p>• Enhanced a churn prediction model, increasing detection rates and business impact.</p>
             </div>
         </div>
 
@@ -166,8 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
         addToTerminal('output', `
             <div class="section">
                 <h2>About Me</h2>
-                <p>I'm passionate about building innovative solutions and exploring new technologies.</p>
-                <p>Currently focused on AI, web development, and creating impactful user experiences.</p>
+                <p>I'm a Computer Science student at the University of Toronto, passionate about Machine Learning, AI, and software development.</p>
+                <p>Currently focused on ML Engineering and creating scalable AI solutions.</p>
             </div>
         `);
     }
@@ -177,9 +176,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="section">
                 <h2>Featured Projects</h2>
                 <div class="project">
-                    <h3>Project Name</h3>
-                    <p>Description of the project and technologies used.</p>
-                    <a href="#">View Project →</a>
+                    <h3>ML Pipeline Development</h3>
+                    <p>Developed end-to-end ML model testing pipeline at Uber using Python, Piper, and Buildkite.</p>
+                </div>
+                <div class="project">
+                    <h3>Churn Prediction Model</h3>
+                    <p>Enhanced customer churn prediction model at Bell Canada using GCP and ML techniques.</p>
                 </div>
             </div>
         `);
@@ -190,9 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="section">
                 <h2>Achievements</h2>
                 <ul>
-                    <li>Dean's List - All Semesters</li>
-                    <li>Hackathon Winner - Best Innovation</li>
-                    <li>Department Excellence Award</li>
+                    <li>Dean's List - University of Toronto</li>
+                    <li>ML Engineering Excellence - Uber</li>
+                    <li>Innovation Award - Bell Canada</li>
                 </ul>
             </div>
         `);

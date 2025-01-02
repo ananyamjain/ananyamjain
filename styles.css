@@ -168,13 +168,13 @@ body {
 
 .section-content {
     flex: 1;
+    margin-right: 1rem;
 }
 
 .company-logo {
     width: 50px; /* Adjust size as needed */
     height: auto;
-    margin-left: 1rem;
-    align-self: center; /* Center logo vertically */
+    align-self: flex-start; /* Align logo to the top */
 }
 
 .section ul {

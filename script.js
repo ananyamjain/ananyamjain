@@ -27,29 +27,34 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="output">
             <div class="section">
-                <h2>Software Engineering Intern</h2>
-                <p class="company">Uber</p>
-                <p class="location">San Francisco, CA</p>
-                <p class="date">Sep 2024 - Present</p>
-                <p>Enhanced the end-to-end ML model development experience on Uber's Michelangelo platform by implementing
-                    a configurable integration testing pipeline.</p>
-                <p>Enabled users to add and integrate their own custom integration testing pipelines using Flipr, a dynamic
-                    configuration management tool developed in-house.</p>
-                <p>Designed and implemented the pipeline in Python, leveraging tools like Piper and Buildkite to ensure seamless
-                    automation and scalability.</p>
+                <div class="section-content">
+                    <h2>Software Engineering Intern</h2>
+                    <p class="company">Uber</p>
+                    <p class="location">San Francisco, CA</p>
+                    <p class="date">Sep 2024 - Present</p>
+                    <ul>
+                        <li>Enhanced the end-to-end ML model development experience...</li>
+                        <li>Enabled users to add and integrate their own custom integration...</li>
+                        <li>Designed and implemented the pipeline in Python...</li>
+                    </ul>
+                </div>
+                <img src="path/to/uber-logo.png" alt="Uber Logo" class="company-logo">
             </div>
-            <img src="uber-logo.png" alt="Uber Logo" class="company-logo">
             <div class="section">
-                <h2>Data Engineering and AI Intern</h2>
-                <p class="company">Bell Canada</p>
-                <p class="location">Toronto, ON</p>
-                <p class="date">May 2024 - August 2024</p>
-                <p>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform</p>
-                <p>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</p>
-                <p>Optimized data processing workflows to handle large-scale datasets effectively.</p>
-                <p>Enhanced a churn prediction model, increasing detection rates and business impact.</p>
+                <div class="section-content">
+                    <h2>Data Engineering and AI Intern</h2>
+                    <p class="company">Bell Canada</p>
+                    <p class="location">Toronto, ON</p>
+                    <p class="date">May 2024 - August 2024</p>
+                    <ul>
+                        <li>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform</li>
+                        <li>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</li>
+                        <li>Optimized data processing workflows to handle large-scale datasets effectively.</li>
+                        <li>Enhanced a churn prediction model, increasing detection rates and business impact.</li>
+                    </ul
+                </div>
+                <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
             </div>
-            <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
         </div>
         <div class="line">
             <span class="prompt">$</span>
@@ -57,13 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="output">
             <div class="section">
-                <h2>University of Toronto</h2>
-                <p>Bachelor of Science in Computer Science</p>
-                <p class="location">Toronto, ON</p>
-                <p class="date">2021 - 2026</p>
-                <p>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Analysis and Complexity</p>
-            </div>
+                <div class="section-content">
+                    <h2>University of Toronto</h2>
+                    <p>Bachelor of Science in Computer Science</p>
+                    <p class="location">Toronto, ON</p>
+                    <p class="date">2021 - 2026</p>
+                    <ul>
+                        <li>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Analysis and Complexity</li>
+                    </ul
+                </div>
             <img src="uoft-logo.png" alt="University Logo" class="company-logo">
+            </div>
         </div>
 
         <div class="line">

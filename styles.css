@@ -185,6 +185,7 @@ body {
     margin-bottom: 0.5rem;
     padding-left: 0.5rem;
     position: relative;
+    line-height: 1.6;
 }
 
 .section ul li::before {
@@ -193,6 +194,7 @@ body {
     position: absolute;
     left: -1rem;
     font-size: 1.2rem;
+    top: 0.2rem; /* Adjust vertical alignment */
 }
 
 .date {

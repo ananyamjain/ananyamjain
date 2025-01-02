@@ -184,8 +184,11 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.company, .location, .date {
-    font-style: italic;
+.date {
+    color: var(--date-color);
+}
+
+.company, .location {
     opacity: 0.8;
 }
 

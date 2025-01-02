@@ -166,13 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         terminalContent.insertBefore(line, commandInputContainer);
-        terminalContent.scrollTop = terminalContent.scrollHeight; // Scroll to bottom
+        terminalContent.scrollTop = terminalContent.scrollHeight; // Scroll to bottom after command
     }
-    
+
     // Ensure the terminal starts at the top
-    document.addEventListener('DOMContentLoaded', () => {
-        terminalContent.scrollTop = 0;
-    });
+    terminalContent.scrollTop = 0;
 
     // Define command functions
     function generateAbout() {

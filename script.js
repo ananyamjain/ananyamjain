@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="output">
             <div class="section">
                 <h2>Software Engineering Intern</h2>
+                <img src="uber-logo.png" alt="Uber Logo" class="company-logo">
                 <p class="company">Uber</p>
                 <p class="location">San Francisco, CA</p>
                 <p class="date">Sep 2024 - Present</p>
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="section">
                 <h2>Data Engineering and AI Intern</h2>
+                <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
                 <p class="company">Bell Canada</p>
                 <p class="location">Toronto, ON</p>
                 <p class="date">May 2024 - August 2024</p>
@@ -56,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="output">
             <div class="section">
                 <h2>University of Toronto</h2>
+                <img src="uoft-logo.png" alt="University Logo" class="company-logo">
                 <p>Bachelor of Science in Computer Science</p>
                 <p class="location">Toronto, ON</p>
                 <p class="date">2021 - 2026</p>

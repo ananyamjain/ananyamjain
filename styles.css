@@ -193,8 +193,8 @@ body {
     color: var(--accent-color);
     position: absolute;
     left: 0;
-    font-size: 1.4rem;
-    top: 0.1rem;
+    font-size: 1.2rem;
+    top: 0;
 }
 
 .date {
@@ -586,4 +586,11 @@ body {
 /* Add smooth transitions */
 * {
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.company-logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 0.5rem;
+    display: block;
 }

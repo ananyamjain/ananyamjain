@@ -161,7 +161,14 @@ body {
 }
 
 .section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     margin-bottom: 1.5rem;
+}
+
+.section h2, .section p, .section ul {
+    flex: 1;
 }
 
 .section h2 {
@@ -591,6 +598,5 @@ body {
 .company-logo {
     width: 50px; /* Adjust size as needed */
     height: auto;
-    margin-bottom: 0.5rem;
-    display: block;
+    margin-left: 1rem;
 }

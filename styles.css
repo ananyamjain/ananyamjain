@@ -148,7 +148,10 @@ body {
 }
 
 .output {
-    margin: 0.5rem 0 0.5rem 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
 }
 
 .ascii-art {
@@ -157,16 +160,32 @@ body {
     margin: 1rem 0;
 }
 
+.section {
+    margin-bottom: 1.5rem;
+}
+
 .section h2 {
     color: var(--accent-color);
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
-.date {
-    color: var(--date-color);
+.section p, .section ul {
+    margin: 0.5rem 0;
+    line-height: 1.5;
 }
 
-.company, .location {
+.section ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.company, .location, .date {
+    font-style: italic;
     opacity: 0.8;
 }
 

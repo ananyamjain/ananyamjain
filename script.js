@@ -219,8 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2>Achievements</h2>
                 <ul>
                     <li>Dean's List - University of Toronto</li>
-                    <li>ML Engineering Excellence - Uber</li>
-                    <li>Innovation Award - Bell Canada</li>
+                    <li>Grace Hopper Scholarship 2022</li>
                 </ul>
             </div>
         `);

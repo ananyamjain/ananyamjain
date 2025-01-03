@@ -189,8 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
         addToTerminal('output', `
             <div class="section">
                 <h2>About Me</h2>
-                <p>I'm a Computer Science student at the University of Toronto, passionate about Machine Learning, AI, and software development.</p>
-                <p>Currently focused on ML Engineering and creating scalable AI solutions.</p>
+                <ul>
+                    <li>I'm a Computer Science student at the University of Toronto, passionate about Machine Learning, AI, and software development.</li>
+                    <li>Currently focused on ML Engineering and creating scalable AI solutions.</li>
+                </ul>
             </div>
         `);
     }

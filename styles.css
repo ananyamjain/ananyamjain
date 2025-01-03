@@ -167,10 +167,9 @@ body {
 }
 
 .section-title {
-    width: 100%;
     color: var(--accent-color);
     font-size: 1.5rem;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
 }
 
 .section-content {
@@ -718,57 +717,48 @@ body {
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 1rem;
-    padding-left: 1rem;
+    gap: 2rem;
 }
 
 .project-item {
-    background: rgba(28, 28, 28, 0.6);
-    border-radius: 8px;
-    padding: 1.2rem;
-    border-left: 3px solid #98C379;
-    transition: all 0.3s ease;
+    border-left: 2px solid #98C379;
+    padding-left: 1.5rem;
+    margin-left: 1rem;
 }
 
-.project-header {
+.project-name {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
+}
+
+.project-name i {
+    color: #98C379;
+    font-size: 1rem;
+}
+
+.project-tech-tags {
+    display: flex;
+    gap: 0.8rem;
     margin-bottom: 1rem;
 }
 
-.project-icon {
-    color: #98C379;
-    font-size: 1.2rem;
-}
-
-.project-header h3 {
-    color: var(--accent-color);
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.project-tech {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.8rem;
-}
-
 .tech-tag {
-    background: rgba(152, 195, 121, 0.1);
     color: #98C379;
-    padding: 0.2rem 0.6rem;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(152, 195, 121, 0.1);
     border-radius: 4px;
-    font-size: 0.85rem;
 }
 
 .project-desc {
     color: var(--text-color);
-    margin: 0;
     line-height: 1.5;
     font-size: 0.95rem;
+    opacity: 0.9;
 }
 
 .project-item:hover {

@@ -204,29 +204,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-list">
                     <div class="project-item">
-                        <div class="project-header">
-                            <i class="fas fa-code-branch project-icon"></i>
-                            <h3>ML Pipeline Development</h3>
+                        <div class="project-name">
+                            <i class="fas fa-code-branch"></i>
+                            ML Pipeline Development
                         </div>
-                        <div class="project-tech">
+                        <div class="project-tech-tags">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Piper</span>
                             <span class="tech-tag">Buildkite</span>
                         </div>
-                        <p class="project-desc">Developed end-to-end ML model testing pipeline at Uber using Python, Piper, and Buildkite.</p>
+                        <div class="project-desc">
+                            Developed end-to-end ML model testing pipeline at Uber using Python, Piper, and Buildkite.
+                        </div>
                     </div>
 
                     <div class="project-item">
-                        <div class="project-header">
-                            <i class="fas fa-chart-line project-icon"></i>
-                            <h3>Churn Prediction Model</h3>
+                        <div class="project-name">
+                            <i class="fas fa-chart-line"></i>
+                            Churn Prediction Model
                         </div>
-                        <div class="project-tech">
+                        <div class="project-tech-tags">
                             <span class="tech-tag">GCP</span>
                             <span class="tech-tag">ML</span>
                             <span class="tech-tag">Python</span>
                         </div>
-                        <p class="project-desc">Enhanced customer churn prediction model at Bell Canada using GCP and ML techniques.</p>
+                        <div class="project-desc">
+                            Enhanced customer churn prediction model at Bell Canada using GCP and ML techniques.
+                        </div>
                     </div>
                 </div>
             </div>

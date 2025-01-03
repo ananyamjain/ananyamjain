@@ -201,14 +201,33 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateProjects() {
         addToTerminal('output', `
             <div class="section">
-                <h2>Featured Projects</h2>
-                <div class="project">
-                    <h3>ML Pipeline Development</h3>
-                    <p>Developed end-to-end ML model testing pipeline at Uber using Python, Piper, and Buildkite.</p>
-                </div>
-                <div class="project">
-                    <h3>Churn Prediction Model</h3>
-                    <p>Enhanced customer churn prediction model at Bell Canada using GCP and ML techniques.</p>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <div class="project-header">
+                            <i class="fas fa-code-branch project-icon"></i>
+                            <h3>ML Pipeline Development</h3>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Piper</span>
+                            <span class="tech-tag">Buildkite</span>
+                        </div>
+                        <p class="project-desc">Developed end-to-end ML model testing pipeline at Uber using Python, Piper, and Buildkite.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-header">
+                            <i class="fas fa-chart-line project-icon"></i>
+                            <h3>Churn Prediction Model</h3>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">GCP</span>
+                            <span class="tech-tag">ML</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <p class="project-desc">Enhanced customer churn prediction model at Bell Canada using GCP and ML techniques.</p>
+                    </div>
                 </div>
             </div>
         `);

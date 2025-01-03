@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'cat projects.txt': generateProjects,
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
+        'connect': generateSocials,
         'clear': clearTerminal
     };
 
@@ -231,9 +232,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2>Certifications</h2>
                 <ul>
                     <li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>
-                    <li><a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core</a></li>
-                    <li><a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a></li>
+                    <li>Google Cloud Professional</li>
+                    <li>Microsoft Azure Fundamentals</li>
                 </ul>
+            </div>
+        `);
+    }
+
+    function generateSocials() {
+        addToTerminal('output', `
+            <div class="section">
+                <h2>Connect With Me</h2>
+                <div class="social-links">
+                    <ul>
+                        <li><a href="https://github.com/ananyamjain" target="_blank">GitHub</a> - Check out my code</li>
+                        <li><a href="https://linkedin.com/in/ananyamjain" target="_blank">LinkedIn</a> - Professional network</li>
+                        <li><a href="mailto:ananyamj1@gmail.com">Email</a> - Get in touch</li>
+                    </ul>
+                </div>
             </div>
         `);
     }

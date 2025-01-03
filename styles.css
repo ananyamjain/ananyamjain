@@ -590,3 +590,27 @@ body {
 * {
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: rgba(136, 192, 208, 0.1);
+    text-decoration: underline;
+}

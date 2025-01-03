@@ -262,4 +262,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    function setupCheatsheetCommands() {
+        const commandExamples = document.querySelectorAll('.command-example');
+        
+        commandExamples.forEach(example => {
+            example.addEventListener('click', () => {
+                // Get the command text
+                const command = example.textContent;
+                
+                // Set the command input value
+                commandInput.value = command;
+                commandText.textContent = command;
+                
+                // Create and dispatch an enter key event
+                const enterEvent = new KeyboardEvent('keydown', {
+                    key: 'Enter',
+                    code: 'Enter',
+                    keyCode: 13,
+                    which: 13,
+                    bubbles: true
+                });
+                
+                commandInput.dispatchEvent(enterEvent);
+                
+                // Focus back on the input
+                commandInput.focus();
+            });
+            
+            // Add cursor pointer to show it's clickable
+            example.style.cursor = 'pointer';
+        });
+    }
+
+    setupCheatsheetCommands();
 });

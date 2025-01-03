@@ -376,6 +376,17 @@ body {
     font-weight: 500;
     display: inline-block;
     margin-bottom: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.command-example:hover {
+    background: rgba(136, 192, 208, 0.2);
+    transform: translateX(2px);
+}
+
+.command-example:active {
+    transform: translateX(4px);
 }
 
 .cheatsheet::after {
@@ -613,4 +624,18 @@ body {
 .social-links a:hover {
     background: rgba(136, 192, 208, 0.1);
     text-decoration: underline;
+}
+
+.command-example {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.command-example:hover {
+    background: rgba(136, 192, 208, 0.2);
+    transform: translateX(2px);
+}
+
+.command-example:active {
+    transform: translateX(4px);
 }

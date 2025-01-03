@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="location">Toronto, ON</p>
                     <p class="date">May 2024 - August 2024</p>
                     <ul>
-                        <li>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform</li>
+                        <li>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform.</li>
                         <li>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</li>
                         <li>Optimized data processing workflows to handle large-scale datasets effectively.</li>
                         <li>Enhanced a churn prediction model, increasing detection rates and business impact.</li>
-                    </ul
+                    </ul>
                 </div>
                 <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
             </div>
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="date">2021 - 2026</p>
                     <ul>
                         <li>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Analysis and Complexity</li>
-                    </ul
+                    </ul>
                 </div>
             <img src="uoft-logo.png" alt="University Logo" class="company-logo">
             </div>

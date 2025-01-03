@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'cat projects.txt': generateProjects,
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
-        'connect': generateSocials,
+        'whereis socials': generateSocials,
         'clear': clearTerminal
     };
 

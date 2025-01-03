@@ -230,9 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="section">
                 <h2>Certifications</h2>
                 <ul>
-                    <li>AWS Certified Developer</li>
-                    <li>Google Cloud Professional</li>
-                    <li>Microsoft Azure Fundamentals</li>
+                    <li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>
+                    <li><a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core</a></li>
+                    <li><a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a></li>
                 </ul>
             </div>
         `);

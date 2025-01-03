@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <li>Designed and implemented the pipeline in Python...</li>
                     </ul>
                 </div>
-                <img src="path/to/uber-logo.png" alt="Uber Logo" class="company-logo">
+                <img src="uber-logo.png" alt="Uber Logo" class="company-logo">
             </div>
             <div class="section">
                 <div class="section-content">

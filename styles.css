@@ -376,8 +376,9 @@ body {
     font-weight: 500;
     display: inline-block;
     margin-bottom: 4px;
-    cursor: pointer;
+    cursor: pointer !important;
     transition: all 0.2s ease;
+    user-select: none;
 }
 
 .command-example:hover {

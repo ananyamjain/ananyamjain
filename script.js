@@ -267,7 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const commandExamples = document.querySelectorAll('.command-example');
         
         commandExamples.forEach(example => {
-            example.addEventListener('click', () => {
+            example.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent any default behavior
+                
                 // Get the command text
                 const command = example.textContent;
                 
@@ -275,25 +277,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 commandInput.value = command;
                 commandText.textContent = command;
                 
-                // Create and dispatch an enter key event
-                const enterEvent = new KeyboardEvent('keydown', {
-                    key: 'Enter',
-                    code: 'Enter',
-                    keyCode: 13,
-                    which: 13,
-                    bubbles: true
-                });
+                // Execute the command directly
+                if (commands[command]) {
+                    addToTerminal('command', command);
+                    commands[command]();
+                }
                 
-                commandInput.dispatchEvent(enterEvent);
+                // Clear the input
+                commandInput.value = '';
+                commandText.textContent = '';
                 
                 // Focus back on the input
                 commandInput.focus();
             });
-            
-            // Add cursor pointer to show it's clickable
-            example.style.cursor = 'pointer';
         });
     }
 
-    setupCheatsheetCommands();
+    // Call setupCheatsheetCommands at the end
+    setTimeout(() => {
+        setupCheatsheetCommands();
+    }, 100);
 });

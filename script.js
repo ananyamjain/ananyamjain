@@ -247,19 +247,19 @@ document.addEventListener('DOMContentLoaded', () => {
         addToTerminal('output', `
             <div class="social-section">
                 <h2 class="social-title">Connect With Me</h2>
-                <div class="social-grid">
-                    <a href="https://github.com/ananyamjain" target="_blank" class="social-item">
-                        <span class="social-name">GitHub</span>
-                        <span class="social-desc">Check out my code</span>
-                    </a>
-                    <a href="https://linkedin.com/in/ananyamjain" target="_blank" class="social-item">
-                        <span class="social-name">LinkedIn</span>
-                        <span class="social-desc">Professional network</span>
-                    </a>
-                    <a href="mailto:ananyamj1@gmail.com" class="social-item">
-                        <span class="social-name">Email</span>
-                        <span class="social-desc">Get in touch</span>
-                    </a>
+                <div class="social-list">
+                    <div class="social-item">
+                        <i class="fab fa-github social-icon"></i>
+                        <a href="https://github.com/ananyamjain" target="_blank">github.com/ananyamjain</a>
+                    </div>
+                    <div class="social-item">
+                        <i class="fab fa-linkedin-in social-icon"></i>
+                        <a href="https://linkedin.com/in/ananyamjain" target="_blank">linkedin.com/in/ananyamjain</a>
+                    </div>
+                    <div class="social-item">
+                        <i class="fas fa-envelope social-icon"></i>
+                        <a href="mailto:ananyamj1@gmail.com">ananyamj1@gmail.com</a>
+                    </div>
                 </div>
             </div>
         `);

@@ -217,11 +217,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateAchievements() {
         addToTerminal('output', `
             <div class="section">
-                <h2>Achievements</h2>
-                <ul>
-                    <li>Dean's List - University of Toronto</li>
-                    <li>Grace Hopper Scholarship 2022</li>
-                </ul>
+                <h2 class="section-title">Achievements</h2>
+                <div class="section-content">
+                    <ul>
+                        <li>Dean's List - University of Toronto</li>
+                        <li>Grace Hopper Scholarship 2022</li>
+                    </ul>
+                </div>
             </div>
         `);
     }
@@ -229,26 +231,35 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateCertificates() {
         addToTerminal('output', `
             <div class="section">
-                <h2>Certifications</h2>
-                <ul>
-                    <li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>
-                    <li>Google Cloud Professional</li>
-                    <li>Microsoft Azure Fundamentals</li>
-                </ul>
+                <h2 class="section-title">Certifications</h2>
+                <div class="section-content">
+                    <ul>
+                        <li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>
+                        <li><a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core - D-wave</a></li>
+                        <li><a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a></li>
+                    </ul>
+                </div>
             </div>
         `);
     }
 
     function generateSocials() {
         addToTerminal('output', `
-            <div class="section">
-                <h2>Connect With Me</h2>
-                <div class="social-links">
-                    <ul>
-                        <li><a href="https://github.com/ananyamjain" target="_blank">GitHub</a> - Check out my code</li>
-                        <li><a href="https://linkedin.com/in/ananyamjain" target="_blank">LinkedIn</a> - Professional network</li>
-                        <li><a href="mailto:ananyamj1@gmail.com">Email</a> - Get in touch</li>
-                    </ul>
+            <div class="social-section">
+                <h2 class="social-title">Connect With Me</h2>
+                <div class="social-grid">
+                    <a href="https://github.com/ananyamjain" target="_blank" class="social-item">
+                        <span class="social-name">GitHub</span>
+                        <span class="social-desc">Check out my code</span>
+                    </a>
+                    <a href="https://linkedin.com/in/ananyamjain" target="_blank" class="social-item">
+                        <span class="social-name">LinkedIn</span>
+                        <span class="social-desc">Professional network</span>
+                    </a>
+                    <a href="mailto:ananyamj1@gmail.com" class="social-item">
+                        <span class="social-name">Email</span>
+                        <span class="social-desc">Get in touch</span>
+                    </a>
                 </div>
             </div>
         `);

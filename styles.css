@@ -640,3 +640,61 @@ body {
 .command-example:active {
     transform: translateX(4px);
 }
+
+/* Fix for section titles */
+.section-title {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.section-content {
+    width: 100%;
+}
+
+/* Unique styling for social links */
+.social-section {
+    padding: 1rem;
+    background: rgba(28, 28, 28, 0.5);
+    border-radius: 8px;
+}
+
+.social-title {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: rgba(136, 192, 208, 0.1);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-item:hover {
+    background: rgba(136, 192, 208, 0.2);
+    transform: translateY(-2px);
+}
+
+.social-name {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-desc {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}

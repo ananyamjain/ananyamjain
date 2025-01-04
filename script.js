@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'cat about.txt': generateAbout,
         'cat projects.txt': generateProjects,
         'cat achievements.txt': generateAchievements,
+        'cat experience.txt': generateExperience,
         'ls ./certificates/': generateCertificates,
         'whereis socials': generateSocials,
         'clear': clearTerminal
@@ -119,6 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
     tempDiv.innerHTML = initialContent.trim();
     terminalContent.innerHTML = ''; // Clear existing content
     terminalContent.appendChild(tempDiv);
+
+    // Add this line to show experience when page loads
+    generateExperience();
 
     // Create command input container
     commandInputContainer = document.createElement('div');

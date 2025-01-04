@@ -292,11 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
         list.className = 'typing-container';
         container.appendChild(list);
 
-        // List of certificates to type out
+        // List of certificates with their links
         const certificates = [
-            'Learn AI - UofT AI',
-            'Quantum Programming Core - D-wave',
-            'Introduction to Quantum Computing'
+            { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
+            { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
+            { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
         ];
 
         // Type each certificate
@@ -304,18 +304,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const line = document.createElement('div');
             line.className = 'typing-line';
             list.appendChild(line);
-            await typeText(cert, line, 30);
-            await new Promise(resolve => setTimeout(resolve, 200)); // Pause between lines
+            await typeText(cert.text, line, 30);
+            await new Promise(resolve => setTimeout(resolve, 200));
         }
 
         // After typing animation, replace with actual links
-        list.innerHTML = `
-            <ul>
-                <li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>
-                <li><a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core - D-wave</a></li>
-                <li><a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a></li>
-            </ul>
-        `;
+        setTimeout(() => {
+            list.innerHTML = `
+                <ul>
+                    ${certificates.map(cert => 
+                        `<li><a href="${cert.link}" target="_blank">${cert.text}</a></li>`
+                    ).join('')}
+                </ul>
+            `;
+        }, 500);
     }
 
     function generateSocials() {
@@ -419,19 +421,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="theme-tip">Type 'theme' again to switch back</p>
             </div>
         `);
-    }
-
-    // Add these styles to your CSS
-    .theme-message {
-        padding: 0.5rem 1rem;
-        background: rgba(152, 195, 121, 0.1);
-        border-radius: 4px;
-        margin: 0.5rem 0;
-    }
-
-    .theme-tip {
-        font-size: 0.9rem;
-        opacity: 0.8;
-        margin-top: 0.5rem;
     }
 });

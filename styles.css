@@ -807,3 +807,46 @@ body {
     color: var(--date-color);
     margin-bottom: 1rem;
 }
+
+.pwd-section {
+    background: rgba(28, 28, 28, 0.6);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.pwd-path {
+    margin-bottom: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.path-root {
+    color: #98C379;
+}
+
+.path-separator {
+    color: var(--text-color);
+    opacity: 0.5;
+    margin: 0 0.2rem;
+}
+
+.path-folder {
+    color: var(--accent-color);
+}
+
+.directory-tree {
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.tree-structure {
+    color: var(--text-color);
+    line-height: 1.4;
+    margin: 0;
+    white-space: pre;
+}
+
+/* Add hover effects for tree items */
+.tree-structure span:hover {
+    color: #98C379;
+    cursor: pointer;
+}

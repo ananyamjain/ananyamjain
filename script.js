@@ -115,7 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'cat projects.txt': generateProjects,
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
-        'whereis socials': generateSocials
+        'whereis socials': generateSocials,
+        'pwd': generatePwd
     };
 
     // Insert initial content
@@ -287,6 +288,37 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="fas fa-envelope social-icon"></i>
                         <a href="mailto:ananyamj1@gmail.com">ananyamj1@gmail.com</a>
                     </div>
+                </div>
+            </div>
+        `);
+    }
+
+    function generatePwd() {
+        addToTerminal('output', `
+            <div class="pwd-section">
+                <div class="pwd-path">
+                    <span class="path-root">~</span>
+                    <span class="path-separator">/</span>
+                    <span class="path-folder">ananya</span>
+                    <span class="path-separator">/</span>
+                    <span class="path-folder">portfolio</span>
+                </div>
+                <div class="directory-tree">
+                    <pre class="tree-structure">
+├── about.txt
+├── projects.txt
+├── achievements.txt
+├── experience.txt
+├── education.txt
+├── certificates/
+│   ├── quantum-programming.pdf
+│   ├── ml-certification.pdf
+│   └── quantum-computing.pdf
+└── socials/
+    ├── github
+    ├── linkedin
+    └── email
+                    </pre>
                 </div>
             </div>
         `);

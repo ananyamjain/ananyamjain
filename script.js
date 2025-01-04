@@ -269,29 +269,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modify the generateCertificates function
     async function generateCertificates() {
-        const output = document.createElement('div');
-        output.className = 'section';
-        output.innerHTML = '<h2 class="section-title">Certifications</h2>';
-        addToTerminal('output', output.outerHTML);
+        // First, add the section header
+        addToTerminal('output', `
+            <div class="section">
+                <h2 class="section-title">Certifications</h2>
+                <ul class="certificates-list"></ul>
+            </div>
+        `);
 
+        const certificatesList = document.querySelector('.certificates-list');
+        
         const certificates = [
             { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
             { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
             { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
         ];
 
-        const section = document.querySelector('.terminal-content .section:last-child');
-        const list = document.createElement('ul');
-        section.appendChild(list);
-
         for (const cert of certificates) {
+            // Create new list item
             const li = document.createElement('li');
-            li.className = 'typing';
-            list.appendChild(li);
+            li.className = 'typing-animation';
+            certificatesList.appendChild(li);
+            
+            // Type out the text
             await typeText(cert.text, li);
-            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            // Replace with linked version
             li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
-            li.className = '';
+            
+            // Wait before next certificate
+            await new Promise(resolve => setTimeout(resolve, 500));
         }
     }
 
@@ -384,66 +391,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
 
     // Add this function to handle theme toggling
-    // ... existing code ...
-
-// Update the toggleTheme function
-function toggleTheme() {
-    const html = document.documentElement;
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    html.setAttribute('data-theme', newTheme);
-    
-    addToTerminal('output', `
-        <div class="theme-message">
-            <p>Switched to ${newTheme} theme ✨</p>
-            <p class="theme-tip">Type 'theme' again to switch back</p>
-        </div>
-    `);
-}
-
-// Update the generateCertificates function to use async/await properly
-async function generateCertificates() {
-    const output = document.createElement('div');
-    output.className = 'section';
-    output.innerHTML = '<h2 class="section-title">Certifications</h2>';
-    
-    const list = document.createElement('ul');
-    output.appendChild(list);
-    
-    addToTerminal('output', output.outerHTML);
-    
-    const certificates = [
-        { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
-        { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
-        { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
-    ];
-
-    // Get the most recently added section
-    const section = document.querySelector('.terminal-content .section:last-child');
-    
-    for (const cert of certificates) {
-        const li = document.createElement('li');
-        li.className = 'typing';
-        section.querySelector('ul').appendChild(li);
+    function toggleTheme() {
+        const body = document.body;
+        const terminal = document.querySelector('.terminal');
+        const cheatsheet = document.querySelector('.cheatsheet');
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
-        await typeText(cert.text, li);
-        li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
-        li.className = '';
+        // Update theme on html element
+        html.setAttribute('data-theme', newTheme);
         
-        // Add a small delay between items
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // Update theme on specific components
+        body.setAttribute('data-theme', newTheme);
+        terminal.setAttribute('data-theme', newTheme);
+        cheatsheet.setAttribute('data-theme', newTheme);
+        
+        addToTerminal('output', `
+            <div class="theme-message">
+                <p>Switched to ${newTheme} theme ✨</p>
+                <p class="theme-tip">Type 'theme' again to switch back</p>
+            </div>
+        `);
     }
-}
-
-// Update the typeText function to be more reliable
-async function typeText(text, element, speed = 50) {
-    let currentText = '';
-    for (let i = 0; i < text.length; i++) {
-        currentText += text[i];
-        element.textContent = currentText;
-        await new Promise(resolve => setTimeout(resolve, speed));
-    }
-    await new Promise(resolve => setTimeout(resolve, 200));
-}
 });

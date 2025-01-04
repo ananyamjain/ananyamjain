@@ -256,19 +256,57 @@ document.addEventListener('DOMContentLoaded', () => {
         `);
     }
 
-    function generateCertificates() {
-        addToTerminal('output', `
-            <div class="section">
-                <h2 class="section-title">Certifications</h2>
-                <div class="section-content">
-                    <ul>
-                        <li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>
-                        <li><a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core - D-wave</a></li>
-                        <li><a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a></li>
-                    </ul>
-                </div>
+    // Add this helper function for typing animation
+    function typeText(text, element, speed = 30) {
+        let index = 0;
+        element.innerHTML = '';
+        
+        return new Promise(resolve => {
+            function type() {
+                if (index < text.length) {
+                    element.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, speed);
+                } else {
+                    resolve();
+                }
+            }
+            type();
+        });
+    }
+
+    // Modify the generateCertificates function to include typing animation
+    async function generateCertificates() {
+        const container = document.createElement('div');
+        container.className = 'section';
+        
+        // Add the title first
+        container.innerHTML = `
+            <h2 class="section-title">Certifications</h2>
+            <div class="section-content">
+                <ul></ul>
             </div>
-        `);
+        `;
+        
+        addToTerminal('output', container.outerHTML);
+        
+        // Get the last added ul element
+        const ul = document.querySelector('.terminal-content .section:last-child ul');
+        
+        // List of certificates with their links
+        const certificates = [
+            '<li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>',
+            '<li><a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core - D-wave</a></li>',
+            '<li><a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a></li>'
+        ];
+        
+        // Type each certificate with a delay
+        for (const cert of certificates) {
+            const li = document.createElement('li');
+            ul.appendChild(li);
+            await typeText(cert, li, 30);
+            await new Promise(resolve => setTimeout(resolve, 100)); // Small pause between items
+        }
     }
 
     function generateSocials() {

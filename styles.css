@@ -850,3 +850,20 @@ body {
     color: #98C379;
     cursor: pointer;
 }
+
+/* Add these styles for the typing animation */
+.typing {
+    border-right: 2px solid var(--accent-color);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Make sure links are still clickable during animation */
+.section-content a {
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
+}

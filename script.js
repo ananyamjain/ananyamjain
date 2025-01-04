@@ -391,16 +391,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add this function to handle theme toggling
     function toggleTheme() {
         const html = document.documentElement;
-        const terminal = document.querySelector('.terminal');
-        const terminalContent = document.querySelector('.terminal-content');
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
-        // Update theme attributes
+        // Update all themed elements
+        document.querySelectorAll('[data-theme]').forEach(element => {
+            element.setAttribute('data-theme', newTheme);
+        });
+        
+        // Set theme on html element
         html.setAttribute('data-theme', newTheme);
-        terminal.setAttribute('data-theme', newTheme);
-        terminalContent.setAttribute('data-theme', newTheme);
-        document.body.setAttribute('data-theme', newTheme);
+        
+        // Force theme on specific elements
+        const elementsToTheme = ['.terminal', '.cheatsheet', '.terminal-content', 'body'];
+        elementsToTheme.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.setAttribute('data-theme', newTheme);
+                // Force a background color update
+                if (newTheme === 'light') {
+                    element.style.setProperty('--terminal-bg', 'rgba(255, 255, 255, 0.95)');
+                    element.style.setProperty('--bg-color', '#f0f0f0');
+                } else {
+                    element.style.setProperty('--terminal-bg', 'rgba(28, 28, 28, 0.95)');
+                    element.style.setProperty('--bg-color', '#1a1a1a');
+                }
+            });
+        });
         
         addToTerminal('output', `
             <div class="theme-message">

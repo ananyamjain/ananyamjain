@@ -1,6 +1,5 @@
-/* Theme variables */
-:root,
-[data-theme="dark"] {
+/* Base theme (dark) */
+:root {
     --bg-color: #1a1a1a;
     --terminal-bg: rgba(28, 28, 28, 0.95);
     --text-color: #A9B7C6;
@@ -8,53 +7,60 @@
     --prompt-color: #98C379;
     --command-color: #88C0D0;
     --date-color: #E06C75;
-    --cheatsheet-bg: rgba(35, 35, 35, 0.95);
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
 }
 
+/* Light theme overrides */
 [data-theme="light"] {
-    --bg-color: #f0f0f0;
-    --terminal-bg: rgba(255, 255, 255, 0.95);
-    --text-color: #2c3e50;
-    --accent-color: #2980b9;
-    --prompt-color: #27ae60;
-    --command-color: #2980b9;
-    --date-color: #c0392b;
-    --cheatsheet-bg: rgba(255, 255, 255, 0.95);
-    --card-border: rgba(0, 0, 0, 0.1);
-    --card-shadow: rgba(0, 0, 0, 0.1);
+    --bg-color: #f0f0f0 !important;
+    --terminal-bg: rgba(255, 255, 255, 0.95) !important;
+    --text-color: #2c3e50 !important;
+    --accent-color: #2980b9 !important;
+    --prompt-color: #27ae60 !important;
+    --command-color: #2980b9 !important;
+    --date-color: #c0392b !important;
+    --card-border: rgba(0, 0, 0, 0.1) !important;
+    --card-shadow: rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Apply variables to elements */
-body {
-    background: var(--bg-color);
+/* Apply theme to elements */
+body[data-theme="light"],
+.terminal[data-theme="light"],
+.cheatsheet[data-theme="light"] {
+    background-color: var(--terminal-bg);
     color: var(--text-color);
+    border-color: var(--card-border);
 }
 
-.terminal {
-    background: var(--terminal-bg);
-}
-
-.terminal-content {
-    background: var(--terminal-bg);
-    color: var(--text-color);
-}
-
-/* Ensure smooth transitions */
-body,
+/* Ensure the terminal and cheatsheet use the theme */
 .terminal,
-.terminal-content,
 .cheatsheet {
-    transition: all 0.3s ease;
+    background-color: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+}
+
+/* Force immediate transition */
+.terminal,
+.cheatsheet,
+.terminal-content,
+body {
+    transition: all 0.3s ease !important;
+}
+
+/* Ensure content areas update */
+.terminal-content {
+    background-color: var(--terminal-bg);
+    color: var(--text-color);
 }
 
 /* Update background gradients */
-[data-theme="light"] body {
+body[data-theme="light"] {
     background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);
 }
 
-[data-theme="dark"] body {
+body[data-theme="dark"] {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
 }
 

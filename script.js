@@ -283,24 +283,20 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `);
 
-        // Get the list element we just created
         const list = document.querySelector('.terminal-content .certificates-list');
         
-        // Add each certificate with animation
         for (const cert of certificates) {
             const li = document.createElement('li');
-            li.style.borderRight = '2px solid var(--accent-color)';
+            li.className = 'certificate-item hidden';
+            li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
             list.appendChild(li);
             
-            // Type the text
-            await typeText(cert.text, li);
+            // Trigger animation after a small delay
+            await new Promise(resolve => setTimeout(resolve, 100));
+            li.classList.remove('hidden');
             
-            // Remove cursor and add link
-            li.style.borderRight = 'none';
-            li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
-            
-            // Small delay before next item
-            await new Promise(resolve => setTimeout(resolve, 200));
+            // Wait before showing next item
+            await new Promise(resolve => setTimeout(resolve, 400));
         }
     }
 
@@ -395,22 +391,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add this function to handle theme toggling
     function toggleTheme() {
         const html = document.documentElement;
+        const terminal = document.querySelector('.terminal');
+        const terminalContent = document.querySelector('.terminal-content');
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
-        // Update theme on html element
+        // Update theme attributes
         html.setAttribute('data-theme', newTheme);
-        
-        // Update background colors based on theme
-        if (newTheme === 'light') {
-            document.body.style.background = 'linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%)';
-            document.querySelector('.terminal').style.background = 'rgba(255, 255, 255, 0.95)';
-            document.querySelector('.terminal-content').style.background = 'rgba(255, 255, 255, 0.95)';
-        } else {
-            document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
-            document.querySelector('.terminal').style.background = 'rgba(28, 28, 28, 0.95)';
-            document.querySelector('.terminal-content').style.background = 'rgba(28, 28, 28, 0.95)';
-        }
+        terminal.setAttribute('data-theme', newTheme);
+        terminalContent.setAttribute('data-theme', newTheme);
+        document.body.setAttribute('data-theme', newTheme);
         
         addToTerminal('output', `
             <div class="theme-message">

@@ -1,5 +1,6 @@
-/* Base theme (dark) */
-:root {
+
+:root,
+[data-theme="dark"] {
     --bg-color: #1a1a1a;
     --terminal-bg: rgba(28, 28, 28, 0.95);
     --text-color: #A9B7C6;
@@ -11,59 +12,46 @@
     --card-shadow: rgba(0, 0, 0, 0.4);
 }
 
-/* Light theme overrides */
+/* Light theme */
 [data-theme="light"] {
-    --bg-color: #f0f0f0 !important;
-    --terminal-bg: rgba(255, 255, 255, 0.95) !important;
-    --text-color: #2c3e50 !important;
-    --accent-color: #2980b9 !important;
-    --prompt-color: #27ae60 !important;
-    --command-color: #2980b9 !important;
-    --date-color: #c0392b !important;
-    --card-border: rgba(0, 0, 0, 0.1) !important;
-    --card-shadow: rgba(0, 0, 0, 0.1) !important;
+    --bg-color: #f0f0f0;
+    --terminal-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #2c3e50;
+    --accent-color: #2980b9;
+    --prompt-color: #27ae60;
+    --command-color: #2980b9;
+    --date-color: #c0392b;
+    --card-border: rgba(0, 0, 0, 0.1);
+    --card-shadow: rgba(0, 0, 0, 0.1);
 }
 
-/* Apply theme to elements */
-body[data-theme="light"],
-.terminal[data-theme="light"],
-.cheatsheet[data-theme="light"] {
-    background-color: var(--terminal-bg);
+/* Apply theme styles */
+body {
+    background: var(--bg-color);
     color: var(--text-color);
-    border-color: var(--card-border);
+    margin: 0;
+    min-height: 100vh;
 }
 
-/* Ensure the terminal and cheatsheet use the theme */
 .terminal,
 .cheatsheet {
-    background-color: var(--terminal-bg);
+    background: var(--terminal-bg);
     border: 1px solid var(--card-border);
     box-shadow: 0 15px 35px var(--card-shadow);
 }
 
-/* Force immediate transition */
-.terminal,
-.cheatsheet,
-.terminal-content,
-body {
-    transition: all 0.3s ease !important;
-}
-
-/* Ensure content areas update */
 .terminal-content {
-    background-color: var(--terminal-bg);
+    background: var(--terminal-bg);
     color: var(--text-color);
 }
 
-/* Update background gradients */
-body[data-theme="light"] {
-    background: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%);
+/* Ensure smooth transitions */
+body,
+.terminal,
+.cheatsheet,
+.terminal-content {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-
-body[data-theme="dark"] {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-}
-
 .theme-message {
     padding: 1rem;
     background: rgba(152, 195, 121, 0.1);

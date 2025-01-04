@@ -390,34 +390,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add this function to handle theme toggling
     function toggleTheme() {
+        // Get all necessary elements
         const html = document.documentElement;
+        const body = document.body;
+        const terminal = document.querySelector('.terminal');
+        const cheatsheet = document.querySelector('.cheatsheet');
+        const terminalContent = document.querySelector('.terminal-content');
+        
+        // Toggle theme
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
-        // Update all themed elements
-        document.querySelectorAll('[data-theme]').forEach(element => {
-            element.setAttribute('data-theme', newTheme);
-        });
-        
-        // Set theme on html element
-        html.setAttribute('data-theme', newTheme);
-        
-        // Force theme on specific elements
-        const elementsToTheme = ['.terminal', '.cheatsheet', '.terminal-content', 'body'];
-        elementsToTheme.forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
+        // Set theme on all elements
+        [html, body, terminal, cheatsheet, terminalContent].forEach(element => {
+            if (element) {
                 element.setAttribute('data-theme', newTheme);
-                // Force a background color update
-                if (newTheme === 'light') {
-                    element.style.setProperty('--terminal-bg', 'rgba(255, 255, 255, 0.95)');
-                    element.style.setProperty('--bg-color', '#f0f0f0');
-                } else {
-                    element.style.setProperty('--terminal-bg', 'rgba(28, 28, 28, 0.95)');
-                    element.style.setProperty('--bg-color', '#1a1a1a');
-                }
-            });
+            }
         });
+        
+        // Force background colors
+        if (newTheme === 'light') {
+            document.documentElement.style.setProperty('--bg-color', '#f0f0f0');
+            document.documentElement.style.setProperty('--terminal-bg', 'rgba(255, 255, 255, 0.95)');
+        } else {
+            document.documentElement.style.setProperty('--bg-color', '#1a1a1a');
+            document.documentElement.style.setProperty('--terminal-bg', 'rgba(28, 28, 28, 0.95)');
+        }
         
         addToTerminal('output', `
             <div class="theme-message">
@@ -426,4 +424,15 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `);
     }
+
+    // Add this to ensure dark theme is applied on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Force dark theme on initial load
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.body.setAttribute('data-theme', 'dark');
+        
+        // Set initial colors
+        document.documentElement.style.setProperty('--bg-color', '#1a1a1a');
+        document.documentElement.style.setProperty('--terminal-bg', 'rgba(28, 28, 28, 0.95)');
+    });
 });

@@ -9,6 +9,8 @@
     --command-color: #88C0D0;
     --date-color: #E06C75;
     --cheatsheet-bg: rgba(35, 35, 35, 0.95);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-shadow: rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="light"] {
@@ -20,6 +22,8 @@
     --command-color: #2980b9;
     --date-color: #c0392b;
     --cheatsheet-bg: rgba(255, 255, 255, 0.95);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --card-shadow: rgba(0, 0, 0, 0.1);
 }
 
 /* Apply variables to elements */
@@ -1011,4 +1015,35 @@ body {
 
 .certificate-item a:hover {
     color: var(--accent-color);
+}
+
+/* Apply to terminal and cheatsheet */
+.terminal, .cheatsheet {
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+    background: var(--terminal-bg);
+}
+
+.terminal-header {
+    border-bottom: 1px solid var(--card-border);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure smooth transitions */
+.terminal,
+.cheatsheet,
+.terminal-content {
+    transition: all 0.3s ease;
+}
+
+/* Terminal window controls */
+.terminal-buttons span,
+.cheatsheet-buttons span {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="light"] .terminal-buttons span:hover,
+[data-theme="light"] .cheatsheet-buttons span:hover {
+    opacity: 1;
 }

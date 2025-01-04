@@ -259,17 +259,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add this helper function at the top level
     async function typeText(text, element, speed = 50) {
-        element.textContent = '';
-        for (let i = 0; i < text.length; i++) {
-            element.textContent += text[i];
+        let currentText = '';
+        for (const char of text) {
+            currentText += char;
+            element.textContent = currentText;
             await new Promise(resolve => setTimeout(resolve, speed));
         }
-        await new Promise(resolve => setTimeout(resolve, 200)); // Pause after each line
     }
 
     // Modify the generateCertificates function
     async function generateCertificates() {
-        // First, add the section header
+        const certificates = [
+            { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
+            { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
+            { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
+        ];
+
+        // Add initial section
         addToTerminal('output', `
             <div class="section">
                 <h2 class="section-title">Certifications</h2>
@@ -277,28 +283,24 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `);
 
-        const certificatesList = document.querySelector('.certificates-list');
+        // Get the list element we just created
+        const list = document.querySelector('.terminal-content .certificates-list');
         
-        const certificates = [
-            { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
-            { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
-            { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
-        ];
-
+        // Add each certificate with animation
         for (const cert of certificates) {
-            // Create new list item
             const li = document.createElement('li');
-            li.className = 'typing-animation';
-            certificatesList.appendChild(li);
+            li.style.borderRight = '2px solid var(--accent-color)';
+            list.appendChild(li);
             
-            // Type out the text
+            // Type the text
             await typeText(cert.text, li);
             
-            // Replace with linked version
+            // Remove cursor and add link
+            li.style.borderRight = 'none';
             li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
             
-            // Wait before next certificate
-            await new Promise(resolve => setTimeout(resolve, 500));
+            // Small delay before next item
+            await new Promise(resolve => setTimeout(resolve, 200));
         }
     }
 
@@ -392,9 +394,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add this function to handle theme toggling
     function toggleTheme() {
-        const body = document.body;
-        const terminal = document.querySelector('.terminal');
-        const cheatsheet = document.querySelector('.cheatsheet');
         const html = document.documentElement;
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -402,10 +401,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update theme on html element
         html.setAttribute('data-theme', newTheme);
         
-        // Update theme on specific components
-        body.setAttribute('data-theme', newTheme);
-        terminal.setAttribute('data-theme', newTheme);
-        cheatsheet.setAttribute('data-theme', newTheme);
+        // Force a CSS refresh by updating the body background
+        document.body.style.background = newTheme === 'dark' 
+            ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
+            : 'linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%)';
         
         addToTerminal('output', `
             <div class="theme-message">

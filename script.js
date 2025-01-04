@@ -331,4 +331,41 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         setupCheatsheetCommands();
     }, 100);
+
+    function generateExperience() {
+        addToTerminal('output', `
+            <div class="section">
+                <div class="experience-item">
+                    <div class="experience-content">
+                        <h2>Software Engineering Intern</h2>
+                        <p class="company">Uber</p>
+                        <p class="location">San Francisco, CA</p>
+                        <p class="date">Sep 2024 - Present</p>
+                        <ul>
+                            <li>Enhanced the end-to-end ML model development experience...</li>
+                            <li>Enabled users to add and integrate their own custom integration...</li>
+                            <li>Designed and implemented the pipeline in Python...</li>
+                        </ul>
+                    </div>
+                    <img src="uber-logo.png" alt="Uber Logo" class="company-logo">
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-content">
+                        <h2>Data Engineering and AI Intern</h2>
+                        <p class="company">Bell Canada</p>
+                        <p class="location">Toronto, ON</p>
+                        <p class="date">May 2024 - August 2024</p>
+                        <ul>
+                            <li>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform.</li>
+                            <li>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</li>
+                            <li>Optimized data processing workflows to handle large-scale datasets effectively.</li>
+                            <li>Enhanced a churn prediction model, increasing detection rates and business impact.</li>
+                        </ul>
+                    </div>
+                    <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
+                </div>
+            </div>
+        `);
+    }
 });

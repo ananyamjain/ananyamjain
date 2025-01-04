@@ -111,12 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     const commands = {
+        'pwd': generatePwd,
         'cat about.txt': generateAbout,
         'cat projects.txt': generateProjects,
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
-        'whereis socials': generateSocials,
-        'pwd': generatePwd
+        'whereis socials': generateSocials
     };
 
     // Insert initial content

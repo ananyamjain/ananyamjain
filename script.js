@@ -258,66 +258,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add this helper function at the top level
-    async function typeText(text, element, speed = 30) {
-        let index = 0;
+    async function typeText(text, element, speed = 50) {
         element.textContent = '';
-        
-        return new Promise(resolve => {
-            function type() {
-                if (index < text.length) {
-                    element.textContent += text.charAt(index);
-                    index++;
-                    setTimeout(type, speed);
-                } else {
-                    resolve();
-                }
-            }
-            type();
-        });
+        for (let i = 0; i < text.length; i++) {
+            element.textContent += text[i];
+            await new Promise(resolve => setTimeout(resolve, speed));
+        }
+        await new Promise(resolve => setTimeout(resolve, 200)); // Pause after each line
     }
 
     // Modify the generateCertificates function
     async function generateCertificates() {
-        // First, create and add the container with title
         const output = document.createElement('div');
         output.className = 'section';
         output.innerHTML = '<h2 class="section-title">Certifications</h2>';
-        addToTerminal('output', output.outerHTML);
-
-        // Get the container we just added
-        const container = document.querySelector('.terminal-content .section:last-child');
         
-        // Create a list element for typing animation
         const list = document.createElement('div');
         list.className = 'typing-container';
-        container.appendChild(list);
+        output.appendChild(list);
+        
+        addToTerminal('output', output.outerHTML);
 
-        // List of certificates with their links
         const certificates = [
             { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
             { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
             { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
         ];
 
+        const container = document.querySelector('.terminal-content .typing-container');
+        
         // Type each certificate
         for (const cert of certificates) {
             const line = document.createElement('div');
             line.className = 'typing-line';
-            list.appendChild(line);
-            await typeText(cert.text, line, 30);
-            await new Promise(resolve => setTimeout(resolve, 200));
+            container.appendChild(line);
+            await typeText(cert.text, line);
         }
 
-        // After typing animation, replace with actual links
+        // Replace with clickable links after typing
         setTimeout(() => {
-            list.innerHTML = `
+            container.innerHTML = `
                 <ul>
                     ${certificates.map(cert => 
                         `<li><a href="${cert.link}" target="_blank">${cert.text}</a></li>`
                     ).join('')}
                 </ul>
             `;
-        }, 500);
+        }, 1000);
     }
 
     function generateSocials() {

@@ -272,11 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const output = document.createElement('div');
         output.className = 'section';
         output.innerHTML = '<h2 class="section-title">Certifications</h2>';
-        
-        const list = document.createElement('div');
-        list.className = 'typing-container';
-        output.appendChild(list);
-        
         addToTerminal('output', output.outerHTML);
 
         const certificates = [
@@ -285,26 +280,19 @@ document.addEventListener('DOMContentLoaded', () => {
             { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
         ];
 
-        const container = document.querySelector('.terminal-content .typing-container');
-        
-        // Type each certificate
-        for (const cert of certificates) {
-            const line = document.createElement('div');
-            line.className = 'typing-line';
-            container.appendChild(line);
-            await typeText(cert.text, line);
-        }
+        const section = document.querySelector('.terminal-content .section:last-child');
+        const list = document.createElement('ul');
+        section.appendChild(list);
 
-        // Replace with clickable links after typing
-        setTimeout(() => {
-            container.innerHTML = `
-                <ul>
-                    ${certificates.map(cert => 
-                        `<li><a href="${cert.link}" target="_blank">${cert.text}</a></li>`
-                    ).join('')}
-                </ul>
-            `;
-        }, 1000);
+        for (const cert of certificates) {
+            const li = document.createElement('li');
+            li.className = 'typing';
+            list.appendChild(li);
+            await typeText(cert.text, li);
+            await new Promise(resolve => setTimeout(resolve, 500));
+            li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
+            li.className = '';
+        }
     }
 
     function generateSocials() {
@@ -397,10 +385,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add this function to handle theme toggling
     function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme') || 'dark';
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
-        document.documentElement.setAttribute('data-theme', newTheme);
+        html.setAttribute('data-theme', newTheme);
         
         addToTerminal('output', `
             <div class="theme-message">

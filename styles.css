@@ -22,9 +22,9 @@
 }
 
 .theme-message {
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     background: rgba(152, 195, 121, 0.1);
-    border-radius: 4px;
+    border-radius: 8px;
     margin: 0.5rem 0;
 }
 
@@ -891,4 +891,54 @@ body {
     pointer-events: auto;
     position: relative;
     z-index: 2;
+}
+
+/* Add/update these styles */
+:root {
+    --bg-color: #1a1a1a;
+    --terminal-bg: #2B2B2B;
+    --text-color: #A9B7C6;
+    --accent-color: #88C0D0;
+    --prompt-color: #98C379;
+    --command-color: #88C0D0;
+    --date-color: #E06C75;
+    --cheatsheet-bg: rgba(35, 35, 35, 0.95);
+}
+
+[data-theme="light"] {
+    --bg-color: #f0f0f0;
+    --terminal-bg: #ffffff;
+    --text-color: #2c3e50;
+    --accent-color: #2980b9;
+    --prompt-color: #27ae60;
+    --command-color: #2980b9;
+    --date-color: #c0392b;
+    --cheatsheet-bg: rgba(255, 255, 255, 0.95);
+}
+
+.typing {
+    border-right: 2px solid var(--accent-color);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.theme-message {
+    padding: 1rem;
+    background: rgba(152, 195, 121, 0.1);
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.theme-tip {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+/* Make sure all transitions are smooth */
+* {
+    transition: all 0.3s ease;
 }

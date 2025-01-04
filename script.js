@@ -384,18 +384,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
 
     // Add this function to handle theme toggling
-    function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme') || 'dark';
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    // ... existing code ...
+
+// Update the toggleTheme function
+function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    
+    addToTerminal('output', `
+        <div class="theme-message">
+            <p>Switched to ${newTheme} theme ✨</p>
+            <p class="theme-tip">Type 'theme' again to switch back</p>
+        </div>
+    `);
+}
+
+// Update the generateCertificates function to use async/await properly
+async function generateCertificates() {
+    const output = document.createElement('div');
+    output.className = 'section';
+    output.innerHTML = '<h2 class="section-title">Certifications</h2>';
+    
+    const list = document.createElement('ul');
+    output.appendChild(list);
+    
+    addToTerminal('output', output.outerHTML);
+    
+    const certificates = [
+        { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
+        { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
+        { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
+    ];
+
+    // Get the most recently added section
+    const section = document.querySelector('.terminal-content .section:last-child');
+    
+    for (const cert of certificates) {
+        const li = document.createElement('li');
+        li.className = 'typing';
+        section.querySelector('ul').appendChild(li);
         
-        html.setAttribute('data-theme', newTheme);
+        await typeText(cert.text, li);
+        li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
+        li.className = '';
         
-        addToTerminal('output', `
-            <div class="theme-message">
-                <p>Switched to ${newTheme} theme ✨</p>
-                <p class="theme-tip">Type 'theme' again to switch back</p>
-            </div>
-        `);
+        // Add a small delay between items
+        await new Promise(resolve => setTimeout(resolve, 500));
     }
+}
+
+// Update the typeText function to be more reliable
+async function typeText(text, element, speed = 50) {
+    let currentText = '';
+    for (let i = 0; i < text.length; i++) {
+        currentText += text[i];
+        element.textContent = currentText;
+        await new Promise(resolve => setTimeout(resolve, speed));
+    }
+    await new Promise(resolve => setTimeout(resolve, 200));
+}
 });

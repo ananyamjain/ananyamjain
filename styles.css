@@ -162,9 +162,14 @@ body {
 
 .section {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section-title {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .section-content {
@@ -712,54 +717,48 @@ body {
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .project-item {
-    background: rgba(28, 28, 28, 0.6);
-    border-radius: 8px;
-    padding: 1.2rem;
-    border-left: 3px solid #98C379;
+    border-left: 2px solid #98C379;
+    padding-left: 1.5rem;
+    margin-left: 1rem;
 }
 
-.project-header {
+.project-name {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
+}
+
+.project-name i {
+    color: #98C379;
+    font-size: 1rem;
+}
+
+.project-tech-tags {
+    display: flex;
+    gap: 0.8rem;
     margin-bottom: 1rem;
 }
 
-.project-icon {
-    color: #98C379;
-    font-size: 1.2rem;
-}
-
-.project-header h3 {
-    color: var(--accent-color);
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.project-tech {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.8rem;
-}
-
 .tech-tag {
-    background: rgba(152, 195, 121, 0.1);
     color: #98C379;
-    padding: 0.2rem 0.6rem;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(152, 195, 121, 0.1);
     border-radius: 4px;
-    font-size: 0.85rem;
 }
 
 .project-desc {
     color: var(--text-color);
-    margin: 0;
     line-height: 1.5;
     font-size: 0.95rem;
+    opacity: 0.9;
 }
 
 .project-item:hover {
@@ -767,40 +766,104 @@ body {
     transform: translateX(4px);
 }
 
-/* Add these styles to your existing styles.css */
-.theme-message {
-    padding: 0.5rem 1rem;
-    background: rgba(152, 195, 121, 0.1);
-    border-radius: 4px;
-    margin: 0.5rem 0;
+.experience-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(28, 28, 28, 0.6);
+    border-radius: 8px;
 }
 
-.theme-tip {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin-top: 0.5rem;
+.experience-content {
+    flex: 1;
+    padding-right: 2rem;
 }
 
-.typing-container {
+.company-logo {
+    width: 65px;
+    height: auto;
+    object-fit: contain;
     margin-top: 1rem;
 }
 
-.typing-line {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.typing-line::before {
-    content: '•';
+.experience-item h2 {
     color: var(--accent-color);
-    position: absolute;
-    left: 0;
+    margin-bottom: 0.5rem;
 }
 
-.typing-line:last-child {
+.company {
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.location {
+    opacity: 0.8;
+    margin-bottom: 0.3rem;
+}
+
+.date {
+    color: var(--date-color);
+    margin-bottom: 1rem;
+}
+
+.pwd-section {
+    background: rgba(28, 28, 28, 0.6);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.pwd-path {
+    margin-bottom: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.path-root {
+    color: #98C379;
+}
+
+.path-separator {
+    color: var(--text-color);
+    opacity: 0.5;
+    margin: 0 0.2rem;
+}
+
+.path-folder {
+    color: var(--accent-color);
+}
+
+.directory-tree {
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.tree-structure {
+    color: var(--text-color);
+    line-height: 1.4;
+    margin: 0;
+    white-space: pre;
+}
+
+/* Add hover effects for tree items */
+.tree-structure span:hover {
+    color: #98C379;
+    cursor: pointer;
+}
+
+/* Add these styles for the typing animation */
+.typing {
     border-right: 2px solid var(--accent-color);
     animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Make sure links are still clickable during animation */
+.section-content a {
+    pointer-events: auto;
+    position: relative;
+    z-index: 2;
 }

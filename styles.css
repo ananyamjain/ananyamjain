@@ -1,7 +1,7 @@
 :root {
     /* Dark theme (default) */
     --bg-color: #1a1a1a;
-    --terminal-bg: #2B2B2B;
+    --terminal-bg: rgba(28, 28, 28, 0.95);
     --text-color: #A9B7C6;
     --accent-color: #88C0D0;
     --prompt-color: #98C379;
@@ -12,7 +12,7 @@
 
 [data-theme="light"] {
     --bg-color: #f0f0f0;
-    --terminal-bg: #ffffff;
+    --terminal-bg: rgba(255, 255, 255, 0.95);
     --text-color: #2c3e50;
     --accent-color: #2980b9;
     --prompt-color: #27ae60;
@@ -58,7 +58,7 @@ body {
 .terminal {
     flex: 1;
     height: 90vh;
-    background: rgba(28, 28, 28, 0.95);
+    background: var(--terminal-bg);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -67,6 +67,7 @@ body {
     flex-direction: column;
     overflow: hidden;
     position: relative;
+    transition: all 0.3s ease;
 }
 
 .terminal::before {
@@ -129,6 +130,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background: var(--terminal-bg);
+    transition: all 0.3s ease;
 }
 
 .terminal-content::-webkit-scrollbar {
@@ -896,7 +899,7 @@ body {
 /* Add/update these styles */
 :root {
     --bg-color: #1a1a1a;
-    --terminal-bg: #2B2B2B;
+    --terminal-bg: rgba(28, 28, 28, 0.95);
     --text-color: #A9B7C6;
     --accent-color: #88C0D0;
     --prompt-color: #98C379;
@@ -907,7 +910,7 @@ body {
 
 [data-theme="light"] {
     --bg-color: #f0f0f0;
-    --terminal-bg: #ffffff;
+    --terminal-bg: rgba(255, 255, 255, 0.95);
     --text-color: #2c3e50;
     --accent-color: #2980b9;
     --prompt-color: #27ae60;

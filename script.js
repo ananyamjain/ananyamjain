@@ -401,10 +401,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update theme on html element
         html.setAttribute('data-theme', newTheme);
         
-        // Force a CSS refresh by updating the body background
-        document.body.style.background = newTheme === 'dark' 
-            ? 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)'
-            : 'linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%)';
+        // Update background colors based on theme
+        if (newTheme === 'light') {
+            document.body.style.background = 'linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%)';
+            document.querySelector('.terminal').style.background = 'rgba(255, 255, 255, 0.95)';
+            document.querySelector('.terminal-content').style.background = 'rgba(255, 255, 255, 0.95)';
+        } else {
+            document.body.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
+            document.querySelector('.terminal').style.background = 'rgba(28, 28, 28, 0.95)';
+            document.querySelector('.terminal-content').style.background = 'rgba(28, 28, 28, 0.95)';
+        }
         
         addToTerminal('output', `
             <div class="theme-message">

@@ -116,7 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'cat projects.txt': generateProjects,
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
-        'whereis socials': generateSocials
+        'whereis socials': generateSocials,
+        'theme': toggleTheme
     };
 
     // Insert initial content
@@ -256,15 +257,15 @@ document.addEventListener('DOMContentLoaded', () => {
         `);
     }
 
-    // Add this helper function for typing animation
-    function typeText(text, element, speed = 30) {
+    // Add this helper function at the top level
+    async function typeText(text, element, speed = 30) {
         let index = 0;
-        element.innerHTML = '';
+        element.textContent = '';
         
         return new Promise(resolve => {
             function type() {
                 if (index < text.length) {
-                    element.innerHTML += text.charAt(index);
+                    element.textContent += text.charAt(index);
                     index++;
                     setTimeout(type, speed);
                 } else {
@@ -275,38 +276,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Modify the generateCertificates function to include typing animation
+    // Modify the generateCertificates function
     async function generateCertificates() {
-        const container = document.createElement('div');
-        container.className = 'section';
+        // First, create and add the container with title
+        const output = document.createElement('div');
+        output.className = 'section';
+        output.innerHTML = '<h2 class="section-title">Certifications</h2>';
+        addToTerminal('output', output.outerHTML);
+
+        // Get the container we just added
+        const container = document.querySelector('.terminal-content .section:last-child');
         
-        // Add the title first
-        container.innerHTML = `
-            <h2 class="section-title">Certifications</h2>
-            <div class="section-content">
-                <ul></ul>
-            </div>
-        `;
-        
-        addToTerminal('output', container.outerHTML);
-        
-        // Get the last added ul element
-        const ul = document.querySelector('.terminal-content .section:last-child ul');
-        
-        // List of certificates with their links
+        // Create a list element for typing animation
+        const list = document.createElement('div');
+        list.className = 'typing-container';
+        container.appendChild(list);
+
+        // List of certificates to type out
         const certificates = [
-            '<li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>',
-            '<li><a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core - D-wave</a></li>',
-            '<li><a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a></li>'
+            'Learn AI - UofT AI',
+            'Quantum Programming Core - D-wave',
+            'Introduction to Quantum Computing'
         ];
-        
-        // Type each certificate with a delay
+
+        // Type each certificate
         for (const cert of certificates) {
-            const li = document.createElement('li');
-            ul.appendChild(li);
-            await typeText(cert, li, 30);
-            await new Promise(resolve => setTimeout(resolve, 100)); // Small pause between items
+            const line = document.createElement('div');
+            line.className = 'typing-line';
+            list.appendChild(line);
+            await typeText(cert, line, 30);
+            await new Promise(resolve => setTimeout(resolve, 200)); // Pause between lines
         }
+
+        // After typing animation, replace with actual links
+        list.innerHTML = `
+            <ul>
+                <li><a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a></li>
+                <li><a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core - D-wave</a></li>
+                <li><a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a></li>
+            </ul>
+        `;
     }
 
     function generateSocials() {
@@ -396,4 +405,33 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         setupCheatsheetCommands();
     }, 100);
+
+    // Add this function to handle theme toggling
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        
+        addToTerminal('output', `
+            <div class="theme-message">
+                <p>Switched to ${newTheme} theme ✨</p>
+                <p class="theme-tip">Type 'theme' again to switch back</p>
+            </div>
+        `);
+    }
+
+    // Add these styles to your CSS
+    .theme-message {
+        padding: 0.5rem 1rem;
+        background: rgba(152, 195, 121, 0.1);
+        border-radius: 4px;
+        margin: 0.5rem 0;
+    }
+
+    .theme-tip {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 0.5rem;
+    }
 });

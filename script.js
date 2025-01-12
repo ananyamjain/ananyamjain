@@ -399,60 +399,47 @@ document.addEventListener('DOMContentLoaded', () => {
         html.setAttribute('data-theme', newTheme);
         document.body.setAttribute('data-theme', newTheme);
         
-        // Get all themed elements
-        const terminal = document.querySelector('.terminal');
-        const terminalContent = document.querySelector('.terminal-content');
-        const cheatsheet = document.querySelector('.cheatsheet');
-        const sections = document.querySelectorAll('.section');
-        
         // Set theme colors based on new theme
         const themeColors = newTheme === 'light' 
             ? {
-                bg: '#f0f0f0',
-                terminalBg: 'rgba(255, 255, 255, 0.95)',
+                bg: '#f5f5f5',
+                terminalBg: '#ffffff',
                 border: 'rgba(0, 0, 0, 0.1)',
-                text: '#2c3e50'
+                text: '#2c3e50',
+                accent: '#2980b9',
+                prompt: '#27ae60',
+                command: '#2980b9',
+                date: '#c0392b',
+                shadow: 'rgba(0, 0, 0, 0.1)'
               }
             : {
                 bg: '#1a1a1a',
                 terminalBg: 'rgba(28, 28, 28, 0.95)',
                 border: 'rgba(255, 255, 255, 0.08)',
-                text: '#A9B7C6'
+                text: '#A9B7C6',
+                accent: '#88C0D0',
+                prompt: '#98C379',
+                command: '#88C0D0',
+                date: '#E06C75',
+                shadow: 'rgba(0, 0, 0, 0.4)'
               };
         
-        // Apply theme to terminal
-        if (terminal) {
-            terminal.setAttribute('data-theme', newTheme);
-            terminal.style.backgroundColor = themeColors.terminalBg;
-            terminal.style.borderColor = themeColors.border;
-        }
-        
-        // Apply theme to terminal content
-        if (terminalContent) {
-            terminalContent.setAttribute('data-theme', newTheme);
-            terminalContent.style.backgroundColor = themeColors.terminalBg;
-            terminalContent.style.color = themeColors.text;
-        }
-        
-        // Apply theme to cheatsheet
-        if (cheatsheet) {
-            cheatsheet.setAttribute('data-theme', newTheme);
-            cheatsheet.style.backgroundColor = themeColors.terminalBg;
-            cheatsheet.style.borderColor = themeColors.border;
-        }
-        
-        // Apply theme to all sections
-        sections.forEach(section => {
-            section.setAttribute('data-theme', newTheme);
-            section.style.backgroundColor = themeColors.terminalBg;
-            section.style.color = themeColors.text;
-        });
-        
-        // Update CSS variables
+        // Apply theme colors
         document.documentElement.style.setProperty('--bg-color', themeColors.bg);
         document.documentElement.style.setProperty('--terminal-bg', themeColors.terminalBg);
         document.documentElement.style.setProperty('--text-color', themeColors.text);
+        document.documentElement.style.setProperty('--accent-color', themeColors.accent);
+        document.documentElement.style.setProperty('--prompt-color', themeColors.prompt);
+        document.documentElement.style.setProperty('--command-color', themeColors.command);
+        document.documentElement.style.setProperty('--date-color', themeColors.date);
         document.documentElement.style.setProperty('--card-border', themeColors.border);
+        document.documentElement.style.setProperty('--card-shadow', themeColors.shadow);
+        
+        // Update terminal and cheatsheet backgrounds
+        const terminal = document.querySelector('.terminal');
+        const cheatsheet = document.querySelector('.cheatsheet');
+        if (terminal) terminal.style.backgroundColor = themeColors.terminalBg;
+        if (cheatsheet) cheatsheet.style.backgroundColor = themeColors.terminalBg;
         
         addToTerminal('output', `
             <div class="theme-message">

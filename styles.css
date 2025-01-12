@@ -27,71 +27,101 @@
     --hover-bg: rgba(0, 0, 0, 0.05);
 }
 
+/* Add back the core styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: 'JetBrains Mono', monospace;
     background-color: var(--bg-color);
     color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.terminal,
-.cheatsheet {
-    background-color: var(--terminal-bg);
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    width: 100%;
 }
 
-.experience-item {
-    background-color: var(--card-bg);
-    border-radius: 8px;
-    transition: all 0.3s ease;
+.terminal {
+    flex: 1;
+    background: var(--terminal-bg);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 
-.experience-item:hover {
-    background-color: var(--hover-bg);
+.terminal-header {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    display: flex;
+    align-items: center;
 }
 
-.research-item {
-    background-color: var(--card-bg);
-    border-radius: 12px;
-    border-left: 3px solid var(--prompt-color);
-    transition: all 0.3s ease;
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
 }
 
-.research-item:hover {
-    background-color: var(--hover-bg);
-    transform: translateX(4px);
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f56;
 }
 
-.project-item {
-    border-left: 2px solid var(--prompt-color);
-    background-color: var(--card-bg);
-    transition: all 0.3s ease;
+.terminal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
-.project-item:hover {
-    background-color: var(--hover-bg);
-    transform: translateX(4px);
+.terminal-content {
+    padding: 20px;
+    height: calc(90vh - 60px);
+    overflow-y: auto;
 }
 
-/* Make sure text colors update with theme */
-.section-title,
-.project-name,
-.research-header h3 {
-    color: var(--accent-color);
+.command-input-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1rem;
 }
 
-.prompt {
-    color: var(--prompt-color);
+.command-input {
+    background: transparent;
+    border: none;
+    color: transparent;
+    caret-color: transparent;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    outline: none;
 }
 
-.command {
+.command-text {
     color: var(--command-color);
 }
 
-.date {
-    color: var(--date-color);
+.cursor {
+    color: var(--accent-color);
+    animation: blink 1s step-end infinite;
 }
 
-/* Ensure proper transitions */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+@keyframes blink {
+    50% { opacity: 0; }
 }
+
+/* Add back your other existing styles for experience items, projects, etc. */

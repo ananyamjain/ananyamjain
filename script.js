@@ -463,11 +463,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Ensure dark theme on load
-    document.addEventListener('DOMContentLoaded', () => {
-        // Force initial dark theme
-        toggleTheme(); // This will set to light first
-        toggleTheme(); // This will set back to dark
-    });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     // Force initial dark theme
+    //     toggleTheme(); // This will set to light first
+    //     toggleTheme(); // This will set back to dark
+    // });
 
     function generateResearch() {
         addToTerminal('output', `

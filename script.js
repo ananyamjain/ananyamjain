@@ -113,11 +113,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const commands = {
         'pwd': generatePwd,
         'cat about.txt': generateAbout,
-        'cat projects.txt': generateProjects,
+        'cd projects': generateProjects,
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
         'whereis socials': generateSocials,
-        'ls ./research/': generateResearch
+        'read research': generateResearch
     };
 
     // Insert initial content
@@ -206,36 +206,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function generateProjects() {
         addToTerminal('output', `
-            <div class="section">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-list">
-                    <div class="project-item">
-                        <div class="project-name">
-                            <i class="fas fa-code-branch"></i>
-                            ML Pipeline Development
+            <div class="directory-view">
+                <div class="directory-header">
+                    <div class="path-navigator">
+                        <span class="path-segment">~</span>
+                        <span class="path-separator">/</span>
+                        <span class="path-segment active">projects</span>
+                    </div>
+                    <div class="view-toggle">
+                        <i class="fas fa-th-large active"></i>
+                        <i class="fas fa-list"></i>
+                    </div>
+                </div>
+                
+                <div class="project-grid">
+                    <div class="project-folder">
+                        <div class="folder-icon">
+                            <i class="fas fa-folder"></i>
+                            <i class="folder-icon-overlay fas fa-code"></i>
                         </div>
-                        <div class="project-tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Piper</span>
-                            <span class="tech-tag">Buildkite</span>
-                        </div>
-                        <div class="project-desc">
-                            Developed end-to-end ML model testing pipeline at Uber using Python, Piper, and Buildkite.
+                        <div class="folder-content">
+                            <h3>ML Pipeline</h3>
+                            <div class="folder-meta">
+                                <span class="folder-date">Modified: Jan 2024</span>
+                                <span class="folder-size">Size: 42MB</span>
+                            </div>
+                            <div class="folder-tags">
+                                <span>Python</span>
+                                <span>Piper</span>
+                                <span>Buildkite</span>
+                            </div>
+                            <div class="folder-description">
+                                End-to-end ML model testing pipeline at Uber
+                            </div>
+                            <div class="folder-actions">
+                                <a href="#" class="folder-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="folder-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="project-item">
-                        <div class="project-name">
-                            <i class="fas fa-chart-line"></i>
-                            Churn Prediction Model
+                    <div class="project-folder">
+                        <div class="folder-icon">
+                            <i class="fas fa-folder"></i>
+                            <i class="folder-icon-overlay fas fa-chart-line"></i>
                         </div>
-                        <div class="project-tech-tags">
-                            <span class="tech-tag">GCP</span>
-                            <span class="tech-tag">ML</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        <div class="project-desc">
-                            Enhanced customer churn prediction model at Bell Canada using GCP and ML techniques.
+                        <div class="folder-content">
+                            <h3>Churn Prediction</h3>
+                            <div class="folder-meta">
+                                <span class="folder-date">Modified: Dec 2023</span>
+                                <span class="folder-size">Size: 128MB</span>
+                            </div>
+                            <div class="folder-tags">
+                                <span>GCP</span>
+                                <span>ML</span>
+                                <span>Python</span>
+                            </div>
+                            <div class="folder-description">
+                                Customer churn prediction model at Bell Canada
+                            </div>
+                            <div class="folder-actions">
+                                <a href="#" class="folder-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="folder-action">
+                                    <i class="fas fa-chart-bar"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -394,12 +435,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function generateResearch() {
         addToTerminal('output', `
-            <div class="section">
-                <h2 class="section-title">Research Projects</h2>
-                <ul class="research-list">
-                    <li>Quantum Computing Research - Focus on optimization algorithms</li>
-                    <li>Machine Learning Research - Neural network optimization</li>
-                </ul>
+            <div class="research-container">
+                <div class="research-card">
+                    <div class="research-status active">Active</div>
+                    <div class="research-content">
+                        <h3>Quantum Computing Optimization</h3>
+                        <div class="research-meta">
+                            <span>Started: Jan 2024</span>
+                            <span>Team: 4 members</span>
+                        </div>
+                        <div class="research-description">
+                            Research on quantum algorithms for optimization problems, focusing on QUBO formulations.
+                        </div>
+                        <div class="research-tags">
+                            <span class="tag">Quantum Computing</span>
+                            <span class="tag">Optimization</span>
+                            <span class="tag">QUBO</span>
+                        </div>
+                        <div class="research-links">
+                            <a href="#" class="research-link paper">
+                                <i class="fas fa-file-pdf"></i> Read Paper
+                            </a>
+                            <a href="#" class="research-link code">
+                                <i class="fas fa-code"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="research-status completed">Completed</div>
+                    <div class="research-content">
+                        <h3>Neural Network Optimization</h3>
+                        <div class="research-meta">
+                            <span>Completed: Dec 2023</span>
+                            <span>Team: 3 members</span>
+                        </div>
+                        <div class="research-description">
+                            Novel approach to neural network architecture optimization using genetic algorithms.
+                        </div>
+                        <div class="research-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Genetic Algorithms</span>
+                            <span class="tag">PyTorch</span>
+                        </div>
+                        <div class="research-links">
+                            <a href="#" class="research-link paper">
+                                <i class="fas fa-file-pdf"></i> Read Paper
+                            </a>
+                            <a href="#" class="research-link code">
+                                <i class="fas fa-code"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         `);
     }

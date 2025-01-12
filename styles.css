@@ -10,6 +10,7 @@
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
     --card-bg: rgba(28, 28, 28, 0.6);
+    --hover-bg: rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="light"] {
@@ -23,27 +24,74 @@
     --card-border: rgba(0, 0, 0, 0.1);
     --card-shadow: rgba(0, 0, 0, 0.1);
     --card-bg: rgba(0, 0, 0, 0.03);
+    --hover-bg: rgba(0, 0, 0, 0.05);
 }
 
-/* Update these selectors to use CSS variables */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
 .terminal,
 .cheatsheet {
     background-color: var(--terminal-bg);
-    border-color: var(--card-border);
+    border: 1px solid var(--card-border);
     box-shadow: 0 15px 35px var(--card-shadow);
 }
 
-.experience-item,
-.research-item,
+.experience-item {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.research-item {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    border-left: 3px solid var(--prompt-color);
+    transition: all 0.3s ease;
+}
+
+.research-item:hover {
+    background-color: var(--hover-bg);
+    transform: translateX(4px);
+}
+
 .project-item {
+    border-left: 2px solid var(--prompt-color);
     background-color: var(--card-bg);
     transition: all 0.3s ease;
 }
 
-/* Add hover effects */
-.experience-item:hover,
-.research-item:hover,
 .project-item:hover {
-    background-color: var(--card-bg);
-    opacity: 0.9;
+    background-color: var(--hover-bg);
+    transform: translateX(4px);
+}
+
+/* Make sure text colors update with theme */
+.section-title,
+.project-name,
+.research-header h3 {
+    color: var(--accent-color);
+}
+
+.prompt {
+    color: var(--prompt-color);
+}
+
+.command {
+    color: var(--command-color);
+}
+
+.date {
+    color: var(--date-color);
+}
+
+/* Ensure proper transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

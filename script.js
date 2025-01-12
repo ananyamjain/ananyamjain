@@ -472,64 +472,90 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateResearch() {
         addToTerminal('output', `
             <div class="section">
-                <h2 class="section-title">Research Projects</h2>
-                <div class="research-container">
-                    <!-- Active Research Card -->
-                    <div class="research-card">
-                        <div class="research-status active">Active</div>
-                        <div class="research-content">
-                            <h3>Quantum Computing Research</h3>
-                            <div class="research-meta">
-                                <span class="research-period">2023 - Present</span>
-                                <span class="research-location">University of Toronto</span>
-                            </div>
-                            <p class="research-description">
-                                Working on quantum computing algorithms for optimization problems, 
-                                specifically focusing on the application of quantum annealing in solving 
-                                complex scheduling problems.
-                            </p>
-                            <div class="research-tags">
-                                <span class="tag">Quantum Computing</span>
-                                <span class="tag">Optimization</span>
-                                <span class="tag">D-Wave</span>
-                            </div>
-                            <div class="research-links">
-                                <a href="#" class="research-link paper">
-                                    <i class="fas fa-file-alt"></i> Paper
-                                </a>
-                                <a href="#" class="research-link code">
-                                    <i class="fas fa-code"></i> Code
-                                </a>
-                            </div>
+                <div class="research-editor">
+                    <div class="editor-header">
+                        <div class="tab active">research_projects.md</div>
+                        <div class="editor-controls">
+                            <span class="line-count">2 projects</span>
+                            <span class="file-type">Markdown</span>
                         </div>
                     </div>
+                    
+                    <div class="editor-content">
+                        <div class="line-numbers">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                        </div>
+                        
+                        <div class="code-content">
+                            <div class="research-block active">
+                                <div class="block-header">
+                                    <span class="status-indicator">+</span>
+                                    <h3>Quantum Computing Research</h3>
+                                    <span class="commit-hash">#ae1db4f</span>
+                                </div>
+                                <div class="block-meta">
+                                    <span class="branch">branch: quantum-optimization</span>
+                                    <span class="timeline">2023 - Present</span>
+                                    <span class="location">@UofT</span>
+                                </div>
+                                <div class="diff-content added">
+                                    <pre><code>Working on quantum computing algorithms for optimization problems, 
+specifically focusing on the application of quantum annealing in solving 
+complex scheduling problems.</code></pre>
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech">quantum-computing</span>
+                                    <span class="tech">optimization</span>
+                                    <span class="tech">d-wave</span>
+                                </div>
+                                <div class="block-footer">
+                                    <a href="#" class="action-btn">
+                                        <i class="fas fa-code-branch"></i> View Repository
+                                    </a>
+                                    <a href="#" class="action-btn">
+                                        <i class="fas fa-file-code"></i> Read Paper
+                                    </a>
+                                </div>
+                            </div>
 
-                    <!-- Completed Research Card -->
-                    <div class="research-card">
-                        <div class="research-status completed">Completed</div>
-                        <div class="research-content">
-                            <h3>Machine Learning Research</h3>
-                            <div class="research-meta">
-                                <span class="research-period">2022 - 2023</span>
-                                <span class="research-location">University of Toronto</span>
-                            </div>
-                            <p class="research-description">
-                                Developed novel approaches to neural network optimization using 
-                                quantum-inspired algorithms, resulting in improved training efficiency 
-                                for deep learning models.
-                            </p>
-                            <div class="research-tags">
-                                <span class="tag">Machine Learning</span>
-                                <span class="tag">Neural Networks</span>
-                                <span class="tag">PyTorch</span>
-                            </div>
-                            <div class="research-links">
-                                <a href="#" class="research-link paper">
-                                    <i class="fas fa-file-alt"></i> Paper
-                                </a>
-                                <a href="#" class="research-link code">
-                                    <i class="fas fa-code"></i> Code
-                                </a>
+                            <div class="research-block completed">
+                                <div class="block-header">
+                                    <span class="status-indicator">✓</span>
+                                    <h3>Machine Learning Research</h3>
+                                    <span class="commit-hash">#f8e92a1</span>
+                                </div>
+                                <div class="block-meta">
+                                    <span class="branch">branch: neural-optimization</span>
+                                    <span class="timeline">2022 - 2023</span>
+                                    <span class="location">@UofT</span>
+                                </div>
+                                <div class="diff-content modified">
+                                    <pre><code>Developed novel approaches to neural network optimization using 
+quantum-inspired algorithms, resulting in improved training efficiency 
+for deep learning models.</code></pre>
+                                </div>
+                                <div class="tech-stack">
+                                    <span class="tech">machine-learning</span>
+                                    <span class="tech">neural-networks</span>
+                                    <span class="tech">pytorch</span>
+                                </div>
+                                <div class="block-footer">
+                                    <a href="#" class="action-btn">
+                                        <i class="fas fa-code-branch"></i> View Repository
+                                    </a>
+                                    <a href="#" class="action-btn">
+                                        <i class="fas fa-file-code"></i> Read Paper
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

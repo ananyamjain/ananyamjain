@@ -410,7 +410,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 prompt: '#27ae60',
                 command: '#2980b9',
                 date: '#c0392b',
-                shadow: 'rgba(0, 0, 0, 0.1)'
+                shadow: 'rgba(0, 0, 0, 0.1)',
+                cardBg: 'rgba(0, 0, 0, 0.03)'
               }
             : {
                 bg: '#1a1a1a',
@@ -421,7 +422,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 prompt: '#98C379',
                 command: '#88C0D0',
                 date: '#E06C75',
-                shadow: 'rgba(0, 0, 0, 0.4)'
+                shadow: 'rgba(0, 0, 0, 0.4)',
+                cardBg: 'rgba(28, 28, 28, 0.6)'
               };
         
         // Apply theme colors
@@ -434,12 +436,32 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.style.setProperty('--date-color', themeColors.date);
         document.documentElement.style.setProperty('--card-border', themeColors.border);
         document.documentElement.style.setProperty('--card-shadow', themeColors.shadow);
+        document.documentElement.style.setProperty('--card-bg', themeColors.cardBg);
         
-        // Update terminal and cheatsheet backgrounds
+        // Update all themed elements
         const terminal = document.querySelector('.terminal');
         const cheatsheet = document.querySelector('.cheatsheet');
+        const experienceItems = document.querySelectorAll('.experience-item');
+        const researchItems = document.querySelectorAll('.research-item');
+        const projectItems = document.querySelectorAll('.project-item');
+        
         if (terminal) terminal.style.backgroundColor = themeColors.terminalBg;
         if (cheatsheet) cheatsheet.style.backgroundColor = themeColors.terminalBg;
+        
+        // Update experience items
+        experienceItems.forEach(item => {
+            item.style.backgroundColor = themeColors.cardBg;
+        });
+        
+        // Update research items
+        researchItems.forEach(item => {
+            item.style.backgroundColor = themeColors.cardBg;
+        });
+        
+        // Update project items
+        projectItems.forEach(item => {
+            item.style.backgroundColor = themeColors.cardBg;
+        });
         
         addToTerminal('output', `
             <div class="theme-message">

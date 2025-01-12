@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let commandText;
     const terminal = document.querySelector('.terminal');
     let commandInputContainer;
-    
+
     const initialContent = `
         <div class="line">
             <span class="prompt">$</span>
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
                     <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
-            </div>
+                </div>
             </div>
         </div>
         <div class="line">
@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
         'whereis socials': generateSocials,
-        'ls ./research/': generateResearch,
         'theme': toggleTheme
     };
 
@@ -141,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update references
     commandInput = commandInputContainer.querySelector('.command-input');
     commandText = commandInputContainer.querySelector('.command-text');
-    
+
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
     commandInput.focus();
@@ -249,10 +248,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="section">
                 <h2 class="section-title">Achievements</h2>
                 <div class="section-content">
-                <ul>
+                    <ul>
                         <li>Dean's List - University of Toronto</li>
                         <li>Grace Hopper Scholarship 2022</li>
-                </ul>
+                    </ul>
                 </div>
             </div>
         `);
@@ -260,45 +259,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add this helper function at the top level
     async function typeText(text, element, speed = 50) {
-        let currentText = '';
-        for (const char of text) {
-            currentText += char;
-            element.textContent = currentText;
+        element.textContent = '';
+        for (let i = 0; i < text.length; i++) {
+            element.textContent += text[i];
             await new Promise(resolve => setTimeout(resolve, speed));
         }
+        await new Promise(resolve => setTimeout(resolve, 200)); // Pause after each line
     }
 
     // Modify the generateCertificates function
     async function generateCertificates() {
+        const output = document.createElement('div');
+        output.className = 'section';
+        output.innerHTML = '<h2 class="section-title">Certifications</h2>';
+        
+        const list = document.createElement('div');
+        list.className = 'typing-container';
+        output.appendChild(list);
+        
+        addToTerminal('output', output.outerHTML);
+
         const certificates = [
             { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
             { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
             { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
         ];
 
-        // Add initial section
-        addToTerminal('output', `
-            <div class="section">
-                <h2 class="section-title">Certifications</h2>
-                <ul class="certificates-list"></ul>
-            </div>
-        `);
-
-        const list = document.querySelector('.terminal-content .certificates-list');
+        const container = document.querySelector('.terminal-content .typing-container');
         
+        // Type each certificate
         for (const cert of certificates) {
-            const li = document.createElement('li');
-            li.className = 'certificate-item hidden';
-            li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
-            list.appendChild(li);
-            
-            // Trigger animation after a small delay
-            await new Promise(resolve => setTimeout(resolve, 100));
-            li.classList.remove('hidden');
-            
-            // Wait before showing next item
-            await new Promise(resolve => setTimeout(resolve, 400));
+            const line = document.createElement('div');
+            line.className = 'typing-line';
+            container.appendChild(line);
+            await typeText(cert.text, line);
         }
+
+        // Replace with clickable links after typing
+        setTimeout(() => {
+            container.innerHTML = `
+                <ul>
+                    ${certificates.map(cert => 
+                        `<li><a href="${cert.link}" target="_blank">${cert.text}</a></li>`
+                    ).join('')}
+                </ul>
+            `;
+        }, 1000);
     }
 
     function generateSocials() {
@@ -391,141 +397,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add this function to handle theme toggling
     function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
+        const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
-        // Update theme on html and body
-        html.setAttribute('data-theme', newTheme);
-        document.body.setAttribute('data-theme', newTheme);
-        
-        // Get all themed elements
-        const terminal = document.querySelector('.terminal');
-        const terminalContent = document.querySelector('.terminal-content');
-        const cheatsheet = document.querySelector('.cheatsheet');
-        const sections = document.querySelectorAll('.section');
-        
-        // Set theme colors based on new theme
-        const themeColors = newTheme === 'light' 
-            ? {
-                bg: '#f0f0f0',
-                terminalBg: 'rgba(255, 255, 255, 0.95)',
-                border: 'rgba(0, 0, 0, 0.1)',
-                text: '#2c3e50'
-              }
-            : {
-                bg: '#1a1a1a',
-                terminalBg: 'rgba(28, 28, 28, 0.95)',
-                border: 'rgba(255, 255, 255, 0.08)',
-                text: '#A9B7C6'
-              };
-        
-        // Apply theme to terminal
-        if (terminal) {
-            terminal.setAttribute('data-theme', newTheme);
-            terminal.style.backgroundColor = themeColors.terminalBg;
-            terminal.style.borderColor = themeColors.border;
-        }
-        
-        // Apply theme to terminal content
-        if (terminalContent) {
-            terminalContent.setAttribute('data-theme', newTheme);
-            terminalContent.style.backgroundColor = themeColors.terminalBg;
-            terminalContent.style.color = themeColors.text;
-        }
-        
-        // Apply theme to cheatsheet
-        if (cheatsheet) {
-            cheatsheet.setAttribute('data-theme', newTheme);
-            cheatsheet.style.backgroundColor = themeColors.terminalBg;
-            cheatsheet.style.borderColor = themeColors.border;
-        }
-        
-        // Apply theme to all sections
-        sections.forEach(section => {
-            section.setAttribute('data-theme', newTheme);
-            section.style.backgroundColor = themeColors.terminalBg;
-            section.style.color = themeColors.text;
-        });
-        
-        // Update CSS variables
-        document.documentElement.style.setProperty('--bg-color', themeColors.bg);
-        document.documentElement.style.setProperty('--terminal-bg', themeColors.terminalBg);
-        document.documentElement.style.setProperty('--text-color', themeColors.text);
-        document.documentElement.style.setProperty('--card-border', themeColors.border);
+        document.documentElement.setAttribute('data-theme', newTheme);
         
         addToTerminal('output', `
             <div class="theme-message">
                 <p>Switched to ${newTheme} theme ✨</p>
                 <p class="theme-tip">Type 'theme' again to switch back</p>
-            </div>
-        `);
-    }
-
-    // Ensure dark theme on load
-    // document.addEventListener('DOMContentLoaded', () => {
-    //     // Force initial dark theme
-    //     toggleTheme(); // This will set to light first
-    //     toggleTheme(); // This will set back to dark
-    // });
-
-    function generateResearch() {
-        addToTerminal('output', `
-            <div class="section">
-                <h2 class="section-title">Research Projects</h2>
-                <div class="research-list">
-                    <div class="research-item">
-                        <div class="research-header">
-                            <div class="research-badge">ACTIVE</div>
-                            <h3>Quantum Computing Research</h3>
-                        </div>
-                        <div class="research-meta">
-                            <span class="research-date">2023 - Present</span>
-                            <span class="research-location">University of Toronto</span>
-                        </div>
-                        <p class="research-desc">
-                            Working on quantum computing algorithms for optimization problems, 
-                            specifically focusing on the application of quantum annealing in solving 
-                            complex scheduling problems.
-                        </p>
-                        <div class="research-links">
-                            <a href="https://your-research-link" target="_blank" class="research-link">
-                                <i class="fas fa-file-alt"></i>
-                                View Research Paper
-                            </a>
-                            <a href="https://github.com/your-repo" target="_blank" class="research-link">
-                                <i class="fab fa-github"></i>
-                                View Repository
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="research-item">
-                        <div class="research-header">
-                            <div class="research-badge completed">COMPLETED</div>
-                            <h3>Machine Learning Research</h3>
-                        </div>
-                        <div class="research-meta">
-                            <span class="research-date">2022 - 2023</span>
-                            <span class="research-location">University of Toronto</span>
-                        </div>
-                        <p class="research-desc">
-                            Developed novel approaches to neural network optimization using 
-                            quantum-inspired algorithms, resulting in improved training efficiency 
-                            for deep learning models.
-                        </p>
-                        <div class="research-links">
-                            <a href="https://your-research-link" target="_blank" class="research-link">
-                                <i class="fas fa-file-alt"></i>
-                                View Research Paper
-                            </a>
-                            <a href="https://github.com/your-repo" target="_blank" class="research-link">
-                                <i class="fab fa-github"></i>
-                                View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         `);
     }

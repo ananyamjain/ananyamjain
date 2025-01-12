@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
         'whereis socials': generateSocials,
+        'ls ./research/': generateResearch,
         'theme': toggleTheme
     };
 
@@ -390,32 +391,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add this function to handle theme toggling
     function toggleTheme() {
-        // Get all necessary elements
         const html = document.documentElement;
-        const body = document.body;
-        const terminal = document.querySelector('.terminal');
-        const cheatsheet = document.querySelector('.cheatsheet');
-        const terminalContent = document.querySelector('.terminal-content');
-        
-        // Toggle theme
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
-        // Set theme on all elements
-        [html, body, terminal, cheatsheet, terminalContent].forEach(element => {
-            if (element) {
-                element.setAttribute('data-theme', newTheme);
-            }
+        // Update theme on html and body
+        html.setAttribute('data-theme', newTheme);
+        document.body.setAttribute('data-theme', newTheme);
+        
+        // Get all themed elements
+        const terminal = document.querySelector('.terminal');
+        const terminalContent = document.querySelector('.terminal-content');
+        const cheatsheet = document.querySelector('.cheatsheet');
+        const sections = document.querySelectorAll('.section');
+        
+        // Set theme colors based on new theme
+        const themeColors = newTheme === 'light' 
+            ? {
+                bg: '#f0f0f0',
+                terminalBg: 'rgba(255, 255, 255, 0.95)',
+                border: 'rgba(0, 0, 0, 0.1)',
+                text: '#2c3e50'
+              }
+            : {
+                bg: '#1a1a1a',
+                terminalBg: 'rgba(28, 28, 28, 0.95)',
+                border: 'rgba(255, 255, 255, 0.08)',
+                text: '#A9B7C6'
+              };
+        
+        // Apply theme to terminal
+        if (terminal) {
+            terminal.setAttribute('data-theme', newTheme);
+            terminal.style.backgroundColor = themeColors.terminalBg;
+            terminal.style.borderColor = themeColors.border;
+        }
+        
+        // Apply theme to terminal content
+        if (terminalContent) {
+            terminalContent.setAttribute('data-theme', newTheme);
+            terminalContent.style.backgroundColor = themeColors.terminalBg;
+            terminalContent.style.color = themeColors.text;
+        }
+        
+        // Apply theme to cheatsheet
+        if (cheatsheet) {
+            cheatsheet.setAttribute('data-theme', newTheme);
+            cheatsheet.style.backgroundColor = themeColors.terminalBg;
+            cheatsheet.style.borderColor = themeColors.border;
+        }
+        
+        // Apply theme to all sections
+        sections.forEach(section => {
+            section.setAttribute('data-theme', newTheme);
+            section.style.backgroundColor = themeColors.terminalBg;
+            section.style.color = themeColors.text;
         });
         
-        // Force background colors
-        if (newTheme === 'light') {
-            document.documentElement.style.setProperty('--bg-color', '#f0f0f0');
-            document.documentElement.style.setProperty('--terminal-bg', 'rgba(255, 255, 255, 0.95)');
-        } else {
-            document.documentElement.style.setProperty('--bg-color', '#1a1a1a');
-            document.documentElement.style.setProperty('--terminal-bg', 'rgba(28, 28, 28, 0.95)');
-        }
+        // Update CSS variables
+        document.documentElement.style.setProperty('--bg-color', themeColors.bg);
+        document.documentElement.style.setProperty('--terminal-bg', themeColors.terminalBg);
+        document.documentElement.style.setProperty('--text-color', themeColors.text);
+        document.documentElement.style.setProperty('--card-border', themeColors.border);
         
         addToTerminal('output', `
             <div class="theme-message">
@@ -425,14 +462,71 @@ document.addEventListener('DOMContentLoaded', () => {
         `);
     }
 
-    // Add this to ensure dark theme is applied on page load
+    // Ensure dark theme on load
     document.addEventListener('DOMContentLoaded', () => {
-        // Force dark theme on initial load
-        document.documentElement.setAttribute('data-theme', 'dark');
-        document.body.setAttribute('data-theme', 'dark');
-        
-        // Set initial colors
-        document.documentElement.style.setProperty('--bg-color', '#1a1a1a');
-        document.documentElement.style.setProperty('--terminal-bg', 'rgba(28, 28, 28, 0.95)');
+        // Force initial dark theme
+        toggleTheme(); // This will set to light first
+        toggleTheme(); // This will set back to dark
     });
+
+    function generateResearch() {
+        addToTerminal('output', `
+            <div class="section">
+                <h2 class="section-title">Research Projects</h2>
+                <div class="research-list">
+                    <div class="research-item">
+                        <div class="research-header">
+                            <div class="research-badge">ACTIVE</div>
+                            <h3>Quantum Computing Research</h3>
+                        </div>
+                        <div class="research-meta">
+                            <span class="research-date">2023 - Present</span>
+                            <span class="research-location">University of Toronto</span>
+                        </div>
+                        <p class="research-desc">
+                            Working on quantum computing algorithms for optimization problems, 
+                            specifically focusing on the application of quantum annealing in solving 
+                            complex scheduling problems.
+                        </p>
+                        <div class="research-links">
+                            <a href="https://your-research-link" target="_blank" class="research-link">
+                                <i class="fas fa-file-alt"></i>
+                                View Research Paper
+                            </a>
+                            <a href="https://github.com/your-repo" target="_blank" class="research-link">
+                                <i class="fab fa-github"></i>
+                                View Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="research-item">
+                        <div class="research-header">
+                            <div class="research-badge completed">COMPLETED</div>
+                            <h3>Machine Learning Research</h3>
+                        </div>
+                        <div class="research-meta">
+                            <span class="research-date">2022 - 2023</span>
+                            <span class="research-location">University of Toronto</span>
+                        </div>
+                        <p class="research-desc">
+                            Developed novel approaches to neural network optimization using 
+                            quantum-inspired algorithms, resulting in improved training efficiency 
+                            for deep learning models.
+                        </p>
+                        <div class="research-links">
+                            <a href="https://your-research-link" target="_blank" class="research-link">
+                                <i class="fas fa-file-alt"></i>
+                                View Research Paper
+                            </a>
+                            <a href="https://github.com/your-repo" target="_blank" class="research-link">
+                                <i class="fab fa-github"></i>
+                                View Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `);
+    }
 });

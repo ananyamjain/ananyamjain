@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 commandText.textContent = command;
                 
                 // Execute the command directly
-                if (Object.prototype.hasOwnProperty.call(commands, command)) {
+                if (commands[command]) {
                     addToTerminal('command', command);
                     commands[command]();
                 }
@@ -424,7 +424,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Make sure to call setupCheatsheetCommands after DOM is loaded
+    // Call setupCheatsheetCommands at the end
+    setTimeout(() => {
+        setupCheatsheetCommands();
+    }, 100);
+
     document.addEventListener('DOMContentLoaded', () => {
         setupCheatsheetCommands();
     });

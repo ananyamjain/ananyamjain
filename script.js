@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let commandText;
     const terminal = document.querySelector('.terminal');
     let commandInputContainer;
-
+    
     const initialContent = `
         <div class="line">
             <span class="prompt">$</span>
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </ul>
                     </div>
                     <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
-                </div>
+            </div>
             </div>
         </div>
         <div class="line">
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update references
     commandInput = commandInputContainer.querySelector('.command-input');
     commandText = commandInputContainer.querySelector('.command-text');
-
+    
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
     commandInput.focus();
@@ -249,10 +249,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="section">
                 <h2 class="section-title">Achievements</h2>
                 <div class="section-content">
-                    <ul>
+                <ul>
                         <li>Dean's List - University of Toronto</li>
                         <li>Grace Hopper Scholarship 2022</li>
-                    </ul>
+                </ul>
                 </div>
             </div>
         `);
@@ -398,6 +398,61 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update theme on html and body
         html.setAttribute('data-theme', newTheme);
         document.body.setAttribute('data-theme', newTheme);
+        
+        // Get all themed elements
+        const terminal = document.querySelector('.terminal');
+        const terminalContent = document.querySelector('.terminal-content');
+        const cheatsheet = document.querySelector('.cheatsheet');
+        const sections = document.querySelectorAll('.section');
+        
+        // Set theme colors based on new theme
+        const themeColors = newTheme === 'light' 
+            ? {
+                bg: '#f0f0f0',
+                terminalBg: 'rgba(255, 255, 255, 0.95)',
+                border: 'rgba(0, 0, 0, 0.1)',
+                text: '#2c3e50'
+              }
+            : {
+                bg: '#1a1a1a',
+                terminalBg: 'rgba(28, 28, 28, 0.95)',
+                border: 'rgba(255, 255, 255, 0.08)',
+                text: '#A9B7C6'
+              };
+        
+        // Apply theme to terminal
+        if (terminal) {
+            terminal.setAttribute('data-theme', newTheme);
+            terminal.style.backgroundColor = themeColors.terminalBg;
+            terminal.style.borderColor = themeColors.border;
+        }
+        
+        // Apply theme to terminal content
+        if (terminalContent) {
+            terminalContent.setAttribute('data-theme', newTheme);
+            terminalContent.style.backgroundColor = themeColors.terminalBg;
+            terminalContent.style.color = themeColors.text;
+        }
+        
+        // Apply theme to cheatsheet
+        if (cheatsheet) {
+            cheatsheet.setAttribute('data-theme', newTheme);
+            cheatsheet.style.backgroundColor = themeColors.terminalBg;
+            cheatsheet.style.borderColor = themeColors.border;
+        }
+        
+        // Apply theme to all sections
+        sections.forEach(section => {
+            section.setAttribute('data-theme', newTheme);
+            section.style.backgroundColor = themeColors.terminalBg;
+            section.style.color = themeColors.text;
+        });
+        
+        // Update CSS variables
+        document.documentElement.style.setProperty('--bg-color', themeColors.bg);
+        document.documentElement.style.setProperty('--terminal-bg', themeColors.terminalBg);
+        document.documentElement.style.setProperty('--text-color', themeColors.text);
+        document.documentElement.style.setProperty('--card-border', themeColors.border);
         
         addToTerminal('output', `
             <div class="theme-message">

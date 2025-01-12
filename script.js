@@ -117,8 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
         'whereis socials': generateSocials,
-        'ls ./research/': generateResearch,
-        'theme': toggleTheme
+        'ls ./research/': generateResearch
     };
 
     // Insert initial content
@@ -389,177 +388,18 @@ document.addEventListener('DOMContentLoaded', () => {
         setupCheatsheetCommands();
     }, 100);
 
-    // Add this function to handle theme toggling
-    function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        // Update theme on html and body
-        html.setAttribute('data-theme', newTheme);
-        document.body.setAttribute('data-theme', newTheme);
-        
-        // Get all themed elements
-        const terminal = document.querySelector('.terminal');
-        const terminalContent = document.querySelector('.terminal-content');
-        const cheatsheet = document.querySelector('.cheatsheet');
-        const sections = document.querySelectorAll('.section');
-        
-        // Set theme colors based on new theme
-        const themeColors = newTheme === 'light' 
-            ? {
-                bg: '#f0f0f0',
-                terminalBg: 'rgba(255, 255, 255, 0.95)',
-                border: 'rgba(0, 0, 0, 0.1)',
-                text: '#2c3e50'
-              }
-            : {
-                bg: '#1a1a1a',
-                terminalBg: 'rgba(28, 28, 28, 0.95)',
-                border: 'rgba(255, 255, 255, 0.08)',
-                text: '#A9B7C6'
-              };
-        
-        // Apply theme to terminal
-        if (terminal) {
-            terminal.setAttribute('data-theme', newTheme);
-            terminal.style.backgroundColor = themeColors.terminalBg;
-            terminal.style.borderColor = themeColors.border;
-        }
-        
-        // Apply theme to terminal content
-        if (terminalContent) {
-            terminalContent.setAttribute('data-theme', newTheme);
-            terminalContent.style.backgroundColor = themeColors.terminalBg;
-            terminalContent.style.color = themeColors.text;
-        }
-        
-        // Apply theme to cheatsheet
-        if (cheatsheet) {
-            cheatsheet.setAttribute('data-theme', newTheme);
-            cheatsheet.style.backgroundColor = themeColors.terminalBg;
-            cheatsheet.style.borderColor = themeColors.border;
-        }
-        
-        // Apply theme to all sections
-        sections.forEach(section => {
-            section.setAttribute('data-theme', newTheme);
-            section.style.backgroundColor = themeColors.terminalBg;
-            section.style.color = themeColors.text;
-        });
-        
-        // Update CSS variables
-        document.documentElement.style.setProperty('--bg-color', themeColors.bg);
-        document.documentElement.style.setProperty('--terminal-bg', themeColors.terminalBg);
-        document.documentElement.style.setProperty('--text-color', themeColors.text);
-        document.documentElement.style.setProperty('--card-border', themeColors.border);
-        
-        addToTerminal('output', `
-            <div class="theme-message">
-                <p>Switched to ${newTheme} theme ✨</p>
-                <p class="theme-tip">Type 'theme' again to switch back</p>
-            </div>
-        `);
-    }
-
-    // Ensure dark theme on load
     document.addEventListener('DOMContentLoaded', () => {
-        // Force initial dark theme
-        toggleTheme(); // This will set to light first
-        toggleTheme(); // This will set back to dark
+        setupCheatsheetCommands();
     });
 
     function generateResearch() {
         addToTerminal('output', `
             <div class="section">
-                <div class="research-editor">
-                    <div class="editor-header">
-                        <div class="tab active">research_projects.md</div>
-                        <div class="editor-controls">
-                            <span class="line-count">2 projects</span>
-                            <span class="file-type">Markdown</span>
-                        </div>
-                    </div>
-                    
-                    <div class="editor-content">
-                        <div class="line-numbers">
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>4</span>
-                            <span>5</span>
-                            <span>6</span>
-                            <span>7</span>
-                            <span>8</span>
-                            <span>9</span>
-                            <span>10</span>
-                        </div>
-                        
-                        <div class="code-content">
-                            <div class="research-block active">
-                                <div class="block-header">
-                                    <span class="status-indicator">+</span>
-                                    <h3>Quantum Computing Research</h3>
-                                    <span class="commit-hash">#ae1db4f</span>
-                                </div>
-                                <div class="block-meta">
-                                    <span class="branch">branch: quantum-optimization</span>
-                                    <span class="timeline">2023 - Present</span>
-                                    <span class="location">@UofT</span>
-                                </div>
-                                <div class="diff-content added">
-                                    <pre><code>Working on quantum computing algorithms for optimization problems, 
-specifically focusing on the application of quantum annealing in solving 
-complex scheduling problems.</code></pre>
-                                </div>
-                                <div class="tech-stack">
-                                    <span class="tech">quantum-computing</span>
-                                    <span class="tech">optimization</span>
-                                    <span class="tech">d-wave</span>
-                                </div>
-                                <div class="block-footer">
-                                    <a href="#" class="action-btn">
-                                        <i class="fas fa-code-branch"></i> View Repository
-                                    </a>
-                                    <a href="#" class="action-btn">
-                                        <i class="fas fa-file-code"></i> Read Paper
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="research-block completed">
-                                <div class="block-header">
-                                    <span class="status-indicator">✓</span>
-                                    <h3>Machine Learning Research</h3>
-                                    <span class="commit-hash">#f8e92a1</span>
-                                </div>
-                                <div class="block-meta">
-                                    <span class="branch">branch: neural-optimization</span>
-                                    <span class="timeline">2022 - 2023</span>
-                                    <span class="location">@UofT</span>
-                                </div>
-                                <div class="diff-content modified">
-                                    <pre><code>Developed novel approaches to neural network optimization using 
-quantum-inspired algorithms, resulting in improved training efficiency 
-for deep learning models.</code></pre>
-                                </div>
-                                <div class="tech-stack">
-                                    <span class="tech">machine-learning</span>
-                                    <span class="tech">neural-networks</span>
-                                    <span class="tech">pytorch</span>
-                                </div>
-                                <div class="block-footer">
-                                    <a href="#" class="action-btn">
-                                        <i class="fas fa-code-branch"></i> View Repository
-                                    </a>
-                                    <a href="#" class="action-btn">
-                                        <i class="fas fa-file-code"></i> Read Paper
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="section-title">Research Projects</h2>
+                <ul class="research-list">
+                    <li>Quantum Computing Research - Focus on optimization algorithms</li>
+                    <li>Machine Learning Research - Neural network optimization</li>
+                </ul>
             </div>
         `);
     }

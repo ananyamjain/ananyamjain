@@ -1,0 +1,49 @@
+:root,
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --terminal-bg: rgba(28, 28, 28, 0.95);
+    --text-color: #A9B7C6;
+    --accent-color: #88C0D0;
+    --prompt-color: #98C379;
+    --command-color: #88C0D0;
+    --date-color: #E06C75;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-shadow: rgba(0, 0, 0, 0.4);
+    --card-bg: rgba(28, 28, 28, 0.6);
+}
+
+[data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --terminal-bg: #ffffff;
+    --text-color: #2c3e50;
+    --accent-color: #2980b9;
+    --prompt-color: #27ae60;
+    --command-color: #2980b9;
+    --date-color: #c0392b;
+    --card-border: rgba(0, 0, 0, 0.1);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --card-bg: rgba(0, 0, 0, 0.03);
+}
+
+/* Update these selectors to use CSS variables */
+.terminal,
+.cheatsheet {
+    background-color: var(--terminal-bg);
+    border-color: var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+}
+
+.experience-item,
+.research-item,
+.project-item {
+    background-color: var(--card-bg);
+    transition: all 0.3s ease;
+}
+
+/* Add hover effects */
+.experience-item:hover,
+.research-item:hover,
+.project-item:hover {
+    background-color: var(--card-bg);
+    opacity: 0.9;
+}

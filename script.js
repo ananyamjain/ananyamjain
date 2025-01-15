@@ -118,7 +118,8 @@ automation and scalability.</li>
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
         'whereis socials': generateSocials,
-        'read research': generateResearch
+        'read research': generateResearch,
+        'dance': generateDance
     };
 
     // Insert initial content
@@ -565,6 +566,19 @@ minimal energy.
                         </div>
                     </div>
                 </div>
+            </div>
+        `);
+    }
+
+    function generateDance() {
+        addToTerminal('output', `
+            <div class="dance-container">
+                <span class="dance-letter">D</span>
+                <span class="dance-letter">A</span>
+                <span class="dance-letter">N</span>
+                <span class="dance-letter">C</span>
+                <span class="dance-letter">E</span>
+                <span class="dance-letter">!</span>
             </div>
         `);
     }

@@ -2189,3 +2189,44 @@ body {
 .cert-item:hover a {
     color: var(--accent-color);
 }
+
+/* Dance animation styles */
+.dance-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.dance-letter {
+    color: var(--accent-color);
+    animation: dance 1s infinite;
+    display: inline-block;
+}
+
+.dance-letter:nth-child(1) { animation-delay: 0.0s; }
+.dance-letter:nth-child(2) { animation-delay: 0.1s; }
+.dance-letter:nth-child(3) { animation-delay: 0.2s; }
+.dance-letter:nth-child(4) { animation-delay: 0.3s; }
+.dance-letter:nth-child(5) { animation-delay: 0.4s; }
+.dance-letter:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes dance {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(10deg);
+        color: #98C379;
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+        color: #E06C75;
+    }
+    75% {
+        transform: translateY(20px) rotate(-10deg);
+        color: #88C0D0;
+    }
+}

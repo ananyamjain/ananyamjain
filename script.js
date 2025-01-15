@@ -330,13 +330,35 @@ automation and scalability.</li>
 
     function generateAchievements() {
         addToTerminal('output', `
-            <div class="section">
-                <h2 class="section-title">Achievements</h2>
-                <div class="section-content">
-                    <ul>
-                        <li>Dean's List - University of Toronto</li>
-                        <li>Grace Hopper Scholarship 2022</li>
-                    </ul>
+            <div class="about-section">
+                <div class="about-header">
+                    <span class="about-badge">Achievements</span>
+                </div>
+                
+                <div class="about-content">
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Dean's List</h3>
+                                <p>University of Toronto</p>
+                                <span class="achievement-year">2022 - 2023</span>
+                            </div>
+                        </div>
+
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="achievement-content">
+                                <h3>Grace Hopper Scholarship</h3>
+                                <p>Grace Hopper Celebration</p>
+                                <span class="achievement-year">2022</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         `);
@@ -353,36 +375,32 @@ automation and scalability.</li>
     }
 
     // Modify the generateCertificates function
-    async function generateCertificates() {
-        const certificates = [
-            { text: 'Learn AI - UofT AI', link: 'https://www.uoft.ai/learnai' },
-            { text: 'Quantum Programming Core - D-wave', link: 'https://learn.dwavesys.com/courses/quantum-programming-101-core' },
-            { text: 'Introduction to Quantum Computing', link: 'https://education.scinet.utoronto.ca/course/view.php?id=1332' }
-        ];
+    function generateCertificates() {
+        // Check if certificates section already exists
+        const existingCerts = document.querySelector('.certificates-section');
+        if (existingCerts) {
+            return; // Exit if certificates are already displayed
+        }
 
-        // Add initial section
         addToTerminal('output', `
-            <div class="section">
+            <div class="certificates-section">
                 <h2 class="section-title">Certifications</h2>
-                <ul class="certificates-list"></ul>
+                <div class="cert-list">
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://www.uoft.ai/learnai" target="_blank">Learn AI - UofT AI</a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://learn.dwavesys.com/courses/quantum-programming-101-core" target="_blank">Quantum Programming Core - D-wave</a>
+                    </div>
+                    <div class="cert-item">
+                        <i class="fas fa-certificate"></i>
+                        <a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a>
+                    </div>
+                </div>
             </div>
         `);
-
-        const list = document.querySelector('.terminal-content .certificates-list');
-        
-        for (const cert of certificates) {
-            const li = document.createElement('li');
-            li.className = 'certificate-item hidden';
-            li.innerHTML = `<a href="${cert.link}" target="_blank">${cert.text}</a>`;
-            list.appendChild(li);
-            
-            // Trigger animation after a small delay
-            await new Promise(resolve => setTimeout(resolve, 100));
-            li.classList.remove('hidden');
-            
-            // Wait before showing next item
-            await new Promise(resolve => setTimeout(resolve, 400));
-        }
     }
 
     function generateSocials() {
@@ -523,8 +541,8 @@ minimal energy.
                     
                     <div class="research-info">
                         <div class="research-meta">
-                            <span><i class="far fa-calendar"></i> 2022 - 2023</span>
-                            <span><i class="fas fa-map-marker-alt"></i> University of Toronto</span>
+                            <span><i class="far fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-map-marker-alt"></i> CSC413 @ University of Toronto</span>
                         </div>
                         
                         <p class="research-description">

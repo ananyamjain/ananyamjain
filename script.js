@@ -119,7 +119,8 @@ automation and scalability.</li>
         'ls ./certificates/': generateCertificates,
         'whereis socials': generateSocials,
         'read research': generateResearch,
-        'dance': generateDance
+        'dance': generateDance,
+        'theme': switchTheme
     };
 
     // Insert initial content
@@ -581,5 +582,31 @@ minimal energy.
                 <span class="dance-letter">!</span>
             </div>
         `);
+    }
+
+    function switchTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        
+        // Save theme preference
+        localStorage.setItem('theme', newTheme);
+        
+        const message = newTheme === 'light' 
+            ? 'Switched to light theme! 🌞 Use "theme" command to switch back.'
+            : 'Switched to dark theme! 🌙 Use "theme" command to switch back.';
+        
+        addToTerminal('output', `
+            <div class="theme-message ${newTheme}">
+                ${message}
+            </div>
+        `);
+    }
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
     }
 });

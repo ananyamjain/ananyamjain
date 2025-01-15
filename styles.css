@@ -2390,7 +2390,7 @@ body {
     color: #2980b9;
 }
 
-[data-theme="light"] @keyframes dance {
+@keyframes dance {
     0%, 100% {
         transform: translateY(0) rotate(0deg);
     }

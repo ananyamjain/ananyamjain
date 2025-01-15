@@ -436,83 +436,74 @@ automation and scalability.</li>
 
     function generateResearch() {
         addToTerminal('output', `
-            <div class="research-container">
+            <div class="research-section">
+                <h2>Research Work</h2>
+                
+                <!-- Active Research -->
                 <div class="research-card">
-                    <div class="research-status active">Active</div>
-                    <div class="research-content">
+                    <div class="research-header">
+                        <span class="status-badge active">Active Research</span>
                         <h3>Quantum Computing Optimization</h3>
+                    </div>
+                    
+                    <div class="research-info">
                         <div class="research-meta">
-                            <span>Started: Jan 2024</span>
-                            <span>Team: 4 members</span>
+                            <span><i class="far fa-calendar"></i> 2023 - Present</span>
+                            <span><i class="fas fa-map-marker-alt"></i> University of Toronto</span>
                         </div>
-                        <div class="research-description">
-                            Research on quantum algorithms for optimization problems, focusing on QUBO formulations.
-                        </div>
+                        
+                        <p class="research-description">
+                            Working on quantum computing algorithms for optimization problems, 
+                            specifically focusing on the application of quantum annealing in solving 
+                            complex scheduling problems.
+                        </p>
+                        
                         <div class="research-tags">
                             <span class="tag">Quantum Computing</span>
                             <span class="tag">Optimization</span>
-                            <span class="tag">QUBO</span>
+                            <span class="tag">D-Wave</span>
                         </div>
                         
-                        <div class="code-content">
-                            <div class="research-block active">
-                                <div class="block-header">
-                                    <span class="status-indicator">+</span>
-                                    <h3>Quantum Computing Research</h3>
-                                    <span class="commit-hash">#ae1db4f</span>
-                                </div>
-                                <div class="block-meta">
-                                    <span class="branch">branch: quantum-optimization</span>
-                                    <span class="timeline">2023 - Present</span>
-                                    <span class="location">@UofT</span>
-                                </div>
-                                <div class="diff-content added">
-                                    <pre><code>Working on quantum computing algorithms for optimization problems, 
-specifically focusing on the application of quantum annealing in solving 
-complex scheduling problems.</code></pre>
-                                </div>
-                                <div class="tech-stack">
-                                    <span class="tech">quantum-computing</span>
-                                    <span class="tech">optimization</span>
-                                    <span class="tech">d-wave</span>
-                                </div>
-                                <div class="block-footer">
-                                    <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="action-btn">
-                                        <i class="fas fa-code-branch"></i> View Repository
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="research-links">
+                            <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="research-link">
+                                <i class="fab fa-github"></i> View Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-                            <div class="research-block completed">
-                                <div class="block-header">
-                                    <span class="status-indicator">✓</span>
-                                    <h3>Machine Learning Research</h3>
-                                    <span class="commit-hash">#f8e92a1</span>
-                                </div>
-                                <div class="block-meta">
-                                    <span class="branch">branch: neural-optimization</span>
-                                    <span class="timeline">2022 - 2023</span>
-                                    <span class="location">@UofT</span>
-                                </div>
-                                <div class="diff-content modified">
-                                    <pre><code>Developed novel approaches to neural network optimization using 
-quantum-inspired algorithms, resulting in improved training efficiency 
-for deep learning models.</code></pre>
-                                </div>
-                                <div class="tech-stack">
-                                    <span class="tech">machine-learning</span>
-                                    <span class="tech">neural-networks</span>
-                                    <span class="tech">pytorch</span>
-                                </div>
-                                <div class="block-footer">
-                                    <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="action-btn">
-                                        <i class="fas fa-code-branch"></i> View Repository
-                                    </a>
-                                    <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="action-btn">
-                                        <i class="fas fa-file-code"></i> Read Paper
-                                    </a>
-                                </div>
-                            </div>
+                <!-- Completed Research -->
+                <div class="research-card">
+                    <div class="research-header">
+                        <span class="status-badge completed">Completed</span>
+                        <h3>Machine Learning Research</h3>
+                    </div>
+                    
+                    <div class="research-info">
+                        <div class="research-meta">
+                            <span><i class="far fa-calendar"></i> 2022 - 2023</span>
+                            <span><i class="fas fa-map-marker-alt"></i> University of Toronto</span>
+                        </div>
+                        
+                        <p class="research-description">
+                            Developed novel approaches to neural network optimization using 
+                            quantum-inspired algorithms, resulting in improved training efficiency 
+                            for deep learning models.
+                        </p>
+                        
+                        <div class="research-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Neural Networks</span>
+                            <span class="tag">PyTorch</span>
+                        </div>
+                        
+                        <div class="research-links">
+                            <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="research-link">
+                                <i class="fab fa-github"></i> View Repository
+                            </a>
+                            <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="research-link">
+                                <i class="fas fa-file-alt"></i> Read Paper
+                            </a>
                         </div>
                     </div>
                 </div>

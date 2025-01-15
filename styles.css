@@ -1670,3 +1670,136 @@ body {
     color: var(--accent-color);
     transform: translateY(-2px);
 }
+
+/* Research Section Styling */
+.research-section {
+    padding: 20px;
+    color: var(--text-color);
+}
+
+.research-section h2 {
+    margin-bottom: 24px;
+    color: var(--accent-color);
+    font-size: 1.8em;
+}
+
+.research-card {
+    background: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.research-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px var(--card-shadow);
+}
+
+.research-header {
+    margin-bottom: 16px;
+}
+
+.research-header h3 {
+    margin: 8px 0;
+    color: var(--accent-color);
+    font-size: 1.4em;
+}
+
+.status-badge {
+    font-size: 0.8em;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.status-badge.active {
+    background: rgba(152, 195, 121, 0.2);
+    color: var(--prompt-color);
+}
+
+.status-badge.completed {
+    background: rgba(136, 192, 208, 0.2);
+    color: var(--accent-color);
+}
+
+.research-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.research-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.research-description {
+    margin: 16px 0;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.research-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.tag {
+    background: rgba(152, 195, 121, 0.1);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    color: var(--prompt-color);
+}
+
+.research-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.research-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(136, 192, 208, 0.1);
+}
+
+.research-link:hover {
+    background: rgba(136, 192, 208, 0.2);
+    transform: translateX(2px);
+}
+
+/* Remove old research styles */
+.research-editor,
+.editor-header,
+.editor-controls,
+.editor-content,
+.line-numbers,
+.code-content,
+.research-block,
+.block-header,
+.status-indicator,
+.block-meta,
+.diff-content,
+.tech-stack,
+.tech,
+.block-footer,
+.action-btn {
+    display: none;
+}

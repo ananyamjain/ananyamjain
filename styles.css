@@ -2430,3 +2430,152 @@ body {
 [data-theme="light"] .command-example:hover {
     background: rgba(41, 128, 185, 0.2);
 }
+
+/* Experience card styles for both themes */
+.experience-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--card-shadow);
+}
+
+/* Experience content styles */
+.experience-content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.experience-content h2 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.experience-content .company {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.experience-content .location {
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 0.3rem;
+}
+
+.experience-content .date {
+    color: var(--date-color);
+    margin-bottom: 1rem;
+}
+
+.experience-content ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.experience-content ul li {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.experience-content ul li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: -1.5rem;
+    font-size: 1.2rem;
+}
+
+/* Company logo styles */
+.company-logo {
+    width: 65px;
+    height: auto;
+    object-fit: contain;
+    margin-top: 1rem;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.experience-item:hover .company-logo {
+    opacity: 1;
+}
+
+/* Light theme specific adjustments */
+[data-theme="light"] .experience-item {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="light"] .experience-content ul li {
+    color: var(--text-color);
+}
+
+[data-theme="light"] .experience-content ul li::before {
+    color: var(--accent-color);
+}
+
+/* Education section styles */
+.education-item {
+    background: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px var(--card-shadow);
+}
+
+/* Skills section styles */
+.skills-grid {
+    background: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.skill-category h3 {
+    color: var(--accent-color);
+}
+
+.skill-category li {
+    color: var(--text-color);
+}
+
+/* Output section styles */
+.output {
+    background: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    margin: 1rem 0;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+/* ASCII art color adjustment */
+.ascii-art {
+    color: var(--accent-color);
+}
+
+/* Subtitle text color */
+.output p {
+    color: var(--text-color);
+    opacity: 0.9;
+}

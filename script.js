@@ -195,12 +195,31 @@ automation and scalability.</li>
     // Define command functions
     function generateAbout() {
         addToTerminal('output', `
-            <div class="section">
-                <h2>About Me</h2>
-                <ul>
-                    <li>I'm a Computer Science student at the University of Toronto, passionate about Machine Learning, AI, and software development.</li>
-                    <li>Currently on my 1 year co-op at Uber. Looking for research opportunities for fall 2025. </li>
-                </ul>
+            <div class="about-section">
+                <div class="about-header">
+                    <span class="about-badge">About Me</span>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm a Computer Science student at the University of Toronto with a passion for Machine Learning, AI, and software development. Currently, I'm on a one-year co-op at Uber, working on their internal ML platform, Michelangelo. I'm seeking research opportunities for Fall 2025 to advance my expertise and contribute to impactful projects.</p>
+                    </div>
+                    
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Computer Science @ UofT</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>ML Engineer Intern @ Uber</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-search"></i>
+                            <span>Seeking Research Opportunities</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         `);
     }
@@ -215,66 +234,66 @@ automation and scalability.</li>
                         <span class="path-segment active">projects</span>
                     </div>
                     <div class="view-toggle">
-                        <i class="fas fa-th-large active"></i>
-                        <i class="fas fa-list"></i>
+                        <i class="fas fa-th-large view-btn active" data-view="grid"></i>
+                        <i class="fas fa-list view-btn" data-view="list"></i>
                     </div>
                 </div>
                 
-                <div class="project-grid">
-                    <div class="project-folder">
-                        <div class="folder-icon">
+                <div class="project-container grid-view" id="projectContainer">
+                    <div class="project-item">
+                        <div class="project-icon">
                             <i class="fas fa-folder"></i>
-                            <i class="folder-icon-overlay fas fa-code"></i>
+                            <i class="project-icon-overlay fas fa-code"></i>
                         </div>
-                        <div class="folder-content">
+                        <div class="project-content">
                             <h3>ML Pipeline</h3>
-                            <div class="folder-meta">
-                                <span class="folder-date">Modified: Jan 2024</span>
-                                <span class="folder-size">Size: 42MB</span>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: Jan 2024</span>
+                                <span class="project-size">Size: 42MB</span>
                             </div>
-                            <div class="folder-tags">
+                            <div class="project-tags">
                                 <span>Python</span>
                                 <span>Piper</span>
                                 <span>Buildkite</span>
                             </div>
-                            <div class="folder-description">
+                            <div class="project-description">
                                 End-to-end ML model testing pipeline at Uber
                             </div>
-                            <div class="folder-actions">
-                                <a href="#" class="folder-action">
+                            <div class="project-actions">
+                                <a href="#" class="project-action">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="folder-action">
+                                <a href="#" class="project-action">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="project-folder">
-                        <div class="folder-icon">
+                    <div class="project-item">
+                        <div class="project-icon">
                             <i class="fas fa-folder"></i>
-                            <i class="folder-icon-overlay fas fa-chart-line"></i>
+                            <i class="project-icon-overlay fas fa-chart-line"></i>
                         </div>
-                        <div class="folder-content">
+                        <div class="project-content">
                             <h3>Churn Prediction</h3>
-                            <div class="folder-meta">
-                                <span class="folder-date">Modified: Dec 2023</span>
-                                <span class="folder-size">Size: 128MB</span>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: Dec 2023</span>
+                                <span class="project-size">Size: 128MB</span>
                             </div>
-                            <div class="folder-tags">
+                            <div class="project-tags">
                                 <span>GCP</span>
                                 <span>ML</span>
                                 <span>Python</span>
                             </div>
-                            <div class="folder-description">
+                            <div class="project-description">
                                 Customer churn prediction model at Bell Canada
                             </div>
-                            <div class="folder-actions">
-                                <a href="#" class="folder-action">
+                            <div class="project-actions">
+                                <a href="#" class="project-action">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="folder-action">
+                                <a href="#" class="project-action">
                                     <i class="fas fa-chart-bar"></i>
                                 </a>
                             </div>
@@ -283,6 +302,30 @@ automation and scalability.</li>
                 </div>
             </div>
         `);
+
+        // Wait for the DOM to update
+        setTimeout(() => {
+            const viewBtns = document.querySelectorAll('.view-btn');
+            const projectContainer = document.getElementById('projectContainer');
+            
+            if (viewBtns && projectContainer) {
+                viewBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation(); // Prevent event bubbling
+                        
+                        // Remove active class from all buttons
+                        viewBtns.forEach(b => b.classList.remove('active'));
+                        
+                        // Add active class to clicked button
+                        btn.classList.add('active');
+                        
+                        // Get the view type and update container class
+                        const viewType = btn.getAttribute('data-view');
+                        projectContainer.className = `project-container ${viewType}-view`;
+                    });
+                });
+            }
+        }, 0);
     }
 
     function generateAchievements() {
@@ -439,28 +482,27 @@ automation and scalability.</li>
             <div class="research-section">
                 <h2>Research Work</h2>
                 
-                <!-- Active Research -->
+                <!-- First Research (now completed) -->
                 <div class="research-card">
                     <div class="research-header">
-                        <span class="status-badge active">Active Research</span>
-                        <h3>Quantum Computing Optimization</h3>
+                        <span class="status-badge completed">Completed</span>
+                        <h3>Quantum Optimization for Planning Domain Definition Language</h3>
                     </div>
                     
                     <div class="research-info">
                         <div class="research-meta">
-                            <span><i class="far fa-calendar"></i> 2023 - Present</span>
-                            <span><i class="fas fa-map-marker-alt"></i> University of Toronto</span>
+                            <span><i class="far fa-calendar"></i> 2023</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Matter Lab, University of Toronto</span>
                         </div>
                         
                         <p class="research-description">
-                            Working on quantum computing algorithms for optimization problems, 
-                            specifically focusing on the application of quantum annealing in solving 
-                            complex scheduling problems.
+                            Applying QUBO methodologies for robotic AI planning tasks. Utilized D-Wave Ocean’s dimod package to solve Binary Quadratic Models, generating optimal solutions with
+minimal energy.
                         </p>
                         
                         <div class="research-tags">
                             <span class="tag">Quantum Computing</span>
-                            <span class="tag">Optimization</span>
+                            <span class="tag">Python</span>
                             <span class="tag">D-Wave</span>
                         </div>
                         
@@ -472,11 +514,11 @@ automation and scalability.</li>
                     </div>
                 </div>
 
-                <!-- Completed Research -->
+                <!-- Second Research (updated description) -->
                 <div class="research-card">
                     <div class="research-header">
                         <span class="status-badge completed">Completed</span>
-                        <h3>Machine Learning Research</h3>
+                        <h3>Comparative Study of CNN, ResNet, and Vision Transformers for Multi-Classification of Chest Diseases</h3>
                     </div>
                     
                     <div class="research-info">
@@ -486,9 +528,7 @@ automation and scalability.</li>
                         </div>
                         
                         <p class="research-description">
-                            Developed novel approaches to neural network optimization using 
-                            quantum-inspired algorithms, resulting in improved training efficiency 
-                            for deep learning models.
+                            Conducted comparative analysis of Vision Transformers against traditional CNNs and ResNet models for chest X-ray disease classification. Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance of pre-trained ViT in identifying 14 distinct lung conditions.
                         </p>
                         
                         <div class="research-tags">

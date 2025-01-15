@@ -1750,20 +1750,26 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 16px 0;
+    margin: 12px 0;
 }
 
-.tag {
-    background: rgba(152, 195, 121, 0.1);
+.research-tags .tag {
+    background: rgba(28, 28, 28, 0.6);
+    color: var(--text-color);
     padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    color: var(--prompt-color);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.research-tags .tag:hover {
+    background: rgba(28, 28, 28, 0.8);
 }
 
 .research-links {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     margin-top: 16px;
 }
 
@@ -1771,18 +1777,23 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--accent-color);
-    text-decoration: none;
-    font-size: 0.9em;
-    transition: all 0.3s ease;
     padding: 6px 12px;
-    border-radius: 6px;
-    background: rgba(136, 192, 208, 0.1);
+    border-radius: 4px;
+    background: rgba(28, 28, 28, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
 }
 
 .research-link:hover {
-    background: rgba(136, 192, 208, 0.2);
-    transform: translateX(2px);
+    transform: translateY(-2px);
+    background: rgba(28, 28, 28, 0.8);
+}
+
+.research-link i {
+    opacity: 0.8;
 }
 
 /* Remove old research styles */
@@ -1802,4 +1813,244 @@ body {
 .block-footer,
 .action-btn {
     display: none;
+}
+
+/* About section styling */
+.about-section {
+    background: rgba(28, 28, 28, 0.4);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.about-header {
+    margin-bottom: 20px;
+}
+
+.about-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    background: rgba(28, 28, 28, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-text {
+    line-height: 1.8;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    opacity: 0.9;
+    padding: 0 10px;
+}
+
+.about-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(28, 28, 28, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-2px);
+    background: rgba(28, 28, 28, 0.8);
+}
+
+.highlight-item i {
+    color: var(--accent-color);
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-highlights {
+        flex-direction: column;
+    }
+    
+    .highlight-item {
+        width: 100%;
+    }
+}
+
+/* Project container and views */
+.project-container {
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Grid View */
+.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* List View */
+.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.list-view .project-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.list-view .project-content {
+    flex: 1;
+}
+
+/* Common Project Item Styles */
+.project-item {
+    background: rgba(28, 28, 28, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-2px);
+    background: rgba(28, 28, 28, 0.8);
+}
+
+.project-icon {
+    position: relative;
+    width: fit-content;
+    margin-bottom: 16px;
+    font-size: 2rem;
+    color: var(--accent-color);
+}
+
+.project-icon-overlay {
+    position: absolute;
+    font-size: 0.8rem;
+    bottom: 0;
+    right: -8px;
+    color: var(--text-color);
+    background: rgba(28, 28, 28, 0.8);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.project-content h3 {
+    color: var(--accent-color);
+    margin: 0 0 12px 0;
+    font-size: 1.1rem;
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.project-tags span {
+    background: rgba(28, 28, 28, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.project-description {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.project-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.project-action {
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.project-action:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* View Toggle Buttons */
+.view-toggle {
+    display: flex;
+    gap: 12px;
+}
+
+.view-btn {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+    padding: 4px;
+}
+
+.view-btn:hover {
+    opacity: 0.8;
+}
+
+.view-btn.active {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* Ensure proper spacing in list view */
+.list-view .project-icon {
+    margin-bottom: 0;
+    padding-top: 4px;
+}
+
+.list-view .project-content {
+    padding-top: 4px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .grid-view {
+        grid-template-columns: 1fr;
+    }
+    
+    .list-view .project-item {
+        flex-direction: column;
+    }
+    
+    .list-view .project-icon {
+        margin-bottom: 16px;
+    }
 }

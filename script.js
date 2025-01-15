@@ -34,9 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="location">San Francisco, CA</p>
                         <p class="date">Sep 2024 - Present</p>
                         <ul>
-                            <li>Enhanced the end-to-end ML model development experience...</li>
-                            <li>Enabled users to add and integrate their own custom integration...</li>
-                            <li>Designed and implemented the pipeline in Python...</li>
+                            <li>Enhancing the end-to-end ML model development experience on Uber’s Michelangelo platform by implementing
+a configurable integration testing pipeline.</li>
+                            <li>Designing and implementing the pipeline in Python, leveraging tools like Piper and Buildkite to ensure seamless
+automation and scalability.</li>
                         </ul>
                     </div>
                     <img src="uber-logo.png" alt="Uber Logo" class="company-logo">
@@ -199,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2>About Me</h2>
                 <ul>
                     <li>I'm a Computer Science student at the University of Toronto, passionate about Machine Learning, AI, and software development.</li>
-                    <li>Currently focused on ML Engineering and creating scalable AI solutions.</li>
+                    <li>Currently on my 1 year co-op at Uber. Looking for research opportunities for fall 2025. </li>
                 </ul>
             </div>
         `);
@@ -518,11 +519,8 @@ complex scheduling problems.</code></pre>
                                     <span class="tech">d-wave</span>
                                 </div>
                                 <div class="block-footer">
-                                    <a href="#" class="action-btn">
+                                    <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="action-btn">
                                         <i class="fas fa-code-branch"></i> View Repository
-                                    </a>
-                                    <a href="#" class="action-btn">
-                                        <i class="fas fa-file-code"></i> Read Paper
                                     </a>
                                 </div>
                             </div>
@@ -549,10 +547,10 @@ for deep learning models.</code></pre>
                                     <span class="tech">pytorch</span>
                                 </div>
                                 <div class="block-footer">
-                                    <a href="#" class="action-btn">
+                                    <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="action-btn">
                                         <i class="fas fa-code-branch"></i> View Repository
                                     </a>
-                                    <a href="#" class="action-btn">
+                                    <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="action-btn">
                                         <i class="fas fa-file-code"></i> Read Paper
                                     </a>
                                 </div>

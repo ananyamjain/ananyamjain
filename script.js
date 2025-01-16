@@ -120,7 +120,8 @@ automation and scalability.</li>
         'whereis socials': generateSocials,
         'read research': generateResearch,
         'dance': generateDance,
-        'theme': switchTheme
+        'theme': switchTheme,
+        'wget resume': downloadResume
     };
 
     // Insert initial content
@@ -604,5 +605,43 @@ minimal energy.
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    function downloadResume() {
+        addToTerminal('output', `
+            <div class="download-section">
+                <div class="wget-output">
+                    <p>--2024-01-20 12:34:56--  https://ananyajain.dev/resume</p>
+                    <p>Resolving ananyajain.dev... 192.168.1.1</p>
+                    <p>Connecting to ananyajain.dev|192.168.1.1|:443... connected.</p>
+                    <p>HTTP request sent, awaiting response... 200 OK</p>
+                    <p>Length: 892KB [application/pdf]</p>
+                    <p>Saving to: 'ananya_jain_resume.pdf'</p>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <p class="download-complete">100%[===================>] 892KB  --.-KB/s    in 0.1s</p>
+                    <p>'ananya_jain_resume.pdf' saved</p>
+                </div>
+            </div>
+        `);
+        
+        // Add animation class after a brief delay
+        setTimeout(() => {
+            const progress = document.querySelector('.progress');
+            if (progress) {
+                progress.classList.add('animate');
+            }
+        }, 100);
+        
+        // Trigger download after animation
+        setTimeout(() => {
+            const link = document.createElement('a');
+            link.href = 'resume.pdf';
+            link.download = 'ananya_jain_resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }, 1500);
     }
 });

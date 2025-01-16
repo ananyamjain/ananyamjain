@@ -3160,3 +3160,89 @@ body {
 [data-theme="light"] .download-complete {
     color: #27ae60;
 }
+
+/* Add these styles for the expand/collapse animation */
+.project-container {
+    position: relative;
+}
+
+.project-item {
+    position: relative;
+    width: 300px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.project-item.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    z-index: 1000;
+}
+
+.project-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.project-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-content.expanded {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+.project-item.expanded .close-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-button:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+/* Additional details section that shows when expanded */
+.project-details {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+}
+
+.project-item.expanded .project-details {
+    display: block;
+}
+
+[data-theme="light"] .project-overlay {
+    background: rgba(255, 255, 255, 0.8);
+}

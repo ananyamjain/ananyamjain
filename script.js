@@ -230,6 +230,7 @@ automation and scalability.</li>
     function generateProjects() {
         addToTerminal('output', `
             <div class="directory-view">
+                <div class="project-overlay"></div>
                 <div class="directory-header">
                     <div class="path-navigator">
                         <span class="path-segment">~</span>
@@ -243,12 +244,16 @@ automation and scalability.</li>
                 </div>
                 
                 <div class="project-container grid-view" id="projectContainer">
+                    <!-- SmartScanner Project -->
                     <div class="project-item">
-                        <div class="project-icon">
-                            <i class="fas fa-folder"></i>
-                            <i class="project-icon-overlay fas fa-code"></i>
-                        </div>
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
                         <div class="project-content">
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-code"></i>
+                            </div>
                             <h3>SmartScanner Application</h3>
                             <div class="project-meta">
                                 <span class="project-date">Modified: Aug 2023</span>
@@ -259,8 +264,18 @@ automation and scalability.</li>
                                 <span>Java</span>
                             </div>
                             <div class="project-description">
-                                SmartScanner application for OpenG2P (internship), implementing an efficient caching mechanism for offline
-voucher verification and an authentication framework using RSA-based JSON Web Tokens.
+                                SmartScanner application for OpenG2P (internship), implementing an efficient caching mechanism for offline voucher verification and an authentication framework using RSA-based JSON Web Tokens.
+                            </div>
+                            <div class="project-details">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Offline voucher verification system</li>
+                                    <li>RSA-based JWT authentication</li>
+                                    <li>Efficient caching mechanism</li>
+                                    <li>Cross-platform mobile support</li>
+                                </ul>
+                                <h4>Technical Details:</h4>
+                                <p>Built using Kotlin and Java, the application implements a robust caching system that enables offline verification of vouchers. The authentication system uses RSA-based JSON Web Tokens for secure data transmission.</p>
                             </div>
                             <div class="project-actions">
                                 <a href="https://github.com/ananyamjain/openg2p-voucher-scanner-app" target="_blank" class="project-action">
@@ -273,12 +288,16 @@ voucher verification and an authentication framework using RSA-based JSON Web To
                         </div>
                     </div>
 
+                    <!-- United for Literacy Project -->
                     <div class="project-item">
-                        <div class="project-icon">
-                            <i class="fas fa-folder"></i>
-                            <i class="project-icon-overlay fas fa-book"></i>
-                        </div>
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
                         <div class="project-content">
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-book"></i>
+                            </div>
                             <h3>United for Literacy</h3>
                             <div class="project-meta">
                                 <span class="project-date">Modified: Jan 2024</span>
@@ -290,7 +309,18 @@ voucher verification and an authentication framework using RSA-based JSON Web To
                                 <span>MongoDB</span>
                             </div>
                             <div class="project-description">
-                                A collaborative platform connecting literacy organizations with volunteers. Features include volunteer matching, event management, and impact tracking. Built with React and Node.js, following agile methodologies.
+                                A collaborative platform connecting literacy organizations with volunteers. Features include volunteer matching, event management, and impact tracking.
+                            </div>
+                            <div class="project-details">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Volunteer-organization matching system</li>
+                                    <li>Event management and scheduling</li>
+                                    <li>Impact tracking dashboard</li>
+                                    <li>Real-time notifications</li>
+                                </ul>
+                                <h4>Technical Details:</h4>
+                                <p>Built with React and Node.js, following agile methodologies. Uses MongoDB for flexible data storage and real-time updates. Implements responsive design for cross-device compatibility.</p>
                             </div>
                             <div class="project-actions">
                                 <a href="https://github.com/csc301-2024-s/27-united-for-literacy" target="_blank" class="project-action">
@@ -300,12 +330,16 @@ voucher verification and an authentication framework using RSA-based JSON Web To
                         </div>
                     </div>
 
+                    <!-- Ryde Project -->
                     <div class="project-item">
-                        <div class="project-icon">
-                            <i class="fas fa-folder"></i>
-                            <i class="project-icon-overlay fas fa-car"></i>
-                        </div>
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
                         <div class="project-content">
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-car"></i>
+                            </div>
                             <h3>Ryde - Car Marketplace</h3>
                             <div class="project-meta">
                                 <span class="project-date">Modified: Dec 2022</span>
@@ -317,7 +351,18 @@ voucher verification and an authentication framework using RSA-based JSON Web To
                                 <span>Design Patterns</span>
                             </div>
                             <div class="project-description">
-                                A Java desktop application for finding and listing cars for sale. Features include user authentication, listing management, dealership locator, and advanced filtering. Built using Clean Architecture and various design patterns including Factory, Dependency Injection, and Singleton.
+                                A Java desktop application for finding and listing cars for sale.
+                            </div>
+                            <div class="project-details">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>User authentication system</li>
+                                    <li>Advanced car listing management</li>
+                                    <li>Dealership locator</li>
+                                    <li>Smart filtering system</li>
+                                </ul>
+                                <h4>Technical Details:</h4>
+                                <p>Built using Clean Architecture principles and various design patterns including Factory, Dependency Injection, and Singleton. Features a modular design for easy maintenance and scalability.</p>
                             </div>
                             <div class="project-actions">
                                 <a href="https://github.com/CSC207-2022F-UofT/course-project-ryde" target="_blank" class="project-action">
@@ -330,23 +375,51 @@ voucher verification and an authentication framework using RSA-based JSON Web To
             </div>
         `);
 
-        // Wait for the DOM to update
+        // Add click handlers
         setTimeout(() => {
+            const projectItems = document.querySelectorAll('.project-item');
+            const closeButtons = document.querySelectorAll('.close-button');
+            const overlay = document.querySelector('.project-overlay');
+            
+            projectItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
+                        item.classList.add('expanded');
+                        overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const projectItem = button.closest('.project-item');
+                    projectItem.classList.remove('expanded');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            overlay.addEventListener('click', () => {
+                const expandedItem = document.querySelector('.project-item.expanded');
+                if (expandedItem) {
+                    expandedItem.classList.remove('expanded');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // View toggle handlers
             const viewBtns = document.querySelectorAll('.view-btn');
             const projectContainer = document.getElementById('projectContainer');
             
             if (viewBtns && projectContainer) {
                 viewBtns.forEach(btn => {
                     btn.addEventListener('click', (e) => {
-                        e.stopPropagation(); // Prevent event bubbling
-                        
-                        // Remove active class from all buttons
+                        e.stopPropagation();
                         viewBtns.forEach(b => b.classList.remove('active'));
-                        
-                        // Add active class to clicked button
                         btn.classList.add('active');
-                        
-                        // Get the view type and update container class
                         const viewType = btn.getAttribute('data-view');
                         projectContainer.className = `project-container ${viewType}-view`;
                     });

@@ -205,7 +205,7 @@ automation and scalability.</li>
                 
                 <div class="about-content">
                     <div class="about-text">
-                        <p>I'm a Computer Science student at the University of Toronto with a passion for Machine Learning, AI, and software development. Currently, I'm on a one-year co-op at Uber, working on their internal ML platform, Michelangelo. I'm seeking research opportunities for Fall 2025 to advance my expertise and contribute to impactful projects.</p>
+                        <p>I'm a <span class="highlight">Computer Science</span> student at the <span class="highlight">University of Toronto</span> with a passion for <span class="highlight">Machine Learning</span>, <span class="highlight">AI</span>, and software development. Currently, I'm on a <span class="highlight">one-year co-op at Uber</span>, working on their internal ML platform, <span class="highlight">Michelangelo</span>. I'm seeking <span class="highlight">research opportunities</span> for Fall 2025 to advance my expertise and contribute to impactful projects.</p>
                     </div>
                     
                     <div class="about-highlights">
@@ -478,7 +478,9 @@ automation and scalability.</li>
     function generateCertificates() {
         addToTerminal('output', `
             <div class="certificates-section">
-                <h2 class="section-title">Certifications</h2>
+                <div class="cert-header">
+                    <i class="fas fa-folder-open"></i> ./certificates/
+                </div>
                 <div class="cert-list">
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
@@ -491,6 +493,38 @@ automation and scalability.</li>
                     <div class="cert-item">
                         <i class="fas fa-certificate"></i>
                         <a href="https://education.scinet.utoronto.ca/course/view.php?id=1332" target="_blank">Introduction to Quantum Computing</a>
+                    </div>
+                </div>
+            </div>
+        `);
+    }
+
+    function generateSkills() {
+        addToTerminal('output', `
+            <div class="skills-section">
+                <div class="skills-header">
+                    <i class="fas fa-folder-open"></i> ./skills/
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>Kotlin</li>
+                            <li>SQL</li>
+                            <li>SPARQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Technologies and Libraries</h3>
+                        <ul>
+                            <li>React</li>
+                            <li>Numpy</li>
+                            <li>PyTorch</li>
+                            <li>Tensorflow</li>
+                            <li>dimod</li>
+                        </ul>
                     </div>
                 </div>
             </div>

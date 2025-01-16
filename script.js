@@ -118,7 +118,7 @@ automation and scalability.</li>
         'cat achievements.txt': generateAchievements,
         'ls ./certificates/': generateCertificates,
         'whereis socials': generateSocials,
-        'read research': generateResearch,
+        'cd research': generateResearch,
         'dance': generateDance,
         'theme': switchTheme,
         'wget resume': downloadResume,
@@ -629,76 +629,125 @@ automation and scalability.</li>
 
     function generateResearch() {
         addToTerminal('output', `
-            <div class="research-section">
-                <h2>Research Work</h2>
-                
-                <!-- First Research (now completed) -->
-                <div class="research-card">
-                    <div class="research-header">
-                        <span class="status-badge completed">Completed</span>
-                        <h3>Quantum Optimization for Planning Domain Definition Language</h3>
-                    </div>
-                    
-                    <div class="research-info">
-                        <div class="research-meta">
-                            <span><i class="far fa-calendar"></i> 2023</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Matter Lab, University of Toronto</span>
-                        </div>
-                        
-                        <p class="research-description">
-                            Applying QUBO methodologies for robotic AI planning tasks. Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with
-minimal energy.
-                        </p>
-                        
-                        <div class="research-tags">
-                            <span class="tag">Quantum Computing</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">D-Wave</span>
-                        </div>
-                        
-                        <div class="research-links">
-                            <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="research-link">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
-                        </div>
+            <div class="directory-view">
+                <div class="directory-header">
+                    <div class="path-navigator">
+                        <span class="path-segment">~</span>
+                        <span class="path-separator">/</span>
+                        <span class="path-segment active">research</span>
                     </div>
                 </div>
-
-                <!-- Second Research (updated description) -->
-                <div class="research-card">
-                    <div class="research-header">
-                        <span class="status-badge completed">Completed</span>
-                        <h3>Comparative Study of CNN, ResNet, and Vision Transformers for Multi-Classification of Chest Diseases</h3>
+                
+                <div class="project-container grid-view" id="researchContainer">
+                    <div class="project-item">
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="project-content">
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-atom"></i>
+                            </div>
+                            <h3>Quantum Optimization for PDDL</h3>
+                            <div class="project-meta">
+                                <span class="project-date">2023</span>
+                                <span class="project-location">Matter Lab, UofT</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Quantum Computing</span>
+                                <span>Python</span>
+                                <span>D-Wave</span>
+                            </div>
+                            <div class="project-description">
+                                Applying QUBO methodologies for robotic AI planning tasks.
+                            </div>
+                            <div class="project-details">
+                                <h4>Research Details:</h4>
+                                <p>Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with minimal energy. Implemented quantum optimization techniques for Planning Domain Definition Language problems.</p>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="research-info">
-                        <div class="research-meta">
-                            <span><i class="far fa-calendar"></i> 2024</span>
-                            <span><i class="fas fa-map-marker-alt"></i> CSC413 @ University of Toronto</span>
-                        </div>
-                        
-                        <p class="research-description">
-                            Conducted comparative analysis of Vision Transformers against traditional CNNs and ResNet models for chest X-ray disease classification. Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance of pre-trained ViT in identifying 14 distinct lung conditions.
-                        </p>
-                        
-                        <div class="research-tags">
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Neural Networks</span>
-                            <span class="tag">PyTorch</span>
-                        </div>
-                        
-                        <div class="research-links">
-                            <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="research-link">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
-                            <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="research-link">
-                                <i class="fas fa-file-alt"></i> Read Paper
-                            </a>
+
+                    <div class="project-item">
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="project-content">
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-brain"></i>
+                            </div>
+                            <h3>Vision Transformers for Chest Disease Classification</h3>
+                            <div class="project-meta">
+                                <span class="project-date">2024</span>
+                                <span class="project-location">CSC413 @ UofT</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Machine Learning</span>
+                                <span>Neural Networks</span>
+                                <span>PyTorch</span>
+                            </div>
+                            <div class="project-description">
+                                Comparative analysis of Vision Transformers against CNNs and ResNet models.
+                            </div>
+                            <div class="project-details">
+                                <h4>Research Details:</h4>
+                                <p>Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance in identifying 14 distinct lung conditions. Conducted comprehensive comparative analysis with traditional architectures.</p>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="project-action">
+                                    <i class="fas fa-file-alt"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         `);
+
+        // Add the same click handlers as projects
+        setTimeout(() => {
+            const projectItems = document.querySelectorAll('.project-item');
+            const closeButtons = document.querySelectorAll('.close-button');
+            const overlay = document.querySelector('.project-overlay');
+            
+            projectItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
+                        item.classList.add('expanded');
+                        overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const projectItem = button.closest('.project-item');
+                    projectItem.classList.remove('expanded');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            overlay?.addEventListener('click', () => {
+                const expandedItem = document.querySelector('.project-item.expanded');
+                if (expandedItem) {
+                    expandedItem.classList.remove('expanded');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }, 0);
     }
 
     function generateDance() {

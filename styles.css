@@ -3366,66 +3366,65 @@ body {
 .skills-section {
     padding: 20px;
     border-radius: 8px;
-    width: 100%;
+    background: rgba(28, 28, 28, 0.6);
 }
 
 .skills-header {
     color: var(--accent-color);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     font-size: 1.1rem;
 }
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
-    gap: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
     width: 100%;
 }
 
 .skill-category {
-    padding: 0;
+    flex: 1;
 }
 
 .skill-category h3 {
     color: var(--accent-color);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .skill-category ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 }
 
 .skill-category ul li {
-    padding: 0;
     color: var(--text-color);
     font-size: 0.95rem;
-    display: flex;
-    align-items: center;
+    padding: 8px 0;
+    opacity: 0;
+    animation: slideIn 0.3s ease forwards;
 }
 
-/* Remove the bullet point and adjust spacing */
-.skill-category ul li:before {
-    display: none;
-}
+/* Animation delays for list items */
+.skill-category:first-child ul li:nth-child(1) { animation-delay: 0.1s; }
+.skill-category:first-child ul li:nth-child(2) { animation-delay: 0.2s; }
+.skill-category:first-child ul li:nth-child(3) { animation-delay: 0.3s; }
+.skill-category:first-child ul li:nth-child(4) { animation-delay: 0.4s; }
+.skill-category:first-child ul li:nth-child(5) { animation-delay: 0.5s; }
 
-/* Add spacing between categories */
-.skill-category + .skill-category {
-    margin-left: auto;
-}
-
-/* Ensure items in second column align to the right */
-.skill-category:nth-child(2) {
-    justify-self: end;
-}
+.skill-category:last-child ul li:nth-child(1) { animation-delay: 0.15s; }
+.skill-category:last-child ul li:nth-child(2) { animation-delay: 0.25s; }
+.skill-category:last-child ul li:nth-child(3) { animation-delay: 0.35s; }
+.skill-category:last-child ul li:nth-child(4) { animation-delay: 0.45s; }
+.skill-category:last-child ul li:nth-child(5) { animation-delay: 0.55s; }
 
 /* Light theme adjustments */
+[data-theme="light"] .skills-section {
+    background: rgba(255, 255, 255, 0.95);
+}
+
 [data-theme="light"] .skill-category h3 {
     color: #2980b9;
 }

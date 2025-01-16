@@ -1258,7 +1258,7 @@ body {
 
 /* Light theme adjustments */
 [data-theme="light"] .research-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -2352,14 +2352,14 @@ body {
 
 /* Update research section for light theme */
 [data-theme="light"] .research-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .research-tags .tag {
-    background: rgba(41, 128, 185, 0.1);
-    color: #2980b9;
+    background: rgba(41, 128, 185, 0.1) !important;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2980b9;
 }
 
 /* Update terminal window styles for light theme */
@@ -2582,21 +2582,21 @@ body {
 
 /* Research card and status badge */
 [data-theme="light"] .research-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .status-badge.completed {
-    background: rgba(41, 128, 185, 0.1);
+    background: rgba(41, 128, 185, 0.1) !important;
     color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Social links card */
 [data-theme="light"] .social-section {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95) !important;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    border-radius: 8px;
+    color: #2c3e50;
 }
 
 [data-theme="light"] .social-title {
@@ -2690,9 +2690,9 @@ body {
 }
 
 [data-theme="light"] .research-tags .tag {
-    background: rgba(41, 128, 185, 0.1);
-    color: #2980b9;
+    background: rgba(41, 128, 185, 0.1) !important;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2980b9;
 }
 
 /* About section */
@@ -2763,4 +2763,84 @@ body {
 [data-theme="light"] .project-item:hover,
 [data-theme="light"] .achievement-item:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Research card and buttons in light theme */
+[data-theme="light"] .research-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .research-link {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2980b9;
+}
+
+[data-theme="light"] .research-link:hover {
+    background: rgba(41, 128, 185, 0.1) !important;
+}
+
+/* View Repository and Read Paper buttons */
+[data-theme="light"] a[class*="View Repository"],
+[data-theme="light"] a[class*="Read Paper"] {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2980b9;
+}
+
+[data-theme="light"] a[class*="View Repository"]:hover,
+[data-theme="light"] a[class*="Read Paper"]:hover {
+    background: rgba(41, 128, 185, 0.1) !important;
+}
+
+/* Social links section in light theme */
+[data-theme="light"] .social-section {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2c3e50;
+}
+
+/* Connect With Me title */
+[data-theme="light"] .social-title,
+[data-theme="light"] h2.social-title {
+    color: #2980b9;
+}
+
+/* Social links */
+[data-theme="light"] .social-item a {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .social-icon {
+    color: #27ae60;
+}
+
+/* Research tags in light theme */
+[data-theme="light"] .research-tags .tag {
+    background: rgba(41, 128, 185, 0.1) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2980b9;
+}
+
+/* Status badge in light theme */
+[data-theme="light"] .status-badge.completed {
+    background: rgba(41, 128, 185, 0.1) !important;
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Research meta information */
+[data-theme="light"] .research-meta {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .research-description {
+    color: #2c3e50;
+}
+
+/* Research section title */
+[data-theme="light"] .research-section h2,
+[data-theme="light"] h2.research-title {
+    color: #2980b9;
 }

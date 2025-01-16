@@ -272,38 +272,6 @@ voucher verification and an authentication framework using RSA-based JSON Web To
                             </div>
                         </div>
                     </div>
-
-                    <!-- Commented out second project
-                    <div class="project-item">
-                        <div class="project-icon">
-                            <i class="fas fa-folder"></i>
-                            <i class="project-icon-overlay fas fa-chart-line"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>Churn Prediction</h3>
-                            <div class="project-meta">
-                                <span class="project-date">Modified: Dec 2023</span>
-                                <span class="project-size">Size: 128MB</span>
-                            </div>
-                            <div class="project-tags">
-                                <span>GCP</span>
-                                <span>ML</span>
-                                <span>Python</span>
-                            </div>
-                            <div class="project-description">
-                                Customer churn prediction model at Bell Canada
-                            </div>
-                            <div class="project-actions">
-                                <a href="#" class="project-action">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-action">
-                                    <i class="fas fa-chart-bar"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    -->
                 </div>
             </div>
         `);

@@ -378,12 +378,6 @@ automation and scalability.</li>
 
     // Modify the generateCertificates function
     function generateCertificates() {
-        // Check if certificates section already exists
-        const existingCerts = document.querySelector('.certificates-section');
-        if (existingCerts) {
-            return; // Exit if certificates are already displayed
-        }
-
         addToTerminal('output', `
             <div class="certificates-section">
                 <h2 class="section-title">Certifications</h2>

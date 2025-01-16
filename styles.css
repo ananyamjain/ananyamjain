@@ -1258,7 +1258,7 @@ body {
 
 /* Light theme adjustments */
 [data-theme="light"] .research-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -1699,7 +1699,7 @@ body {
 
 .research-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px var(--card-shadow);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .research-header {
@@ -2298,7 +2298,7 @@ body {
 
 /* Update achievement styles for light theme */
 [data-theme="light"] .achievement-item {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -2309,6 +2309,7 @@ body {
 
 [data-theme="light"] .achievement-icon {
     background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
 }
 
 /* Update certificate styles for light theme */
@@ -2336,13 +2337,12 @@ body {
 
 /* Update about section for light theme */
 [data-theme="light"] .about-section {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 [data-theme="light"] .highlight-item {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    color: #2c3e50;
 }
 
 [data-theme="light"] .highlight-item:hover {
@@ -2352,14 +2352,14 @@ body {
 
 /* Update research section for light theme */
 [data-theme="light"] .research-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .research-tags .tag {
     background: rgba(41, 128, 185, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
     color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Update terminal window styles for light theme */
@@ -2578,4 +2578,189 @@ body {
 .output p {
     color: var(--text-color);
     opacity: 0.9;
+}
+
+/* Research card and status badge */
+[data-theme="light"] .research-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .status-badge.completed {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+}
+
+/* Social links card */
+[data-theme="light"] .social-section {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+[data-theme="light"] .social-title {
+    color: #2980b9;
+}
+
+[data-theme="light"] .social-item {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .social-item a {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .social-icon {
+    color: #27ae60;
+}
+
+/* Directory view and project cards */
+[data-theme="light"] .directory-view {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .path-segment.active {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+}
+
+[data-theme="light"] .project-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .project-meta {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .project-tags span {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Achievement cards */
+[data-theme="light"] .achievement-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .achievement-icon {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+}
+
+[data-theme="light"] .achievement-year {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Directory tree */
+[data-theme="light"] .pwd-section {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .tree-structure {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .path-root {
+    color: #27ae60;
+}
+
+[data-theme="light"] .path-folder {
+    color: #2980b9;
+}
+
+/* Research section */
+[data-theme="light"] .research-section h2 {
+    color: #2980b9;
+}
+
+[data-theme="light"] .research-meta {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .research-description {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .research-tags .tag {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* About section */
+[data-theme="light"] .about-section {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="light"] .highlight-item {
+    background: rgba(255, 255, 255, 0.95);
+    color: #2c3e50;
+}
+
+[data-theme="light"] .highlight-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* View toggle buttons */
+[data-theme="light"] .view-toggle i {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .view-toggle i.active {
+    color: #2980b9;
+}
+
+/* Links and interactive elements */
+[data-theme="light"] a {
+    color: #2980b9;
+}
+
+[data-theme="light"] .project-action {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .project-action:hover {
+    color: #2980b9;
+}
+
+/* Command prompt and text */
+[data-theme="light"] .prompt {
+    color: #27ae60;
+}
+
+[data-theme="light"] .command {
+    color: #2980b9;
+}
+
+/* Ensure proper contrast for all text */
+[data-theme="light"] {
+    --text-color: #2c3e50;
+    --accent-color: #2980b9;
+    --prompt-color: #27ae60;
+    --command-color: #2980b9;
+    --date-color: #c0392b;
+}
+
+/* Fix background colors and borders */
+[data-theme="light"] .terminal,
+[data-theme="light"] .cheatsheet {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Improve box shadows for light theme */
+[data-theme="light"] .terminal,
+[data-theme="light"] .cheatsheet,
+[data-theme="light"] .project-item:hover,
+[data-theme="light"] .achievement-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }

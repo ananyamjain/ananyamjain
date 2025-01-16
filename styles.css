@@ -2844,3 +2844,117 @@ body {
 [data-theme="light"] h2.research-title {
     color: #2980b9;
 }
+
+/* About section light theme fixes */
+[data-theme="light"] .about-section {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .about-badge {
+    background: rgba(41, 128, 185, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2980b9;
+}
+
+[data-theme="light"] .about-text {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .about-text p {
+    color: #2c3e50;
+}
+
+[data-theme="light"] .about-highlights {
+    gap: 12px;
+}
+
+[data-theme="light"] .highlight-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .highlight-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+[data-theme="light"] .highlight-item i {
+    color: #2980b9;
+}
+
+[data-theme="light"] .highlight-item span {
+    color: #2c3e50;
+}
+
+/* Fix the About Me badge/title */
+[data-theme="light"] .about-section .about-header {
+    margin-bottom: 20px;
+}
+
+[data-theme="light"] .about-section .about-header span {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Achievement section light theme fixes */
+[data-theme="light"] .achievements-grid {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Achievement title/badge */
+[data-theme="light"] .achievements-badge,
+[data-theme="light"] .about-header span {
+    background: rgba(41, 128, 185, 0.1) !important;
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Individual achievement items */
+[data-theme="light"] .achievement-item {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .achievement-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Achievement content */
+[data-theme="light"] .achievement-content h3 {
+    color: #2980b9;
+}
+
+[data-theme="light"] .achievement-content p {
+    color: #2c3e50;
+}
+
+/* Achievement icon */
+[data-theme="light"] .achievement-icon {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Achievement year badge */
+[data-theme="light"] .achievement-year {
+    background: rgba(41, 128, 185, 0.1);
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Fix the gray background in the header */
+[data-theme="light"] .about-header span {
+    background: rgba(41, 128, 185, 0.1) !important;
+    color: #2980b9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}

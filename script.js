@@ -248,30 +248,31 @@ automation and scalability.</li>
                             <i class="project-icon-overlay fas fa-code"></i>
                         </div>
                         <div class="project-content">
-                            <h3>ML Pipeline</h3>
+                            <h3>SmartScanner Application</h3>
                             <div class="project-meta">
-                                <span class="project-date">Modified: Jan 2024</span>
+                                <span class="project-date">Modified: Aug 2023</span>
                                 <span class="project-size">Size: 42MB</span>
                             </div>
                             <div class="project-tags">
-                                <span>Python</span>
-                                <span>Piper</span>
-                                <span>Buildkite</span>
+                                <span>Kotlin</span>
+                                <span>Java</span>
                             </div>
                             <div class="project-description">
-                                End-to-end ML model testing pipeline at Uber
+                                SmartScanner application for OpenG2P (internship), implementing an efficient caching mechanism for offline
+voucher verification and an authentication framework using RSA-based JSON Web Tokens.
                             </div>
                             <div class="project-actions">
-                                <a href="#" class="project-action">
+                                <a href="https://github.com/ananyamjain/openg2p-voucher-scanner-app" target="_blank" class="project-action">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="project-action">
+                                <a href="https://www.openg2p.org/" target="_blank" class="project-action">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Commented out second project
                     <div class="project-item">
                         <div class="project-icon">
                             <i class="fas fa-folder"></i>
@@ -301,6 +302,7 @@ automation and scalability.</li>
                             </div>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         `);

@@ -3366,6 +3366,7 @@ body {
 .skills-section {
     padding: 20px;
     border-radius: 8px;
+    width: 100%;
 }
 
 .skills-header {
@@ -3376,47 +3377,55 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 800px;
+    grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr);
+    gap: 60px;
+    width: 100%;
 }
 
 .skill-category {
-    padding: 15px;
+    padding: 0;
 }
 
 .skill-category h3 {
     color: var(--accent-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .skill-category ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .skill-category ul li {
-    padding: 8px 0;
+    padding: 0;
     color: var(--text-color);
     font-size: 0.95rem;
     display: flex;
     align-items: center;
 }
 
+/* Remove the bullet point and adjust spacing */
 .skill-category ul li:before {
-    content: "•";
-    color: var(--accent-color);
-    margin-right: 10px;
-    font-size: 1.2em;
+    display: none;
+}
+
+/* Add spacing between categories */
+.skill-category + .skill-category {
+    margin-left: auto;
+}
+
+/* Ensure items in second column align to the right */
+.skill-category:nth-child(2) {
+    justify-self: end;
 }
 
 /* Light theme adjustments */
 [data-theme="light"] .skill-category h3 {
-    color: #2980b9;
-}
-
-[data-theme="light"] .skill-category ul li:before {
     color: #2980b9;
 }

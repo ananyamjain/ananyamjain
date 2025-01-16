@@ -272,6 +272,60 @@ voucher verification and an authentication framework using RSA-based JSON Web To
                             </div>
                         </div>
                     </div>
+
+                    <div class="project-item">
+                        <div class="project-icon">
+                            <i class="fas fa-folder"></i>
+                            <i class="project-icon-overlay fas fa-book"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>United for Literacy</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: Jan 2024</span>
+                                <span class="project-size">Size: 156MB</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="project-description">
+                                A collaborative platform connecting literacy organizations with volunteers. Features include volunteer matching, event management, and impact tracking. Built with React and Node.js, following agile methodologies.
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/csc301-2024-s/27-united-for-literacy" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-icon">
+                            <i class="fas fa-folder"></i>
+                            <i class="project-icon-overlay fas fa-car"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Ryde - Car Marketplace</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: Dec 2022</span>
+                                <span class="project-size">Size: 84MB</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Java</span>
+                                <span>Clean Architecture</span>
+                                <span>Design Patterns</span>
+                            </div>
+                            <div class="project-description">
+                                A Java desktop application for finding and listing cars for sale. Features include user authentication, listing management, dealership locator, and advanced filtering. Built using Clean Architecture and various design patterns including Factory, Dependency Injection, and Singleton.
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/CSC207-2022F-UofT/course-project-ryde" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         `);

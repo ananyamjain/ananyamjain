@@ -569,11 +569,31 @@ automation and scalability.</li>
                 </div>
                 <div class="directory-tree">
                     <pre class="tree-structure">
+.
 ├── about.txt
-├── projects.txt
+├── projects/
+│   ├── SmartScanner Application
+│   │   ├── README.md
+│   │   └── source/
+│   ├── United for Literacy
+│   │   ├── README.md
+│   │   └── source/
+│   └── Ryde - Car Marketplace
+│       ├── README.md
+│       └── source/
+├── research/
+│   ├── Quantum Optimization for PDDL
+│   │   ├── paper.pdf
+│   │   └── source/
+│   └── Vision Transformers Classification
+│       ├── paper.pdf
+│       └── source/
 ├── achievements.txt
 ├── experience.txt
 ├── education.txt
+├── skills/
+│   ├── languages
+│   └── technologies
 ├── certificates/
 │   ├── quantum-programming.pdf
 │   ├── ml-certification.pdf

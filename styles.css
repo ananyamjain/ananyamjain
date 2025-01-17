@@ -3376,10 +3376,10 @@ body {
 }
 
 .skills-grid {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
-    width: 100%;
+    max-width: 800px;
 }
 
 .skill-category {
@@ -3407,7 +3407,20 @@ body {
     animation: slideIn 0.3s ease forwards;
 }
 
-/* Animation delays for list items */
+/* Second column alignment */
+.skill-category:last-child {
+    text-align: right;
+}
+
+.skill-category:last-child h3 {
+    text-align: right;
+}
+
+.skill-category:last-child ul li {
+    justify-content: flex-end;
+}
+
+/* Animation delays */
 .skill-category:first-child ul li:nth-child(1) { animation-delay: 0.1s; }
 .skill-category:first-child ul li:nth-child(2) { animation-delay: 0.2s; }
 .skill-category:first-child ul li:nth-child(3) { animation-delay: 0.3s; }

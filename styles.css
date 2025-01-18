@@ -198,11 +198,11 @@ body {
 }
 
 .prompt {
-    color: var(--prompt-color);
+    color: #98C379;
 }
 
 .command {
-    color: var(--command-color);
+    color: #98C379;
 }
 
 .output {

@@ -2504,8 +2504,6 @@ body {
     height: auto;
     object-fit: contain;
     margin-top: 1rem;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
 }
 
 .experience-item:hover .company-logo {
@@ -3440,4 +3438,38 @@ body {
 
 [data-theme="light"] .skill-category h3 {
     color: #2980b9;
+}
+
+.about-container {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.profile-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid var(--card-border);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.02);
+}
+
+.about-content {
+    flex: 1;
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .profile-photo {
+    border-color: rgba(0, 0, 0, 0.1);
 }

@@ -569,13 +569,8 @@ automation and scalability.</li>
 ├── achievements.txt
 ├── experience.txt
 ├── education.txt
-├── skills/
-│   ├── languages
-│   └── technologies
-├── certificates/
-│   ├── quantum-programming.pdf
-│   ├── ml-certification.pdf
-│   └── quantum-computing.pdf
+├── skills
+├── certificates
 └── socials/
     ├── github
     ├── linkedin

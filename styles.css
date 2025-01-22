@@ -89,7 +89,6 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: stretch;
     font-family: 'JetBrains Mono', monospace;
     transition: background-color 0.3s ease;
 }
@@ -97,19 +96,22 @@ body {
 .container {
     display: flex;
     justify-content: center;
-    gap: var(--container-gap);
+    gap: 25px;
     width: 100%;
     max-width: 1400px;
     padding: 20px;
-    align-items: stretch; /* Change to stretch to ensure equal heights */
 }
 
 .terminal {
     flex: 1;
-    min-width: 0;
-    max-width: var(--window-width);
+    background: var(--terminal-bg);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 90vh;
 }
 
 .terminal::before {

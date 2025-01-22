@@ -8,10 +8,10 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
-    --terminal-width: calc(100vw - 360px);
+    --terminal-width: calc(100vw - 400px);
     --window-height: 85vh;
-    --window-width: calc(100vw - 360px);
-    --cheatsheet-width: 280px;
+    --window-width: calc(100vw - 400px);
+    --cheatsheet-width: 320px;
     --container-gap: 25px;
     --header-height: 45px;
     --border-radius: 12px;
@@ -550,8 +550,8 @@ body {
 /* Add styles for ultra-wide screens */
 @media (min-width: 1800px) {
     :root {
-        --terminal-width: min(1200px, calc(100vw - 400px));
-        --cheatsheet-width: 320px;
+        --terminal-width: min(1200px, calc(100vw - 440px));
+        --cheatsheet-width: 360px;  /* Slightly wider for large screens */
     }
 }
 

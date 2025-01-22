@@ -74,9 +74,10 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Change from center to flex-start */
     font-family: 'JetBrains Mono', monospace;
     transition: background-color 0.3s ease;
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .container {
@@ -86,11 +87,14 @@ body {
     width: 100%;
     max-width: 1400px;
     padding: 20px;
+    align-items: flex-start;
+    min-height: 90vh; /* Add minimum height */
 }
 
 .terminal {
     flex: 1;
     height: 90vh;
+    min-height: 600px; /* Add minimum height */
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -377,10 +381,11 @@ body {
     padding: 1.8rem;
     padding-top: 2.8rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 12px 30px var(--card-shadow);
     height: fit-content;
-    position: relative;
+    position: sticky; /* Add this to keep it in view */
+    top: 20px; /* Add this to maintain some spacing from the top */
     overflow: hidden;
 }
 
@@ -3472,4 +3477,19 @@ body {
 /* Light theme adjustments */
 [data-theme="light"] .profile-photo {
     border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Add media query for smaller screens */
+@media (max-height: 800px) {
+    .container {
+        padding-bottom: 40px; /* Add padding at bottom for scrolling */
+    }
+    
+    .cheatsheet {
+        position: fixed; /* Change from sticky to fixed */
+        right: 20px; /* Position on the right */
+        top: 20px;
+        max-height: calc(100vh - 40px); /* Prevent overflow */
+        overflow-y: auto; /* Make cheatsheet scrollable if needed */
+    }
 }

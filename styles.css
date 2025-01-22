@@ -8,6 +8,11 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
+    --terminal-width: calc(100vw - 360px); /* Account for cheatsheet + padding */
+    --terminal-height: min(90vh, 900px);
+    --cheatsheet-width: min(280px, 25vw);
+    --container-gap: clamp(15px, 2vw, 25px);
+    --container-padding: clamp(10px, 2vw, 20px);
 }
 
 /* Direct styles */
@@ -70,11 +75,11 @@
 body {
     background-color: var(--bg-color);
     margin: 0;
-    padding: 20px;
+    padding: var(--container-padding);
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     font-family: 'JetBrains Mono', monospace;
     transition: background-color 0.3s ease;
 }
@@ -82,19 +87,21 @@ body {
 .container {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: var(--container-gap);
     width: 100%;
-    max-width: 1400px;
-    padding: 20px;
+    max-width: min(1400px, 95vw);
+    padding: var(--container-padding);
+    align-items: flex-start;
 }
 
 .terminal {
     flex: 1;
-    height: 90vh;
+    height: var(--terminal-height);
+    min-width: min(600px, var(--terminal-width));
+    max-width: var(--terminal-width);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -372,16 +379,16 @@ body {
 }
 
 .cheatsheet {
-    width: 280px;
-    background: var(--cheatsheet-bg);
+    width: var(--cheatsheet-width);
+    background: var(--terminal-bg);
     padding: 1.8rem;
     padding-top: 2.8rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 12px 30px var(--card-shadow);
     height: fit-content;
-    position: relative;
-    overflow: hidden;
+    position: sticky;
+    top: var(--container-padding);
 }
 
 .cheatsheet::before {
@@ -499,27 +506,57 @@ body {
 }
 
 @media (max-width: 1200px) {
+    :root {
+        --terminal-width: min(95vw, 800px);
+        --terminal-height: min(80vh, 800px);
+        --cheatsheet-width: min(95vw, 600px);
+    }
+
     .container {
         flex-direction: column;
+        align-items: center;
     }
-    
+
+    .terminal {
+        margin-bottom: var(--container-gap);
+    }
+
     .cheatsheet {
-        width: auto;
+        position: relative;
+        top: 0;
     }
 }
 
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
+    :root {
+        --container-padding: 10px;
+        --container-gap: 15px;
+        --terminal-height: min(70vh, 600px);
     }
-    
-    .terminal {
-        height: 80vh;
+
+    .terminal-content {
+        font-size: 14px;
     }
-    
-    .ascii-art {
-        font-size: 0.4rem;
-        line-height: 1;
+
+    .cheatsheet {
+        font-size: 14px;
+        padding: 1.2rem;
+        padding-top: 2.2rem;
+    }
+}
+
+/* Add styles for ultra-wide screens */
+@media (min-width: 1800px) {
+    :root {
+        --terminal-width: min(1200px, calc(100vw - 400px));
+        --cheatsheet-width: 320px;
+    }
+}
+
+/* Add styles for smaller height screens */
+@media (max-height: 800px) {
+    :root {
+        --terminal-height: min(85vh, 700px);
     }
 }
 

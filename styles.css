@@ -86,18 +86,15 @@ body {
     gap: 25px;
     width: 100%;
     max-width: 1400px;
+    padding: 20px;
+    min-height: 90vh;
+    align-items: flex-start; /* Align items to top */
 }
 
 .terminal {
     flex: 1;
-    background: var(--terminal-bg);
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
     height: 90vh;
+    min-width: 0; /* Prevent flex item from overflowing */
 }
 
 .terminal::before {
@@ -370,17 +367,13 @@ body {
 }
 
 .cheatsheet {
-    width: var(--cheatsheet-width);
-    background: var(--terminal-bg);
-    padding: 1.8rem;
-    padding-top: 2.8rem;
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    box-shadow: 0 12px 30px var(--card-shadow);
+    width: 280px;
+    flex-shrink: 0; /* Prevent cheatsheet from shrinking */
     position: sticky;
     top: 20px;
     height: fit-content;
-    overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .cheatsheet::before {
@@ -498,11 +491,6 @@ body {
 }
 
 @media (max-width: 1200px) {
-    :root {
-        --terminal-width: 100%;
-        --cheatsheet-width: 100%;
-    }
-
     .container {
         flex-direction: column;
         align-items: stretch;
@@ -513,9 +501,11 @@ body {
     }
 
     .cheatsheet {
+        width: 100%;
         position: relative;
         top: 0;
         margin-top: var(--container-gap);
+        max-height: none;
     }
 }
 
@@ -3490,11 +3480,11 @@ body {
         padding-bottom: 40px; /* Add padding at bottom for scrolling */
     }
     
+    /* Remove the fixed positioning of cheatsheet */
     .cheatsheet {
-        position: fixed; /* Change from sticky to fixed */
-        right: 20px; /* Position on the right */
-        top: 20px;
-        max-height: calc(100vh - 40px); /* Prevent overflow */
-        overflow-y: auto; /* Make cheatsheet scrollable if needed */
+        position: relative;
+        right: auto;
+        top: auto;
+        max-height: none;
     }
 }

@@ -9,10 +9,12 @@
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
     --terminal-width: calc(100vw - 360px);
-    --window-height: 90vh;
+    --window-height: 85vh;
+    --window-width: calc(100vw - 360px);
     --cheatsheet-width: 280px;
     --container-gap: 25px;
     --header-height: 45px;
+    --border-radius: 12px;
 }
 
 /* Direct styles */
@@ -22,6 +24,13 @@
     border: 1px solid var(--card-border) !important;
     box-shadow: 0 15px 35px var(--card-shadow) !important;
     color: var(--text-color) !important;
+    height: var(--window-height);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .terminal-content {
@@ -91,14 +100,13 @@ body {
     width: 100%;
     max-width: 1400px;
     padding: 20px;
-    align-items: stretch;
+    align-items: flex-start; /* Align to top */
 }
 
 .terminal {
     flex: 1;
-    height: var(--window-height);
-    min-width: min(600px, var(--terminal-width));
-    max-width: var(--terminal-width);
+    min-width: 0;
+    max-width: var(--window-width);
     display: flex;
     flex-direction: column;
 }
@@ -124,6 +132,8 @@ body {
     padding: 0 1.2rem;
     display: flex;
     align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--card-border);
 }
 
 .terminal-buttons {
@@ -512,13 +522,14 @@ body {
 
     .terminal, .cheatsheet {
         width: 100%;
+        margin-bottom: var(--container-gap);
     }
 }
 
 @media (max-width: 768px) {
     :root {
         --window-height: 60vh;
-        --header-height: 40px;
+        --border-radius: 8px;
     }
 
     .terminal-content {

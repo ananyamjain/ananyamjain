@@ -8,10 +8,6 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
-    --terminal-height: 90vh;
-    --terminal-width: calc(100vw - 340px);
-    --cheatsheet-width: 280px;
-    --container-gap: 25px;
 }
 
 /* Direct styles */
@@ -78,23 +74,31 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: 'JetBrains Mono', monospace;
+    transition: background-color 0.3s ease;
 }
 
 .container {
     display: flex;
+    justify-content: center;
     gap: 25px;
     width: 100%;
     max-width: 1400px;
     padding: 20px;
-    min-height: 90vh;
-    align-items: flex-start; /* Align items to top */
 }
 
 .terminal {
     flex: 1;
     height: 90vh;
-    min-width: 0; /* Prevent flex item from overflowing */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
 }
 
 .terminal::before {
@@ -116,7 +120,7 @@ body {
 .terminal-header {
     background: rgba(0, 0, 0, 0.2);
     padding: 1rem 1.2rem;
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -147,7 +151,8 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 1.2rem;
-    height: calc(100% - 60px); /* Account for header */
+    padding-right: 16px;
+    height: calc(90vh - 60px);
     scrollbar-width: thin;
     scrollbar-color: rgba(136, 192, 208, 0.2) transparent;
     position: relative;
@@ -368,12 +373,15 @@ body {
 
 .cheatsheet {
     width: 280px;
-    flex-shrink: 0; /* Prevent cheatsheet from shrinking */
-    position: sticky;
-    top: 20px;
+    background: var(--cheatsheet-bg);
+    padding: 1.8rem;
+    padding-top: 2.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     height: fit-content;
-    max-height: 90vh;
-    overflow-y: auto;
+    position: relative;
+    overflow: hidden;
 }
 
 .cheatsheet::before {
@@ -493,19 +501,10 @@ body {
 @media (max-width: 1200px) {
     .container {
         flex-direction: column;
-        align-items: stretch;
     }
-
-    .terminal {
-        height: 70vh;
-    }
-
+    
     .cheatsheet {
-        width: 100%;
-        position: relative;
-        top: 0;
-        margin-top: var(--container-gap);
-        max-height: none;
+        width: auto;
     }
 }
 
@@ -513,13 +512,14 @@ body {
     body {
         padding: 10px;
     }
-
-    .container {
-        padding: 10px;
+    
+    .terminal {
+        height: 80vh;
     }
-
-    :root {
-        --container-gap: 15px;
+    
+    .ascii-art {
+        font-size: 0.4rem;
+        line-height: 1;
     }
 }
 
@@ -3472,19 +3472,4 @@ body {
 /* Light theme adjustments */
 [data-theme="light"] .profile-photo {
     border-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Add media query for smaller screens */
-@media (max-height: 800px) {
-    .container {
-        padding-bottom: 40px; /* Add padding at bottom for scrolling */
-    }
-    
-    /* Remove the fixed positioning of cheatsheet */
-    .cheatsheet {
-        position: relative;
-        right: auto;
-        top: auto;
-        max-height: none;
-    }
 }

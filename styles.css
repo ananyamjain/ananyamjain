@@ -78,32 +78,26 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     font-family: 'JetBrains Mono', monospace;
-    transition: background-color 0.3s ease;
 }
 
 .container {
     display: flex;
-    justify-content: center;
-    gap: var(--container-gap);
+    gap: 25px;
     width: 100%;
     max-width: 1400px;
-    padding: 20px;
-    align-items: flex-start;
 }
 
 .terminal {
     flex: 1;
-    height: var(--terminal-height);
+    background: var(--terminal-bg);
     border-radius: 12px;
     border: 1px solid var(--card-border);
     box-shadow: 0 15px 35px var(--card-shadow);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    position: relative;
-    min-width: 0; /* Prevent flex item from overflowing */
+    height: 90vh;
 }
 
 .terminal::before {
@@ -125,7 +119,7 @@ body {
 .terminal-header {
     background: rgba(0, 0, 0, 0.2);
     padding: 1rem 1.2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid var(--card-border);
     display: flex;
     align-items: center;
     gap: 1rem;

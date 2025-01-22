@@ -9,7 +9,7 @@
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
     --terminal-height: 90vh;
-    --terminal-width: calc(100vw - 340px); /* Account for cheatsheet + padding */
+    --terminal-width: calc(100vw - 340px);
     --cheatsheet-width: 280px;
     --container-gap: 25px;
 }
@@ -76,36 +76,34 @@ body {
     margin: 0;
     padding: 20px;
     min-height: 100vh;
-    height: 100vh; /* Ensure full viewport height */
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Change from center to flex-start */
+    align-items: flex-start;
     font-family: 'JetBrains Mono', monospace;
     transition: background-color 0.3s ease;
-    overflow: hidden; /* Prevent double scrolling */
 }
 
 .container {
     display: flex;
     justify-content: center;
     gap: var(--container-gap);
-    width: 100vw;
-    height: 100vh;
-    padding: clamp(10px, 2vw, 20px); /* Responsive padding */
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
     align-items: flex-start;
-    overflow: hidden;
-    box-sizing: border-box;
 }
 
 .terminal {
     flex: 1;
-    width: var(--terminal-width);
     height: var(--terminal-height);
-    min-width: min(300px, 90vw);
-    max-width: calc(100vw - var(--cheatsheet-width) - var(--container-gap) - 40px);
-    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    min-width: 0; /* Prevent flex item from overflowing */
 }
 
 .terminal::before {
@@ -157,7 +155,8 @@ body {
 .terminal-content {
     flex: 1;
     overflow-y: auto;
-    height: calc(var(--terminal-height) - 60px); /* Account for header */
+    padding: 1.2rem;
+    height: calc(100% - 60px); /* Account for header */
     scrollbar-width: thin;
     scrollbar-color: rgba(136, 192, 208, 0.2) transparent;
     position: relative;
@@ -378,17 +377,16 @@ body {
 
 .cheatsheet {
     width: var(--cheatsheet-width);
-    max-height: var(--terminal-height);
-    overflow-y: auto;
-    position: sticky;
-    top: clamp(10px, 2vh, 20px);
-    background: var(--cheatsheet-bg);
+    background: var(--terminal-bg);
     padding: 1.8rem;
     padding-top: 2.8rem;
     border-radius: 12px;
     border: 1px solid var(--card-border);
     box-shadow: 0 12px 30px var(--card-shadow);
+    position: sticky;
+    top: 20px;
     height: fit-content;
+    overflow: hidden;
 }
 
 .cheatsheet::before {
@@ -506,24 +504,24 @@ body {
 }
 
 @media (max-width: 1200px) {
+    :root {
+        --terminal-width: 100%;
+        --cheatsheet-width: 100%;
+    }
+
     .container {
         flex-direction: column;
-        overflow-y: auto;
-        height: auto;
+        align-items: stretch;
     }
 
     .terminal {
-        width: 100%;
-        height: calc(100vh - 400px); /* Leave space for cheatsheet */
-        max-width: 100%;
+        height: 70vh;
     }
 
     .cheatsheet {
-        width: 100%;
-        max-width: 100%;
         position: relative;
-        height: auto;
-        max-height: 350px;
+        top: 0;
+        margin-top: var(--container-gap);
     }
 }
 
@@ -531,13 +529,13 @@ body {
     body {
         padding: 10px;
     }
-    
+
     .container {
         padding: 10px;
     }
-    
-    .terminal, .cheatsheet {
-        border-radius: 8px;
+
+    :root {
+        --container-gap: 15px;
     }
 }
 

@@ -202,28 +202,16 @@ automation and scalability.</li>
     // Define command functions
     function generateAbout() {
         addToTerminal('output', `
-            <div class="about-section">
-                <div class="about-header">
-                    <span class="about-badge">About Me</span>
-                </div>
-                
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>I'm a <span class="highlight">Computer Science</span> student at the <span class="highlight">University of Toronto</span> with a passion for <span class="highlight">Machine Learning</span>, <span class="highlight">AI</span>, and software development. Currently, I'm on a <span class="highlight">one-year co-op at Uber</span>, working on their internal ML platform, <span class="highlight">Michelangelo</span>. I'm seeking <span class="highlight">research opportunities</span> for Fall 2025 to advance my expertise and contribute to impactful projects.</p>
-                    </div>
-                    
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Computer Science @ UofT</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-briefcase"></i>
-                            <span>ML Engineer Intern @ Uber</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-search"></i>
-                            <span>Seeking Research Opportunities</span>
+            <div class="section">
+                <div class="about-container">
+                    <div class="profile-section">
+                        <img src="profile.jpg" alt="Ananya Jain" class="profile-photo">
+                        <div class="about-content">
+                            <h2>About Me</h2>
+                            <ul>
+                                <li>I'm a Computer Science student at the University of Toronto, passionate about Machine Learning, AI, and software development.</li>
+                                <li>Currently focused on ML Engineering and creating scalable AI solutions.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -573,31 +561,16 @@ automation and scalability.</li>
 ├── about.txt
 ├── projects/
 │   ├── SmartScanner Application
-│   │   ├── README.md
-│   │   └── source/
 │   ├── United for Literacy
-│   │   ├── README.md
-│   │   └── source/
 │   └── Ryde - Car Marketplace
-│       ├── README.md
-│       └── source/
 ├── research/
 │   ├── Quantum Optimization for PDDL
-│   │   ├── paper.pdf
-│   │   └── source/
 │   └── Vision Transformers Classification
-│       ├── paper.pdf
-│       └── source/
 ├── achievements.txt
 ├── experience.txt
 ├── education.txt
-├── skills/
-│   ├── languages
-│   └── technologies
-├── certificates/
-│   ├── quantum-programming.pdf
-│   ├── ml-certification.pdf
-│   └── quantum-computing.pdf
+├── skills
+├── certificates
 └── socials/
     ├── github
     ├── linkedin

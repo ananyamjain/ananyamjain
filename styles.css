@@ -210,6 +210,14 @@ body {
 .project-overlay.active ~ .cheatsheet {
     opacity: 0.1; /* Make background windows very faint */
     transition: opacity 0.3s ease;
+    pointer-events: none; /* Prevent interaction with background windows */
+}
+
+/* Hide all window buttons when overlay is active */
+.project-overlay.active ~ .terminal .terminal-buttons,
+.project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* Only show buttons on expanded item */
@@ -3752,4 +3760,54 @@ body {
 [data-theme="light"] .research-item.expanded {
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Update opacity for both terminal and cheatsheet when overlay is active */
+.project-overlay.active ~ .terminal,
+.project-overlay.active ~ .cheatsheet {
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Prevent interaction with background windows */
+}
+
+/* Hide all window buttons when overlay is active */
+.project-overlay.active ~ .terminal .terminal-buttons,
+.project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Show buttons only on expanded project/research */
+.project-item .terminal-buttons,
+.research-item .terminal-buttons {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.project-item.expanded .terminal-buttons,
+.research-item.expanded .terminal-buttons {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000;
+}
+
+/* Fix terminal header layout */
+.terminal-header,
+.cheatsheet-header {
+    height: var(--header-height);
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    padding: 0 1.2rem;
+    position: relative;
+}
+
+.terminal-title,
+.cheatsheet-title {
+    flex: 1;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-left: 45px; /* Make space for buttons */
 }

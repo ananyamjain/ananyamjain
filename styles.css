@@ -237,12 +237,12 @@ body {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 } */
 
-.project-item.expanded .terminal-buttons,
+/* .project-item.expanded .terminal-buttons,
 .research-item.expanded .terminal-buttons {
     opacity: 1;
     visibility: visible;
     z-index: 1000;
-}
+} */
 
 /* Expanded items should be on top */
 .project-item.expanded,
@@ -251,11 +251,11 @@ body {
     position: relative;
 }
 
-.project-item.expanded .terminal-buttons,
+/* .project-item.expanded .terminal-buttons,
 .research-item.expanded .terminal-buttons {
     opacity: 1;
     visibility: visible;
-}
+} */
 
 /* Fade effect when modal is open */
 .project-overlay.active ~ .terminal .terminal-buttons,

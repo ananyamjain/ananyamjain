@@ -3795,12 +3795,12 @@ body {
     visibility: hidden;
 }
 
-/* .project-item.expanded .terminal-buttons,
+.project-item.expanded .terminal-buttons,
 .research-item.expanded .terminal-buttons {
-    opacity: 1;
+    opacity: 0.5;
     visibility: visible;
     z-index: 1000;
-} */
+}
 
 /* Fix terminal header layout */
 .terminal-header,

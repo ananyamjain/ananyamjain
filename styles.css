@@ -3566,3 +3566,101 @@ body {
     opacity: 0;
     visibility: hidden;
 }
+
+/* Unified window buttons styling */
+.terminal-buttons,
+.cheatsheet-buttons {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.terminal-buttons span,
+.cheatsheet-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Unified button colors */
+.terminal-buttons span:nth-child(1),
+.cheatsheet-buttons span:nth-child(1) {
+    background: #ff5f56;
+    border: 1px solid #e0443e;
+}
+
+.terminal-buttons span:nth-child(2),
+.cheatsheet-buttons span:nth-child(2) {
+    background: #ffbd2e;
+    border: 1px solid #dea123;
+}
+
+.terminal-buttons span:nth-child(3),
+.cheatsheet-buttons span:nth-child(3) {
+    background: #27c93f;
+    border: 1px solid #1aab29;
+}
+
+/* Fade buttons when project/research is expanded */
+.project-overlay.active ~ .terminal .terminal-buttons,
+.project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
+    opacity: 0.5;
+}
+
+/* Z-index hierarchy */
+.terminal, .cheatsheet {
+    z-index: 1;
+}
+
+.project-overlay {
+    z-index: 999;
+}
+
+.project-item.expanded,
+.research-item.expanded {
+    z-index: 1000;
+}
+
+/* Ensure research cards match project cards */
+.research-item {
+    position: relative;
+    width: 300px;
+    transition: all 0.3s ease;
+    z-index: 1;
+    background: rgba(28, 28, 28, 0.6);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.research-item:hover {
+    background: rgba(41, 128, 185, 0.1);
+    transform: translateY(-4px);
+}
+
+.research-item.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+    padding-top: 40px;
+    background: rgba(28, 28, 28, 0.95);
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .research-item {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .research-item.expanded {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}

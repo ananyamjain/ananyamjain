@@ -626,6 +626,7 @@ automation and scalability.</li>
     function generateResearch() {
         addToTerminal('output', `
             <div class="directory-view">
+                <div class="project-overlay"></div>
                 <div class="directory-header">
                     <div class="path-navigator">
                         <span class="path-segment">~</span>
@@ -635,10 +636,12 @@ automation and scalability.</li>
                 </div>
                 
                 <div class="project-container grid-view" id="researchContainer">
-                    <div class="project-item">
-                        <button class="close-button">
-                            <i class="fas fa-times"></i>
-                        </button>
+                    <div class="research-item">
+                        <div class="terminal-buttons">
+                            <span class="close-btn"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                         <div class="project-content">
                             <div class="project-icon">
                                 <i class="fas fa-folder"></i>
@@ -669,10 +672,12 @@ automation and scalability.</li>
                         </div>
                     </div>
 
-                    <div class="project-item">
-                        <button class="close-button">
-                            <i class="fas fa-times"></i>
-                        </button>
+                    <div class="research-item">
+                        <div class="terminal-buttons">
+                            <span class="close-btn"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                         <div class="project-content">
                             <div class="project-icon">
                                 <i class="fas fa-folder"></i>
@@ -709,15 +714,15 @@ automation and scalability.</li>
             </div>
         `);
 
-        // Add the same click handlers as projects
+        // Use the same click handlers as projects
         setTimeout(() => {
-            const projectItems = document.querySelectorAll('.project-item');
-            const closeButtons = document.querySelectorAll('.close-button');
+            const researchItems = document.querySelectorAll('.research-item');
+            const closeButtons = document.querySelectorAll('.close-btn');
             const overlay = document.querySelector('.project-overlay');
             
-            projectItems.forEach(item => {
+            researchItems.forEach(item => {
                 item.addEventListener('click', (e) => {
-                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
+                    if (!e.target.closest('.close-btn') && !e.target.closest('a')) {
                         item.classList.add('expanded');
                         overlay.classList.add('active');
                         document.body.style.overflow = 'hidden';
@@ -728,15 +733,15 @@ automation and scalability.</li>
             closeButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const projectItem = button.closest('.project-item');
-                    projectItem.classList.remove('expanded');
+                    const researchItem = button.closest('.research-item');
+                    researchItem.classList.remove('expanded');
                     overlay.classList.remove('active');
                     document.body.style.overflow = '';
                 });
             });
 
             overlay?.addEventListener('click', () => {
-                const expandedItem = document.querySelector('.project-item.expanded');
+                const expandedItem = document.querySelector('.research-item.expanded');
                 if (expandedItem) {
                     expandedItem.classList.remove('expanded');
                     overlay.classList.remove('active');

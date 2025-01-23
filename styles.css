@@ -3365,10 +3365,10 @@ body {
     z-index: 1001; /* Ensure buttons are above overlay */
 }
 
-.project-item.expanded .terminal-buttons {
+/* .project-item.expanded .terminal-buttons {
     opacity: 1;
     visibility: visible;
-}
+} */
 
 .terminal-buttons span {
     width: 12px;
@@ -3665,9 +3665,9 @@ body {
     z-index: 1000;
 }
 
-.project-item.expanded .terminal-buttons {
+/* .project-item.expanded .terminal-buttons {
     z-index: 1001;
-}
+} */
 
 /* Hide cheatsheet buttons when project is expanded */
 .project-overlay.active ~ .cheatsheet .cheatsheet-buttons {

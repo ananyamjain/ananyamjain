@@ -373,7 +373,7 @@ automation and scalability.</li>
         // Update click handlers
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
-            const closeButtons = document.querySelectorAll('.close-btn');
+            const closeButtons = document.querySelectorAll('.terminal-buttons span:first-child');
             const overlay = document.querySelector('.project-overlay');
             
             projectItems.forEach(item => {
@@ -389,7 +389,7 @@ automation and scalability.</li>
             closeButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const projectItem = button.closest('.project-item');
+                    const projectItem = button.closest('.project-item') || button.closest('.research-item');
                     projectItem.classList.remove('expanded');
                     overlay.classList.remove('active');
                     document.body.style.overflow = '';
@@ -717,7 +717,7 @@ automation and scalability.</li>
         // Use the same click handlers as projects
         setTimeout(() => {
             const researchItems = document.querySelectorAll('.research-item');
-            const closeButtons = document.querySelectorAll('.close-btn');
+            const closeButtons = document.querySelectorAll('.terminal-buttons span:first-child');
             const overlay = document.querySelector('.project-overlay');
             
             researchItems.forEach(item => {

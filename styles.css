@@ -3252,9 +3252,7 @@ body {
     left: 12px;
     display: flex;
     gap: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
+    z-index: 1001; /* Ensure buttons are above overlay */
 }
 
 .project-item.expanded .terminal-buttons {
@@ -3532,4 +3530,10 @@ body {
 /* Light theme adjustments */
 [data-theme="light"] .profile-photo {
     border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Hide buttons in non-expanded state */
+.project-item:not(.expanded) .terminal-buttons {
+    opacity: 0;
+    visibility: hidden;
 }

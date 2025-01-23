@@ -236,7 +236,6 @@ automation and scalability.</li>
                 </div>
                 
                 <div class="project-container grid-view" id="projectContainer">
-                    <!-- SmartScanner Project -->
                     <div class="project-item">
                         <div class="terminal-buttons">
                             <span class="close-btn"></span>
@@ -282,7 +281,6 @@ automation and scalability.</li>
                         </div>
                     </div>
 
-                    <!-- United for Literacy Project -->
                     <div class="project-item">
                         <div class="terminal-buttons">
                             <span class="close-btn"></span>
@@ -326,7 +324,6 @@ automation and scalability.</li>
                         </div>
                     </div>
 
-                    <!-- Ryde Project -->
                     <div class="project-item">
                         <div class="terminal-buttons">
                             <span class="close-btn"></span>

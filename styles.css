@@ -33,6 +33,8 @@
     display: flex;
     flex-direction: column;
     margin-top: 0; /* Ensure no top margin */
+    z-index: 1;
+    transition: opacity 0.3s ease;
 }
 
 .terminal-content {
@@ -132,13 +134,20 @@ body {
 }
 
 .terminal-header {
-    height: var(--header-height);
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid var(--card-border);
+    height: 36px;
     display: flex;
     align-items: center;
-    padding: 0 1.2rem;
-    position: relative; /* Ensure headers are positioned the same */
+    padding: 0 12px;
+    position: relative;
+}
+
+.terminal-title,
+.cheatsheet-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-color);
+    font-size: 0.9rem;
 }
 
 .terminal-buttons,
@@ -150,8 +159,9 @@ body {
     left: 12px;
     display: flex;
     gap: 8px;
-    z-index: 10;
-    transition: opacity 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* Unified button styles */
@@ -196,8 +206,8 @@ body {
     background: rgba(0, 0, 0, 0.95); /* Make overlay darker */
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 998; /* Below expanded items */
+    transition: opacity 0.3s ease;
+    z-index: 999;
 }
 
 .project-overlay.active {
@@ -208,9 +218,8 @@ body {
 /* Hide all window controls when overlay is active */
 .project-overlay.active ~ .terminal,
 .project-overlay.active ~ .cheatsheet {
-    opacity: 0.1; /* Make background windows very faint */
-    transition: opacity 0.3s ease;
-    pointer-events: none; /* Prevent interaction with background windows */
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 /* Hide all window buttons when overlay is active */
@@ -237,7 +246,7 @@ body {
 /* Expanded items should be on top */
 .project-item.expanded,
 .research-item.expanded {
-    z-index: 999;
+    z-index: 1000;
     position: relative;
 }
 
@@ -505,9 +514,10 @@ body {
 }
 
 .cheatsheet-header {
-    height: var(--header-height);
-    background: rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
     position: relative;
 }
 
@@ -3331,7 +3341,7 @@ body {
     background: rgba(0, 0, 0, 0.8);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
     z-index: 999;
 }
 
@@ -3794,20 +3804,18 @@ body {
 /* Fix terminal header layout */
 .terminal-header,
 .cheatsheet-header {
-    height: var(--header-height);
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid var(--card-border);
+    height: 36px;
     display: flex;
     align-items: center;
-    padding: 0 1.2rem;
+    padding: 0 12px;
     position: relative;
 }
 
 .terminal-title,
 .cheatsheet-title {
-    flex: 1;
-    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     color: var(--text-color);
     font-size: 0.9rem;
-    margin-left: 45px; /* Make space for buttons */
 }

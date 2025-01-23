@@ -238,9 +238,11 @@ automation and scalability.</li>
                 <div class="project-container grid-view" id="projectContainer">
                     <!-- SmartScanner Project -->
                     <div class="project-item">
-                        <button class="close-button">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <div class="terminal-buttons">
+                            <span class="close-btn"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                         <div class="project-content">
                             <div class="project-icon">
                                 <i class="fas fa-folder"></i>
@@ -282,9 +284,11 @@ automation and scalability.</li>
 
                     <!-- United for Literacy Project -->
                     <div class="project-item">
-                        <button class="close-button">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <div class="terminal-buttons">
+                            <span class="close-btn"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                         <div class="project-content">
                             <div class="project-icon">
                                 <i class="fas fa-folder"></i>
@@ -324,9 +328,11 @@ automation and scalability.</li>
 
                     <!-- Ryde Project -->
                     <div class="project-item">
-                        <button class="close-button">
-                            <i class="fas fa-times"></i>
-                        </button>
+                        <div class="terminal-buttons">
+                            <span class="close-btn"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                         <div class="project-content">
                             <div class="project-icon">
                                 <i class="fas fa-folder"></i>
@@ -367,15 +373,15 @@ automation and scalability.</li>
             </div>
         `);
 
-        // Add click handlers
+        // Update click handlers
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
-            const closeButtons = document.querySelectorAll('.close-button');
+            const closeButtons = document.querySelectorAll('.close-btn');
             const overlay = document.querySelector('.project-overlay');
             
             projectItems.forEach(item => {
                 item.addEventListener('click', (e) => {
-                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
+                    if (!e.target.closest('.terminal-buttons') && !e.target.closest('a')) {
                         item.classList.add('expanded');
                         overlay.classList.add('active');
                         document.body.style.overflow = 'hidden';

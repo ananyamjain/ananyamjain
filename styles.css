@@ -8,10 +8,46 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
+}
+
+:root {
+    --bg-color: #1a1a1a;
+    --terminal-bg: rgba(28, 28, 28, 0.95);
+    --text-color: #A9B7C6;
+    --accent-color: #88C0D0;
+    --prompt-color: #98C379;
+    --command-color: #88C0D0;
+    --date-color: #E06C75;
     --cheatsheet-bg: rgba(35, 35, 35, 0.95);
 }
+
 /* Direct styles */
-/* Base styles */
+.terminal,
+.cheatsheet {
+    background-color: var(--terminal-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    box-shadow: 0 15px 35px var(--card-shadow) !important;
+    color: var(--text-color) !important;
+}
+
+.terminal-content {
+    background-color: var(--terminal-bg) !important;
+    color: var(--text-color) !important;
+}
+
+.section {
+    background-color: var(--terminal-bg) !important;
+    color: var(--text-color) !important;
+}
+
+/* Ensure smooth transitions */
+.terminal,
+.cheatsheet,
+.terminal-content,
+.section {
+    transition: all 0.3s ease !important;
+}
+
 body {
     background-color: var(--bg-color);
     margin: 0;
@@ -33,32 +69,26 @@ body {
     padding: 20px;
 }
 
-/* Terminal & Cheatsheet shared styles */
-.terminal,
-.cheatsheet {
-    background-color: var(--terminal-bg);
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
-    color: var(--text-color);
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-/* Terminal specific styles */
 .terminal {
     flex: 1;
     height: 90vh;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    position: relative;
 }
 
 .terminal::before {
     content: '';
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: radial-gradient(
         circle at 50% -50%,
         rgba(136, 192, 208, 0.08),
@@ -68,70 +98,56 @@ body {
     z-index: 1;
 }
 
-/* Terminal Header & Buttons */
-.terminal-header,
-.cheatsheet::before {
+.terminal-header {
     background: rgba(0, 0, 0, 0.2);
     padding: 1rem 1.2rem;
-    border-bottom: 1px solid var(--card-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.terminal-buttons,
-.cheatsheet-buttons {
+.terminal-buttons {
     display: flex;
     gap: 8px;
-    z-index: 3;
 }
 
-.terminal-buttons span,
-.cheatsheet-buttons span {
+.terminal-buttons span {
     width: 12px;
     height: 12px;
+    margin-right: 8px;
     border-radius: 50%;
-    transition: transform 0.2s, opacity 0.3s ease;
-    opacity: 0.8;
+    transition: transform 0.2s;
 }
 
-/* Window control buttons */
-.terminal-buttons span:nth-child(1),
-.cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
-.terminal-buttons span:nth-child(2),
-.cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
-.terminal-buttons span:nth-child(3),
-.cheatsheet-buttons span:nth-child(3) { background: #27c93f; }
+.terminal-buttons span:nth-child(1) { background: #ff5f56; }
+.terminal-buttons span:nth-child(2) { background: #ffbd2e; }
+.terminal-buttons span:nth-child(3) { background: #27c93f; }
 
 .terminal-buttons span:hover {
     transform: scale(1.1);
 }
 
-/* Terminal Content */
 .terminal-content {
     flex: 1;
     overflow-y: auto;
-    padding: 1.2rem 16px 1.2rem 1.2rem;
+    padding: 1.2rem;
+    padding-right: 16px;
     height: calc(90vh - 60px);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(136, 192, 208, 0.2) transparent;
     position: relative;
     z-index: 2;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: var(--terminal-bg);
-    color: var(--text-color);
     transition: all 0.3s ease;
 }
 
-/* Scrollbar styles */
-.terminal-content {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(136, 192, 208, 0.2) transparent;
-}
-
 .terminal-content::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
+    height: 100%;
 }
 
 .terminal-content::-webkit-scrollbar-track {
@@ -150,17 +166,25 @@ body {
     background-color: rgba(136, 192, 208, 0.4);
 }
 
-/* Terminal Elements */
+.terminal-content > *:first-child {
+    margin-top: 0;
+}
+
 .line {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 4px;
+    margin-top: 0;
+    margin-bottom: 4px;
 }
 
-.prompt { color: var(--prompt-color); }
-.command { color: var(--command-color); }
-.error { color: #E06C75; margin-left: 1rem; }
+.prompt {
+    color: var(--prompt-color);
+}
+
+.command {
+    color: var(--command-color);
+}
 
 .output {
     margin: 1rem 0;
@@ -175,253 +199,36 @@ body {
     margin: 1rem 0;
 }
 
-/* Command Input */
-.command-input-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: auto;
-    width: 100%;
+
+/* Apply to terminal and cheatsheet */
+.terminal, .cheatsheet {
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+    background: var(--terminal-bg);
+}
+
+.terminal-header {
+    border-bottom: 1px solid var(--card-border);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure smooth transitions */
+.terminal,
+.cheatsheet,
+.terminal-content {
     transition: all 0.3s ease;
 }
 
-.command-input-container:focus-within {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.command-input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.cursor {
-    color: #0f0;
-    animation: blink 1s step-end infinite;
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
-}
-
-/* Animations */
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
-/* Media Queries */
-@media (max-width: 1200px) {
-    .container {
-        flex-direction: column;
-    }
-    
-    .cheatsheet {
-        width: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    body { padding: 10px; }
-    .terminal { height: 80vh; }
-    .ascii-art {
-        font-size: 0.4rem;
-        line-height: 1;
-    }
-    .container {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    .terminal, 
-    .cheatsheet {
-        width: 100%;
-        margin: 1rem 0;
-    }
-}
-
-/* Cheatsheet */
-.cheatsheet {
-    width: 300px;
-    background: rgba(28, 28, 28, 0.95);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    height: fit-content;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 15px 35px var(--card-shadow);
-}
-
-/* Title */
-.cheatsheet h3 {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-
-/* Command List */
-.cheatsheet ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.cheatsheet li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-}
-
-.command-example {
-    color: var(--accent-color);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    background: rgba(28, 28, 28, 0.95);
-    border: 1px solid rgba(136, 192, 208, 0.3);
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    min-width: 120px;
-    text-align: left;
-    display: inline-block;
-}
-
-.command-example:hover {
-    transform: translateX(4px);
-    background: rgba(136, 192, 208, 0.1);
-    border-color: var(--accent-color);
-    box-shadow: 0 0 10px rgba(136, 192, 208, 0.1);
-}
-
-/* Command Button */
-.command-text {
-    color: var(--accent-color);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-    background: rgba(28, 28, 28, 0.95);
-    border: 1px solid rgba(136, 192, 208, 0.3);
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    min-width: 120px;
-    text-align: left;
-    display: inline-block;
-}
-
-/* Description Text */
-.command-description {
-    color: var(--text-color);
-    opacity: 0.7;
-    font-size: 0.85rem;
-    text-align: right;
-    flex: 1;
-}
-
-/* Hover Effects */
-.command-example {
-    color: var(--accent-color);
-    padding: 3px 8px;
-    border-radius: 4px;
-    background: rgba(136, 192, 208, 0.1);
-    font-weight: 500;
-    display: inline-block;
-    margin-bottom: 4px;
-    cursor: pointer !important;
-    transition: all 0.2s ease;
-    user-select: none;
-}
-
-.command-example:hover {
-    background: rgba(136, 192, 208, 0.2);
-    transform: translateX(2px);
-}
-
-.command-example:active {
-    transform: translateX(4px);
-}
-
-/* Window Controls */
-.cheatsheet-buttons {
-    position: absolute;
-    top: 14px;
-    left: 16px;
-    display: flex;
-    gap: 8px;
-    z-index: 3;
-}
-
+/* Terminal window controls */
+.terminal-buttons span,
 .cheatsheet-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
     opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
 
-.cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
-.cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
-.cheatsheet-buttons span:nth-child(3) { background: #27c93f; }
-
-/* Content Wrapper */
-.cheatsheet-content {
-    margin-top: 20px;
-    padding: 0.5rem;
-}
-
-/* Add subtle animation for commands */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.cheatsheet li {
-    animation: slideIn 0.3s ease forwards;
-    opacity: 0;
-}
-
-/* Stagger the animations */
-.cheatsheet li:nth-child(1) { animation-delay: 0.1s; }
-.cheatsheet li:nth-child(2) { animation-delay: 0.2s; }
-.cheatsheet li:nth-child(3) { animation-delay: 0.3s; }
-.cheatsheet li:nth-child(4) { animation-delay: 0.4s; }
-.cheatsheet li:nth-child(5) { animation-delay: 0.5s; }
-.cheatsheet li:nth-child(6) { animation-delay: 0.6s; }
-.cheatsheet li:nth-child(7) { animation-delay: 0.7s; }
-.cheatsheet li:nth-child(8) { animation-delay: 0.8s; }
-.cheatsheet li:nth-child(9) { animation-delay: 0.9s; }
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .cheatsheet {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .cheatsheet li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-    
-    .command-text {
-        width: fit-content;
-    }
-    
-    .command-description {
-        text-align: left;
-        padding-left: 0.5rem;
-    }
+[data-theme="light"] .terminal-buttons span:hover,
+[data-theme="light"] .cheatsheet-buttons span:hover {
+    opacity: 1;
 }
 
 /* Experience */
@@ -851,6 +658,280 @@ body {
 
 .skill-category:last-child ul li {
     justify-content: flex-end;
+}
+
+
+/* Cheatsheet */
+
+.cheatsheet {
+    width: 280px;
+    background: var(--cheatsheet-bg);
+    padding: 1.8rem;
+    padding-top: 2.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+    position: relative;
+    overflow: hidden;
+}
+
+.cheatsheet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.cheatsheet-content {
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.cheatsheet h3 {
+    color: var(--accent-color);
+    margin: 0 0 1.2rem 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+.cheatsheet ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cheatsheet li {
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: default;
+}
+
+.cheatsheet li:hover {
+    background: transparent;
+    transform: none;
+}
+
+.command-example {
+    color: var(--accent-color);
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(136, 192, 208, 0.1);
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 4px;
+    cursor: pointer !important;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.command-example:hover {
+    background: rgba(136, 192, 208, 0.2);
+    transform: translateX(2px);
+}
+
+.command-example:active {
+    transform: translateX(4px);
+}
+
+.cheatsheet::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(136, 192, 208, 0.03) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cheatsheet-buttons {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+}
+
+.cheatsheet-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
+.cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
+.cheatsheet-buttons span:nth-child(3) { background: #27c93f; }
+
+/* Cheatsheet window controls - completely new approach */
+.cheatsheet {
+    position: relative;
+    margin-top: 10px;
+}
+
+.cheatsheet-buttons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 6px;
+}
+
+.cheatsheet-buttons span {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.cheatsheet-buttons span:first-child {
+    background-color: #ff5f56;
+}
+
+.cheatsheet-buttons span:nth-child(2) {
+    background-color: #ffbd2e;
+}
+
+.cheatsheet-buttons span:last-child {
+    background-color: #27c93f;
+}
+
+.cheatsheet-content {
+    padding-top: 30px;
+}
+
+/* Add hover effects to command examples */
+.command-example:hover {
+    background: rgba(0, 255, 0, 0.15);
+}
+
+.command-example {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.command-example:hover {
+    background: rgba(136, 192, 208, 0.2);
+    transform: translateX(2px);
+}
+
+.command-example:active {
+    transform: translateX(4px);
+}
+
+/* Input  */
+
+.command-input-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.command-input-container:focus-within {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.command-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cursor {
+    color: #0f0;
+    animation: blink 1s step-end infinite;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .cheatsheet {
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .terminal {
+        height: 80vh;
+    }
+    
+    .ascii-art {
+        font-size: 0.4rem;
+        line-height: 1;
+    }
+}
+
+.error {
+    color: #E06C75;
+    margin-left: 1rem;
+}
+
+/* Add a subtle transition to command input */
+.command-input-container {
+    transition: all 0.3s ease;
+}
+
+.command-input-container:focus-within {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Add scrollbar styling */
+.terminal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+/* Add responsive design improvements */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .terminal, .cheatsheet {
+        width: 100%;
+        margin: 1rem 0;
+    }
 }
 
 /* Add smooth transitions */

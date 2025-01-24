@@ -1854,6 +1854,15 @@ body {
     font-size: 0.95rem;
     opacity: 0.9;
     padding: 0 10px;
+    max-width: 800px;
+}
+
+.about-image {
+    max-width: 300px;  /* Adjust this value as needed */
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;  /* Add some vertical spacing */
+    display: block;  /* Ensures proper block layout */
 }
 
 .about-highlights {

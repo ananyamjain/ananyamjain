@@ -3882,3 +3882,9 @@ body {
 .project-content {
     padding: 20px;
 }
+
+.terminal.has-expanded-item,
+.cheatsheet.has-expanded-item {
+    opacity: 0.3;
+    pointer-events: none;
+}

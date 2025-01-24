@@ -272,30 +272,43 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 
 .cheatsheet li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    background: rgba(28, 28, 28, 0.6);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.cheatsheet li:hover {
+    transform: translateX(4px);
+    background: rgba(28, 28, 28, 0.8);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Command and Description Layout */
 .cheatsheet li {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 16px;
-    align-items: baseline;
+    gap: 12px;
+    align-items: center;
 }
 
 /* Command Text */
 .command-text {
     color: var(--accent-color);
     white-space: nowrap;
-    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+    background: rgba(136, 192, 208, 0.1);
+    border-radius: 4px;
     transition: all 0.2s ease;
 }
 
@@ -303,12 +316,28 @@ body {
 .command-description {
     color: var(--text-color);
     opacity: 0.8;
+    font-size: 0.85rem;
 }
 
 /* Hover Effects */
 .cheatsheet li:hover .command-text {
+    background: rgba(136, 192, 208, 0.2);
     color: var(--prompt-color);
-    transform: translateX(4px);
+}
+
+/* Add a subtle indicator */
+.cheatsheet li::before {
+    content: '>';
+    color: var(--accent-color);
+    opacity: 0;
+    position: absolute;
+    left: -1rem;
+    transition: all 0.3s ease;
+}
+
+.cheatsheet li:hover::before {
+    opacity: 1;
+    left: -0.5rem;
 }
 
 /* Window Controls */
@@ -339,6 +368,34 @@ body {
     padding: 0.5rem;
 }
 
+/* Add subtle animation for commands */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cheatsheet li {
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger the animations */
+.cheatsheet li:nth-child(1) { animation-delay: 0.1s; }
+.cheatsheet li:nth-child(2) { animation-delay: 0.2s; }
+.cheatsheet li:nth-child(3) { animation-delay: 0.3s; }
+.cheatsheet li:nth-child(4) { animation-delay: 0.4s; }
+.cheatsheet li:nth-child(5) { animation-delay: 0.5s; }
+.cheatsheet li:nth-child(6) { animation-delay: 0.6s; }
+.cheatsheet li:nth-child(7) { animation-delay: 0.7s; }
+.cheatsheet li:nth-child(8) { animation-delay: 0.8s; }
+.cheatsheet li:nth-child(9) { animation-delay: 0.9s; }
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .cheatsheet {
@@ -346,22 +403,23 @@ body {
         max-width: 600px;
         margin: 0 auto;
     }
-    
-    .cheatsheet li {
-        grid-template-columns: 1fr 1fr;
-    }
 }
 
 @media (max-width: 768px) {
     .cheatsheet li {
         grid-template-columns: 1fr;
-        gap: 4px;
+        gap: 8px;
     }
     
     .command-text {
-        margin-bottom: 2px;
+        width: fit-content;
+    }
+    
+    .command-description {
+        padding-left: 0.3rem;
     }
 }
+
 /* Experience */
 
 .section {

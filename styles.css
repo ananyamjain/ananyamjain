@@ -234,6 +234,92 @@ body {
         margin: 1rem 0;
     }
 }
+
+/* Cheatsheet */
+.cheatsheet {
+    width: 300px;
+    background: var(--cheatsheet-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: fit-content;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cheatsheet Header */
+.cheatsheet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--card-border);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.cheatsheet-buttons {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+}
+
+/* Cheatsheet Content */
+.cheatsheet-content {
+    margin-top: 30px;
+    padding: 0.5rem;
+}
+
+.cheatsheet h2 {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cheatsheet ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cheatsheet li {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+.cheatsheet li::before {
+    content: '•';
+    color: var(--accent-color);
+}
+
+/* Command styling */
+.command-text {
+    color: var(--accent-color);
+}
+
+.command-description {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .cheatsheet {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
 /* Experience */
 
 .section {

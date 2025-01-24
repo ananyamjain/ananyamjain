@@ -1942,12 +1942,14 @@ body {
 }
 
 /* Common Project Item Styles */
-.project-item {
+.project-item,
+.research-item {
+    position: relative;
     background: rgba(28, 28, 28, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 16px;
-    transition: all 0.2s ease;
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
 }
 
 .project-item:hover {
@@ -3166,24 +3168,6 @@ body {
     position: relative;
 }
 
-.project-item {
-    position: relative;
-    width: 300px;
-    transition: all 0.3s ease;
-    z-index: 1;
-}
-
-.project-item.expanded {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 800px;
-    height: auto;
-    z-index: 1000;
-}
-
 .project-overlay {
     position: fixed;
     top: 0;
@@ -3281,16 +3265,18 @@ body {
 }
 
 /* Make sure expanded state maintains its style */
-.project-item.expanded {
+.project-item.expanded,
+.research-item.expanded {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 800px;
-    height: auto;
+    height: 80%;
+    max-width: 1000px;
     z-index: 1000;
-    background: rgba(28, 28, 28, 0.95); /* Darker background when expanded */
+    background: var(--terminal-bg);
+    padding: 0; /* Remove padding to accommodate header */
 }
 
 [data-theme="light"] .project-item.expanded {
@@ -3440,4 +3426,41 @@ body {
 
 [data-theme="light"] .skill-category h3 {
     color: #2980b9;
+}
+
+.project-item .terminal-buttons,
+.research-item .terminal-buttons {
+    display: none; /* Hide by default */
+}
+
+.project-item.expanded .terminal-buttons,
+.research-item.expanded .terminal-buttons {
+    display: flex;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    gap: 8px;
+    z-index: 10;
+}
+
+.project-item.expanded::before,
+.research-item.expanded::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Adjust content padding when expanded */
+.project-item.expanded .project-content,
+.research-item.expanded .research-content {
+    padding: 60px 24px 24px; /* Add top padding to account for header */
+    height: 100%;
+    overflow-y: auto;
 }

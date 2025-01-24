@@ -216,18 +216,18 @@ body {
 }
 
 /* Hide all window controls when overlay is active */
-/* .project-overlay.active ~ .terminal,
+.project-overlay.active ~ .terminal,
 .project-overlay.active ~ .cheatsheet {
     opacity: 0.3;
     pointer-events: none;
-} */
+}
 
 /* Hide all window buttons when overlay is active */
-.project-overlay.active ~ .terminal .terminal-buttons,
+/* .project-overlay.active ~ .terminal .terminal-buttons,
 .project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
     opacity: 0;
     visibility: hidden;
-}
+} */
 
 /* Only show buttons on expanded item */
 /* .project-item .terminal-buttons,

@@ -221,16 +221,9 @@ body {
 .project-item.expanded ~ .cheatsheet,
 .research-item.expanded ~ .terminal,
 .research-item.expanded ~ .cheatsheet {
-    opacity: 0.3;
+    opacity: 0.3 !important;
     pointer-events: none;
 }
-
-/* Expanded items should be on top */
-/* .project-item.expanded,
-.research-item.expanded {
-    z-index: 1000;
-    position: relative;
-} */
 
 /* Remove the old close-button styles */
 .close-button {
@@ -3659,11 +3652,6 @@ body {
     border: 1px solid #1aab29;
 }
 
-/* Z-index hierarchy */
-.terminal, .cheatsheet {
-    z-index: 1;
-}
-
 .project-overlay {
     z-index: 999;
 }
@@ -3751,7 +3739,7 @@ body {
 .project-item.expanded ~ .cheatsheet,
 .research-item.expanded ~ .terminal,
 .research-item.expanded ~ .cheatsheet {
-    opacity: 0.3;
+    opacity: 0.3 !important;
     pointer-events: none;
 }
 
@@ -3787,12 +3775,6 @@ body {
 .project-item .terminal-buttons span:first-child,
 .research-item .terminal-buttons span:first-child {
     cursor: pointer;
-}
-
-/* Base styles for terminal and cheatsheet */
-.terminal, .cheatsheet {
-    z-index: 1;
-    transition: opacity 0.3s ease;
 }
 
 /* Project/Research items in grid/list view */
@@ -3834,17 +3816,12 @@ body {
     z-index: 999;
 }
 
-.project-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
 /* Dim terminal and cheatsheet when item is expanded */
 .project-item.expanded ~ .terminal,
 .project-item.expanded ~ .cheatsheet,
 .research-item.expanded ~ .terminal,
 .research-item.expanded ~ .cheatsheet {
-    opacity: 0.3;
+    opacity: 0.3 !important;
     pointer-events: none;
 }
 

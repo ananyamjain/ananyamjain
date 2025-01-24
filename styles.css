@@ -3739,3 +3739,52 @@ body {
     color: var(--text-color);
     font-size: 0.9rem;
 }
+
+/* Update z-index hierarchy */
+.terminal, .cheatsheet {
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* When project or research item is expanded, dim both terminal and cheatsheet */
+.project-item.expanded ~ .terminal,
+.project-item.expanded ~ .cheatsheet,
+.research-item.expanded ~ .terminal,
+.research-item.expanded ~ .cheatsheet {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Project/Research buttons - hidden by default, visible when expanded */
+.project-item .terminal-buttons,
+.research-item .terminal-buttons {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.project-item.expanded .terminal-buttons,
+.research-item.expanded .terminal-buttons {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ensure expanded items are on top */
+.project-item.expanded,
+.research-item.expanded {
+    z-index: 1000;
+    position: relative;
+}
+
+/* Make close button clickable */
+.terminal-buttons span:first-child,
+.project-item .terminal-buttons span:first-child,
+.research-item .terminal-buttons span:first-child {
+    cursor: pointer;
+}

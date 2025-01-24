@@ -3276,13 +3276,6 @@ body {
     position: relative;
 }
 
-.project-item {
-    position: relative;
-    width: 300px;
-    transition: all 0.3s ease;
-    z-index: 1;
-}
-
 .project-item.expanded {
     position: fixed;
     top: 50%;
@@ -3734,15 +3727,6 @@ body {
     transition: opacity 0.3s ease;
 }
 
-/* When project or research item is expanded, dim both terminal and cheatsheet */
-.project-item.expanded ~ .terminal,
-.project-item.expanded ~ .cheatsheet,
-.research-item.expanded ~ .terminal,
-.research-item.expanded ~ .cheatsheet {
-    opacity: 0.3 !important;
-    pointer-events: none;
-}
-
 /* Project/Research buttons - hidden by default, visible when expanded */
 .project-item .terminal-buttons,
 .research-item .terminal-buttons {
@@ -3814,15 +3798,6 @@ body {
     visibility: hidden;
     transition: opacity 0.3s ease;
     z-index: 999;
-}
-
-/* Dim terminal and cheatsheet when item is expanded */
-.project-item.expanded ~ .terminal,
-.project-item.expanded ~ .cheatsheet,
-.research-item.expanded ~ .terminal,
-.research-item.expanded ~ .cheatsheet {
-    opacity: 0.3 !important;
-    pointer-events: none;
 }
 
 /* Window control buttons */

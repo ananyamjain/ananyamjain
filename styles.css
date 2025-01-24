@@ -249,12 +249,12 @@ body {
 }
 
 /* Title */
-.cheatsheet h2 {
+.cheatsheet h3 {
     color: var(--text-color);
     font-size: 1.1rem;
-    margin: 1.5rem 0;
-    padding-left: 0.5rem;
+    margin-bottom: 1rem;
 }
+
 
 /* Command List */
 .cheatsheet ul {
@@ -271,6 +271,28 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 12px;
+}
+
+.command-example {
+    color: var(--accent-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    background: rgba(28, 28, 28, 0.95);
+    border: 1px solid rgba(136, 192, 208, 0.3);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-width: 120px;
+    text-align: left;
+    display: inline-block;
+}
+
+.command-example:hover {
+    transform: translateX(4px);
+    background: rgba(136, 192, 208, 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(136, 192, 208, 0.1);
 }
 
 /* Command Button */
@@ -299,7 +321,7 @@ body {
 }
 
 /* Hover Effects */
-.command-text:hover {
+.command-example:hover {
     transform: translateX(4px);
     background: rgba(136, 192, 208, 0.1);
     border-color: var(--accent-color);

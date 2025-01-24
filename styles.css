@@ -3675,11 +3675,11 @@ body {
     z-index: 1001;
 } */
 
-/* Hide cheatsheet buttons when project is expanded */
+/* Hide cheatsheet buttons when project is expanded
 .project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
     opacity: 0;
     visibility: hidden;
-}
+} */
 
 /* Unified window buttons styling */
 .terminal-buttons,
@@ -3721,10 +3721,10 @@ body {
 }
 
 /* Fade buttons when project/research is expanded */
-.project-overlay.active ~ .terminal .terminal-buttons,
+/* .project-overlay.active ~ .terminal .terminal-buttons,
 .project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
     opacity: 0.5;
-}
+} */
 
 /* Z-index hierarchy */
 .terminal, .cheatsheet {
@@ -3780,19 +3780,19 @@ body {
 }
 
 /* Update opacity for both terminal and cheatsheet when overlay is active */
-.project-overlay.active ~ .terminal,
+/* .project-overlay.active ~ .terminal,
 .project-overlay.active ~ .cheatsheet {
     opacity: 0.1;
     transition: opacity 0.3s ease;
-    pointer-events: none; /* Prevent interaction with background windows */
-}
+    pointer-events: none; 
+} */
 
 /* Hide all window buttons when overlay is active */
-.project-overlay.active ~ .terminal .terminal-buttons,
+/* .project-overlay.active ~ .terminal .terminal-buttons,
 .project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
     opacity: 0;
     visibility: hidden;
-}
+} */
 
 /* Show buttons only on expanded project/research */
 .project-item .terminal-buttons,

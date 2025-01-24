@@ -8,16 +8,6 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
-}
-
-:root {
-    --bg-color: #1a1a1a;
-    --terminal-bg: rgba(28, 28, 28, 0.95);
-    --text-color: #A9B7C6;
-    --accent-color: #88C0D0;
-    --prompt-color: #98C379;
-    --command-color: #88C0D0;
-    --date-color: #E06C75;
     --cheatsheet-bg: rgba(35, 35, 35, 0.95);
 }
 

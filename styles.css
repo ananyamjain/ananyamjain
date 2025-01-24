@@ -216,11 +216,11 @@ body {
 }
 
 /* Hide all window controls when overlay is active */
-.project-overlay.active ~ .terminal,
+/* .project-overlay.active ~ .terminal,
 .project-overlay.active ~ .cheatsheet {
     opacity: 0.3;
     pointer-events: none;
-}
+} */
 
 /* Hide all window buttons when overlay is active */
 .project-overlay.active ~ .terminal .terminal-buttons,
@@ -258,10 +258,10 @@ body {
 } */
 
 /* Fade effect when modal is open */
-.project-overlay.active ~ .terminal .terminal-buttons,
+/* .project-overlay.active ~ .terminal .terminal-buttons,
 .project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
     opacity: 0.5;
-}
+} */
 
 /* Remove the old close-button styles */
 .close-button {
@@ -3346,11 +3346,6 @@ body {
     z-index: 999;
 }
 
-.project-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
 .project-content.expanded {
     max-height: 80vh;
     overflow-y: auto;
@@ -3666,10 +3661,10 @@ body {
 }
 
 /* When overlay is active, reduce cheatsheet opacity */
-.project-overlay.active ~ .cheatsheet {
+/* .project-overlay.active ~ .cheatsheet {
     opacity: 0.3;
     pointer-events: none;
-}
+} */
 
 /* .project-item.expanded .terminal-buttons {
     z-index: 1001;

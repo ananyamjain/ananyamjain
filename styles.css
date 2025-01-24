@@ -246,20 +246,6 @@ body {
     overflow: hidden;
 }
 
-/* Cheatsheet Header */
-.cheatsheet::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid var(--card-border);
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
 /* Title */
 .cheatsheet h2 {
     color: var(--text-color);
@@ -278,26 +264,9 @@ body {
 }
 
 .cheatsheet li {
-    background: rgba(28, 28, 28, 0.6);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 0.8rem 1rem;
-    transition: all 0.3s ease;
-}
-
-.cheatsheet li:hover {
-    transform: translateX(4px);
-    background: rgba(28, 28, 28, 0.8);
-    border-color: var(--accent-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Command and Description Layout */
-.cheatsheet li {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
+    align-items: baseline;
     gap: 12px;
-    align-items: center;
 }
 
 /* Command Text */
@@ -306,10 +275,12 @@ body {
     white-space: nowrap;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.9rem;
-    padding: 0.3rem 0.6rem;
-    background: rgba(136, 192, 208, 0.1);
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    padding: 0.4rem 0.8rem;
+    background: rgba(28, 28, 28, 0.6);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 /* Description Text */
@@ -317,27 +288,15 @@ body {
     color: var(--text-color);
     opacity: 0.8;
     font-size: 0.85rem;
+    flex: 1;
 }
 
 /* Hover Effects */
-.cheatsheet li:hover .command-text {
-    background: rgba(136, 192, 208, 0.2);
-    color: var(--prompt-color);
-}
-
-/* Add a subtle indicator */
-.cheatsheet li::before {
-    content: '>';
-    color: var(--accent-color);
-    opacity: 0;
-    position: absolute;
-    left: -1rem;
-    transition: all 0.3s ease;
-}
-
-.cheatsheet li:hover::before {
-    opacity: 1;
-    left: -0.5rem;
+.command-text:hover {
+    transform: translateX(4px);
+    background: rgba(28, 28, 28, 0.8);
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Window Controls */
@@ -355,7 +314,6 @@ body {
     height: 12px;
     border-radius: 50%;
     opacity: 0.8;
-    transition: opacity 0.3s ease;
 }
 
 .cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
@@ -407,8 +365,8 @@ body {
 
 @media (max-width: 768px) {
     .cheatsheet li {
-        grid-template-columns: 1fr;
-        gap: 8px;
+        flex-direction: column;
+        gap: 4px;
     }
     
     .command-text {

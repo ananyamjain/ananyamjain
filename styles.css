@@ -226,11 +226,11 @@ body {
 }
 
 /* Expanded items should be on top */
-.project-item.expanded,
+/* .project-item.expanded,
 .research-item.expanded {
     z-index: 1000;
     position: relative;
-}
+} */
 
 /* Remove the old close-button styles */
 .close-button {
@@ -3329,11 +3329,6 @@ body {
     z-index: 1001; /* Ensure buttons are above overlay */
 }
 
-/* .project-item.expanded .terminal-buttons {
-    opacity: 1;
-    visibility: visible;
-} */
-
 .terminal-buttons span {
     width: 12px;
     height: 12px;
@@ -3411,7 +3406,7 @@ body {
 }
 
 /* Make sure expanded state maintains its style */
-.project-item.expanded {
+/* .project-item.expanded {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -3420,8 +3415,8 @@ body {
     max-width: 800px;
     height: auto;
     z-index: 1000;
-    background: rgba(28, 28, 28, 0.95); /* Darker background when expanded */
-}
+    background: rgba(28, 28, 28, 0.95); 
+} */
 
 [data-theme="light"] .project-item.expanded {
     background: rgba(255, 255, 255, 0.95);
@@ -3625,10 +3620,6 @@ body {
     z-index: 999;
 }
 
-.project-item.expanded {
-    z-index: 1000;
-}
-
 /* Unified window buttons styling */
 .terminal-buttons,
 .cheatsheet-buttons {
@@ -3677,11 +3668,6 @@ body {
     z-index: 999;
 }
 
-.project-item.expanded,
-.research-item.expanded {
-    z-index: 1000;
-}
-
 /* Ensure research cards match project cards */
 .research-item {
     position: relative;
@@ -3728,12 +3714,12 @@ body {
     visibility: hidden;
 }
 
-.project-item.expanded .terminal-buttons,
+/* .project-item.expanded .terminal-buttons,
 .research-item.expanded .terminal-buttons {
     opacity: 1;
     visibility: visible;
     z-index: 1000;
-}
+} */
 
 /* Fix terminal header layout */
 .terminal-header,

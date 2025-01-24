@@ -3665,8 +3665,10 @@ body {
     z-index: 1000;
 }
 
-.project-item.expanded .cheatsheet {
-    opacity: 0.5;
+/* When overlay is active, reduce cheatsheet opacity */
+.project-overlay.active ~ .cheatsheet {
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 /* .project-item.expanded .terminal-buttons {

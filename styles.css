@@ -222,46 +222,12 @@ body {
     pointer-events: none;
 }
 
-/* Hide all window buttons when overlay is active */
-/* .project-overlay.active ~ .terminal .terminal-buttons,
-.project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
-    opacity: 0;
-    visibility: hidden;
-} */
-
-/* Only show buttons on expanded item */
-/* .project-item .terminal-buttons,
-.research-item .terminal-buttons {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-} */
-
-/* .project-item.expanded .terminal-buttons,
-.research-item.expanded .terminal-buttons {
-    opacity: 1;
-    visibility: visible;
-    z-index: 1000;
-} */
-
 /* Expanded items should be on top */
 .project-item.expanded,
 .research-item.expanded {
     z-index: 1000;
     position: relative;
 }
-
-/* .project-item.expanded .terminal-buttons,
-.research-item.expanded .terminal-buttons {
-    opacity: 1;
-    visibility: visible;
-} */
-
-/* Fade effect when modal is open */
-/* .project-overlay.active ~ .terminal .terminal-buttons,
-.project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
-    opacity: 0.5;
-} */
 
 /* Remove the old close-button styles */
 .close-button {
@@ -3660,22 +3626,6 @@ body {
     z-index: 1000;
 }
 
-/* When overlay is active, reduce cheatsheet opacity */
-/* .project-overlay.active ~ .cheatsheet {
-    opacity: 0.3;
-    pointer-events: none;
-} */
-
-/* .project-item.expanded .terminal-buttons {
-    z-index: 1001;
-} */
-
-/* Hide cheatsheet buttons when project is expanded
-.project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
-    opacity: 0;
-    visibility: hidden;
-} */
-
 /* Unified window buttons styling */
 .terminal-buttons,
 .cheatsheet-buttons {
@@ -3714,12 +3664,6 @@ body {
     background: #27c93f;
     border: 1px solid #1aab29;
 }
-
-/* Fade buttons when project/research is expanded */
-/* .project-overlay.active ~ .terminal .terminal-buttons,
-.project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
-    opacity: 0.5;
-} */
 
 /* Z-index hierarchy */
 .terminal, .cheatsheet {
@@ -3773,21 +3717,6 @@ body {
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
-
-/* Update opacity for both terminal and cheatsheet when overlay is active */
-/* .project-overlay.active ~ .terminal,
-.project-overlay.active ~ .cheatsheet {
-    opacity: 0.1;
-    transition: opacity 0.3s ease;
-    pointer-events: none; 
-} */
-
-/* Hide all window buttons when overlay is active */
-/* .project-overlay.active ~ .terminal .terminal-buttons,
-.project-overlay.active ~ .cheatsheet .cheatsheet-buttons {
-    opacity: 0;
-    visibility: hidden;
-} */
 
 /* Show buttons only on expanded project/research */
 .project-item .terminal-buttons,

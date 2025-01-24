@@ -1,4 +1,3 @@
-/* 1. Root Variables & Base Styles */
 :root {
     --bg-color: #1a1a1a;
     --terminal-bg: rgba(28, 28, 28, 0.95);
@@ -9,32 +8,15 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
-    --terminal-width: calc(100vw - 400px);
-    --window-height: 85vh;
-    --window-width: calc(100vw - 400px);
-    --cheatsheet-width: 320px;
-    --container-gap: 25px;
-    --header-height: 45px;
-    --border-radius: 12px;
 }
 
-/* 2. Terminal Window Styles */
+/* Direct styles */
 .terminal,
 .cheatsheet {
     background-color: var(--terminal-bg) !important;
     border: 1px solid var(--card-border) !important;
     box-shadow: 0 15px 35px var(--card-shadow) !important;
     color: var(--text-color) !important;
-    height: var(--window-height);
-    border-radius: var(--border-radius);
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin-top: 0; /* Ensure no top margin */
-    z-index: 1;
-    transition: opacity 0.3s ease;
 }
 
 .terminal-content {
@@ -92,6 +74,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: 'JetBrains Mono', monospace;
     transition: background-color 0.3s ease;
 }
@@ -107,14 +90,15 @@ body {
 
 .terminal {
     flex: 1;
-    background: var(--terminal-bg);
+    height: 90vh;
     border-radius: 12px;
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    height: 90vh;
+    position: relative;
 }
 
 .terminal::before {
@@ -134,107 +118,40 @@ body {
 }
 
 .terminal-header {
-    height: 36px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     align-items: center;
-    padding: 0 12px;
-    position: relative;
+    gap: 1rem;
 }
 
-.terminal-title,
-.cheatsheet-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--text-color);
-    font-size: 0.9rem;
-}
-
-.terminal-buttons,
-.cheatsheet-buttons,
-.project-item .terminal-buttons,
-.research-item .terminal-buttons {
-    position: absolute;
-    top: 12px;
-    left: 12px;
+.terminal-buttons {
     display: flex;
     gap: 8px;
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
 }
 
-/* Unified button styles */
-.terminal-buttons span,
-.cheatsheet-buttons span {
+.terminal-buttons span {
     width: 12px;
     height: 12px;
+    margin-right: 8px;
     border-radius: 50%;
-    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-/* Unified button colors */
-.terminal-buttons span:nth-child(1),
-.cheatsheet-buttons span:nth-child(1) {
-    background: #ff5f56;
-    border: 1px solid #e0443e;
-}
+.terminal-buttons span:nth-child(1) { background: #ff5f56; }
+.terminal-buttons span:nth-child(2) { background: #ffbd2e; }
+.terminal-buttons span:nth-child(3) { background: #27c93f; }
 
-.terminal-buttons span:nth-child(2),
-.cheatsheet-buttons span:nth-child(2) {
-    background: #ffbd2e;
-    border: 1px solid #dea123;
-}
-
-.terminal-buttons span:nth-child(3),
-.cheatsheet-buttons span:nth-child(3) {
-    background: #27c93f;
-    border: 1px solid #1aab29;
-}
-
-/* Z-index hierarchy */
-.terminal, .cheatsheet {
-    z-index: 1;
-}
-
-.project-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95); /* Make overlay darker */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    z-index: 999;
-}
-
-.project-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Hide all window controls when overlay is active */
-/* When project or research item is expanded, dim both terminal and cheatsheet */
-.project-item.expanded ~ .terminal,
-.project-item.expanded ~ .cheatsheet,
-.research-item.expanded ~ .terminal,
-.research-item.expanded ~ .cheatsheet {
-    opacity: 0.3 !important;
-    pointer-events: none;
-}
-
-/* Remove the old close-button styles */
-.close-button {
-    display: none;
+.terminal-buttons span:hover {
+    transform: scale(1.1);
 }
 
 .terminal-content {
     flex: 1;
     overflow-y: auto;
     padding: 1.2rem;
-    margin: 0; /* Ensure no margins affecting alignment */
+    padding-right: 16px;
     height: calc(90vh - 60px);
     scrollbar-width: thin;
     scrollbar-color: rgba(136, 192, 208, 0.2) transparent;
@@ -281,11 +198,11 @@ body {
 }
 
 .prompt {
-    color: #98C379;
+    color: var(--prompt-color);
 }
 
 .command {
-    color: #98C379;
+    color: var(--command-color);
 }
 
 .output {
@@ -455,12 +372,16 @@ body {
 }
 
 .cheatsheet {
-    width: var(--cheatsheet-width);
-    height: var(--window-height);
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    z-index: 1; /* Lower z-index than expanded project */
+    width: 280px;
+    background: var(--cheatsheet-bg);
+    padding: 1.8rem;
+    padding-top: 2.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+    position: relative;
+    overflow: hidden;
 }
 
 .cheatsheet::before {
@@ -476,19 +397,10 @@ body {
     border-top-right-radius: 8px;
 }
 
-.cheatsheet-header {
-    height: 36px;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    position: relative;
-}
-
 .cheatsheet-content {
-    margin-top: 20px;
-    flex: 1;
-    overflow-y: auto;
-    padding: 1.8rem;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .cheatsheet h3 {
@@ -587,50 +499,27 @@ body {
 }
 
 @media (max-width: 1200px) {
-    :root {
-        --window-height: 70vh;
-    }
-
     .container {
         flex-direction: column;
-        align-items: stretch;
     }
-
-    .terminal, .cheatsheet {
-        width: 100%;
-        margin-bottom: var(--container-gap);
+    
+    .cheatsheet {
+        width: auto;
     }
 }
 
 @media (max-width: 768px) {
-    :root {
-        --window-height: 60vh;
-        --border-radius: 8px;
+    body {
+        padding: 10px;
     }
-
-    .terminal-content {
-        font-size: 14px;
+    
+    .terminal {
+        height: 80vh;
     }
-
-    .cheatsheet {
-        font-size: 14px;
-        padding: 1.2rem;
-        padding-top: 2.2rem;
-    }
-}
-
-/* Add styles for ultra-wide screens */
-@media (min-width: 1800px) {
-    :root {
-        --terminal-width: min(1200px, calc(100vw - 440px));
-        --cheatsheet-width: 360px;  /* Slightly wider for large screens */
-    }
-}
-
-/* Add styles for smaller height screens */
-@media (max-height: 800px) {
-    :root {
-        --window-height: min(85vh, 700px);
+    
+    .ascii-art {
+        font-size: 0.4rem;
+        line-height: 1;
     }
 }
 
@@ -706,7 +595,6 @@ body {
     z-index: 10;
     display: flex;
     gap: 6px;
-    z-index: 1; /* Keep cheatsheet buttons below expanded project */
 }
 
 .cheatsheet-buttons span {
@@ -2616,6 +2504,8 @@ body {
     height: auto;
     object-fit: contain;
     margin-top: 1rem;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
 }
 
 .experience-item:hover .company-logo {
@@ -3276,6 +3166,13 @@ body {
     position: relative;
 }
 
+.project-item {
+    position: relative;
+    width: 300px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
 .project-item.expanded {
     position: fixed;
     top: 50%;
@@ -3285,7 +3182,6 @@ body {
     max-width: 800px;
     height: auto;
     z-index: 1000;
-    padding-top: 40px; /* Add space for the buttons at the top */
 }
 
 .project-overlay {
@@ -3297,8 +3193,13 @@ body {
     background: rgba(0, 0, 0, 0.8);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
     z-index: 999;
+}
+
+.project-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .project-content.expanded {
@@ -3306,40 +3207,28 @@ body {
     overflow-y: auto;
 }
 
-.terminal-buttons {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    display: flex;
-    gap: 8px;
-    z-index: 1001; /* Ensure buttons are above overlay */
-}
-
-.terminal-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.terminal-buttons span:nth-child(1) {
-    background: #ff5f56;
-    border: 1px solid #e0443e;
-}
-
-.terminal-buttons span:nth-child(2) {
-    background: #ffbd2e;
-    border: 1px solid #dea123;
-}
-
-.terminal-buttons span:nth-child(3) {
-    background: #27c93f;
-    border: 1px solid #1aab29;
-}
-
-/* Remove old close button styles */
 .close-button {
-    display: none;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+.project-item.expanded .close-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-button:hover {
+    transform: scale(1.1);
+    color: var(--accent-color);
 }
 
 /* Additional details section that shows when expanded */
@@ -3392,7 +3281,7 @@ body {
 }
 
 /* Make sure expanded state maintains its style */
-/* .project-item.expanded {
+.project-item.expanded {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -3401,8 +3290,8 @@ body {
     max-width: 800px;
     height: auto;
     z-index: 1000;
-    background: rgba(28, 28, 28, 0.95); 
-} */
+    background: rgba(28, 28, 28, 0.95); /* Darker background when expanded */
+}
 
 [data-theme="light"] .project-item.expanded {
     background: rgba(255, 255, 255, 0.95);
@@ -3551,315 +3440,4 @@ body {
 
 [data-theme="light"] .skill-category h3 {
     color: #2980b9;
-}
-
-.about-container {
-    display: flex;
-    gap: 2rem;
-    padding: 1rem;
-}
-
-.profile-section {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-}
-
-.profile-photo {
-    width: 180px;
-    height: 180px;
-    border-radius: 8px;
-    object-fit: cover;
-    border: 2px solid var(--card-border);
-    transition: transform 0.3s ease;
-}
-
-.profile-photo:hover {
-    transform: scale(1.02);
-}
-
-.about-content {
-    flex: 1;
-}
-
-/* Light theme adjustments */
-[data-theme="light"] .profile-photo {
-    border-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Hide buttons in non-expanded state */
-.project-item:not(.expanded) .terminal-buttons {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Update z-index hierarchy */
-.cheatsheet {
-    z-index: 1; /* Lower z-index than expanded project */
-}
-
-.cheatsheet-buttons {
-    z-index: 1; /* Keep cheatsheet buttons below expanded project */
-}
-
-.project-overlay {
-    z-index: 999;
-}
-
-/* Unified window buttons styling */
-.terminal-buttons,
-.cheatsheet-buttons {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-    transition: opacity 0.3s ease;
-}
-
-.terminal-buttons span,
-.cheatsheet-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* Unified button colors */
-.terminal-buttons span:nth-child(1),
-.cheatsheet-buttons span:nth-child(1) {
-    background: #ff5f56;
-    border: 1px solid #e0443e;
-}
-
-.terminal-buttons span:nth-child(2),
-.cheatsheet-buttons span:nth-child(2) {
-    background: #ffbd2e;
-    border: 1px solid #dea123;
-}
-
-.terminal-buttons span:nth-child(3),
-.cheatsheet-buttons span:nth-child(3) {
-    background: #27c93f;
-    border: 1px solid #1aab29;
-}
-
-.project-overlay {
-    z-index: 999;
-}
-
-/* Ensure research cards match project cards */
-.research-item {
-    position: relative;
-    width: 300px;
-    transition: all 0.3s ease;
-    z-index: 1;
-    background: rgba(28, 28, 28, 0.6);
-    border-radius: 12px;
-    padding: 24px;
-}
-
-.research-item:hover {
-    background: rgba(41, 128, 185, 0.1);
-    transform: translateY(-4px);
-}
-
-.research-item.expanded {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 800px;
-    height: auto;
-    padding-top: 40px;
-    background: rgba(28, 28, 28, 0.95);
-}
-
-/* Light theme adjustments */
-[data-theme="light"] .research-item {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="light"] .research-item.expanded {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-/* Show buttons only on expanded project/research */
-.project-item .terminal-buttons,
-.research-item .terminal-buttons {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* .project-item.expanded .terminal-buttons,
-.research-item.expanded .terminal-buttons {
-    opacity: 1;
-    visibility: visible;
-    z-index: 1000;
-} */
-
-/* Fix terminal header layout */
-.terminal-header,
-.cheatsheet-header {
-    height: 36px;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    position: relative;
-}
-
-.terminal-title,
-.cheatsheet-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--text-color);
-    font-size: 0.9rem;
-}
-
-/* Update z-index hierarchy */
-.terminal, .cheatsheet {
-    z-index: 1;
-    transition: opacity 0.3s ease;
-}
-
-/* Project/Research buttons - hidden by default, visible when expanded */
-.project-item .terminal-buttons,
-.research-item .terminal-buttons {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    display: flex;
-    gap: 8px;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 10;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.project-item.expanded .terminal-buttons,
-.research-item.expanded .terminal-buttons {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Ensure expanded items are on top */
-.project-item.expanded,
-.research-item.expanded {
-    z-index: 1000;
-    position: relative;
-}
-
-/* Make close button clickable */
-.terminal-buttons span:first-child,
-.project-item .terminal-buttons span:first-child,
-.research-item .terminal-buttons span:first-child {
-    cursor: pointer;
-}
-
-/* Project/Research items in grid/list view */
-.project-item,
-.research-item {
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Expanded state styling */
-.project-item.expanded,
-.research-item.expanded {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    max-width: 1000px;
-    z-index: 1000;
-    background: var(--terminal-bg);
-    border-radius: var(--border-radius);
-    padding: 20px;
-    overflow-y: auto;
-}
-
-/* Overlay styling */
-.project-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    z-index: 999;
-}
-
-/* Window control buttons */
-.terminal-buttons,
-.cheatsheet-buttons {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    display: flex;
-    gap: 8px;
-    z-index: 10;
-}
-
-/* Project/Research window buttons */
-.project-item .terminal-buttons,
-.research-item .terminal-buttons {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-}
-
-.project-item.expanded .terminal-buttons,
-.research-item.expanded .terminal-buttons {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Button styling */
-.terminal-buttons span,
-.cheatsheet-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* Button colors */
-.terminal-buttons span:nth-child(1),
-.cheatsheet-buttons span:nth-child(1) {
-    background: #ff5f56;
-    border: 1px solid #e0443e;
-}
-
-.terminal-buttons span:nth-child(2),
-.cheatsheet-buttons span:nth-child(2) {
-    background: #ffbd2e;
-    border: 1px solid #dea123;
-}
-
-.terminal-buttons span:nth-child(3),
-.cheatsheet-buttons span:nth-child(3) {
-    background: #27c93f;
-    border: 1px solid #1aab29;
-}
-
-/* Project content styling */
-.project-content {
-    padding: 20px;
-}
-
-.terminal.has-expanded-item,
-.cheatsheet.has-expanded-item {
-    opacity: 0.3;
-    pointer-events: none;
 }

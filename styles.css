@@ -3788,3 +3788,120 @@ body {
 .research-item .terminal-buttons span:first-child {
     cursor: pointer;
 }
+
+/* Base styles for terminal and cheatsheet */
+.terminal, .cheatsheet {
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Project/Research items in grid/list view */
+.project-item,
+.research-item {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Expanded state styling */
+.project-item.expanded,
+.research-item.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    max-width: 1000px;
+    z-index: 1000;
+    background: var(--terminal-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Overlay styling */
+.project-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.project-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dim terminal and cheatsheet when item is expanded */
+.project-item.expanded ~ .terminal,
+.project-item.expanded ~ .cheatsheet,
+.research-item.expanded ~ .terminal,
+.research-item.expanded ~ .cheatsheet {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Window control buttons */
+.terminal-buttons,
+.cheatsheet-buttons {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+/* Project/Research window buttons */
+.project-item .terminal-buttons,
+.research-item .terminal-buttons {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.project-item.expanded .terminal-buttons,
+.research-item.expanded .terminal-buttons {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Button styling */
+.terminal-buttons span,
+.cheatsheet-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Button colors */
+.terminal-buttons span:nth-child(1),
+.cheatsheet-buttons span:nth-child(1) {
+    background: #ff5f56;
+    border: 1px solid #e0443e;
+}
+
+.terminal-buttons span:nth-child(2),
+.cheatsheet-buttons span:nth-child(2) {
+    background: #ffbd2e;
+    border: 1px solid #dea123;
+}
+
+.terminal-buttons span:nth-child(3),
+.cheatsheet-buttons span:nth-child(3) {
+    background: #27c93f;
+    border: 1px solid #1aab29;
+}
+
+/* Project content styling */
+.project-content {
+    padding: 20px;
+}

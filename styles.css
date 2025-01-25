@@ -93,7 +93,7 @@ body {
 
 .terminal {
     flex: 1;
-    width: 70%; /* Adjust width as needed */
+    width: 50%; /* Adjust width as needed */
     height: 90vh;
     min-height: 600px;
     border-radius: 12px;

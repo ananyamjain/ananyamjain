@@ -185,18 +185,19 @@ automation and scalability.</li>
         const div = document.createElement('div');
         div.className = type;
         div.innerHTML = content;
-        terminalContent.appendChild(div);
         
-        // Prevent auto-scrolling by explicitly scrolling to top
+        // Insert at the beginning instead of appending
+        terminalContent.insertBefore(div, terminalContent.firstChild);
+        
+        // Ensure we stay at the top
         terminalContent.scrollTop = 0;
-        
-        // Or alternatively, if you want to maintain the scroll position:
-        // const currentScroll = terminalContent.scrollTop;
-        // terminalContent.scrollTop = currentScroll;
     }
 
     // Ensure the terminal starts at the top
     terminalContent.scrollTop = 0;
+
+    // Disable the automatic scroll anchoring
+    terminalContent.style.overflowAnchor = 'none';
 
     // Define command functions
     function generateAbout() {

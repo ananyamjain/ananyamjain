@@ -1928,177 +1928,127 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-.list-view .project-item {
-    display: flex;
     width: 100%;
-    padding: 1rem;
 }
 
-.list-view .project-content {
-    display: flex;
-    width: 100%;
-    gap: 1rem;
-}
-
-.list-view .project-icon {
-    flex-shrink: 0;
-    display: flex;
+.list-view .project-item,
+.list-view .research-item {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 1.5rem;
     align-items: flex-start;
-    padding-top: 0.5rem;
+    padding: 1.5rem;
+    margin: 0;
+    background: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
 }
 
-.list-view .project-info {
-    flex: 1;
-}
-
-/* Common Project Item Styles */
-.project-item {
-    background: rgba(28, 28, 28, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 16px;
-    transition: all 0.2s ease;
-}
-
-.project-item:hover {
-    transform: translateY(-2px);
-    background: rgba(28, 28, 28, 0.8);
-}
-
-.project-icon {
-    flex-shrink: 0; /* Prevent icon from shrinking */
+.list-view .project-icon,
+.list-view .research-icon {
     width: 40px;
-    margin-right: 8px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(152, 195, 121, 0.1);
+    border-radius: 8px;
+    font-size: 1.5rem;
+    color: #98C379;
 }
 
-.project-icon-overlay {
-    position: absolute;
-    font-size: 0.8rem;
-    bottom: 0;
-    right: -8px;
-    color: var(--text-color);
-    background: rgba(28, 28, 28, 0.8);
-    padding: 4px;
-    border-radius: 4px;
+.list-view .project-content,
+.list-view .research-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 0;
 }
 
-.project-content h3 {
+.list-view .project-content h3,
+.list-view .research-content h3 {
+    margin: 0;
     color: var(--accent-color);
-    margin: 0 0 12px 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
-.project-meta {
+.list-view .project-meta,
+.list-view .research-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    font-size: 0.8rem;
-    opacity: 0.7;
-    margin-bottom: 12px;
-    width: 100%;
-}
-
-.project-meta span {
-    white-space: nowrap;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
-    width: 100%;
-}
-
-.project-tags span {
-    background: rgba(28, 28, 28, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-}
-
-.project-description {
+    gap: 0.8rem;
     color: var(--text-color);
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-    line-height: 1.4;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    width: 100%;
-}
-
-.project-actions {
-    display: flex;
-    gap: 12px;
-}
-
-.project-action {
-    color: var(--text-color);
-    opacity: 0.7;
-    transition: all 0.2s ease;
-}
-
-.project-action:hover {
-    opacity: 1;
-    color: var(--accent-color);
-}
-
-/* View Toggle Buttons */
-.view-toggle {
-    display: flex;
-    gap: 12px;
-}
-
-.view-btn {
-    cursor: pointer;
-    opacity: 0.5;
-    transition: all 0.2s ease;
-    padding: 4px;
-}
-
-.view-btn:hover {
     opacity: 0.8;
+    font-size: 0.9rem;
 }
 
-.view-btn.active {
+.list-view .project-description,
+.list-view .research-description {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.list-view .project-tags,
+.list-view .research-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.list-view .project-tags span,
+.list-view .research-tags span {
+    background: rgba(152, 195, 121, 0.1);
+    color: #98C379;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.list-view .project-actions,
+.list-view .research-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.list-view .project-action,
+.list-view .research-action {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.list-view .project-action:hover,
+.list-view .research-action:hover {
     opacity: 1;
     color: var(--accent-color);
-}
-
-/* Ensure proper spacing in list view */
-.list-view .project-icon {
-    margin-bottom: 0;
-    padding-top: 4px;
-}
-
-.list-view .project-content {
-    padding-top: 4px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-    .grid-view {
-        grid-template-columns: 1fr;
-    }
+    background: rgba(136, 192, 208, 0.1);
+    transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-    .list-view .project-item {
-        flex-direction: column;
-        padding: 12px;
+    .list-view .project-item,
+    .list-view .research-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
     }
-    
-    .list-view .project-icon {
-        margin-bottom: 1rem;
+
+    .list-view .project-icon,
+    .list-view .research-icon {
+        margin-bottom: 0.5rem;
     }
-    
-    .project-meta {
-        flex-direction: column;
-        gap: 4px;
+
+    .list-view .project-actions,
+    .list-view .research-actions {
+        margin-top: 1rem;
     }
 }
 
@@ -3749,6 +3699,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
 }
 
 /* Project and Research Items - Common Styles */
@@ -3789,6 +3740,10 @@ body {
     grid-template-columns: 40px minmax(0, 1fr) auto;
     gap: 1.5rem;
     align-items: start;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
 .list-view .project-item:hover,
@@ -4525,6 +4480,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
 }
 
 /* Project and Research Items */
@@ -4782,4 +4738,39 @@ body {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+}
+
+/* List View Icon Styles */
+.list-view .project-icon,
+.list-view .research-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(152, 195, 121, 0.1);
+    border-radius: 8px;
+    margin: 0;
+    font-size: 1.2rem;
+    color: #98C379;
+}
+
+/* List View Content Styles */
+.list-view .project-content,
+.list-view .research-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 0;
+    width: 100%;
+}
+
+.list-view .project-description,
+.list-view .research-description {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }

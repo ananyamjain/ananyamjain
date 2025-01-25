@@ -1,3 +1,4 @@
+/* Root Variables */
 :root {
     --bg-color: #1a1a1a;
     --terminal-bg: rgba(28, 28, 28, 0.95);
@@ -10,35 +11,123 @@
     --card-shadow: rgba(0, 0, 0, 0.4);
     --cheatsheet-width: 320px;
     --container-gap: 25px;
-    --window-height: 90vh;
-    --padding: 20px;
+    --terminal-width: calc(100vw - var(--cheatsheet-width) - var(--container-gap) - 80px);
 }
 
-/* Direct styles */
-.terminal,
+/* Basic Layout */
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    gap: var(--container-gap);
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+/* Terminal Window */
+.terminal {
+    width: var(--terminal-width);
+    max-width: var(--terminal-width);
+    min-width: 0;
+    height: 90vh;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--terminal-bg);
+}
+
+/* Cheatsheet Window */
 .cheatsheet {
-    background-color: var(--terminal-bg) !important;
-    border: 1px solid var(--card-border) !important;
-    box-shadow: 0 15px 35px var(--card-shadow) !important;
-    color: var(--text-color) !important;
+    margin-top: 30px;
+    width: var(--cheatsheet-width);
+    flex-shrink: 0;
+    height: 90vh;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+    background: var(--terminal-bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.terminal-content {
-    background-color: var(--terminal-bg) !important;
-    color: var(--text-color) !important;
+/* Window Headers */
+.terminal-header,
+.cheatsheet-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1rem;
+    background: var(--terminal-bg); /* Make fully opaque */
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    backdrop-filter: blur(10px);
 }
 
-.section {
-    background-color: var(--terminal-bg) !important;
-    color: var(--text-color) !important;
-}
-
-/* Ensure smooth transitions */
-.terminal,
-.cheatsheet,
+/* Content Areas */
 .terminal-content,
-.section {
-    transition: all 0.3s ease !important;
+.cheatsheet-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.2rem;
+    padding-top: 0; /* Remove top padding since header is fixed */
+    height: calc(100% - 60px); /* Account for header height */
+}
+
+/* Window Buttons */
+.terminal-buttons,
+.cheatsheet-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-buttons span,
+.cheatsheet-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-buttons span:nth-child(1),
+.cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
+.terminal-buttons span:nth-child(2),
+.cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
+.terminal-buttons span:nth-child(3),
+.cheatsheet-buttons span:nth-child(3) { background: #27c93f; }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .terminal, 
+    .cheatsheet {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
 }
 
 /* Override any other background colors */
@@ -164,6 +253,13 @@ body {
     flex-direction: column;
     align-items: flex-start;
     transition: all 0.3s ease;
+    scroll-behavior: auto; /* Prevent smooth scrolling */
+    overflow-anchor: none; /* Prevent auto-scrolling */
+}
+
+/* Remove any auto-scroll behavior */
+.terminal-content > *:last-child {
+    overflow-anchor: none;
 }
 
 .terminal-content::-webkit-scrollbar {
@@ -389,16 +485,7 @@ body {
 }
 
 .cheatsheet::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 28px;
-    background: rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    display: none;
 }
 
 .cheatsheet-content {
@@ -409,10 +496,7 @@ body {
 
 .cheatsheet h3 {
     color: var(--accent-color);
-    margin: 0 0 1.2rem 0;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    opacity: 0.9;
+    margin-top: 1.2rem; /* Add some space after the fixed header */
 }
 
 .cheatsheet ul {
@@ -3501,4 +3585,9 @@ body {
         max-height: calc(100vh - 40px); /* Prevent overflow */
         overflow-y: auto; /* Make cheatsheet scrollable if needed */
     }
+}
+
+.terminal-title {
+    color: var(--text-color); /* Makes the text lighter */
+    opacity: 0.8; /* Adds slight transparency */
 }

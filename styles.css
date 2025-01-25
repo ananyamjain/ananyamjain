@@ -1927,61 +1927,40 @@ body {
 .list-view {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     width: 100%;
+    padding: 1rem;
 }
 
 .list-view .project-item,
 .list-view .research-item {
     display: grid;
-    grid-template-columns: 40px 1fr auto;
-    gap: 1.5rem;
+    grid-template-columns: 40px minmax(200px, 1fr) auto;
+    gap: 2rem;
     align-items: start;
-    padding: 1.5rem;
+    padding: 2rem;
     margin: 0;
     background: var(--terminal-bg);
     border: 1px solid var(--card-border);
     border-radius: 12px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.list-view .project-icon,
-.list-view .research-icon {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(152, 195, 121, 0.1);
-    border-radius: 8px;
-    margin: 0;
-    font-size: 1.2rem;
-    color: #98C379;
 }
 
 .list-view .project-content,
 .list-view .research-content {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
     min-width: 0;
+    width: 100%;
 }
 
 .list-view .project-actions,
 .list-view .research-actions {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
     align-items: flex-end;
-}
-
-.list-view .project-content h3,
-.list-view .research-content h3 {
-    margin: 0;
-    color: var(--accent-color);
-    font-size: 1.2rem;
+    min-width: 40px;
 }
 
 .list-view .project-meta,
@@ -1993,20 +1972,11 @@ body {
     opacity: 0.8;
 }
 
-.list-view .project-description,
-.list-view .research-description {
-    margin: 0;
-    line-height: 1.6;
-    color: var(--text-color);
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
-
 .list-view .project-tags,
 .list-view .research-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.8rem;
     margin: 0;
 }
 
@@ -2018,6 +1988,15 @@ body {
     border-radius: 6px;
     font-size: 0.85rem;
     white-space: nowrap;
+}
+
+.list-view .project-description,
+.list-view .research-description {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .list-view .project-actions,
@@ -2053,18 +2032,15 @@ body {
     .list-view .project-item,
     .list-view .research-item {
         grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .list-view .project-icon,
-    .list-view .research-icon {
-        margin-bottom: 0.5rem;
+        gap: 1.5rem;
+        padding: 1.5rem;
     }
 
     .list-view .project-actions,
     .list-view .research-actions {
         flex-direction: row;
         justify-content: flex-start;
+        align-items: center;
         margin-top: 1rem;
     }
 

@@ -243,15 +243,23 @@ automation and scalability.</li>
                             <span></span>
                         </div>
                         <div class="project-content">
-                            <div class="header-title">
-                                <i class="fas fa-folder"></i>
+                            <div class="card-header">
+                                <h3 class="card-title">Project Title</h3>
+                                <div class="card-links">
+                                    <a href="github_link" class="card-link" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="project-icon">
-                                <i class="project-icon-overlay fas fa-code"></i>
+                            <div class="card-meta">
+                                <span class="date">Jan 2024</span>
                             </div>
-                            <h3>SmartScanner Application</h3>
                             <div class="project-description">
-                                SmartScanner application for OpenG2P (internship), implementing an efficient caching mechanism for offline voucher verification and an authentication framework using RSA-based JSON Web Tokens.
+                                Brief description here...
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
                             </div>
                         </div>
                     </div>
@@ -263,15 +271,23 @@ automation and scalability.</li>
                             <span></span>
                         </div>
                         <div class="project-content">
-                            <div class="header-title">
-                                <i class="fas fa-folder"></i>
+                            <div class="card-header">
+                                <h3 class="card-title">Project Title</h3>
+                                <div class="card-links">
+                                    <a href="github_link" class="card-link" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="project-icon">
-                                <i class="project-icon-overlay fas fa-book"></i>
+                            <div class="card-meta">
+                                <span class="date">Jan 2024</span>
                             </div>
-                            <h3>United for Literacy</h3>
                             <div class="project-description">
-                                A collaborative platform connecting literacy organizations with volunteers. Features include volunteer matching, event management, and impact tracking.
+                                Brief description here...
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
                             </div>
                         </div>
                     </div>
@@ -283,15 +299,23 @@ automation and scalability.</li>
                             <span></span>
                         </div>
                         <div class="project-content">
-                            <div class="header-title">
-                                <i class="fas fa-folder"></i>
+                            <div class="card-header">
+                                <h3 class="card-title">Project Title</h3>
+                                <div class="card-links">
+                                    <a href="github_link" class="card-link" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="project-icon">
-                                <i class="project-icon-overlay fas fa-car"></i>
+                            <div class="card-meta">
+                                <span class="date">Jan 2024</span>
                             </div>
-                            <h3>Ryde - Car Marketplace</h3>
                             <div class="project-description">
-                                A Java desktop application for finding and listing cars for sale.
+                                Brief description here...
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
                             </div>
                         </div>
                     </div>
@@ -571,16 +595,28 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
-                        <div class="project-content">
-                            <div class="header-title">
-                                <i class="fas fa-folder"></i>
+                        <div class="research-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Research Title</h3>
+                                <div class="card-links">
+                                    <a href="github_link" class="card-link" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="paper_link" class="card-link" target="_blank">
+                                        <i class="fas fa-file-alt"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="project-icon">
-                                <i class="project-icon-overlay fas fa-atom"></i>
+                            <div class="card-meta">
+                                <span class="date">2024</span>
+                                <span class="venue">CSC413 @ UofT</span>
                             </div>
-                            <h3>Quantum Optimization for PDDL</h3>
-                            <div class="project-description">
-                                Applying QUBO methodologies for robotic AI planning tasks.
+                            <div class="research-description">
+                                Brief description here...
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">PyTorch</span>
                             </div>
                         </div>
                     </div>
@@ -591,16 +627,28 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
-                        <div class="project-content">
-                            <div class="header-title">
-                                <i class="fas fa-folder"></i>
+                        <div class="research-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Research Title</h3>
+                                <div class="card-links">
+                                    <a href="github_link" class="card-link" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="paper_link" class="card-link" target="_blank">
+                                        <i class="fas fa-file-alt"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="project-icon">
-                                <i class="project-icon-overlay fas fa-brain"></i>
+                            <div class="card-meta">
+                                <span class="date">2024</span>
+                                <span class="venue">CSC413 @ UofT</span>
                             </div>
-                            <h3>Vision Transformers for Chest Disease Classification</h3>
-                            <div class="project-description">
-                                Comparative analysis of Vision Transformers against CNNs and ResNet models.
+                            <div class="research-description">
+                                Brief description here...
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">PyTorch</span>
                             </div>
                         </div>
                     </div>

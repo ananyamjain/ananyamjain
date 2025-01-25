@@ -3504,3 +3504,24 @@ body {
     color: var(--text-color); /* Makes the text lighter */
     opacity: 0.8; /* Adds slight transparency */
 }
+
+/* About Me section */
+.about-content {
+    color: var(--text-color);
+}
+
+.about-content h2 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.about-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-content ul li {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}

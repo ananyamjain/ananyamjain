@@ -11,6 +11,7 @@
     --card-shadow: rgba(0, 0, 0, 0.4);
     --cheatsheet-width: 320px;
     --container-gap: 25px;
+    --terminal-width: calc(100vw - var(--cheatsheet-width) - var(--container-gap) - 80px);
 }
 
 /* Basic Layout */
@@ -30,13 +31,15 @@ body {
     gap: var(--container-gap);
     width: 100%;
     max-width: 1400px;
-    padding: 0;
-    margin: 0;
+    padding: 20px;
+    align-items: flex-start;
 }
 
 /* Terminal Window */
 .terminal {
-    flex: 1;
+    width: var(--terminal-width);
+    max-width: var(--terminal-width);
+    min-width: 0;
     height: 90vh;
     border-radius: 12px;
     border: 1px solid var(--card-border);
@@ -45,12 +48,12 @@ body {
     flex-direction: column;
     overflow: hidden;
     background: var(--terminal-bg);
-    margin: 0;
 }
 
 /* Cheatsheet Window */
 .cheatsheet {
     width: var(--cheatsheet-width);
+    flex-shrink: 0;
     height: 90vh;
     border-radius: 12px;
     border: 1px solid var(--card-border);
@@ -59,7 +62,6 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin: 0;
 }
 
 /* Window Headers */
@@ -108,8 +110,7 @@ body {
     .terminal, 
     .cheatsheet {
         width: 100%;
-        height: auto;
-        min-height: 50vh;
+        max-width: 100%;
     }
 }
 

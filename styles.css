@@ -3709,10 +3709,10 @@ body {
 }
 
 /* List View Items - Internal Grid Layout */
-.list-view .project-item,
+/* .list-view .project-item,
 .list-view .research-item {
-    display: grid;  /* Grid for internal 3-column layout */
-    grid-template-columns: 50px 1fr auto;  /* icon | content | actions */
+    display: grid;  
+    grid-template-columns: 50px 1fr auto;  
     gap: 1.5rem;
     align-items: start;
     padding: 1.5rem;
@@ -3722,7 +3722,7 @@ body {
     width: 100%;
     box-sizing: border-box;
     transition: all 0.3s ease;
-}
+} */
 
 .list-view .project-icon,
 .list-view .research-icon {

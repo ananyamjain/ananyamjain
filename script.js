@@ -349,7 +349,6 @@ automation and scalability.</li>
                                 <span class="tech-tag">Java</span>
                                 <span class="tech-tag">Clean Architecture</span>
                                 <span class="tech-tag">Design Patterns</span>
-                                <span>MongoDB</span>
                             </div>
                         </div>
                     </div>
@@ -654,7 +653,7 @@ automation and scalability.</li>
                             <div class="tech-stack">
                                 <span class="tech-tag">Quantum Computing</span>
                                 <span class="tech-tag">Python</span>
-                                span class="tech-tag">D-Wave</span>
+                                <span class="tech-tag">D-Wave</span>
                             </div>
                         </div>
                     </div>

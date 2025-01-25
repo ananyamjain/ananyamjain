@@ -12,6 +12,7 @@
     --cheatsheet-width: 320px;
     --container-gap: 25px;
     --terminal-width: calc(100vw - var(--cheatsheet-width) - var(--container-gap) - 80px);
+    --cheatsheet-bg: rgba(35, 35, 35, 0.95);
 }
 
 /* Basic Layout */
@@ -1021,18 +1022,6 @@ body {
     pointer-events: auto;
     position: relative;
     z-index: 2;
-}
-
-/* Add/update these styles */
-:root {
-    --bg-color: #1a1a1a;
-    --terminal-bg: rgba(28, 28, 28, 0.95);
-    --text-color: #A9B7C6;
-    --accent-color: #88C0D0;
-    --prompt-color: #98C379;
-    --command-color: #88C0D0;
-    --date-color: #E06C75;
-    --cheatsheet-bg: rgba(35, 35, 35, 0.95);
 }
 
 [data-theme="light"] {

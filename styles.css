@@ -790,10 +790,6 @@ body {
     border-radius: 50%;
 }
 
-.cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
-.cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
-.cheatsheet-buttons span:nth-child(3) { background: #27c93f; }
-
 /* Cheatsheet window controls - completely new approach */
 .cheatsheet {
     position: relative;
@@ -816,7 +812,7 @@ body {
     border-radius: 50%;
 }
 
-.cheatsheet-buttons span:first-child {
+/* .cheatsheet-buttons span:first-child {
     background-color: #ff5f56;
 }
 
@@ -826,7 +822,7 @@ body {
 
 .cheatsheet-buttons span:last-child {
     background-color: #27c93f;
-}
+} */
 
 .cheatsheet-content {
     padding-top: 30px;

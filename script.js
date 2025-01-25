@@ -623,15 +623,21 @@ automation and scalability.</li>
     function generateResearch() {
         addToTerminal('output', `
             <div class="directory-view">
+                <div class="project-overlay"></div>
                 <div class="directory-header">
                     <div class="path-navigator">
                         <span class="path-segment">~</span>
                         <span class="path-separator">/</span>
                         <span class="path-segment active">research</span>
                     </div>
+                    <div class="view-toggle">
+                        <i class="fas fa-th-large view-btn active" data-view="grid"></i>
+                        <i class="fas fa-list view-btn" data-view="list"></i>
+                    </div>
                 </div>
                 
-                <div class="project-container grid-view" id="researchContainer">
+                <div class="project-container grid-view" id="projectContainer">
+                    <!-- Quantum Research Project -->
                     <div class="project-item">
                         <button class="close-button">
                             <i class="fas fa-times"></i>
@@ -643,8 +649,8 @@ automation and scalability.</li>
                             </div>
                             <h3>Quantum Optimization for PDDL</h3>
                             <div class="project-meta">
-                                <span class="project-date">2023</span>
-                                <span class="project-location">Matter Lab, UofT</span>
+                                <span class="project-date">Modified: 2023</span>
+                                <span class="project-size">Matter Lab, UofT</span>
                             </div>
                             <div class="project-tags">
                                 <span>Quantum Computing</span>
@@ -666,6 +672,7 @@ automation and scalability.</li>
                         </div>
                     </div>
 
+                    <!-- Vision Transformers Project -->
                     <div class="project-item">
                         <button class="close-button">
                             <i class="fas fa-times"></i>
@@ -677,8 +684,8 @@ automation and scalability.</li>
                             </div>
                             <h3>Vision Transformers for Chest Disease Classification</h3>
                             <div class="project-meta">
-                                <span class="project-date">2024</span>
-                                <span class="project-location">CSC413 @ UofT</span>
+                                <span class="project-date">Modified: 2024</span>
+                                <span class="project-size">CSC413 @ UofT</span>
                             </div>
                             <div class="project-tags">
                                 <span>Machine Learning</span>
@@ -706,11 +713,13 @@ automation and scalability.</li>
             </div>
         `);
 
-        // Add the same click handlers as projects
+        // Add click handlers
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
             const overlay = document.querySelector('.project-overlay');
+            const viewBtns = document.querySelectorAll('.view-btn');
+            const projectContainer = document.getElementById('projectContainer');
             
             projectItems.forEach(item => {
                 item.addEventListener('click', (e) => {
@@ -732,13 +741,24 @@ automation and scalability.</li>
                 });
             });
 
-            overlay?.addEventListener('click', () => {
+            overlay.addEventListener('click', () => {
                 const expandedItem = document.querySelector('.project-item.expanded');
                 if (expandedItem) {
                     expandedItem.classList.remove('expanded');
                     overlay.classList.remove('active');
                     document.body.style.overflow = '';
                 }
+            });
+
+            // View toggle handlers
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const viewType = btn.getAttribute('data-view');
+                    projectContainer.className = `project-container ${viewType}-view`;
+                });
             });
         }, 0);
     }

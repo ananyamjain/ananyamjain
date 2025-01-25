@@ -92,8 +92,8 @@ body {
 }
 
 .terminal {
-    flex: 1;
-    width: 50%; /* Adjust width as needed */
+    width: 800px; /* Set a fixed width */
+    max-width: 100%; /* Ensure it doesn't overflow on smaller screens */
     height: 90vh;
     min-height: 600px;
     border-radius: 12px;

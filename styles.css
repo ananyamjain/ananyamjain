@@ -1015,7 +1015,7 @@ body {
 
 /* Projects + Research */
 
-/* Container Views */
+/* Container Views - Common for both projects and research */
 .project-container,
 .research-container {
     width: 100%;
@@ -1037,17 +1037,82 @@ body {
     flex-direction: column;
     gap: 12px;
     width: 100%;
-    box-sizing: border-box;
 }
 
+/* Common Item Styles */
+.project-item,
+.research-item {
+    position: relative;
+    background: rgba(28, 28, 28, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+/* List View Item Styles */
 .list-view .project-item,
 .list-view .research-item {
-    display: flex;
-    gap: 16px;
     width: 100%;
-    box-sizing: border-box;
-    padding: 16px;
-    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.list-view .project-content,
+.list-view .research-content {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+/* Card Links */
+.card-links {
+    display: flex;
+    gap: 8px;
+}
+
+.card-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    padding: 4px;
+}
+
+.card-links a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* Expanded State */
+.project-item.expanded,
+.research-item.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    max-width: 1000px;
+    z-index: 1000;
+    background: rgb(28, 28, 28);
+    padding: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .grid-view {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .list-view .project-item,
+    .list-view .research-item {
+        flex-direction: column;
+    }
 }
 
 .list-view .project-icon,
@@ -1061,43 +1126,6 @@ body {
     flex: 1;
     min-width: 0;
     overflow: hidden;
-}
-
-/* Common Item Styles */
-.project-item,
-.research-item {
-    position: relative;
-    width: 300px;
-    background: rgba(28, 28, 28, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 24px;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    z-index: 1;
-}
-
-/* Hide detailed content in non-expanded state */
-.project-item .project-meta,
-.research-item .research-meta,
-.project-item .project-tags,
-.research-item .research-tags,
-.project-item .project-details,
-.research-item .research-details,
-.project-item .project-actions,
-.research-item .research-actions {
-    display: none;
-}
-
-.project-item .project-description,
-.research-item .research-description {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 /* Expanded state styles */
@@ -1205,36 +1233,6 @@ body {
     left: 12px,
     gap: 8px,
     z-index: 10;
-}
-
-/* Responsive styles */
-@media (max-width: 1200px) {
-    .grid-view {
-        grid-template-columns: 1fr;
-    }
-
-    .project-item,
-    .research-item {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .list-view .project-item,
-    .list-view .research-item {
-        flex-direction: column;
-    }
-
-    .list-view .project-icon,
-    .list-view .research-icon {
-        margin-bottom: 8px;
-    }
-    
-    .project-meta,
-    .research-meta {
-        flex-direction: column;
-        gap: 4px;
-    }
 }
 
 /* Certificates */

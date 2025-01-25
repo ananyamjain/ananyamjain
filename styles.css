@@ -1,4 +1,3 @@
-/* Root Variables */
 :root {
     --bg-color: #1a1a1a;
     --terminal-bg: rgba(28, 28, 28, 0.95);
@@ -9,115 +8,33 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
-    --cheatsheet-width: 320px;
-    --container-gap: 25px;
-    --terminal-width: calc(100vw - var(--cheatsheet-width) - var(--container-gap) - 80px);
 }
 
-/* Basic Layout */
-body {
-    background-color: var(--bg-color);
-    margin: 0;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
-}
-
-/* Main Container */
-.container {
-    display: flex;
-    gap: var(--container-gap);
-    width: 100%;
-    max-width: 1400px;
-    padding: 20px;
-    align-items: flex-start;
-}
-
-/* Terminal Window */
-.terminal {
-    width: var(--terminal-width);
-    max-width: var(--terminal-width);
-    min-width: 0;
-    height: 90vh;
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: var(--terminal-bg);
-}
-
-/* Cheatsheet Window */
+/* Direct styles */
+.terminal,
 .cheatsheet {
-    width: var(--cheatsheet-width);
-    flex-shrink: 0;
-    height: 90vh;
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
-    background: var(--terminal-bg);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    background-color: var(--terminal-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    box-shadow: 0 15px 35px var(--card-shadow) !important;
+    color: var(--text-color) !important;
 }
 
-/* Window Headers */
-.terminal-header,
-.cheatsheet-header {
-    padding: 1rem;
-    border-bottom: 1px solid var(--card-border);
-    background: rgba(0, 0, 0, 0.2);
+.terminal-content {
+    background-color: var(--terminal-bg) !important;
+    color: var(--text-color) !important;
 }
 
-/* Content Areas */
+.section {
+    background-color: var(--terminal-bg) !important;
+    color: var(--text-color) !important;
+}
+
+/* Ensure smooth transitions */
+.terminal,
+.cheatsheet,
 .terminal-content,
-.cheatsheet-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1.2rem;
-}
-
-/* Window Buttons */
-.terminal-buttons,
-.cheatsheet-buttons {
-    display: flex;
-    gap: 8px;
-}
-
-.terminal-buttons span,
-.cheatsheet-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-
-.terminal-buttons span:nth-child(1),
-.cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
-.terminal-buttons span:nth-child(2),
-.cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
-.terminal-buttons span:nth-child(3),
-.cheatsheet-buttons span:nth-child(3) { background: #27c93f; }
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .terminal, 
-    .cheatsheet {
-        width: 100%;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
+.section {
+    transition: all 0.3s ease !important;
 }
 
 /* Override any other background colors */
@@ -157,29 +74,35 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: flex-start; /* Change from center to flex-start */
     font-family: 'JetBrains Mono', monospace;
+    transition: background-color 0.3s ease;
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .container {
     display: flex;
-    gap: var(--container-gap);
+    justify-content: center;
+    gap: 25px;
     width: 100%;
     max-width: 1400px;
+    padding: 20px;
     align-items: flex-start;
-    position: relative; /* Add this */
+    min-height: 90vh; /* Add minimum height */
 }
 
 .terminal {
     flex: 1;
-    min-width: 0; /* Allow shrinking */
-    height: var(--window-height);
+    height: 90vh;
+    min-height: 600px; /* Add minimum height */
     border-radius: 12px;
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background: var(--terminal-bg);
+    position: relative;
 }
 
 .terminal::before {
@@ -453,18 +376,17 @@ body {
 }
 
 .cheatsheet {
-    width: var(--cheatsheet-width);
-    height: var(--window-height);
+    width: 280px;
+    background: var(--cheatsheet-bg);
+    padding: 1.8rem;
+    padding-top: 2.8rem;
     border-radius: 12px;
     border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
+    box-shadow: 0 12px 30px var(--card-shadow);
+    height: fit-content;
+    position: sticky; /* Add this to keep it in view */
+    top: 20px; /* Add this to maintain some spacing from the top */
     overflow: hidden;
-    flex-shrink: 0; /* Prevent shrinking */
-    background: var(--terminal-bg);
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 20px;
 }
 
 .cheatsheet::before {
@@ -481,9 +403,9 @@ body {
 }
 
 .cheatsheet-content {
-    padding: 1.8rem;
-    overflow-y: auto;
-    flex: 1;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .cheatsheet h3 {
@@ -584,19 +506,10 @@ body {
 @media (max-width: 1200px) {
     .container {
         flex-direction: column;
-        align-items: stretch;
     }
-
-    .terminal, 
+    
     .cheatsheet {
-        width: 100%;
-        height: auto;
-        min-height: 50vh;
-    }
-
-    .cheatsheet {
-        position: relative;
-        top: 0;
+        width: auto;
     }
 }
 
@@ -2008,30 +1921,29 @@ body {
 .list-view {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .list-view .project-item {
     display: flex;
+    gap: 16px;
     width: 100%;
-    padding: 1rem;
-}
-
-.list-view .project-content {
-    display: flex;
-    width: 100%;
-    gap: 1rem;
+    box-sizing: border-box;
+    padding: 16px;
+    margin: 0;
 }
 
 .list-view .project-icon {
-    flex-shrink: 0;
-    display: flex;
-    align-items: flex-start;
-    padding-top: 0.5rem;
+    margin-bottom: 0;
+    min-width: 50px;
 }
 
-.list-view .project-info {
+.list-view .project-content {
     flex: 1;
+    min-width: 0; /* Prevent flex item from overflowing */
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 /* Common Project Item Styles */
@@ -2174,7 +2086,7 @@ body {
     }
     
     .list-view .project-icon {
-        margin-bottom: 1rem;
+        margin-bottom: 16px;
     }
     
     .project-meta {

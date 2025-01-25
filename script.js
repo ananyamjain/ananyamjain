@@ -636,7 +636,7 @@ automation and scalability.</li>
                     </div>
                 </div>
                 
-                <div class="project-container grid-view">
+                <div class="project-container grid-view" id="projectContainer">
                     <!-- Quantum Research Project -->
                     <div class="project-item">
                         <button class="close-button">
@@ -647,29 +647,27 @@ automation and scalability.</li>
                                 <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-atom"></i>
                             </div>
-                            <div class="project-info">
-                                <h3>Quantum Optimization for PDDL</h3>
-                                <div class="project-meta">
-                                    <span class="project-date">Modified: 2023</span>
-                                    <span class="project-size">Matter Lab, UofT</span>
-                                </div>
-                                <div class="project-tags">
-                                    <span>Quantum Computing</span>
-                                    <span>Python</span>
-                                    <span>D-Wave</span>
-                                </div>
-                                <div class="project-description">
-                                    Applying QUBO methodologies for robotic AI planning tasks.
-                                </div>
-                                <div class="project-details">
-                                    <h4>Research Details:</h4>
-                                    <p>Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with minimal energy. Implemented quantum optimization techniques for Planning Domain Definition Language problems.</p>
-                                </div>
-                                <div class="project-actions">
-                                    <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="project-action">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
+                            <h3>Quantum Optimization for PDDL</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: 2023</span>
+                                <span class="project-size">Matter Lab, UofT</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Quantum Computing</span>
+                                <span>Python</span>
+                                <span>D-Wave</span>
+                            </div>
+                            <div class="project-description">
+                                Applying QUBO methodologies for robotic AI planning tasks.
+                            </div>
+                            <div class="project-details">
+                                <h4>Research Details:</h4>
+                                <p>Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with minimal energy. Implemented quantum optimization techniques for Planning Domain Definition Language problems.</p>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -684,32 +682,30 @@ automation and scalability.</li>
                                 <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-brain"></i>
                             </div>
-                            <div class="project-info">
-                                <h3>Vision Transformers for Chest Disease Classification</h3>
-                                <div class="project-meta">
-                                    <span class="project-date">Modified: 2024</span>
-                                    <span class="project-size">CSC413 @ UofT</span>
-                                </div>
-                                <div class="project-tags">
-                                    <span>Machine Learning</span>
-                                    <span>Neural Networks</span>
-                                    <span>PyTorch</span>
-                                </div>
-                                <div class="project-description">
-                                    Comparative analysis of Vision Transformers against CNNs and ResNet models.
-                                </div>
-                                <div class="project-details">
-                                    <h4>Research Details:</h4>
-                                    <p>Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance in identifying 14 distinct lung conditions. Conducted comprehensive comparative analysis with traditional architectures.</p>
-                                </div>
-                                <div class="project-actions">
-                                    <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="project-action">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="project-action">
-                                        <i class="fas fa-file-alt"></i>
-                                    </a>
-                                </div>
+                            <h3>Vision Transformers for Chest Disease Classification</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: 2024</span>
+                                <span class="project-size">CSC413 @ UofT</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Machine Learning</span>
+                                <span>Neural Networks</span>
+                                <span>PyTorch</span>
+                            </div>
+                            <div class="project-description">
+                                Comparative analysis of Vision Transformers against CNNs and ResNet models.
+                            </div>
+                            <div class="project-details">
+                                <h4>Research Details:</h4>
+                                <p>Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance in identifying 14 distinct lung conditions. Conducted comprehensive comparative analysis with traditional architectures.</p>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="project-action">
+                                    <i class="fas fa-file-alt"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -723,7 +719,7 @@ automation and scalability.</li>
             const closeButtons = document.querySelectorAll('.close-button');
             const overlay = document.querySelector('.project-overlay');
             const viewBtns = document.querySelectorAll('.view-btn');
-            const projectContainer = document.querySelector('.project-container');
+            const projectContainer = document.getElementById('projectContainer');
             
             projectItems.forEach(item => {
                 item.addEventListener('click', (e) => {

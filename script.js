@@ -236,29 +236,29 @@ automation and scalability.</li>
                 </div>
                 
                 <div class="project-container grid-view" id="projectContainer">
+                    <!-- SmartScanner Project -->
                     <div class="project-item">
-                        <div class="terminal-buttons">
-                            <span class="close-btn"></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
                         <div class="project-content">
-                            <div class="card-header">
-                                <h3 class="card-title">SmartScanner Application</h3>
-                                <div class="card-links">
-                                    <a href="https://github.com/ananyamjain/openg2p-voucher-scanner-app" class="card-link" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="https://www.openg2p.org/" target="_blank" class="project-action">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-code"></i>
                             </div>
-                            <div class="card-meta">
-                                <span class="date">Modified: Aug 2023</span>
+                            <h3>SmartScanner Application</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: Aug 2023</span>
+                                <span class="project-size">Size: 42MB</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Kotlin</span>
+                                <span>Java</span>
                             </div>
                             <div class="project-description">
-                                <p>SmartScanner application for OpenG2P (internship), implementing an efficient caching mechanism for offline voucher verification and an authentication framework using RSA-based JSON Web Tokens.</p>
+                                SmartScanner application for OpenG2P (internship), implementing an efficient caching mechanism for offline voucher verification and an authentication framework using RSA-based JSON Web Tokens.
+                            </div>
+                            <div class="project-details">
                                 <h4>Key Features:</h4>
                                 <ul>
                                     <li>Offline voucher verification system</li>
@@ -269,34 +269,41 @@ automation and scalability.</li>
                                 <h4>Technical Details:</h4>
                                 <p>Built using Kotlin and Java, the application implements a robust caching system that enables offline verification of vouchers. The authentication system uses RSA-based JSON Web Tokens for secure data transmission.</p>
                             </div>
-                            </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Kotlin</span>
-                                <span class="tech-tag">Java</span>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/openg2p-voucher-scanner-app" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.openg2p.org/" target="_blank" class="project-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- United for Literacy Project -->
                     <div class="project-item">
-                        <div class="terminal-buttons">
-                            <span class="close-btn"></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
                         <div class="project-content">
-                            <div class="card-header">
-                                <h3 class="card-title">United for Literacy</h3>
-                                <div class="card-links">
-                                    <a href="https://github.com/csc301-2024-s/27-united-for-literacy" class="card-link" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-book"></i>
                             </div>
-                            <div class="card-meta">
-                                <span class="date">Modified: Jan 2024</span>
+                            <h3>United for Literacy</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: Jan 2024</span>
+                                <span class="project-size">Size: 156MB</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
                             </div>
                             <div class="project-description">
-                                <p>A collaborative platform connecting literacy organizations with volunteers. Features include volunteer matching, event management, and impact tracking.</p>
+                                A collaborative platform connecting literacy organizations with volunteers. Features include volunteer matching, event management, and impact tracking.
+                            </div>
+                            <div class="project-details">
                                 <h4>Key Features:</h4>
                                 <ul>
                                     <li>Volunteer-organization matching system</li>
@@ -307,34 +314,38 @@ automation and scalability.</li>
                                 <h4>Technical Details:</h4>
                                 <p>Built with React and Node.js, following agile methodologies. Uses MongoDB for flexible data storage and real-time updates. Implements responsive design for cross-device compatibility.</p>
                             </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
+                            <div class="project-actions">
+                                <a href="https://github.com/csc301-2024-s/27-united-for-literacy" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Ryde Project -->
                     <div class="project-item">
-                        <div class="terminal-buttons">
-                            <span class="close-btn"></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
                         <div class="project-content">
-                            <div class="card-header">
-                                <h3 class="card-title">Ryde - Car Marketplace</h3>
-                                <div class="card-links">
-                                    <a href="https://github.com/CSC207-2022F-UofT/course-project-ryde" class="card-link" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-car"></i>
                             </div>
-                            <div class="card-meta">
-                                <span class="date">Modified: Dec 2022</span>
+                            <h3>Ryde - Car Marketplace</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: Dec 2022</span>
+                                <span class="project-size">Size: 84MB</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Java</span>
+                                <span>Clean Architecture</span>
+                                <span>Design Patterns</span>
                             </div>
                             <div class="project-description">
-                                <p>A Java desktop application for finding and listing cars for sale.</p>
+                                A Java desktop application for finding and listing cars for sale.
+                            </div>
+                            <div class="project-details">
                                 <h4>Key Features:</h4>
                                 <ul>
                                     <li>User authentication system</li>
@@ -345,10 +356,10 @@ automation and scalability.</li>
                                 <h4>Technical Details:</h4>
                                 <p>Built using Clean Architecture principles and various design patterns including Factory, Dependency Injection, and Singleton. Features a modular design for easy maintenance and scalability.</p>
                             </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">Clean Architecture</span>
-                                <span class="tech-tag">Design Patterns</span>
+                            <div class="project-actions">
+                                <a href="https://github.com/CSC207-2022F-UofT/course-project-ryde" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -356,15 +367,15 @@ automation and scalability.</li>
             </div>
         `);
 
-        // Update click handlers
+        // Add click handlers
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
-            const closeButtons = document.querySelectorAll('.terminal-buttons span:first-child');
+            const closeButtons = document.querySelectorAll('.close-button');
             const overlay = document.querySelector('.project-overlay');
             
             projectItems.forEach(item => {
                 item.addEventListener('click', (e) => {
-                    if (!e.target.closest('.terminal-buttons') && !e.target.closest('a')) {
+                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
                         item.classList.add('expanded');
                         overlay.classList.add('active');
                         document.body.style.overflow = 'hidden';
@@ -375,7 +386,7 @@ automation and scalability.</li>
             closeButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const projectItem = button.closest('.project-item') || button.closest('.research-item');
+                    const projectItem = button.closest('.project-item');
                     projectItem.classList.remove('expanded');
                     overlay.classList.remove('active');
                     document.body.style.overflow = '';
@@ -612,83 +623,82 @@ automation and scalability.</li>
     function generateResearch() {
         addToTerminal('output', `
             <div class="directory-view">
-                <div class="project-overlay"></div>
                 <div class="directory-header">
                     <div class="path-navigator">
                         <span class="path-segment">~</span>
                         <span class="path-separator">/</span>
                         <span class="path-segment active">research</span>
                     </div>
-                    <div class="view-toggle">
-                        <i class="fas fa-th-large view-btn active" data-view="grid"></i>
-                        <i class="fas fa-list view-btn" data-view="list"></i>
-                    </div>
                 </div>
                 
-                <div class="research-container grid-view" id="researchContainer">
-                    <div class="research-item">
-                        <div class="terminal-buttons">
-                            <span class="close-btn"></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="research-content">
-                            <div class="card-header">
-                                <h3 class="card-title">Quantum Optimization for PDDL</h3>
-                                <div class="card-links">
-                                    <a href="https://github.com/ananyamjain/QUBO-Problem" class="card-link" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
+                <div class="project-container grid-view" id="researchContainer">
+                    <div class="project-item">
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="project-content">
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-atom"></i>
                             </div>
-                            <div class="card-meta">
-                                <span class="date">2023</span>
-                                <span class="venue">Matter Lab @ UofT</span>
+                            <h3>Quantum Optimization for PDDL</h3>
+                            <div class="project-meta">
+                                <span class="project-date">2023</span>
+                                <span class="project-location">Matter Lab, UofT</span>
                             </div>
-                            <div class="research-description">
-                                <p>Applying QUBO methodologies for robotic AI planning tasks.</p>
+                            <div class="project-tags">
+                                <span>Quantum Computing</span>
+                                <span>Python</span>
+                                <span>D-Wave</span>
+                            </div>
+                            <div class="project-description">
+                                Applying QUBO methodologies for robotic AI planning tasks.
+                            </div>
+                            <div class="project-details">
                                 <h4>Research Details:</h4>
                                 <p>Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with minimal energy. Implemented quantum optimization techniques for Planning Domain Definition Language problems.</p>
                             </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Quantum Computing</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">D-Wave</span>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="research-item">
-                        <div class="terminal-buttons">
-                            <span class="close-btn"></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="research-content">
-                            <div class="card-header">
-                                <h3 class="card-title">Vision Transformers for Chest Disease Classification</h3>
-                                <div class="card-links">
-                                    <a href="https://github.com/ananyamjain/CSC413-Final-Project" class="card-link" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="https://arxiv.org/abs/2406.00237" class="card-link" target="_blank">
-                                        <i class="fas fa-file-alt"></i>
-                                    </a>
-                                </div>
+                    <div class="project-item">
+                        <button class="close-button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="project-content">
+                            <div class="project-icon">
+                                <i class="fas fa-folder"></i>
+                                <i class="project-icon-overlay fas fa-brain"></i>
                             </div>
-                            <div class="card-meta">
-                                <span class="date">2024</span>
-                                <span class="venue">CSC413 @ UofT</span>
+                            <h3>Vision Transformers for Chest Disease Classification</h3>
+                            <div class="project-meta">
+                                <span class="project-date">2024</span>
+                                <span class="project-location">CSC413 @ UofT</span>
                             </div>
-                            <div class="research-description">
-                                <p>Comparative analysis of Vision Transformers against CNNs and ResNet models.</p>
+                            <div class="project-tags">
+                                <span>Machine Learning</span>
+                                <span>Neural Networks</span>
+                                <span>PyTorch</span>
+                            </div>
+                            <div class="project-description">
+                                Comparative analysis of Vision Transformers against CNNs and ResNet models.
+                            </div>
+                            <div class="project-details">
                                 <h4>Research Details:</h4>
                                 <p>Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance in identifying 14 distinct lung conditions. Conducted comprehensive comparative analysis with traditional architectures.</p>
                             </div>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Machine Learning</span>
-                                <span class="tech-tag">Neural Networks</span>
-                                <span class="tech-tag">PyTorch</span>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="project-action">
+                                    <i class="fas fa-file-alt"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -696,24 +706,40 @@ automation and scalability.</li>
             </div>
         `);
 
-        // Add the click handlers for view toggle
+        // Add the same click handlers as projects
         setTimeout(() => {
-            const viewBtns = document.querySelectorAll('.view-btn');
-            const researchContainer = document.getElementById('researchContainer');
+            const projectItems = document.querySelectorAll('.project-item');
+            const closeButtons = document.querySelectorAll('.close-button');
+            const overlay = document.querySelector('.project-overlay');
             
-            if (viewBtns && researchContainer) {
-                viewBtns.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        viewBtns.forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        const viewType = btn.getAttribute('data-view');
-                        researchContainer.className = `project-container ${viewType}-view`;
-                    });
+            projectItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
+                        item.classList.add('expanded');
+                        overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
                 });
-            }
+            });
             
-            // ... rest of your existing handlers ...
+            closeButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const projectItem = button.closest('.project-item');
+                    projectItem.classList.remove('expanded');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            overlay?.addEventListener('click', () => {
+                const expandedItem = document.querySelector('.project-item.expanded');
+                if (expandedItem) {
+                    expandedItem.classList.remove('expanded');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
         }, 0);
     }
 

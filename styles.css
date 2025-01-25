@@ -82,18 +82,18 @@ body {
 
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Align items to the start */
     gap: 25px;
     width: 100%;
     max-width: 1400px;
     padding: 20px;
     align-items: flex-start;
-    min-height: 90vh; /* Add minimum height */
+    min-height: 90vh;
 }
 
 .terminal {
-    width: 800px; /* Set a fixed width */
-    max-width: 100%; /* Ensure it doesn't overflow on smaller screens */
+    flex: 1; /* Allow terminal to take available space */
+    max-width: 800px; /* Ensure it doesn't overflow */
     height: 90vh;
     min-height: 600px;
     border-radius: 12px;
@@ -385,8 +385,8 @@ body {
     border: 1px solid var(--card-border);
     box-shadow: 0 12px 30px var(--card-shadow);
     height: fit-content;
-    position: sticky; /* Add this to keep it in view */
-    top: 20px; /* Add this to maintain some spacing from the top */
+    position: sticky;
+    top: 20px;
     overflow: hidden;
 }
 

@@ -52,7 +52,6 @@ body {
 
 /* Cheatsheet Window */
 .cheatsheet {
-    margin-top: 30px;
     width: var(--cheatsheet-width);
     flex-shrink: 0;
     height: 90vh;
@@ -68,16 +67,9 @@ body {
 /* Window Headers */
 .terminal-header,
 .cheatsheet-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
     padding: 1rem;
-    background: var(--terminal-bg); /* Make fully opaque */
     border-bottom: 1px solid var(--card-border);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 /* Content Areas */
@@ -86,8 +78,6 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 1.2rem;
-    padding-top: 0; /* Remove top padding since header is fixed */
-    height: calc(100% - 60px); /* Account for header height */
 }
 
 /* Window Buttons */
@@ -253,13 +243,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     transition: all 0.3s ease;
-    scroll-behavior: auto; /* Prevent smooth scrolling */
-    overflow-anchor: none; /* Prevent auto-scrolling */
-}
-
-/* Remove any auto-scroll behavior */
-.terminal-content > *:last-child {
-    overflow-anchor: none;
 }
 
 .terminal-content::-webkit-scrollbar {
@@ -485,7 +468,16 @@ body {
 }
 
 .cheatsheet::before {
-    display: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .cheatsheet-content {
@@ -496,7 +488,10 @@ body {
 
 .cheatsheet h3 {
     color: var(--accent-color);
-    margin-top: 1.2rem; /* Add some space after the fixed header */
+    margin: 0 0 1.2rem 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
 }
 
 .cheatsheet ul {
@@ -3585,9 +3580,4 @@ body {
         max-height: calc(100vh - 40px); /* Prevent overflow */
         overflow-y: auto; /* Make cheatsheet scrollable if needed */
     }
-}
-
-.terminal-title {
-    color: var(--text-color); /* Makes the text lighter */
-    opacity: 0.8; /* Adds slight transparency */
 }

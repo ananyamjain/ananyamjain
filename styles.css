@@ -1,3 +1,4 @@
+/* Root Variables */
 :root {
     --bg-color: #1a1a1a;
     --terminal-bg: rgba(28, 28, 28, 0.95);
@@ -10,35 +11,112 @@
     --card-shadow: rgba(0, 0, 0, 0.4);
     --cheatsheet-width: 320px;
     --container-gap: 25px;
-    --window-height: 90vh;
-    --padding: 20px;
 }
 
-/* Direct styles */
-.terminal,
+/* Basic Layout */
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    gap: var(--container-gap);
+    width: 100%;
+    max-width: 1400px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Terminal Window */
+.terminal {
+    flex: 1;
+    height: 90vh;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--terminal-bg);
+    margin: 0;
+}
+
+/* Cheatsheet Window */
 .cheatsheet {
-    background-color: var(--terminal-bg) !important;
-    border: 1px solid var(--card-border) !important;
-    box-shadow: 0 15px 35px var(--card-shadow) !important;
-    color: var(--text-color) !important;
+    width: var(--cheatsheet-width);
+    height: 90vh;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+    background: var(--terminal-bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0;
 }
 
-.terminal-content {
-    background-color: var(--terminal-bg) !important;
-    color: var(--text-color) !important;
+/* Window Headers */
+.terminal-header,
+.cheatsheet-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--card-border);
+    background: rgba(0, 0, 0, 0.2);
 }
 
-.section {
-    background-color: var(--terminal-bg) !important;
-    color: var(--text-color) !important;
-}
-
-/* Ensure smooth transitions */
-.terminal,
-.cheatsheet,
+/* Content Areas */
 .terminal-content,
-.section {
-    transition: all 0.3s ease !important;
+.cheatsheet-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.2rem;
+}
+
+/* Window Buttons */
+.terminal-buttons,
+.cheatsheet-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-buttons span,
+.cheatsheet-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-buttons span:nth-child(1),
+.cheatsheet-buttons span:nth-child(1) { background: #ff5f56; }
+.terminal-buttons span:nth-child(2),
+.cheatsheet-buttons span:nth-child(2) { background: #ffbd2e; }
+.terminal-buttons span:nth-child(3),
+.cheatsheet-buttons span:nth-child(3) { background: #27c93f; }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .terminal, 
+    .cheatsheet {
+        width: 100%;
+        height: auto;
+        min-height: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
 }
 
 /* Override any other background colors */

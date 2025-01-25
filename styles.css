@@ -8,6 +8,9 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
+    --cheatsheet-width: 320px;  /* Wider cheatsheet */
+    --container-gap: 25px;
+    --terminal-width: calc(100vw - var(--cheatsheet-width) - var(--container-gap) - 80px); /* Account for padding and gap */
 }
 
 /* Direct styles */
@@ -83,22 +86,22 @@ body {
 .container {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: var(--container-gap);
     width: 100%;
     max-width: 1400px;
     padding: 20px;
     align-items: flex-start;
-    min-height: 90vh; /* Add minimum height */
 }
 
 .terminal {
     flex: 1;
+    width: var(--terminal-width);
+    max-width: var(--terminal-width); /* Enforce max width */
+    min-width: 0; /* Allow shrinking */
     height: 90vh;
-    min-height: 600px; /* Add minimum height */
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -376,17 +379,17 @@ body {
 }
 
 .cheatsheet {
-    width: 280px;
-    background: var(--cheatsheet-bg);
+    width: var(--cheatsheet-width);
+    flex-shrink: 0; /* Prevent shrinking */
+    background: var(--terminal-bg);
     padding: 1.8rem;
     padding-top: 2.8rem;
     border-radius: 12px;
     border: 1px solid var(--card-border);
     box-shadow: 0 12px 30px var(--card-shadow);
-    height: fit-content;
-    position: sticky; /* Add this to keep it in view */
-    top: 20px; /* Add this to maintain some spacing from the top */
-    overflow: hidden;
+    height: 90vh;
+    position: sticky;
+    top: 20px;
 }
 
 .cheatsheet::before {

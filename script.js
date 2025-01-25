@@ -175,6 +175,7 @@ automation and scalability.</li>
             
             commandInput.value = '';
             commandText.textContent = '';
+            terminalContent.scrollTop = 0;
         }
     });
 
@@ -186,11 +187,19 @@ automation and scalability.</li>
         div.className = type;
         div.innerHTML = content;
         
-        // Insert at the beginning instead of appending
-        terminalContent.insertBefore(div, terminalContent.firstChild);
+        // Add new content to the bottom
+        terminalContent.appendChild(div);
         
-        // Ensure we stay at the top
-        terminalContent.scrollTop = 0;
+        // If it's a command, scroll to show the latest content
+        if (type === 'command') {
+            terminalContent.scrollTop = 0;
+        }
+        
+        // For other content types, maintain the current scroll position
+        const currentScroll = terminalContent.scrollTop;
+        requestAnimationFrame(() => {
+            terminalContent.scrollTop = currentScroll;
+        });
     }
 
     // Ensure the terminal starts at the top

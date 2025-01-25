@@ -244,22 +244,35 @@ automation and scalability.</li>
                         </div>
                         <div class="project-content">
                             <div class="card-header">
-                                <h3 class="card-title">Project Title</h3>
+                                <h3 class="card-title">SmartScanner Application</h3>
                                 <div class="card-links">
-                                    <a href="github_link" class="card-link" target="_blank">
+                                    <a href="https://github.com/ananyamjain/openg2p-voucher-scanner-app" class="card-link" target="_blank">
                                         <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://www.openg2p.org/" target="_blank" class="project-action">
+                                        <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="card-meta">
-                                <span class="date">Jan 2024</span>
+                                <span class="date">Modified: Aug 2023</span>
                             </div>
                             <div class="project-description">
-                                Brief description here...
+                                <p>SmartScanner application for OpenG2P (internship), implementing an efficient caching mechanism for offline voucher verification and an authentication framework using RSA-based JSON Web Tokens.</p>
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Offline voucher verification system</li>
+                                    <li>RSA-based JWT authentication</li>
+                                    <li>Efficient caching mechanism</li>
+                                    <li>Cross-platform mobile support</li>
+                                </ul>
+                                <h4>Technical Details:</h4>
+                                <p>Built using Kotlin and Java, the application implements a robust caching system that enables offline verification of vouchers. The authentication system uses RSA-based JSON Web Tokens for secure data transmission.</p>
+                            </div>
                             </div>
                             <div class="tech-stack">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Kotlin</span>
+                                <span class="tech-tag">Java</span>
                             </div>
                         </div>
                     </div>
@@ -272,22 +285,32 @@ automation and scalability.</li>
                         </div>
                         <div class="project-content">
                             <div class="card-header">
-                                <h3 class="card-title">Project Title</h3>
+                                <h3 class="card-title">United for Literacy</h3>
                                 <div class="card-links">
-                                    <a href="github_link" class="card-link" target="_blank">
+                                    <a href="https://github.com/csc301-2024-s/27-united-for-literacy" class="card-link" target="_blank">
                                         <i class="fab fa-github"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="card-meta">
-                                <span class="date">Jan 2024</span>
+                                <span class="date">Modified: Jan 2024</span>
                             </div>
                             <div class="project-description">
-                                Brief description here...
+                                <p>A collaborative platform connecting literacy organizations with volunteers. Features include volunteer matching, event management, and impact tracking.</p>
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Volunteer-organization matching system</li>
+                                    <li>Event management and scheduling</li>
+                                    <li>Impact tracking dashboard</li>
+                                    <li>Real-time notifications</li>
+                                </ul>
+                                <h4>Technical Details:</h4>
+                                <p>Built with React and Node.js, following agile methodologies. Uses MongoDB for flexible data storage and real-time updates. Implements responsive design for cross-device compatibility.</p>
                             </div>
                             <div class="tech-stack">
                                 <span class="tech-tag">React</span>
                                 <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
                             </div>
                         </div>
                     </div>
@@ -300,22 +323,33 @@ automation and scalability.</li>
                         </div>
                         <div class="project-content">
                             <div class="card-header">
-                                <h3 class="card-title">Project Title</h3>
+                                <h3 class="card-title">Ryde - Car Marketplace</h3>
                                 <div class="card-links">
-                                    <a href="github_link" class="card-link" target="_blank">
+                                    <a href="https://github.com/CSC207-2022F-UofT/course-project-ryde" class="card-link" target="_blank">
                                         <i class="fab fa-github"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="card-meta">
-                                <span class="date">Jan 2024</span>
+                                <span class="date">Modified: Dec 2022</span>
                             </div>
                             <div class="project-description">
-                                Brief description here...
+                                <p>A Java desktop application for finding and listing cars for sale.</p>
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>User authentication system</li>
+                                    <li>Advanced car listing management</li>
+                                    <li>Dealership locator</li>
+                                    <li>Smart filtering system</li>
+                                </ul>
+                                <h4>Technical Details:</h4>
+                                <p>Built using Clean Architecture principles and various design patterns including Factory, Dependency Injection, and Singleton. Features a modular design for easy maintenance and scalability.</p>
                             </div>
                             <div class="tech-stack">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Clean Architecture</span>
+                                <span class="tech-tag">Design Patterns</span>
+                                <span>MongoDB</span>
                             </div>
                         </div>
                     </div>
@@ -597,26 +631,26 @@ automation and scalability.</li>
                         </div>
                         <div class="research-content">
                             <div class="card-header">
-                                <h3 class="card-title">Research Title</h3>
+                                <h3 class="card-title">Quantum Optimization for PDDL</h3>
                                 <div class="card-links">
-                                    <a href="github_link" class="card-link" target="_blank">
+                                    <a href="https://github.com/ananyamjain/QUBO-Problem" class="card-link" target="_blank">
                                         <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="paper_link" class="card-link" target="_blank">
-                                        <i class="fas fa-file-alt"></i>
                                     </a>
                                 </div>
                             </div>
                             <div class="card-meta">
-                                <span class="date">2024</span>
-                                <span class="venue">CSC413 @ UofT</span>
+                                <span class="date">2023</span>
+                                <span class="venue">Matter Lab @ UofT</span>
                             </div>
                             <div class="research-description">
-                                Brief description here...
+                                <p>Applying QUBO methodologies for robotic AI planning tasks.</p>
+                                <h4>Research Details:</h4>
+                                <p>Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with minimal energy. Implemented quantum optimization techniques for Planning Domain Definition Language problems.</p>
                             </div>
                             <div class="tech-stack">
-                                <span class="tech-tag">Machine Learning</span>
-                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">Quantum Computing</span>
+                                <span class="tech-tag">Python</span>
+                                span class="tech-tag">D-Wave</span>
                             </div>
                         </div>
                     </div>
@@ -629,12 +663,12 @@ automation and scalability.</li>
                         </div>
                         <div class="research-content">
                             <div class="card-header">
-                                <h3 class="card-title">Research Title</h3>
+                                <h3 class="card-title">Vision Transformers for Chest Disease Classification</h3>
                                 <div class="card-links">
-                                    <a href="github_link" class="card-link" target="_blank">
+                                    <a href="https://github.com/ananyamjain/CSC413-Final-Project" class="card-link" target="_blank">
                                         <i class="fab fa-github"></i>
                                     </a>
-                                    <a href="paper_link" class="card-link" target="_blank">
+                                    <a href="https://arxiv.org/abs/2406.00237" class="card-link" target="_blank">
                                         <i class="fas fa-file-alt"></i>
                                     </a>
                                 </div>
@@ -644,10 +678,13 @@ automation and scalability.</li>
                                 <span class="venue">CSC413 @ UofT</span>
                             </div>
                             <div class="research-description">
-                                Brief description here...
+                                <p>Comparative analysis of Vision Transformers against CNNs and ResNet models.</p>
+                                <h4>Research Details:</h4>
+                                <p>Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance in identifying 14 distinct lung conditions. Conducted comprehensive comparative analysis with traditional architectures.</p>
                             </div>
                             <div class="tech-stack">
                                 <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Neural Networks</span>
                                 <span class="tech-tag">PyTorch</span>
                             </div>
                         </div>

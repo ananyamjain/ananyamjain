@@ -2663,3 +2663,44 @@ body {
     background: rgba(152, 195, 121, 0.1);
     color: #98C379;
 }
+
+/* External link styles */
+.card-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    padding: 4px;
+}
+
+.card-links a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* Specific icon styles */
+.card-links .fa-github {
+    color: #f0f0f0;
+}
+
+.card-links .fa-external-link-alt {
+    color: #98C379;
+}
+
+.card-links .fa-file-alt {
+    color: #61AFEF;
+}
+
+/* Hover effects */
+.card-links a:hover .fa-github {
+    color: #ffffff;
+}
+
+.card-links a:hover .fa-external-link-alt {
+    color: #b5e498;
+}
+
+.card-links a:hover .fa-file-alt {
+    color: #7bc3ff;
+}

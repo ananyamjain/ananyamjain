@@ -100,12 +100,14 @@ body {
 }
 
 .terminal-header {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 1rem 1.2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.5rem 1.2rem;
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
+    height: auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--card-border);
 }
 
 .terminal-buttons,
@@ -117,6 +119,7 @@ body {
 
 .terminal-buttons span,
 .cheatsheet-buttons span {
+    display: block;
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -136,6 +139,13 @@ body {
 .terminal-buttons span:hover,
 .cheatsheet-buttons span:hover {
     opacity: 1;
+}
+
+.terminal-title {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-left: 1rem;
 }
 
 .terminal-content {
@@ -672,19 +682,6 @@ body {
     height: fit-content;
     position: relative;
     overflow: hidden;
-}
-
-.terminal-header,
-.cheatsheet::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 28px;
-    background: rgba(0, 0, 0, 0.2);
-    border-bottom: 1px solid var(--card-border);
-    z-index: 1;
 }
 
 .cheatsheet::before {
@@ -3334,12 +3331,6 @@ body {
 [data-theme="light"] .terminal,
 [data-theme="light"] .cheatsheet {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="light"] .terminal-header,
-[data-theme="light"] .cheatsheet::before {
-    background: rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Update command input styles for light theme */

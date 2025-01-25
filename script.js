@@ -179,21 +179,20 @@ automation and scalability.</li>
     });
 
     function addToTerminal(type, content) {
-        const line = document.createElement('div');
+        const terminalContent = document.querySelector('.terminal-content');
         
-        if (type === 'command') {
-            line.className = 'line';
-            line.innerHTML = `<span class="prompt">$</span> <span class="command">${content}</span>`;
-        } else if (type === 'error') {
-            line.className = 'error';
-            line.textContent = content;
-        } else {
-            line.className = 'output';
-            line.innerHTML = content;
-        }
+        // Create and add the new content
+        const div = document.createElement('div');
+        div.className = type;
+        div.innerHTML = content;
+        terminalContent.appendChild(div);
         
-        terminalContent.insertBefore(line, commandInputContainer);
-        terminalContent.scrollTop = terminalContent.scrollHeight; // Scroll to bottom after command
+        // Prevent auto-scrolling by explicitly scrolling to top
+        terminalContent.scrollTop = 0;
+        
+        // Or alternatively, if you want to maintain the scroll position:
+        // const currentScroll = terminalContent.scrollTop;
+        // terminalContent.scrollTop = currentScroll;
     }
 
     // Ensure the terminal starts at the top

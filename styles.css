@@ -3525,3 +3525,47 @@ body {
     margin-bottom: 1rem;
     line-height: 1.6;
 }
+
+/* Project and Research Items */
+.project-meta {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.project-meta span {
+    margin-right: 1rem;
+}
+
+.project-tags span {
+    color: var(--text-color);
+    background: rgba(136, 192, 208, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.project-description {
+    color: var(--text-color);
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.project-item h3 {
+    color: var(--accent-color);
+}
+
+/* Research Items */
+.research-meta {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.research-description {
+    color: var(--text-color);
+    line-height: 1.6;
+}

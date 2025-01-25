@@ -1079,123 +1079,23 @@ body {
     z-index: 1;
 }
 
-/* Common hover effects */
-.project-item:hover,
-.research-item:hover {
-    transform: translateY(-4px);
-    background: rgba(41, 128, 185, 0.1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+/* Hide detailed content in non-expanded state */
+.project-item .project-meta,
+.research-item .research-meta,
+.project-item .project-tags,
+.research-item .research-tags,
+.project-item .project-actions,
+.research-item .research-actions {
+    display: none;
 }
 
-/* Common icon styles */
-.project-icon,
-.research-icon {
-    font-size: 1.8rem;
-    color: #98C379;
-    margin-bottom: 8px;
-    flex-shrink: 0;
-    width: 40px;
-    transition: all 0.3s ease;
-}
-
-/* Common content styles */
-.project-content h3,
-.research-content h3 {
-    color: var(--accent-color);
-    margin: 0 0 12px 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-/* Common meta information */
-.project-meta,
-.research-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    font-size: 0.85rem;
-    opacity: 0.7;
-    margin-bottom: 12px;
-    width: 100%;
-}
-
-/* Common tags */
-.project-tags,
-.research-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
-    width: 100%;
-}
-
-.project-tags span,
-.research-tags span {
-    background: rgba(28, 28, 28, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 4px 12px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-/* Common description */
-.project-description,
-.research-description {
-    color: var(--text-color);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 16px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    width: 100%;
-}
-
-/* Common actions */
-.project-actions,
-.research-actions {
-    display: flex;
-    gap: 16px;
-    margin-top: auto;
-}
-
-.project-action,
-.research-action {
-    color: var(--text-color);
-    opacity: 0.7;
-    transition: all 0.2s ease;
-    font-size: 1.1rem;
-}
-
-.project-action:hover,
-.research-action:hover {
-    opacity: 1;
-    color: var(--accent-color);
-    transform: translateY(-2px);
-}
-
-/* Research specific - Status badge */
-.research-status {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.research-status.active {
-    background: rgba(152, 195, 121, 0.15);
-    color: #98C379;
-}
-
-.research-status.completed {
-    background: rgba(136, 192, 208, 0.15);
-    color: var(--accent-color);
+.project-item .project-description,
+.research-item .research-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Expanded state styles */
@@ -1211,6 +1111,29 @@ body {
     z-index: 1000;
     background: var(--terminal-bg);
     padding: 0;
+    backdrop-filter: none;
+    background: rgb(28, 28, 28);
+}
+
+/* Make terminal background translucent when item is expanded */
+.project-item.expanded ~ .terminal,
+.research-item.expanded ~ .terminal {
+    opacity: 0.6;
+}
+
+/* Show all content in expanded state */
+.project-item.expanded .project-meta,
+.research-item.expanded .research-meta,
+.project-item.expanded .project-tags,
+.research-item.expanded .research-tags,
+.project-item.expanded .project-actions,
+.research-item.expanded .research-actions {
+    display: flex;
+}
+
+.project-item.expanded .project-description,
+.research-item.expanded .research-description {
+    display: block;
 }
 
 /* Common expanded header */
@@ -1228,7 +1151,35 @@ body {
     border-top-right-radius: 12px;
 }
 
-/* Common expanded content */
+/* Header title with icon */
+.project-item.expanded .header-title,
+.research-item.expanded .header-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.project-item.expanded .header-title i,
+.research-item.expanded .header-title i {
+    color: #98C379;
+    font-size: 1rem;
+}
+
+.project-item.expanded .header-title::before {
+    content: 'projects/';
+}
+
+.research-item.expanded .header-title::before {
+    content: 'research/';
+}
+
 .project-item.expanded .project-content,
 .research-item.expanded .research-content {
     padding: 60px 24px 24px;

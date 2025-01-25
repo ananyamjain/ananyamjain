@@ -242,6 +242,9 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
+                        <div class="header-title">
+                            <i class="fas fa-folder"></i>
+                        </div>
                         <div class="project-content">
                             <div class="project-icon">
                                 <i class="fas fa-folder"></i>
@@ -287,6 +290,9 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
+                        <div class="header-title">
+                            <i class="fas fa-folder"></i>
+                        </div>
                         <div class="project-content">
                             <div class="project-icon">
                                 <i class="fas fa-folder"></i>
@@ -329,6 +335,9 @@ automation and scalability.</li>
                             <span class="close-btn"></span>
                             <span></span>
                             <span></span>
+                        </div>
+                        <div class="header-title">
+                            <i class="fas fa-folder"></i>
                         </div>
                         <div class="project-content">
                             <div class="project-icon">
@@ -642,6 +651,9 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
+                        <div class="header-title">
+                            <i class="fas fa-folder"></i>
+                        </div>
                         <div class="project-content">
                             <div class="project-icon">
                                 <i class="fas fa-folder"></i>
@@ -678,9 +690,14 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
+                        <div class="header-title">
+                            <i class="fas fa-folder"></i>
+                        </div>
                         <div class="project-content">
+                        <div class="header-title">
+                            <i class="fas fa-folder"></i>
+                        </div>
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-brain"></i>
                             </div>
                             <h3>Vision Transformers for Chest Disease Classification</h3>

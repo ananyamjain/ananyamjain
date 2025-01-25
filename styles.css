@@ -8,34 +8,24 @@
     --date-color: #E06C75;
     --card-border: rgba(255, 255, 255, 0.08);
     --card-shadow: rgba(0, 0, 0, 0.4);
+    --cheatsheet-width: 320px;
+    --container-gap: 25px;
+    --window-height: 90vh;
+    --padding: 20px;
 }
 
 /* Direct styles */
 .terminal,
 .cheatsheet {
-    background: var(--terminal-bg);
-    border: 1px solid var(--card-border);
-    box-shadow: 0 15px 35px var(--card-shadow);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease;
+    background-color: var(--terminal-bg) !important;
+    border: 1px solid var(--card-border) !important;
+    box-shadow: 0 15px 35px var(--card-shadow) !important;
+    color: var(--text-color) !important;
 }
 
-.terminal-content,
-.cheatsheet-content {
-    flex: 1;
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding: 1.2rem;
-    position: relative;
-    z-index: 2;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: all 0.3s ease;
+.terminal-content {
+    background-color: var(--terminal-bg) !important;
+    color: var(--text-color) !important;
 }
 
 .section {
@@ -88,37 +78,29 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Change from center to flex-start */
     font-family: 'JetBrains Mono', monospace;
-    transition: background-color 0.3s ease;
-    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .container {
     display: flex;
-    justify-content: flex-start;
-    gap: 10px; /* Reduce the gap */
+    gap: var(--container-gap);
     width: 100%;
     max-width: 1400px;
-    padding: 20px;
     align-items: flex-start;
-    min-height: 90vh;
+    position: relative; /* Add this */
 }
 
 .terminal {
     flex: 1;
-    width: calc(100% - 300px); /* Adjust width to fill space */
-    max-width: 100%;
-    height: 90vh;
-    min-height: 600px;
+    min-width: 0; /* Allow shrinking */
+    height: var(--window-height);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    position: relative;
+    background: var(--terminal-bg);
 }
 
 .terminal::before {
@@ -392,17 +374,18 @@ body {
 }
 
 .cheatsheet {
-    width: 280px;
-    background: var(--cheatsheet-bg);
-    padding: 1.8rem;
-    padding-top: 2.8rem;
+    width: var(--cheatsheet-width);
+    height: var(--window-height);
     border-radius: 12px;
     border: 1px solid var(--card-border);
-    box-shadow: 0 12px 30px var(--card-shadow);
-    height: fit-content;
+    box-shadow: 0 15px 35px var(--card-shadow);
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent shrinking */
+    background: var(--terminal-bg);
+    display: flex;
+    flex-direction: column;
     position: sticky;
     top: 20px;
-    overflow: hidden;
 }
 
 .cheatsheet::before {
@@ -419,9 +402,9 @@ body {
 }
 
 .cheatsheet-content {
-    margin-top: 20px;
-    position: relative;
-    z-index: 2;
+    padding: 1.8rem;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .cheatsheet h3 {
@@ -522,10 +505,19 @@ body {
 @media (max-width: 1200px) {
     .container {
         flex-direction: column;
+        align-items: stretch;
     }
-    
+
+    .terminal, 
     .cheatsheet {
-        width: auto;
+        width: 100%;
+        height: auto;
+        min-height: 50vh;
+    }
+
+    .cheatsheet {
+        position: relative;
+        top: 0;
     }
 }
 
@@ -1937,29 +1929,30 @@ body {
 .list-view {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    box-sizing: border-box;
+    gap: 1rem;
 }
 
 .list-view .project-item {
     display: flex;
-    gap: 16px;
     width: 100%;
-    box-sizing: border-box;
-    padding: 16px;
-    margin: 0;
-}
-
-.list-view .project-icon {
-    margin-bottom: 0;
-    min-width: 50px;
+    padding: 1rem;
 }
 
 .list-view .project-content {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+
+.list-view .project-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+}
+
+.list-view .project-info {
     flex: 1;
-    min-width: 0; /* Prevent flex item from overflowing */
-    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 /* Common Project Item Styles */
@@ -2102,7 +2095,7 @@ body {
     }
     
     .list-view .project-icon {
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
     }
     
     .project-meta {

@@ -259,7 +259,7 @@ body {
 
 .company-logo {
     width: 65px; /* Adjust size as needed */
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
     margin-left: 1rem;
     align-self: center; /* Center logo vertically */
 }
@@ -1084,6 +1084,8 @@ body {
 .research-item .research-meta,
 .project-item .project-tags,
 .research-item .research-tags,
+.project-item .project-details,
+.research-item .research-details,
 .project-item .project-actions,
 .research-item .research-actions {
     display: none;
@@ -1126,9 +1128,11 @@ body {
 .research-item.expanded .research-meta,
 .project-item.expanded .project-tags,
 .research-item.expanded .research-tags,
+.project-item.expanded .project-details,
+.research-item.expanded .project-details,
 .project-item.expanded .project-actions,
-.research-item.expanded .research-actions {
-    display: flex;
+.research-item.expanded .project-actions {
+    display: block;
 }
 
 .project-item.expanded .project-description,
@@ -1197,9 +1201,9 @@ body {
 .research-item.expanded .terminal-buttons {
     display: flex;
     position: absolute;
-    top: 12px;
-    left: 12px;
-    gap: 8px;
+    top: 12px,
+    left: 12px,
+    gap: 8px,
     z-index: 10;
 }
 
@@ -2542,4 +2546,30 @@ body {
 .line-numbers span {
     display: block;
     font-size: 0.8rem;
+}
+
+/* Simplify project icon */
+.project-icon {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.project-icon-overlay {
+    font-size: 1.8rem;
+    color: #98C379;
+}
+
+/* Remove the folder icon from non-expanded view */
+.project-icon .fas.fa-folder {
+    display: none;
+}
+
+/* Description styling */
+.project-description,
+.research-description {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.5;
+    margin-top: 8px;
 }

@@ -242,45 +242,17 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
-                        <div class="header-title">
-                            <i class="fas fa-folder"></i>
-                        </div>
                         <div class="project-content">
-                            <div class="project-icon">
+                            <div class="header-title">
                                 <i class="fas fa-folder"></i>
+                            </div>
+                            <div class="project-icon">
                                 <i class="project-icon-overlay fas fa-code"></i>
                             </div>
                             <h3>SmartScanner Application</h3>
-                            <div class="project-meta">
-                                <span class="project-date">Modified: Aug 2023</span>
-                                <span class="project-size">Size: 42MB</span>
-                            </div>
-                            <div class="project-tags">
-                                <span>Kotlin</span>
-                                <span>Java</span>
-                            </div>
                             <div class="project-description">
                                 SmartScanner application for OpenG2P (internship), implementing an efficient caching mechanism for offline voucher verification and an authentication framework using RSA-based JSON Web Tokens.
                             </div>
-                            <div class="project-details">
-                                <h4>Key Features:</h4>
-                                <ul>
-                                    <li>Offline voucher verification system</li>
-                                    <li>RSA-based JWT authentication</li>
-                                    <li>Efficient caching mechanism</li>
-                                    <li>Cross-platform mobile support</li>
-                                </ul>
-                                <h4>Technical Details:</h4>
-                                <p>Built using Kotlin and Java, the application implements a robust caching system that enables offline verification of vouchers. The authentication system uses RSA-based JSON Web Tokens for secure data transmission.</p>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/ananyamjain/openg2p-voucher-scanner-app" target="_blank" class="project-action">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://www.openg2p.org/" target="_blank" class="project-action">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
 
@@ -290,42 +262,16 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
-                        <div class="header-title">
-                            <i class="fas fa-folder"></i>
-                        </div>
                         <div class="project-content">
-                            <div class="project-icon">
+                            <div class="header-title">
                                 <i class="fas fa-folder"></i>
+                            </div>
+                            <div class="project-icon">
                                 <i class="project-icon-overlay fas fa-book"></i>
                             </div>
                             <h3>United for Literacy</h3>
-                            <div class="project-meta">
-                                <span class="project-date">Modified: Jan 2024</span>
-                                <span class="project-size">Size: 156MB</span>
-                            </div>
-                            <div class="project-tags">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>MongoDB</span>
-                            </div>
                             <div class="project-description">
                                 A collaborative platform connecting literacy organizations with volunteers. Features include volunteer matching, event management, and impact tracking.
-                            </div>
-                            <div class="project-details">
-                                <h4>Key Features:</h4>
-                                <ul>
-                                    <li>Volunteer-organization matching system</li>
-                                    <li>Event management and scheduling</li>
-                                    <li>Impact tracking dashboard</li>
-                                    <li>Real-time notifications</li>
-                                </ul>
-                                <h4>Technical Details:</h4>
-                                <p>Built with React and Node.js, following agile methodologies. Uses MongoDB for flexible data storage and real-time updates. Implements responsive design for cross-device compatibility.</p>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/csc301-2024-s/27-united-for-literacy" target="_blank" class="project-action">
-                                    <i class="fab fa-github"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -336,42 +282,16 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
-                        <div class="header-title">
-                            <i class="fas fa-folder"></i>
-                        </div>
                         <div class="project-content">
-                            <div class="project-icon">
+                            <div class="header-title">
                                 <i class="fas fa-folder"></i>
+                            </div>
+                            <div class="project-icon">
                                 <i class="project-icon-overlay fas fa-car"></i>
                             </div>
                             <h3>Ryde - Car Marketplace</h3>
-                            <div class="project-meta">
-                                <span class="project-date">Modified: Dec 2022</span>
-                                <span class="project-size">Size: 84MB</span>
-                            </div>
-                            <div class="project-tags">
-                                <span>Java</span>
-                                <span>Clean Architecture</span>
-                                <span>Design Patterns</span>
-                            </div>
                             <div class="project-description">
                                 A Java desktop application for finding and listing cars for sale.
-                            </div>
-                            <div class="project-details">
-                                <h4>Key Features:</h4>
-                                <ul>
-                                    <li>User authentication system</li>
-                                    <li>Advanced car listing management</li>
-                                    <li>Dealership locator</li>
-                                    <li>Smart filtering system</li>
-                                </ul>
-                                <h4>Technical Details:</h4>
-                                <p>Built using Clean Architecture principles and various design patterns including Factory, Dependency Injection, and Singleton. Features a modular design for easy maintenance and scalability.</p>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/CSC207-2022F-UofT/course-project-ryde" target="_blank" class="project-action">
-                                    <i class="fab fa-github"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -651,35 +571,16 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
-                        <div class="header-title">
-                            <i class="fas fa-folder"></i>
-                        </div>
                         <div class="project-content">
-                            <div class="project-icon">
+                            <div class="header-title">
                                 <i class="fas fa-folder"></i>
+                            </div>
+                            <div class="project-icon">
                                 <i class="project-icon-overlay fas fa-atom"></i>
                             </div>
                             <h3>Quantum Optimization for PDDL</h3>
-                            <div class="project-meta">
-                                <span class="project-date">2023</span>
-                                <span class="project-location">Matter Lab, UofT</span>
-                            </div>
-                            <div class="project-tags">
-                                <span>Quantum Computing</span>
-                                <span>Python</span>
-                                <span>D-Wave</span>
-                            </div>
                             <div class="project-description">
                                 Applying QUBO methodologies for robotic AI planning tasks.
-                            </div>
-                            <div class="project-details">
-                                <h4>Research Details:</h4>
-                                <p>Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with minimal energy. Implemented quantum optimization techniques for Planning Domain Definition Language problems.</p>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="project-action">
-                                    <i class="fab fa-github"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -690,40 +591,16 @@ automation and scalability.</li>
                             <span></span>
                             <span></span>
                         </div>
-                        <div class="header-title">
-                            <i class="fas fa-folder"></i>
-                        </div>
                         <div class="project-content">
-                        <div class="header-title">
-                            <i class="fas fa-folder"></i>
-                        </div>
+                            <div class="header-title">
+                                <i class="fas fa-folder"></i>
+                            </div>
                             <div class="project-icon">
                                 <i class="project-icon-overlay fas fa-brain"></i>
                             </div>
                             <h3>Vision Transformers for Chest Disease Classification</h3>
-                            <div class="project-meta">
-                                <span class="project-date">2024</span>
-                                <span class="project-location">CSC413 @ UofT</span>
-                            </div>
-                            <div class="project-tags">
-                                <span>Machine Learning</span>
-                                <span>Neural Networks</span>
-                                <span>PyTorch</span>
-                            </div>
                             <div class="project-description">
                                 Comparative analysis of Vision Transformers against CNNs and ResNet models.
-                            </div>
-                            <div class="project-details">
-                                <h4>Research Details:</h4>
-                                <p>Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance in identifying 14 distinct lung conditions. Conducted comprehensive comparative analysis with traditional architectures.</p>
-                            </div>
-                            <div class="project-actions">
-                                <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="project-action">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="project-action">
-                                    <i class="fas fa-file-alt"></i>
-                                </a>
                             </div>
                         </div>
                     </div>

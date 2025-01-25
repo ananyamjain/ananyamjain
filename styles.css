@@ -1921,29 +1921,30 @@ body {
 .list-view {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    box-sizing: border-box;
+    gap: 1rem;
 }
 
 .list-view .project-item {
     display: flex;
-    gap: 16px;
     width: 100%;
-    box-sizing: border-box;
-    padding: 16px;
-    margin: 0;
-}
-
-.list-view .project-icon {
-    margin-bottom: 0;
-    min-width: 50px;
+    padding: 1rem;
 }
 
 .list-view .project-content {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+}
+
+.list-view .project-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+}
+
+.list-view .project-info {
     flex: 1;
-    min-width: 0; /* Prevent flex item from overflowing */
-    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 /* Common Project Item Styles */
@@ -2086,7 +2087,7 @@ body {
     }
     
     .list-view .project-icon {
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
     }
     
     .project-meta {

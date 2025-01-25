@@ -13,15 +13,29 @@
 /* Direct styles */
 .terminal,
 .cheatsheet {
-    background-color: var(--terminal-bg) !important;
-    border: 1px solid var(--card-border) !important;
-    box-shadow: 0 15px 35px var(--card-shadow) !important;
-    color: var(--text-color) !important;
+    background: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px var(--card-shadow);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.terminal-content {
-    background-color: var(--terminal-bg) !important;
-    color: var(--text-color) !important;
+.terminal-content,
+.cheatsheet-content {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 1.2rem;
+    position: relative;
+    z-index: 2;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.3s ease;
 }
 
 .section {
@@ -82,8 +96,8 @@ body {
 
 .container {
     display: flex;
-    justify-content: flex-start; /* Align items to the start */
-    gap: 25px;
+    justify-content: flex-start;
+    gap: 10px; /* Reduce the gap */
     width: 100%;
     max-width: 1400px;
     padding: 20px;
@@ -92,8 +106,9 @@ body {
 }
 
 .terminal {
-    flex: 1; /* Allow terminal to take available space */
-    max-width: 800px; /* Ensure it doesn't overflow */
+    flex: 1;
+    width: calc(100% - 300px); /* Adjust width to fill space */
+    max-width: 100%;
     height: 90vh;
     min-height: 600px;
     border-radius: 12px;

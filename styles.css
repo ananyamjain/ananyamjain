@@ -777,27 +777,6 @@ body {
 
 .cheatsheet-buttons {
     position: absolute;
-    top: 9px;
-    left: 12px;
-    display: flex;
-    gap: 8px;
-    z-index: 3;
-}
-
-.cheatsheet-buttons span {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-
-/* Cheatsheet window controls - completely new approach */
-.cheatsheet {
-    position: relative;
-    margin-top: 10px;
-}
-
-.cheatsheet-buttons {
-    position: absolute;
     top: 10px;
     left: 10px;
     z-index: 10;
@@ -812,25 +791,8 @@ body {
     border-radius: 50%;
 }
 
-/* .cheatsheet-buttons span:first-child {
-    background-color: #ff5f56;
-}
-
-.cheatsheet-buttons span:nth-child(2) {
-    background-color: #ffbd2e;
-}
-
-.cheatsheet-buttons span:last-child {
-    background-color: #27c93f;
-} */
-
 .cheatsheet-content {
     padding-top: 30px;
-}
-
-/* Add hover effects to command examples */
-.command-example:hover {
-    background: rgba(0, 255, 0, 0.15);
 }
 
 .command-example {
@@ -1051,345 +1013,13 @@ body {
     gap: 1rem;
 }
 
-/* Projects */
+/* Projects + Research*/
 
-/* Project container and views */
-.project-container {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-}
-
-/* Grid View */
-.grid-view {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
-}
-
-/* List View */
-.list-view {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.list-view .project-item {
-    display: flex;
-    gap: 16px;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 16px;
-    margin: 0;
-}
-
-.list-view .project-icon {
-    margin-bottom: 0;
-    min-width: 50px;
-}
-
-.list-view .project-content {
-    flex: 1;
-    min-width: 0; /* Prevent flex item from overflowing */
-    overflow: hidden; /* Ensure content doesn't overflow */
-}
-
-/* Common Project Item Styles */
+/* Common styles for project and research items */
 .project-item,
 .research-item {
     position: relative;
-    background: rgba(28, 28, 28, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 24px;
-    transition: all 0.3s ease;
-}
-
-.project-item:hover {
-    transform: translateY(-2px);
-    background: rgba(28, 28, 28, 0.8);
-}
-
-.project-icon {
-    flex-shrink: 0; /* Prevent icon from shrinking */
-    width: 40px;
-    margin-right: 8px;
-}
-
-.project-icon-overlay {
-    position: absolute;
-    font-size: 0.8rem;
-    bottom: 0;
-    right: -8px;
-    color: var(--text-color);
-    background: rgba(28, 28, 28, 0.8);
-    padding: 4px;
-    border-radius: 4px;
-}
-
-.project-content h3 {
-    color: var(--accent-color);
-    margin: 0 0 12px 0;
-    font-size: 1.1rem;
-}
-
-.project-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 0.8rem;
-    opacity: 0.7;
-    margin-bottom: 12px;
-    width: 100%;
-}
-
-.project-meta span {
-    white-space: nowrap;
-}
-
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
-    width: 100%;
-}
-
-.project-tags span {
-    background: rgba(28, 28, 28, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-}
-
-.project-description {
-    color: var(--text-color);
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-    line-height: 1.4;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    width: 100%;
-}
-
-.project-actions {
-    display: flex;
-    gap: 12px;
-}
-
-.project-action {
-    color: var(--text-color);
-    opacity: 0.7;
-    transition: all 0.2s ease;
-}
-
-.project-action:hover {
-    opacity: 1;
-    color: var(--accent-color);
-}
-
-/* View Toggle Buttons */
-.view-toggle {
-    display: flex;
-    gap: 12px;
-}
-
-.view-btn {
-    cursor: pointer;
-    opacity: 0.5;
-    transition: all 0.2s ease;
-    padding: 4px;
-}
-
-.view-btn:hover {
-    opacity: 0.8;
-}
-
-.view-btn.active {
-    opacity: 1;
-    color: var(--accent-color);
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 1.5rem;
-}
-
-.project-folder {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    border: 1px solid var(--card-border);
-    position: relative;
-    overflow: hidden;
-}
-
-.project-folder:hover {
-    transform: translateY(-4px);
-    background: rgba(0, 0, 0, 0.3);
-}
-
-.projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.project-item {
-    border-left: 2px solid #98C379;
-    padding-left: 1.5rem;
-    margin-left: 1rem;
-}
-
-.project-name {
-    color: var(--accent-color);
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.project-name i {
-    color: #98C379;
-    font-size: 1rem;
-}
-
-.project-tech-tags {
-    display: flex;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
-}
-
-.tech-tag {
-    color: #98C379;
-    font-size: 0.9rem;
-    padding: 0.2rem 0.5rem;
-    background: rgba(152, 195, 121, 0.1);
-    border-radius: 4px;
-}
-
-.project-desc {
-    color: var(--text-color);
-    line-height: 1.5;
-    font-size: 0.95rem;
-    opacity: 0.9;
-}
-
-.project-item:hover {
-    background: rgba(28, 28, 28, 0.8);
-    transform: translateX(4px);
-}
-/* Add these styles for the expand/collapse animation */
-.project-container {
-    position: relative;
-}
-
-.project-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 999;
-}
-
-.project-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.project-content.expanded {
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.close-button {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 1.2rem;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-}
-
-.project-item.expanded .close-button {
-    opacity: 1;
-    visibility: visible;
-}
-
-.close-button:hover {
-    transform: scale(1.1);
-    color: var(--accent-color);
-}
-
-/* Additional details section that shows when expanded */
-.project-details {
-    display: none;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--card-border);
-}
-
-.project-item.expanded .project-details {
-    display: block;
-}
-
-
-
-/* Ensure proper spacing in list view */
-.list-view .project-icon {
-    margin-bottom: 0;
-    padding-top: 4px;
-}
-
-.list-view .project-content {
-    padding-top: 4px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-    .grid-view {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .list-view .project-item {
-        flex-direction: column;
-        padding: 12px;
-    }
-    
-    .list-view .project-icon {
-        margin-bottom: 16px;
-    }
-    
-    .project-meta {
-        flex-direction: column;
-        gap: 4px;
-    }
-}
-
-
-/* Enhanced project card styling */
-.project-item {
+    width: 300px;
     background: rgba(28, 28, 28, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -1398,108 +1028,106 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    z-index: 1;
 }
 
-.project-item:hover {
+/* Common hover effects */
+.project-item:hover,
+.research-item:hover {
     transform: translateY(-4px);
-    background: rgba(28, 28, 28, 0.8);
+    background: rgba(41, 128, 185, 0.1);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.project-icon {
+/* Common icon styles */
+.project-icon,
+.research-icon {
     font-size: 1.8rem;
     color: #98C379;
     margin-bottom: 8px;
+    flex-shrink: 0;
+    width: 40px;
+    transition: all 0.3s ease;
 }
 
-.project-content h3 {
+/* Common content styles */
+.project-content h3,
+.research-content h3 {
     color: var(--accent-color);
     margin: 0 0 12px 0;
     font-size: 1.2rem;
     font-weight: 600;
 }
 
-.project-meta {
+/* Common meta information */
+.project-meta,
+.research-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     font-size: 0.85rem;
     opacity: 0.7;
     margin-bottom: 12px;
+    width: 100%;
 }
 
-.project-tags {
+/* Common tags */
+.project-tags,
+.research-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 16px;
+    width: 100%;
 }
 
-.project-tags span {
+.project-tags span,
+.research-tags span {
     background: rgba(28, 28, 28, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 4px 12px;
     border-radius: 6px;
     font-size: 0.8rem;
     font-weight: 500;
+    white-space: nowrap;
 }
 
-.project-description {
+/* Common description */
+.project-description,
+.research-description {
     color: var(--text-color);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 16px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
 }
 
-.project-actions {
+/* Common actions */
+.project-actions,
+.research-actions {
     display: flex;
     gap: 16px;
     margin-top: auto;
 }
 
-.project-action {
+.project-action,
+.research-action {
     color: var(--text-color);
     opacity: 0.7;
     transition: all 0.2s ease;
     font-size: 1.1rem;
 }
 
-.project-action:hover {
+.project-action:hover,
+.research-action:hover {
     opacity: 1;
     color: var(--accent-color);
     transform: translateY(-2px);
 }
 
-
-/* Add hover effect to project cards */
-.project-item {
-    position: relative;
-    width: 300px;
-    transition: all 0.3s ease;
-    z-index: 1;
-    background: rgba(28, 28, 28, 0.6);
-}
-
-.project-item:hover {
-    background: rgba(41, 128, 185, 0.1);
-    transform: translateY(-4px);
-}
-
-/* Folder icon transitions */
-.project-icon {
-    transition: all 0.3s ease;
-}
-
-.project-item .fa-folder:before {
-    content: "\f07b"; /* Closed folder icon */
-    transition: all 0.3s ease;
-}
-
-.project-item.expanded .fa-folder:before {
-    content: "\f07c"; /* Open folder icon */
-}
-
-/* Make sure expanded state maintains its style */
+/* Expanded state styles */
 .project-item.expanded,
 .research-item.expanded {
     position: fixed;
@@ -1511,24 +1139,10 @@ body {
     max-width: 1000px;
     z-index: 1000;
     background: var(--terminal-bg);
-    padding: 0; /* Remove padding to accommodate header */
+    padding: 0;
 }
 
-.project-item .terminal-buttons,
-.research-item .terminal-buttons {
-    display: none; /* Hide by default */
-}
-
-.project-item.expanded .terminal-buttons,
-.research-item.expanded .terminal-buttons {
-    display: flex;
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    gap: 8px;
-    z-index: 10;
-}
-
+/* Common expanded header */
 .project-item.expanded::before,
 .research-item.expanded::before {
     content: '';
@@ -1543,12 +1157,42 @@ body {
     border-top-right-radius: 12px;
 }
 
-/* Adjust content padding when expanded */
+/* Common expanded content */
 .project-item.expanded .project-content,
 .research-item.expanded .research-content {
-    padding: 60px 24px 24px; /* Add top padding to account for header */
+    padding: 60px 24px 24px;
     height: 100%;
     overflow-y: auto;
+}
+
+/* Common window buttons in expanded state */
+.project-item .terminal-buttons,
+.research-item .terminal-buttons {
+    display: none;
+}
+
+.project-item.expanded .terminal-buttons,
+.research-item.expanded .terminal-buttons {
+    display: flex;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    gap: 8px;
+    z-index: 10;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .project-item,
+    .research-item {
+        width: 100%;
+    }
+    
+    .project-meta,
+    .research-meta {
+        flex-direction: column;
+        gap: 4px;
+    }
 }
 /* pwd */
 

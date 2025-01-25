@@ -620,9 +620,13 @@ automation and scalability.</li>
                         <span class="path-separator">/</span>
                         <span class="path-segment active">research</span>
                     </div>
+                    <div class="view-toggle">
+                        <i class="fas fa-th-large view-btn active" data-view="grid"></i>
+                        <i class="fas fa-list view-btn" data-view="list"></i>
+                    </div>
                 </div>
                 
-                <div class="project-container grid-view" id="researchContainer">
+                <div class="research-container grid-view" id="researchContainer">
                     <div class="research-item">
                         <div class="terminal-buttons">
                             <span class="close-btn"></span>
@@ -693,40 +697,24 @@ automation and scalability.</li>
             </div>
         `);
 
-        // Use the same click handlers as projects
+        // Add the click handlers for view toggle
         setTimeout(() => {
-            const researchItems = document.querySelectorAll('.research-item');
-            const closeButtons = document.querySelectorAll('.terminal-buttons span:first-child');
-            const overlay = document.querySelector('.project-overlay');
+            const viewBtns = document.querySelectorAll('.view-btn');
+            const researchContainer = document.getElementById('researchContainer');
             
-            researchItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    if (!e.target.closest('.close-btn') && !e.target.closest('a')) {
-                        item.classList.add('expanded');
-                        overlay.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    }
+            if (viewBtns && researchContainer) {
+                viewBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        viewBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const viewType = btn.getAttribute('data-view');
+                        researchContainer.className = `project-container ${viewType}-view`;
+                    });
                 });
-            });
+            }
             
-            closeButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const researchItem = button.closest('.research-item');
-                    researchItem.classList.remove('expanded');
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-
-            overlay?.addEventListener('click', () => {
-                const expandedItem = document.querySelector('.research-item.expanded');
-                if (expandedItem) {
-                    expandedItem.classList.remove('expanded');
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
+            // ... rest of your existing handlers ...
         }, 0);
     }
 

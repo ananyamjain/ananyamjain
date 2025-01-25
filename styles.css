@@ -2702,3 +2702,56 @@ body {
 .card-links a:hover .fa-file-alt {
     color: #7bc3ff;
 }
+
+/* Basic card content (non-expanded state) */
+.project-item .project-details,
+.research-item .research-details,
+.project-item .technical-details,
+.research-item .technical-details,
+.project-item .key-features,
+.research-item .key-features {
+    display: none;
+}
+
+/* Show only in expanded state */
+.project-item.expanded .project-details,
+.research-item.expanded .research-details,
+.project-item.expanded .technical-details,
+.research-item.expanded .technical-details,
+.project-item.expanded .key-features,
+.research-item.expanded .key-features {
+    display: block;
+}
+
+/* Description truncation for non-expanded state */
+.project-description,
+.research-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+/* Basic card layout */
+.project-content,
+.research-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Meta info layout */
+.card-meta {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* Tech stack layout */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}

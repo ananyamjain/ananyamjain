@@ -2173,6 +2173,7 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     width: 80%; /* Use the consistent width */
     max-width: 800px;
     max-height: 90vh; /* Retain max-height for overflow control */

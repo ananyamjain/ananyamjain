@@ -128,11 +128,8 @@ automation and scalability.</li>
         'ls ./skills/': generateSkills
     };
 
-    // Insert initial content
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = initialContent.trim();
-    terminalContent.innerHTML = ''; // Clear existing content
-    terminalContent.appendChild(tempDiv);
+    // Insert initial content directly without using addToTerminal
+    terminalContent.innerHTML = initialContent.trim();
 
     // Create command input container
     commandInputContainer = document.createElement('div');
@@ -149,8 +146,10 @@ automation and scalability.</li>
     commandInput = commandInputContainer.querySelector('.command-input');
     commandText = commandInputContainer.querySelector('.command-text');
 
-    // Ensure the terminal starts at the top
-    terminalContent.scrollTop = 0;
+    // Force scroll to top
+    setTimeout(() => {
+        terminalContent.scrollTop = 0;
+    }, 0);
 
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());

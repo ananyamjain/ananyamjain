@@ -2180,6 +2180,11 @@ body {
     opacity: 1;
 }
 
+.project-item.expanded .close-button {
+    opacity: 1;
+    visibility: visible;
+}
+
 .project-item .fa-folder:before {
     content: "\f07b"; /* Closed folder icon */
     transition: all 0.3s ease;

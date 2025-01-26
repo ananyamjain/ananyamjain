@@ -2641,14 +2641,3 @@ body {
         grid-template-columns: 1fr;
     }
 }
-
-.project-item:not(.expanded):hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.project-item.expanded:hover {
-    transform: none;
-    box-shadow: none;
-}

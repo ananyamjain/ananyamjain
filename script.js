@@ -372,19 +372,11 @@ automation and scalability.</li>
             const viewBtns = document.querySelectorAll('.view-btn');
             
             projectItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    // Check if the item is already expanded
-                    if (!item.classList.contains('expanded')) {
-                        // Remove expanded class from any other expanded items
-                        document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
-                            expandedItem.classList.remove('expanded');
-                        });
-
-                        // Add expanded class to the clicked item
+                item.addEventListener('click', (e) => {
+                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
                         item.classList.add('expanded');
-                    } else {
-                        // Collapse the item if it's already expanded
-                        item.classList.remove('expanded');
+                        overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
                     }
                 });
             });
@@ -721,19 +713,11 @@ automation and scalability.</li>
             const viewBtns = document.querySelectorAll('.view-btn');
             
             projectItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    // Check if the item is already expanded
-                    if (!item.classList.contains('expanded')) {
-                        // Remove expanded class from any other expanded items
-                        document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
-                            expandedItem.classList.remove('expanded');
-                        });
-
-                        // Add expanded class to the clicked item
+                item.addEventListener('click', (e) => {
+                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
                         item.classList.add('expanded');
-                    } else {
-                        // Collapse the item if it's already expanded
-                        item.classList.remove('expanded');
+                        overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
                     }
                 });
             });

@@ -149,6 +149,9 @@ automation and scalability.</li>
     commandInput = commandInputContainer.querySelector('.command-input');
     commandText = commandInputContainer.querySelector('.command-text');
 
+    // Ensure the terminal starts at the top
+    terminalContent.scrollTop = 0;
+
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
     commandInput.focus();
@@ -184,6 +187,11 @@ automation and scalability.</li>
         if (type === 'command') {
             line.className = 'line';
             line.innerHTML = `<span class="prompt">$</span> <span class="command">${content}</span>`;
+            
+            // Only auto-scroll for user commands
+            setTimeout(() => {
+                terminalContent.scrollTop = terminalContent.scrollHeight;
+            }, 0);
         } else if (type === 'error') {
             line.className = 'error';
             line.textContent = content;
@@ -193,7 +201,6 @@ automation and scalability.</li>
         }
         
         terminalContent.insertBefore(line, commandInputContainer);
-        terminalContent.scrollTop = terminalContent.scrollHeight; // Scroll to bottom after command
     }
 
     // Ensure the terminal starts at the top

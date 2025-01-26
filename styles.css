@@ -2640,14 +2640,8 @@ body {
     }
 }
 
-.project-item:hover {
+.project-item:not(.expanded):hover {
     transform: translateY(-4px);
     background: rgba(28, 28, 28, 0.8);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.project-item:not(.expanded):hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
 }

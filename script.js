@@ -382,9 +382,15 @@ automation and scalability.</li>
 
                         // Add expanded class to the clicked item
                         item.classList.add('expanded');
+                        
+                        // Show overlay
+                        overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
                     } else {
                         // Collapse the item if it's already expanded
                         item.classList.remove('expanded');
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = '';
                     }
                 });
             });
@@ -731,9 +737,15 @@ automation and scalability.</li>
 
                         // Add expanded class to the clicked item
                         item.classList.add('expanded');
+                        
+                        // Show overlay
+                        overlay.classList.add('active');
+                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
                     } else {
                         // Collapse the item if it's already expanded
                         item.classList.remove('expanded');
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = '';
                     }
                 });
             });

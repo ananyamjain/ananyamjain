@@ -2104,35 +2104,32 @@ body {
 }
 
 .project-overlay {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Darker background for better contrast */
+    background: rgba(0, 0, 0, 0.7);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 999;
-    backdrop-filter: blur(4px); /* Add blur effect */
-}
-
-[data-theme="light"] .project-overlay {
-    background: rgba(255, 255, 255, 0.7); /* Lighter background for light theme */
+    backdrop-filter: blur(4px);
+    pointer-events: none;
 }
 
 .project-overlay.active {
     opacity: 1;
     visibility: visible;
-    display: block;
+    pointer-events: auto;
 }
 
 .project-item.expanded {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) !important; /* Override any other transforms */
+    transform: translate(-50%, -50%) !important;
     width: 80%;
     max-width: 800px;
     max-height: 90vh;
@@ -2142,7 +2139,7 @@ body {
     border: 1px solid var(--card-border);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     height: 80%;
-    padding: 2rem !important; /* Add more padding when expanded */
+    padding: 2rem !important;
 }
 
 /* Add smooth transition for the expanded state */

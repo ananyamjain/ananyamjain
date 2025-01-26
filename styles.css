@@ -15,6 +15,19 @@
     --cheatsheet-bg: rgba(35, 35, 35, 0.95);
 }
 
+/* Add these CSS variables for light theme */
+[data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --terminal-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #2c3e50;
+    --accent-color: #2980b9;
+    --prompt-color: #27ae60;
+    --command-color: #2980b9;
+    --date-color: #c0392b;
+    --card-border: rgba(0, 0, 0, 0.1);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
 /* Basic Layout */
 body {
     background-color: var(--bg-color);
@@ -183,6 +196,7 @@ body {
     background: rgba(152, 195, 121, 0.1);
     border-radius: 8px;
     margin: 0.5rem 0;
+    border: 1px solid var(--card-border);
 }
 
 .theme-tip {
@@ -287,7 +301,9 @@ body {
     width: 65px; /* Adjust size as needed */
     height: auto;
     margin-left: 1rem;
+    margin-top: 1rem;
     align-self: center; /* Center logo vertically */
+    object-fit: contain;
 }
 
 .section ul {
@@ -723,13 +739,6 @@ body {
     border-radius: 4px;
 }
 
-/* .project-desc {
-    color: var(--text-color);
-    line-height: 1.5;
-    font-size: 0.95rem;
-    opacity: 0.9;
-} */
-
 .project-item:hover {
     background: rgba(28, 28, 28, 0.8);
     transform: translateX(4px);
@@ -741,21 +750,17 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 2rem;
-    padding: 1rem;
-    background: rgba(28, 28, 28, 0.6);
+    padding: 1.5rem; /* Use the larger padding value */
+    background: var(--terminal-bg); /* Use the variable for background */
+    border: 1px solid var(--card-border);
     border-radius: 8px;
+    box-shadow: 0 4px 12px var(--card-shadow);
+    transition: all 0.3s ease;
 }
 
 .experience-content {
     flex: 1;
     padding-right: 2rem;
-}
-
-.company-logo {
-    width: 65px;
-    height: auto;
-    object-fit: contain;
-    margin-top: 1rem;
 }
 
 .experience-item h2 {
@@ -928,14 +933,7 @@ body {
     opacity: 1;
 }
 
-/* Research section styles */
-.research-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.research-item {
+/* .research-item {
     background: rgba(28, 28, 28, 0.6);
     border-radius: 12px;
     padding: 1.5rem;
@@ -948,9 +946,9 @@ body {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
-}
+} */
 
-.research-badge {
+/* .research-badge {
     background: rgba(152, 195, 121, 0.2);
     color: #98C379;
     padding: 0.3rem 0.8rem;
@@ -958,9 +956,9 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-}
+} */
 
-.research-badge.completed {
+/* .research-badge.completed {
     background: rgba(136, 192, 208, 0.2);
     color: var(--accent-color);
 }
@@ -969,28 +967,28 @@ body {
     color: var(--accent-color);
     margin: 0;
     font-size: 1.2rem;
-}
+} */
 
-.research-meta {
+/* .research-meta {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1rem;
     font-size: 0.9rem;
     opacity: 0.8;
-}
+} */
 
-.research-desc {
+/* .research-desc {
     line-height: 1.6;
     margin-bottom: 1.5rem;
-}
+} */
 
-.research-links {
+/* .research-links {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-}
+} */
 
-.research-link {
+/* .research-link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -1001,9 +999,9 @@ body {
     background: rgba(152, 195, 121, 0.1);
     transition: all 0.3s ease;
     font-size: 0.9rem;
-}
+} */
 
-.research-link:hover {
+/* .research-link:hover {
     background: rgba(152, 195, 121, 0.2);
     transform: translateY(-2px);
 }
@@ -1015,7 +1013,7 @@ body {
 .research-item:hover {
     transform: translateX(4px);
     background: rgba(28, 28, 28, 0.8);
-}
+} */
 
 /* Research Cards Styling */
 .research-container {
@@ -1024,7 +1022,7 @@ body {
     gap: 1.5rem;
 }
 
-.research-card {
+/* .research-card {
     background: rgba(28, 28, 28, 0.4);
     border-radius: 12px;
     overflow: hidden;
@@ -1036,9 +1034,9 @@ body {
 .research-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
+} */
 
-.research-status {
+/* .research-status {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -1048,9 +1046,9 @@ body {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
+} */
 
-.research-status.active {
+/* .research-status.active {
     background: rgba(152, 195, 121, 0.15);
     color: #98C379;
 }
@@ -1058,9 +1056,9 @@ body {
 .research-status.completed {
     background: rgba(136, 192, 208, 0.15);
     color: var(--accent-color);
-}
+} */
 
-.research-content {
+/* .research-content {
     padding: 2rem;
 }
 
@@ -1068,25 +1066,25 @@ body {
     color: var(--accent-color);
     margin: 0 0 1rem 0;
     font-size: 1.3rem;
-}
+} */
 
-.research-meta {
+/* .research-meta {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1rem;
     font-size: 0.9rem;
     color: var(--text-color);
     opacity: 0.8;
-}
+} */
 
-.research-description {
+/* .research-description {
     color: var(--text-color);
     line-height: 1.6;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
-}
+} */
 
-.research-tags {
+/* .research-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
@@ -1104,9 +1102,9 @@ body {
 
 .research-tags .tag:hover {
     background: rgba(136, 192, 208, 0.2);
-}
+} */
 
-.research-links {
+/* .research-links {
     display: flex;
     gap: 1rem;
 }
@@ -1135,7 +1133,7 @@ body {
 .research-link:hover {
     transform: translateY(-2px);
     filter: brightness(1.2);
-}
+} */
 
 /* Light theme adjustments */
 [data-theme="light"] .research-card {
@@ -1154,32 +1152,32 @@ body {
 }
 
 /* Research Editor Styling */
-.research-editor {
+/* .research-editor {
     background: var(--terminal-bg);
     border-radius: 8px;
     border: 1px solid var(--card-border);
     overflow: hidden;
     font-family: 'JetBrains Mono', monospace;
-}
+} */
 
-.editor-header {
+/* .editor-header {
     background: rgba(0, 0, 0, 0.2);
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--card-border);
-}
+} */
 
-.tab {
+/* .tab {
     background: rgba(152, 195, 121, 0.1);
     color: #98C379;
     padding: 0.3rem 1rem;
     border-radius: 4px;
     font-size: 0.9rem;
-}
+} */
 
-.editor-controls {
+/* .editor-controls {
     display: flex;
     gap: 1rem;
     font-size: 0.8rem;
@@ -1189,28 +1187,14 @@ body {
 .editor-content {
     display: flex;
     min-height: 200px;
-}
+} */
 
-.line-numbers {
-    padding: 1rem 0.5rem;
-    background: rgba(0, 0, 0, 0.2);
-    color: rgba(255, 255, 255, 0.3);
-    text-align: right;
-    user-select: none;
-    line-height: 1.8;
-}
-
-.line-numbers span {
-    display: block;
-    font-size: 0.8rem;
-}
-
-.code-content {
+/* .code-content {
     flex: 1;
     padding: 1rem;
-}
+} */
 
-.research-block {
+/* .research-block {
     margin-bottom: 2rem;
     position: relative;
 }
@@ -1239,21 +1223,21 @@ body {
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.8rem;
     font-family: monospace;
-}
+} */
 
-.block-meta {
+/* .block-meta {
     display: flex;
     gap: 1rem;
     font-size: 0.8rem;
     margin-bottom: 1rem;
     opacity: 0.7;
-}
+} */
 
-.branch {
+/* .branch {
     color: #98C379;
-}
+} */
 
-.diff-content {
+/* .diff-content {
     padding: 1rem;
     border-radius: 4px;
     margin: 1rem 0;
@@ -1269,9 +1253,9 @@ body {
 .diff-content.modified {
     background: rgba(136, 192, 208, 0.1);
     border-left: 2px solid var(--accent-color);
-}
+} */
 
-.tech-stack {
+/* .tech-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -1285,15 +1269,15 @@ body {
     border-radius: 4px;
     font-size: 0.8rem;
     font-family: monospace;
-}
+} */
 
-.block-footer {
+/* .block-footer {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
-}
+} */
 
-.action-btn {
+/* .action-btn {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -1310,10 +1294,10 @@ body {
 .action-btn:hover {
     background: rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
-}
+} */
 
 /* Light theme adjustments */
-[data-theme="light"] .research-editor {
+/* [data-theme="light"] .research-editor {
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.15);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -1394,7 +1378,7 @@ body {
 }
 
 /* Add hover effects for light theme */
-[data-theme="light"] .tech:hover {
+/* [data-theme="light"] .tech:hover {
     background: #e9ecef;
 }
 
@@ -1402,7 +1386,7 @@ body {
     background: #e9ecef;
     transform: translateY(-2px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+} */ 
 
 /* Add these new styles for the directory view */
 .directory-view {
@@ -1460,14 +1444,14 @@ body {
     color: var(--accent-color);
 }
 
-.project-grid {
+/* .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     padding: 1.5rem;
-}
+} */
 
-.project-folder {
+/* .project-folder {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     padding: 1.5rem;
@@ -1480,9 +1464,9 @@ body {
 .project-folder:hover {
     transform: translateY(-4px);
     background: rgba(0, 0, 0, 0.3);
-}
+} */
 
-.folder-icon {
+/* .folder-icon {
     position: relative;
     width: fit-content;
     margin-bottom: 1rem;
@@ -1502,9 +1486,9 @@ body {
     background: rgba(0, 0, 0, 0.6);
     padding: 0.2rem;
     border-radius: 4px;
-}
+} */
 
-.folder-content h3 {
+/* .folder-content h3 {
     color: var(--accent-color);
     margin: 0 0 0.8rem 0;
 }
@@ -1554,10 +1538,10 @@ body {
     opacity: 1;
     color: var(--accent-color);
     transform: translateY(-2px);
-}
+} */
 
 /* Research Section Styling */
-.research-section {
+/* .research-section {
     padding: 20px;
     color: var(--text-color);
 }
@@ -1566,9 +1550,9 @@ body {
     margin-bottom: 24px;
     color: var(--accent-color);
     font-size: 1.8em;
-}
+} */
 
-.research-card {
+/* .research-card {
     background: var(--terminal-bg);
     border: 1px solid var(--card-border);
     border-radius: 8px;
@@ -1591,9 +1575,9 @@ body {
     margin: 8px 0;
     color: var(--accent-color);
     font-size: 1.4em;
-}
+} */
 
-.status-badge {
+/* .status-badge {
     font-size: 0.8em;
     padding: 4px 12px;
     border-radius: 12px;
@@ -1608,9 +1592,9 @@ body {
 .status-badge.completed {
     background: rgba(136, 192, 208, 0.2);
     color: var(--accent-color);
-}
+} */
 
-.research-meta {
+/* .research-meta {
     display: flex;
     gap: 20px;
     margin-bottom: 12px;
@@ -1682,7 +1666,7 @@ body {
 }
 
 /* Remove old research styles */
-.research-editor,
+/* .research-editor,
 .editor-header,
 .editor-controls,
 .editor-content,
@@ -1698,7 +1682,7 @@ body {
 .block-footer,
 .action-btn {
     display: none;
-}
+}  */
 
 /* About section styling */
 .about-section {
@@ -1852,6 +1836,16 @@ body {
     min-width: 40px;
 }
 
+.list-view .project-action,
+.list-view .research-action {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 1.2rem;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
 .list-view .project-meta,
 .list-view .research-meta {
     display: flex;
@@ -1886,23 +1880,6 @@ body {
     color: var(--text-color);
     overflow-wrap: break-word;
     word-wrap: break-word;
-}
-
-.list-view .project-actions,
-.list-view .research-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.list-view .project-action,
-.list-view .research-action {
-    color: var(--text-color);
-    opacity: 0.7;
-    font-size: 1.2rem;
-    padding: 8px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
 }
 
 .list-view .project-action:hover,
@@ -2095,28 +2072,6 @@ body {
     }
 }
 
-/* Add these CSS variables for light theme */
-[data-theme="light"] {
-    --bg-color: #f5f5f5;
-    --terminal-bg: rgba(255, 255, 255, 0.95);
-    --text-color: #2c3e50;
-    --accent-color: #2980b9;
-    --prompt-color: #27ae60;
-    --command-color: #2980b9;
-    --date-color: #c0392b;
-    --card-border: rgba(0, 0, 0, 0.1);
-    --card-shadow: rgba(0, 0, 0, 0.1);
-}
-
-/* Add styles for theme message */
-.theme-message {
-    padding: 1rem;
-    background: rgba(41, 128, 185, 0.1);
-    border-radius: 8px;
-    margin: 0.5rem 0;
-    border: 1px solid var(--card-border);
-}
-
 .theme-message.light {
     background: rgba(39, 174, 96, 0.1);
 }
@@ -2272,29 +2227,9 @@ body {
     background: rgba(41, 128, 185, 0.2);
 }
 
-/* Experience card styles for both themes */
-.experience-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: var(--terminal-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px var(--card-shadow);
-    transition: all 0.3s ease;
-}
-
 .experience-item:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px var(--card-shadow);
-}
-
-/* Experience content styles */
-.experience-content {
-    flex: 1;
-    padding-right: 2rem;
 }
 
 .experience-content h2 {
@@ -2337,14 +2272,6 @@ body {
     position: absolute;
     left: -1.5rem;
     font-size: 1.2rem;
-}
-
-/* Company logo styles */
-.company-logo {
-    width: 65px;
-    height: auto;
-    object-fit: contain;
-    margin-top: 1rem;
 }
 
 .experience-item:hover .company-logo {
@@ -3502,15 +3429,6 @@ body {
     flex-direction: column;
     gap: 1rem;
     min-width: 0;
-}
-
-.list-view .project-actions,
-.list-view .research-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    align-items: flex-end;
-    min-width: 40px;
 }
 
 @media (max-width: 768px) {

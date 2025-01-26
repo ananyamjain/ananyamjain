@@ -2573,6 +2573,11 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.project-item.expanded:hover {
+    /* Remove any transform or position changes */
+    transform: none;
+}
+
 /* Grid View */
 .grid-view {
     display: grid;

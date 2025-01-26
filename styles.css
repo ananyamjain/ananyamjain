@@ -1188,16 +1188,14 @@ body {
 }
 
 @media (max-width: 768px) {
-    .list-view .project-item,
-    .list-view .research-item {
+    .list-view .project-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
         padding: 1rem;
     }
 
-    .list-view .project-actions,
-    .list-view .research-actions {
+    .list-view .project-actions {
         flex-direction: row;
         justify-content: flex-start;
         width: 100%;
@@ -2640,4 +2638,10 @@ body {
     .grid-view {
         grid-template-columns: 1fr;
     }
+}
+
+.project-item:hover {
+    transform: translateY(-4px);
+    background: rgba(28, 28, 28, 0.8);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }

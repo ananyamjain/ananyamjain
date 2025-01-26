@@ -1394,7 +1394,6 @@ body {
 
 [data-theme="light"] .project-item:hover {
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .project-icon-overlay {
@@ -2182,6 +2181,20 @@ body {
     background: rgba(28, 28, 28, 0.95); /* Darker background when expanded */
     border: 1px solid var(--card-border);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    height: 80%;
+}
+
+.project-item.expanded::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 .project-item.expanded .close-button {
@@ -2571,11 +2584,6 @@ body {
 [data-theme="light"] .project-item {
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.project-item.expanded:hover {
-    /* Remove any transform or position changes */
-    transform: none;
 }
 
 /* Grid View */

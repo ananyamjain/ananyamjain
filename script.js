@@ -128,9 +128,6 @@ automation and scalability.</li>
         'ls ./skills/': generateSkills
     };
 
-    // Insert initial content directly without using addToTerminal
-    terminalContent.innerHTML = initialContent.trim();
-
     // Create command input container
     commandInputContainer = document.createElement('div');
     commandInputContainer.className = 'command-input-container';
@@ -146,10 +143,19 @@ automation and scalability.</li>
     commandInput = commandInputContainer.querySelector('.command-input');
     commandText = commandInputContainer.querySelector('.command-text');
 
-    // Force scroll to top
+    // Modify the initial content loading
+    const initialCommands = ['whoami', 'cat experience.txt', 'cat education.txt', 'ls ./skills/'];
+    initialCommands.forEach(cmd => {
+        addToTerminal('command', cmd, false);
+        if (commands[cmd]) {
+            commands[cmd]();
+        }
+    });
+
+    // Force scroll to top after initial load
     setTimeout(() => {
         terminalContent.scrollTop = 0;
-    }, 0);
+    }, 100);
 
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
@@ -180,17 +186,12 @@ automation and scalability.</li>
         }
     });
 
-    function addToTerminal(type, content) {
+    function addToTerminal(type, content, shouldScroll = true) {
         const line = document.createElement('div');
         
         if (type === 'command') {
             line.className = 'line';
             line.innerHTML = `<span class="prompt">$</span> <span class="command">${content}</span>`;
-            
-            // Only auto-scroll for user commands
-            setTimeout(() => {
-                terminalContent.scrollTop = terminalContent.scrollHeight;
-            }, 0);
         } else if (type === 'error') {
             line.className = 'error';
             line.textContent = content;
@@ -200,6 +201,13 @@ automation and scalability.</li>
         }
         
         terminalContent.insertBefore(line, commandInputContainer);
+        
+        // Only scroll if it's a command or if explicitly requested
+        if (type === 'command' && shouldScroll) {
+            setTimeout(() => {
+                terminalContent.scrollTop = terminalContent.scrollHeight;
+            }, 0);
+        }
     }
 
     // Ensure the terminal starts at the top

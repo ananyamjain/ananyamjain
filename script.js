@@ -243,7 +243,6 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-code"></i>
                             </div>
                             <h3>SmartScanner Application</h3>
@@ -287,7 +286,6 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-book"></i>
                             </div>
                             <h3>United for Literacy</h3>
@@ -329,7 +327,6 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-car"></i>
                             </div>
                             <h3>Ryde - Car Marketplace</h3>
@@ -641,7 +638,6 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-atom"></i>
                             </div>
                             <h3>Quantum Optimization for PDDL</h3>
@@ -676,7 +672,6 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-brain"></i>
                             </div>
                             <h3>Vision Transformers for Chest Disease Classification</h3>

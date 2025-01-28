@@ -2688,9 +2688,9 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 9998;
+    z-index: 1000; /* Lower than expanded items */
     backdrop-filter: blur(4px);
-    pointer-events: none; /* Add this to prevent overlay from blocking clicks by default */
+    pointer-events: none;
 }
 
 .project-overlay.active {
@@ -2712,8 +2712,8 @@ body {
     border: 1px solid var(--card-border);
     border-radius: 12px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    z-index: 10000;
-    overflow: hidden; /* Hide overflow initially */
+    z-index: 1001; /* Higher than overlay */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }

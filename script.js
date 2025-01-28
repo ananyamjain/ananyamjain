@@ -382,29 +382,19 @@ automation and scalability.</li>
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
-            // const overlay = document.querySelector('.project-overlay');
-            const viewBtns = document.querySelectorAll('.view-btn');
+            const overlay = document.querySelector('.project-overlay');
             
             projectItems.forEach(item => {
                 item.addEventListener('click', () => {
-                    // Check if the item is already expanded
                     if (!item.classList.contains('expanded')) {
                         // Remove expanded class from any other expanded items
                         document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
                             expandedItem.classList.remove('expanded');
                         });
 
-                        // Add expanded class to the clicked item
                         item.classList.add('expanded');
-                        
-                        // Show overlay
                         overlay.classList.add('active');
-                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                    } else {
-                        // Collapse the item if it's already expanded
-                        item.classList.remove('expanded');
-                        overlay.classList.remove('active');
-                        document.body.style.overflow = '';
+                        document.body.style.overflow = 'hidden';
                     }
                 });
             });
@@ -742,29 +732,19 @@ automation and scalability.</li>
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
-            // const overlay = document.querySelector('.project-overlay');
-            const viewBtns = document.querySelectorAll('.view-btn');
+            const overlay = document.querySelector('.project-overlay');
             
             projectItems.forEach(item => {
                 item.addEventListener('click', () => {
-                    // Check if the item is already expanded
                     if (!item.classList.contains('expanded')) {
                         // Remove expanded class from any other expanded items
                         document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
                             expandedItem.classList.remove('expanded');
                         });
 
-                        // Add expanded class to the clicked item
                         item.classList.add('expanded');
-                        
-                        // Show overlay
                         overlay.classList.add('active');
-                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                    } else {
-                        // Collapse the item if it's already expanded
-                        item.classList.remove('expanded');
-                        overlay.classList.remove('active');
-                        document.body.style.overflow = '';
+                        document.body.style.overflow = 'hidden';
                     }
                 });
             });

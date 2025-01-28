@@ -128,12 +128,6 @@ automation and scalability.</li>
         'ls ./skills/': generateSkills
     };
 
-    // Insert initial content
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = initialContent.trim();
-    terminalContent.innerHTML = ''; // Clear existing content
-    terminalContent.appendChild(tempDiv);
-
     // Create command input container
     commandInputContainer = document.createElement('div');
     commandInputContainer.className = 'command-input-container';
@@ -148,6 +142,20 @@ automation and scalability.</li>
     // Update references
     commandInput = commandInputContainer.querySelector('.command-input');
     commandText = commandInputContainer.querySelector('.command-text');
+
+    // Modify the initial content loading
+    const initialCommands = ['whoami', 'cat experience.txt', 'cat education.txt', 'ls ./skills/'];
+    initialCommands.forEach(cmd => {
+        addToTerminal('command', cmd, false);
+        if (commands[cmd]) {
+            commands[cmd]();
+        }
+    });
+
+    // Force scroll to top after initial load
+    setTimeout(() => {
+        terminalContent.scrollTop = 0;
+    }, 100);
 
     // Keep input focused
     terminal.addEventListener('click', () => commandInput.focus());
@@ -178,7 +186,7 @@ automation and scalability.</li>
         }
     });
 
-    function addToTerminal(type, content) {
+    function addToTerminal(type, content, shouldScroll = true) {
         const line = document.createElement('div');
         
         if (type === 'command') {
@@ -193,7 +201,13 @@ automation and scalability.</li>
         }
         
         terminalContent.insertBefore(line, commandInputContainer);
-        terminalContent.scrollTop = terminalContent.scrollHeight; // Scroll to bottom after command
+        
+        // Only scroll if it's a command or if explicitly requested
+        if (type === 'command' && shouldScroll) {
+            setTimeout(() => {
+                terminalContent.scrollTop = terminalContent.scrollHeight;
+            }, 0);
+        }
     }
 
     // Ensure the terminal starts at the top
@@ -243,7 +257,6 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-code"></i>
                             </div>
                             <h3>SmartScanner Application</h3>
@@ -287,7 +300,6 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-book"></i>
                             </div>
                             <h3>United for Literacy</h3>
@@ -329,7 +341,6 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-car"></i>
                             </div>
                             <h3>Ryde - Car Marketplace</h3>
@@ -372,13 +383,28 @@ automation and scalability.</li>
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
             const overlay = document.querySelector('.project-overlay');
+            const viewBtns = document.querySelectorAll('.view-btn');
             
             projectItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
+                item.addEventListener('click', () => {
+                    // Check if the item is already expanded
+                    if (!item.classList.contains('expanded')) {
+                        // Remove expanded class from any other expanded items
+                        document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
+                            expandedItem.classList.remove('expanded');
+                        });
+
+                        // Add expanded class to the clicked item
                         item.classList.add('expanded');
+                        
+                        // Show overlay
                         overlay.classList.add('active');
-                        document.body.style.overflow = 'hidden';
+                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                    } else {
+                        // Collapse the item if it's already expanded
+                        item.classList.remove('expanded');
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = '';
                     }
                 });
             });
@@ -403,20 +429,16 @@ automation and scalability.</li>
             });
 
             // View toggle handlers
-            const viewBtns = document.querySelectorAll('.view-btn');
-            const projectContainer = document.getElementById('projectContainer');
-            
-            if (viewBtns && projectContainer) {
-                viewBtns.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        viewBtns.forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        const viewType = btn.getAttribute('data-view');
-                        projectContainer.className = `project-container ${viewType}-view`;
-                    });
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    viewBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const viewType = btn.getAttribute('data-view');
+                    const container = e.target.closest('.directory-view').querySelector('.project-container');
+                    container.className = `project-container ${viewType}-view`;
                 });
-            }
+            });
         }, 0);
     }
 
@@ -636,7 +658,7 @@ automation and scalability.</li>
                     </div>
                 </div>
                 
-                <div class="project-container grid-view">
+                <div class="research-container grid-view">
                     <!-- Quantum Research Project -->
                     <div class="project-item">
                         <button class="close-button">
@@ -644,32 +666,29 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-atom"></i>
                             </div>
-                            <div class="project-info">
-                                <h3>Quantum Optimization for PDDL</h3>
-                                <div class="project-meta">
-                                    <span class="project-date">Modified: 2023</span>
-                                    <span class="project-size">Matter Lab, UofT</span>
-                                </div>
-                                <div class="project-tags">
-                                    <span>Quantum Computing</span>
-                                    <span>Python</span>
-                                    <span>D-Wave</span>
-                                </div>
-                                <div class="project-description">
-                                    Applying QUBO methodologies for robotic AI planning tasks.
-                                </div>
-                                <div class="project-details">
-                                    <h4>Research Details:</h4>
-                                    <p>Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with minimal energy. Implemented quantum optimization techniques for Planning Domain Definition Language problems.</p>
-                                </div>
-                                <div class="project-actions">
-                                    <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="project-action">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
+                            <h3>Quantum Optimization for PDDL</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: 2023</span>
+                                <span class="project-size">Matter Lab, UofT</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Quantum Computing</span>
+                                <span>Python</span>
+                                <span>D-Wave</span>
+                            </div>
+                            <div class="project-description">
+                                Applying QUBO methodologies for robotic AI planning tasks.
+                            </div>
+                            <div class="project-details">
+                                <h4>Research Details:</h4>
+                                <p>Utilized D-Wave Ocean's dimod package to solve Binary Quadratic Models, generating optimal solutions with minimal energy. Implemented quantum optimization techniques for Planning Domain Definition Language problems.</p>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -681,35 +700,32 @@ automation and scalability.</li>
                         </button>
                         <div class="project-content">
                             <div class="project-icon">
-                                <i class="fas fa-folder"></i>
                                 <i class="project-icon-overlay fas fa-brain"></i>
                             </div>
-                            <div class="project-info">
-                                <h3>Vision Transformers for Chest Disease Classification</h3>
-                                <div class="project-meta">
-                                    <span class="project-date">Modified: 2024</span>
-                                    <span class="project-size">CSC413 @ UofT</span>
-                                </div>
-                                <div class="project-tags">
-                                    <span>Machine Learning</span>
-                                    <span>Neural Networks</span>
-                                    <span>PyTorch</span>
-                                </div>
-                                <div class="project-description">
-                                    Comparative analysis of Vision Transformers against CNNs and ResNet models.
-                                </div>
-                                <div class="project-details">
-                                    <h4>Research Details:</h4>
-                                    <p>Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance in identifying 14 distinct lung conditions. Conducted comprehensive comparative analysis with traditional architectures.</p>
-                                </div>
-                                <div class="project-actions">
-                                    <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="project-action">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="project-action">
-                                        <i class="fas fa-file-alt"></i>
-                                    </a>
-                                </div>
+                            <h3>Vision Transformers for Chest Disease Classification</h3>
+                            <div class="project-meta">
+                                <span class="project-date">Modified: 2024</span>
+                                <span class="project-size">CSC413 @ UofT</span>
+                            </div>
+                            <div class="project-tags">
+                                <span>Machine Learning</span>
+                                <span>Neural Networks</span>
+                                <span>PyTorch</span>
+                            </div>
+                            <div class="project-description">
+                                Comparative analysis of Vision Transformers against CNNs and ResNet models.
+                            </div>
+                            <div class="project-details">
+                                <h4>Research Details:</h4>
+                                <p>Fine-tuned pre-trained and from-scratch ViT models on the NIH Chest X-ray dataset, demonstrating superior performance in identifying 14 distinct lung conditions. Conducted comprehensive comparative analysis with traditional architectures.</p>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="project-action">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="project-action">
+                                    <i class="fas fa-file-alt"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -723,14 +739,27 @@ automation and scalability.</li>
             const closeButtons = document.querySelectorAll('.close-button');
             const overlay = document.querySelector('.project-overlay');
             const viewBtns = document.querySelectorAll('.view-btn');
-            const projectContainer = document.querySelector('.project-container');
             
             projectItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    if (!e.target.closest('.close-button') && !e.target.closest('a')) {
+                item.addEventListener('click', () => {
+                    // Check if the item is already expanded
+                    if (!item.classList.contains('expanded')) {
+                        // Remove expanded class from any other expanded items
+                        document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
+                            expandedItem.classList.remove('expanded');
+                        });
+
+                        // Add expanded class to the clicked item
                         item.classList.add('expanded');
+                        
+                        // Show overlay
                         overlay.classList.add('active');
-                        document.body.style.overflow = 'hidden';
+                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                    } else {
+                        // Collapse the item if it's already expanded
+                        item.classList.remove('expanded');
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = '';
                     }
                 });
             });
@@ -761,11 +790,29 @@ automation and scalability.</li>
                     viewBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     const viewType = btn.getAttribute('data-view');
-                    projectContainer.className = `project-container ${viewType}-view`;
+                    const container = e.target.closest('.directory-view').querySelector('.research-container');
+                    container.className = `research-container ${viewType}-view`;
                 });
             });
         }, 0);
     }
+
+    // Add event handlers for view toggles
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.view-btn')) {
+            const container = e.target.closest('.directory-view').querySelector('.project-container, .research-container');
+            const viewBtns = e.target.closest('.view-toggle').querySelectorAll('.view-btn');
+            const viewType = e.target.getAttribute('data-view');
+            
+            // Update buttons
+            viewBtns.forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            // Update view
+            container.className = container.className.replace(/grid-view|list-view/g, '').trim();
+            container.classList.add(`${viewType}-view`);
+        }
+    });
 
     function generateDance() {
         addToTerminal('output', `

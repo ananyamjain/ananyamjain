@@ -1125,6 +1125,7 @@ body {
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    pointer-events: auto; /* Add this */
 }
 
 .project-item.expanded .project-details{
@@ -1189,6 +1190,7 @@ body {
     opacity: 1;
     visibility: visible;
     z-index: 100000; /* Higher than expanded item */
+    pointer-events: auto; /* Add this */
 }
 
 /* Light theme adjustments */
@@ -2634,7 +2636,7 @@ body.modal-open .project-item.expanded {
 }
 
 /* Add background dimming effect */
-body.modal-open::after {
+body.modal-open::before { /* Changed from ::after to ::before */
     content: '';
     position: fixed;
     top: 0;
@@ -2642,10 +2644,11 @@ body.modal-open::after {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.75);
-    z-index: 99998; /* Just below the expanded item */
+    z-index: 99998;
     backdrop-filter: blur(4px);
+    pointer-events: none; /* Add this */
 }
 
-[data-theme="light"] body.modal-open::after {
+[data-theme="light"] body.modal-open::before {
     background: rgba(0, 0, 0, 0.5);
 }

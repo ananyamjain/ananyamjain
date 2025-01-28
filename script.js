@@ -382,7 +382,7 @@ automation and scalability.</li>
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
-            const overlay = document.querySelector('.project-overlay');
+            // const overlay = document.querySelector('.project-overlay');
             const viewBtns = document.querySelectorAll('.view-btn');
             
             projectItems.forEach(item => {
@@ -742,7 +742,7 @@ automation and scalability.</li>
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
-            const overlay = document.querySelector('.project-overlay');
+            // const overlay = document.querySelector('.project-overlay');
             const viewBtns = document.querySelectorAll('.view-btn');
             
             projectItems.forEach(item => {

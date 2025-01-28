@@ -88,13 +88,15 @@ body {
     max-width: 1400px;
     padding: 20px;
     align-items: flex-start;
-    min-height: 90vh; /* Add minimum height */
+    min-height: 90vh;
+    position: relative; /* Add this */
 }
 
 .terminal {
     flex: 1;
     height: 90vh;
-    min-height: 600px; /* Add minimum height */
+    min-height: 600px;
+    max-height: 90vh; /* Add this to ensure consistent height */
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -153,7 +155,7 @@ body {
 
 .terminal-content {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: auto !important; /* Force scrolling */
     padding: 1.2rem;
     padding-right: 16px;
     height: calc(90vh - 60px);
@@ -165,7 +167,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transition: all 0.3s ease;
 }
 
 .terminal-content::-webkit-scrollbar {
@@ -377,16 +378,18 @@ body {
 
 .cheatsheet {
     width: 280px;
-    background: var(--cheatsheet-bg);
+    background: var(--terminal-bg);
     padding: 1.8rem;
     padding-top: 2.8rem;
     border-radius: 12px;
     border: 1px solid var(--card-border);
     box-shadow: 0 12px 30px var(--card-shadow);
+    position: sticky;
+    top: 20px;
     height: fit-content;
-    position: sticky; /* Add this to keep it in view */
-    top: 20px; /* Add this to maintain some spacing from the top */
-    overflow: hidden;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 10;
 }
 
 .cheatsheet::before {
@@ -506,10 +509,19 @@ body {
 @media (max-width: 1200px) {
     .container {
         flex-direction: column;
+        align-items: center;
     }
     
     .cheatsheet {
-        width: auto;
+        position: relative;
+        top: 0;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+    
+    .terminal {
+        width: 100%;
     }
 }
 

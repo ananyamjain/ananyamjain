@@ -236,7 +236,6 @@ automation and scalability.</li>
     function generateProjects() {
         addToTerminal('output', `
             <div class="directory-view">
-                <div class="project-overlay"></div>
                 <div class="directory-header">
                     <div class="path-navigator">
                         <span class="path-segment">~</span>
@@ -379,37 +378,6 @@ automation and scalability.</li>
         `);
 
         setTimeout(() => {
-            // Add view toggle handlers
-            const viewBtns = document.querySelectorAll('.view-btn');
-            viewBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const currentDirectory = btn.closest('.directory-view');
-                    const viewBtnsInCurrentDirectory = currentDirectory.querySelectorAll('.view-btn');
-                    
-                    // Remove active class from all buttons in current directory
-                    viewBtnsInCurrentDirectory.forEach(b => {
-                        b.classList.remove('active');
-                    });
-                    
-                    // Add active class to clicked button
-                    btn.classList.add('active');
-                    
-                    // Get the view type from data attribute
-                    const viewType = btn.getAttribute('data-view');
-                    
-                    // Find and update the container
-                    const container = currentDirectory.querySelector('.project-container');
-                    if (container) {
-                        // Remove existing view classes
-                        container.classList.remove('grid-view', 'list-view');
-                        // Add new view class
-                        container.classList.add(`${viewType}-view`);
-                    }
-                });
-            });
-
-            // Find the closest directory view and its overlay
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
             const overlay = document.querySelector('.project-overlay');
@@ -417,7 +385,6 @@ automation and scalability.</li>
             projectItems.forEach(item => {
                 item.addEventListener('click', (e) => {
                     if (!item.classList.contains('expanded')) {
-                        // Remove expanded class from any other expanded items
                         document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
                             expandedItem.classList.remove('expanded');
                         });
@@ -433,8 +400,6 @@ automation and scalability.</li>
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const projectItem = button.closest('.project-item');
-                    const directoryView = projectItem.closest('.directory-view');
-                    const overlay = directoryView.querySelector('.project-overlay');
                     
                     projectItem.classList.remove('expanded');
                     overlay.classList.remove('active');
@@ -442,18 +407,13 @@ automation and scalability.</li>
                 });
             });
 
-            // Add overlay click handler
-            const overlays = document.querySelectorAll('.project-overlay');
-            overlays.forEach(overlay => {
-                overlay.addEventListener('click', () => {
-                    const directoryView = overlay.closest('.directory-view');
-                    const expandedItem = directoryView.querySelector('.project-item.expanded');
-                    if (expandedItem) {
-                        expandedItem.classList.remove('expanded');
-                        overlay.classList.remove('active');
-                        document.body.classList.remove('modal-open');
-                    }
-                });
+            overlay.addEventListener('click', () => {
+                const expandedItem = document.querySelector('.project-item.expanded');
+                if (expandedItem) {
+                    expandedItem.classList.remove('expanded');
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                }
             });
         }, 0);
     }
@@ -758,14 +718,13 @@ automation and scalability.</li>
             projectItems.forEach(item => {
                 item.addEventListener('click', () => {
                     if (!item.classList.contains('expanded')) {
-                        // Remove expanded class from any other expanded items
                         document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
                             expandedItem.classList.remove('expanded');
                         });
 
                         item.classList.add('expanded');
                         overlay.classList.add('active');
-                        document.body.style.overflow = 'hidden';
+                        document.body.classList.add('modal-open');
                     }
                 });
             });
@@ -776,7 +735,7 @@ automation and scalability.</li>
                     const projectItem = button.closest('.project-item');
                     projectItem.classList.remove('expanded');
                     overlay.classList.remove('active');
-                    document.body.style.overflow = '';
+                    document.body.classList.remove('modal-open');
                 });
             });
 
@@ -785,7 +744,7 @@ automation and scalability.</li>
                 if (expandedItem) {
                     expandedItem.classList.remove('expanded');
                     overlay.classList.remove('active');
-                    document.body.style.overflow = '';
+                    document.body.classList.remove('modal-open');
                 }
             });
 

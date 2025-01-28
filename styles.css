@@ -2672,3 +2672,124 @@ body {
     background: rgba(28, 28, 28, 0.8);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
+
+/* Overlay styles */
+.project-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9998; /* High z-index but below the modal */
+    backdrop-filter: blur(4px);
+}
+
+.project-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal styles for expanded items */
+.project-item.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    height: auto;
+    background: var(--terminal-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    margin: 0;
+    overflow-y: auto;
+    z-index: 9999; /* Highest z-index to appear above everything */
+}
+
+/* Styling for the expanded content */
+.project-item.expanded .project-content {
+    height: auto;
+    overflow-y: auto;
+    max-height: calc(85vh - 4rem);
+    padding-right: 1rem;
+}
+
+/* Close button styling */
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10000;
+}
+
+.project-item.expanded .close-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .project-item.expanded {
+    background: var(--terminal-bg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .project-overlay {
+    background: rgba(255, 255, 255, 0.75);
+}
+
+[data-theme="light"] .close-button {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .close-button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollbar styles for the modal */
+.project-item.expanded::-webkit-scrollbar {
+    width: 8px;
+}
+
+.project-item.expanded::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.project-item.expanded::-webkit-scrollbar-thumb {
+    background: rgba(136, 192, 208, 0.3);
+    border-radius: 4px;
+}
+
+.project-item.expanded::-webkit-scrollbar-thumb:hover {
+    background: rgba(136, 192, 208, 0.5);
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}

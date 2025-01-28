@@ -378,6 +378,37 @@ automation and scalability.</li>
         `);
 
         setTimeout(() => {
+            // Add view toggle handlers first
+            const viewBtns = document.querySelectorAll('.view-btn');
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const currentDirectory = btn.closest('.directory-view');
+                    const viewBtnsInCurrentDirectory = currentDirectory.querySelectorAll('.view-btn');
+                    
+                    // Remove active class from all buttons in current directory
+                    viewBtnsInCurrentDirectory.forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Get the view type from data attribute
+                    const viewType = btn.getAttribute('data-view');
+                    
+                    // Find and update the container
+                    const container = currentDirectory.querySelector('.project-container');
+                    if (container) {
+                        // Remove existing view classes
+                        container.classList.remove('grid-view', 'list-view');
+                        // Add new view class
+                        container.classList.add(`${viewType}-view`);
+                    }
+                });
+            });
+
+            // Project expansion handlers
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
             const overlay = document.querySelector('.project-overlay');

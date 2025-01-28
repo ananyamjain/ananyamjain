@@ -1109,14 +1109,9 @@ body {
 
 .list-view .project-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: var(--terminal-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    border-left: 3px solid #98C379;
-    transition: all 0.3s ease;
 }
 
 .list-view .project-icon {
@@ -1137,7 +1132,6 @@ body {
     flex-direction: column;
     gap: 1rem;
     min-width: 0;
-    flex: 1;
 }
 
 .list-view .project-actions,
@@ -2697,7 +2691,7 @@ body {
 
 .project-overlay.active {
     opacity: 1 !important;
-    visibility: visible !important; 
+    visibility: visible !important;
     pointer-events: auto;
 }
 
@@ -2714,8 +2708,9 @@ body {
     border: 1px solid var(--card-border);
     border-radius: 12px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    z-index: 9999; /* Higher than overlay */
-    overflow: hidden;
+    z-index: 9500; /* Higher than overlay */
+    overflow-y: auto;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
 }
@@ -2754,7 +2749,7 @@ body {
     right: calc(5% + 1rem); /* Align with the right of the modal */
     opacity: 1;
     visibility: visible;
-    z-index: 10000;
+    z-index: 9600; /* Higher than expanded item */
 }
 
 /* Light theme adjustments */
@@ -2799,6 +2794,78 @@ body.modal-open {
     }
     
     .project-item.expanded .modal-content {
+        padding: 1rem;
+    }
+}
+
+/* View toggle buttons */
+.view-toggle {
+    display: flex;
+    gap: 1rem;
+}
+
+.view-btn {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+}
+
+.view-btn:hover {
+    opacity: 0.8;
+}
+
+.view-btn.active {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* Grid View */
+.grid-view {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* List View */
+.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.list-view .project-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.list-view .project-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(152, 195, 121, 0.1);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    color: #98C379;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grid-view {
+        grid-template-columns: 1fr;
+    }
+    
+    .list-view .project-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
         padding: 1rem;
     }
 }

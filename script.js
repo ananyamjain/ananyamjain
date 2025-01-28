@@ -249,7 +249,7 @@ automation and scalability.</li>
                     </div>
                 </div>
                 
-                <div class="project-container grid-view" id="projectContainer">
+                <div class="project-container grid-view">
                     <!-- SmartScanner Project -->
                     <div class="project-item">
                         <button class="close-button">
@@ -378,18 +378,45 @@ automation and scalability.</li>
             </div>
         `);
 
-        // Update the click handlers
         setTimeout(() => {
+            // Add view toggle handlers
+            const viewBtns = document.querySelectorAll('.view-btn');
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const currentDirectory = btn.closest('.directory-view');
+                    const viewBtnsInCurrentDirectory = currentDirectory.querySelectorAll('.view-btn');
+                    
+                    // Remove active class from all buttons in current directory
+                    viewBtnsInCurrentDirectory.forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Get the view type from data attribute
+                    const viewType = btn.getAttribute('data-view');
+                    
+                    // Find and update the container
+                    const container = currentDirectory.querySelector('.project-container');
+                    if (container) {
+                        // Remove existing view classes
+                        container.classList.remove('grid-view', 'list-view');
+                        // Add new view class
+                        container.classList.add(`${viewType}-view`);
+                    }
+                });
+            });
+
+            // Find the closest directory view and its overlay
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
+            const overlay = document.querySelector('.project-overlay');
             
             projectItems.forEach(item => {
                 item.addEventListener('click', (e) => {
                     if (!item.classList.contains('expanded')) {
-                        // Find the closest directory view and its overlay
-                        const directoryView = item.closest('.directory-view');
-                        const overlay = directoryView.querySelector('.project-overlay');
-                        
                         // Remove expanded class from any other expanded items
                         document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
                             expandedItem.classList.remove('expanded');

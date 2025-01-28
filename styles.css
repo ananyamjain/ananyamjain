@@ -1107,28 +1107,6 @@ body {
     background: rgba(41, 128, 185, 0.1);
 }
 
-/* Overlay styles */
-.project-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.75) !important;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 10; /* Lower than expanded items */
-    backdrop-filter: blur(4px);
-    pointer-events: none;
-}
-
-.project-overlay.active {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto;
-}
-
 /* Modal window styles */
 .project-item.expanded {
     position: fixed;
@@ -1217,10 +1195,6 @@ body {
 [data-theme="light"] .project-item.expanded {
     background: var(--terminal-bg);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-[data-theme="light"] .project-overlay {
-    background: rgba(255, 255, 255, 0.75);
 }
 
 /* Prevent body scroll when modal is open */

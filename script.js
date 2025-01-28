@@ -411,7 +411,6 @@ automation and scalability.</li>
             // Project expansion handlers
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
-            const overlay = document.querySelector('.project-overlay');
             
             projectItems.forEach(item => {
                 item.addEventListener('click', (e) => {
@@ -421,7 +420,6 @@ automation and scalability.</li>
                         });
 
                         item.classList.add('expanded');
-                        overlay.classList.add('active');
                         document.body.classList.add('modal-open');
                     }
                 });
@@ -433,18 +431,8 @@ automation and scalability.</li>
                     const projectItem = button.closest('.project-item');
                     
                     projectItem.classList.remove('expanded');
-                    overlay.classList.remove('active');
                     document.body.classList.remove('modal-open');
                 });
-            });
-
-            overlay.addEventListener('click', () => {
-                const expandedItem = document.querySelector('.project-item.expanded');
-                if (expandedItem) {
-                    expandedItem.classList.remove('expanded');
-                    overlay.classList.remove('active');
-                    document.body.classList.remove('modal-open');
-                }
             });
         }, 0);
     }
@@ -652,7 +640,6 @@ automation and scalability.</li>
     function generateResearch() {
         addToTerminal('output', `
             <div class="directory-view">
-                <div class="project-overlay"></div>
                 <div class="directory-header">
                     <div class="path-navigator">
                         <span class="path-segment">~</span>
@@ -744,17 +731,15 @@ automation and scalability.</li>
         setTimeout(() => {
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
-            const overlay = document.querySelector('.project-overlay');
             
             projectItems.forEach(item => {
-                item.addEventListener('click', () => {
+                item.addEventListener('click', (e) => {
                     if (!item.classList.contains('expanded')) {
                         document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
                             expandedItem.classList.remove('expanded');
                         });
 
                         item.classList.add('expanded');
-                        overlay.classList.add('active');
                         document.body.classList.add('modal-open');
                     }
                 });
@@ -765,18 +750,8 @@ automation and scalability.</li>
                     e.stopPropagation();
                     const projectItem = button.closest('.project-item');
                     projectItem.classList.remove('expanded');
-                    overlay.classList.remove('active');
                     document.body.classList.remove('modal-open');
                 });
-            });
-
-            overlay.addEventListener('click', () => {
-                const expandedItem = document.querySelector('.project-item.expanded');
-                if (expandedItem) {
-                    expandedItem.classList.remove('expanded');
-                    overlay.classList.remove('active');
-                    document.body.classList.remove('modal-open');
-                }
             });
 
             // View toggle handlers

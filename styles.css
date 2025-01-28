@@ -2684,7 +2684,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.75) !important; /* Added !important for testing */
+    background: rgba(0, 0, 0, 0.75) !important;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -2694,8 +2694,8 @@ body {
 }
 
 .project-overlay.active {
-    opacity: 1 !important; /* Added !important for testing */
-    visibility: visible !important; /* Added !important for testing */
+    opacity: 1 !important;
+    visibility: visible !important; 
     pointer-events: auto;
 }
 
@@ -2712,7 +2712,7 @@ body {
     border: 1px solid var(--card-border);
     border-radius: 12px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    z-index: 1001; /* Higher than overlay */
+    z-index: 9999; /* Higher than overlay */
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -2761,7 +2761,7 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    z-index: 9999;
+    z-index: 10000;
     opacity: 1;
     visibility: visible;
     transform: scale(1.1);

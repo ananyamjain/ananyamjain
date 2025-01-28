@@ -2158,7 +2158,8 @@ body {
     border-radius: 12px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    overflow: hidden;
+    overflow-y: auto; /* Allow scrolling */
+    padding: 2rem;
     display: flex;
     flex-direction: column;
 }
@@ -2748,24 +2749,12 @@ body {
 
 /* Close button */
 .project-item.expanded .close-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    z-index: 10000;
+    position: fixed; /* Change from absolute to fixed */
+    top: calc(7.5vh + 1rem); /* Align with the top of the modal */
+    right: calc(5% + 1rem); /* Align with the right of the modal */
     opacity: 1;
     visibility: visible;
-    transform: scale(1.1);
+    z-index: 10000;
 }
 
 /* Light theme adjustments */
@@ -2805,6 +2794,7 @@ body.modal-open {
 @media (max-width: 768px) {
     .project-item.expanded {
         width: 95%;
+        padding: 1.5rem;
         max-height: 90vh;
     }
     

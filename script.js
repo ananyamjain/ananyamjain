@@ -417,10 +417,16 @@ automation and scalability.</li>
                     if (!item.classList.contains('expanded')) {
                         document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
                             expandedItem.classList.remove('expanded');
+                            // Move back to original container if needed
+                            if (expandedItem.parentElement !== item.parentElement) {
+                                item.parentElement.appendChild(expandedItem);
+                            }
                         });
 
                         item.classList.add('expanded');
                         document.body.classList.add('modal-open');
+                        // Move to body when expanded
+                        document.body.appendChild(item);
                     }
                 });
             });
@@ -429,9 +435,12 @@ automation and scalability.</li>
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const projectItem = button.closest('.project-item');
+                    const projectContainer = document.querySelector('.project-container');
                     
                     projectItem.classList.remove('expanded');
                     document.body.classList.remove('modal-open');
+                    // Move back to original container
+                    projectContainer.appendChild(projectItem);
                 });
             });
         }, 0);
@@ -737,10 +746,16 @@ automation and scalability.</li>
                     if (!item.classList.contains('expanded')) {
                         document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
                             expandedItem.classList.remove('expanded');
+                            // Move back to original container if needed
+                            if (expandedItem.parentElement !== item.parentElement) {
+                                item.parentElement.appendChild(expandedItem);
+                            }
                         });
 
                         item.classList.add('expanded');
                         document.body.classList.add('modal-open');
+                        // Move to body when expanded
+                        document.body.appendChild(item);
                     }
                 });
             });
@@ -749,8 +764,12 @@ automation and scalability.</li>
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const projectItem = button.closest('.project-item');
+                    const projectContainer = document.querySelector('.project-container');
+                    
                     projectItem.classList.remove('expanded');
                     document.body.classList.remove('modal-open');
+                    // Move back to original container
+                    projectContainer.appendChild(projectItem);
                 });
             });
 

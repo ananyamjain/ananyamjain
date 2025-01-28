@@ -419,19 +419,32 @@ automation and scalability.</li>
             });
 
             // View toggle handlers
+            const viewBtns = document.querySelectorAll('.view-btn');
             viewBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    // Only update buttons within the same directory view
                     const currentDirectory = btn.closest('.directory-view');
                     const viewBtnsInCurrentDirectory = currentDirectory.querySelectorAll('.view-btn');
-                    viewBtnsInCurrentDirectory.forEach(b => b.classList.remove('active'));
+                    
+                    // Remove active class from all buttons in current directory
+                    viewBtnsInCurrentDirectory.forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
                     btn.classList.add('active');
                     
+                    // Get the view type from data attribute
                     const viewType = btn.getAttribute('data-view');
+                    
+                    // Find and update the container
                     const container = currentDirectory.querySelector('.project-container, .research-container');
-                    container.className = container.className.replace(/grid-view|list-view/g, '').trim();
-                    container.classList.add(`${viewType}-view`);
+                    if (container) {
+                        // Remove existing view classes
+                        container.classList.remove('grid-view', 'list-view');
+                        // Add new view class
+                        container.classList.add(`${viewType}-view`);
+                    }
                 });
             });
         }, 0);
@@ -769,19 +782,32 @@ automation and scalability.</li>
             });
 
             // View toggle handlers
+            const viewBtns = document.querySelectorAll('.view-btn');
             viewBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    // Only update buttons within the same directory view
                     const currentDirectory = btn.closest('.directory-view');
                     const viewBtnsInCurrentDirectory = currentDirectory.querySelectorAll('.view-btn');
-                    viewBtnsInCurrentDirectory.forEach(b => b.classList.remove('active'));
+                    
+                    // Remove active class from all buttons in current directory
+                    viewBtnsInCurrentDirectory.forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
                     btn.classList.add('active');
                     
+                    // Get the view type from data attribute
                     const viewType = btn.getAttribute('data-view');
+                    
+                    // Find and update the container
                     const container = currentDirectory.querySelector('.project-container, .research-container');
-                    container.className = container.className.replace(/grid-view|list-view/g, '').trim();
-                    container.classList.add(`${viewType}-view`);
+                    if (container) {
+                        // Remove existing view classes
+                        container.classList.remove('grid-view', 'list-view');
+                        // Add new view class
+                        container.classList.add(`${viewType}-view`);
+                    }
                 });
             });
         }, 0);

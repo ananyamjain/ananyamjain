@@ -1000,6 +1000,25 @@ body {
     gap: 1rem;
 }
 
+.view-toggle .view-btn {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.view-toggle .view-btn.active {
+    opacity: 1;
+    color: var(--accent-color);
+    background: rgba(136, 192, 208, 0.1);
+}
+
+.view-toggle .view-btn:hover {
+    opacity: 0.8;
+    background: rgba(136, 192, 208, 0.05);
+}
+
 .view-toggle i {
     cursor: pointer;
     opacity: 0.5;
@@ -1093,9 +1112,10 @@ body {
 /* Grid View */
 .grid-view {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     width: 100%;
+    padding: 1.5rem;
 }
 
 /* List View */
@@ -1104,6 +1124,7 @@ body {
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
+    padding: 1.5rem;
 }
 
 .list-view .project-item {

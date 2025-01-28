@@ -412,24 +412,7 @@ automation and scalability.</li>
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
             
-            projectItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    if (!item.classList.contains('expanded')) {
-                        document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
-                            expandedItem.classList.remove('expanded');
-                            // Move back to original container if needed
-                            if (expandedItem.parentElement !== item.parentElement) {
-                                item.parentElement.appendChild(expandedItem);
-                            }
-                        });
-
-                        item.classList.add('expanded');
-                        document.body.classList.add('modal-open');
-                        // Move to body when expanded
-                        document.body.appendChild(item);
-                    }
-                });
-            });
+            setupProjectExpansion(projectItems, '.project-container');
             
             closeButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
@@ -439,7 +422,6 @@ automation and scalability.</li>
                     
                     projectItem.classList.remove('expanded');
                     document.body.classList.remove('modal-open');
-                    // Move back to original container
                     projectContainer.appendChild(projectItem);
                 });
             });
@@ -741,34 +723,16 @@ automation and scalability.</li>
             const projectItems = document.querySelectorAll('.project-item');
             const closeButtons = document.querySelectorAll('.close-button');
             
-            projectItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    if (!item.classList.contains('expanded')) {
-                        document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
-                            expandedItem.classList.remove('expanded');
-                            // Move back to original container if needed
-                            if (expandedItem.parentElement !== item.parentElement) {
-                                item.parentElement.appendChild(expandedItem);
-                            }
-                        });
-
-                        item.classList.add('expanded');
-                        document.body.classList.add('modal-open');
-                        // Move to body when expanded
-                        document.body.appendChild(item);
-                    }
-                });
-            });
+            setupProjectExpansion(projectItems, '.research-container');
             
             closeButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const projectItem = button.closest('.project-item');
-                    const projectContainer = document.querySelector('.project-container');
+                    const projectContainer = document.querySelector('.research-container');
                     
                     projectItem.classList.remove('expanded');
                     document.body.classList.remove('modal-open');
-                    // Move back to original container
                     projectContainer.appendChild(projectItem);
                 });
             });
@@ -952,4 +916,70 @@ automation and scalability.</li>
             </div>
         `);
     }
+
+    // Modify the project expansion handlers
+    function setupProjectExpansion(projectItems, containerSelector) {
+        projectItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (!item.classList.contains('expanded')) {
+                    // Close any previously expanded items
+                    document.querySelectorAll('.project-item.expanded').forEach(expandedItem => {
+                        expandedItem.classList.remove('expanded');
+                        // Move back to original container if needed
+                        if (expandedItem.parentElement !== item.parentElement) {
+                            const originalContainer = document.querySelector(containerSelector);
+                            if (originalContainer) {
+                                originalContainer.appendChild(expandedItem);
+                            }
+                        }
+                    });
+
+                    // Expand current item
+                    item.classList.add('expanded');
+                    document.body.classList.add('modal-open'); // This class only controls overlay
+                    document.body.appendChild(item);
+                }
+            });
+        });
+    }
+
+    // Use this function in both generateProjects and generateResearch
+    setTimeout(() => {
+        const projectItems = document.querySelectorAll('.project-item');
+        const closeButtons = document.querySelectorAll('.close-button');
+        
+        setupProjectExpansion(projectItems, '.project-container');
+        
+        closeButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const projectItem = button.closest('.project-item');
+                const projectContainer = document.querySelector('.project-container') || 
+                                       document.querySelector('.research-container');
+                
+                if (projectItem && projectContainer) {
+                    projectItem.classList.remove('expanded');
+                    document.body.classList.remove('modal-open');
+                    projectContainer.appendChild(projectItem);
+                }
+            });
+        });
+
+        // Optional: Close on overlay click
+        const overlay = document.querySelector('.modal-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                const expandedItem = document.querySelector('.project-item.expanded');
+                if (expandedItem) {
+                    const projectContainer = document.querySelector('.project-container') || 
+                                           document.querySelector('.research-container');
+                    if (projectContainer) {
+                        expandedItem.classList.remove('expanded');
+                        document.body.classList.remove('modal-open');
+                        projectContainer.appendChild(expandedItem);
+                    }
+                }
+            });
+        }
+    }, 0);
 });

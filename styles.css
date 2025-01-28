@@ -2628,3 +2628,29 @@ body.modal-open .project-item.expanded {
     opacity: 1;
     color: var(--accent-color);
 }
+
+/* Add overlay styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    backdrop-filter: blur(5px); /* Blur effect */
+    z-index: 999; /* Just below the expanded item */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Show overlay when modal is open */
+.modal-open .modal-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Adjust expanded item z-index to be above overlay */
+.project-item.expanded {
+    z-index: 1000; /* Already set, but ensuring it's above overlay */
+}

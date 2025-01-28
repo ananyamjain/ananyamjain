@@ -982,4 +982,9 @@ automation and scalability.</li>
             });
         }
     }, 0);
+
+    // Create and append the overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+    document.body.appendChild(overlay);
 });

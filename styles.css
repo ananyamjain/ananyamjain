@@ -2475,26 +2475,24 @@ body.modal-open .project-item.expanded {
     padding: 1.5rem;
 }
 
+/* Update the skill header styles */
 .skill-header {
     display: flex;
     align-items: center;
     gap: 0.8rem;
     margin-bottom: 1.5rem;
-    justify-content: flex-start; /* Add this to ensure left alignment */
 }
 
 .skill-header i {
     color: var(--accent-color);
     font-size: 1.2rem;
-    width: 1.2rem; /* Add fixed width for icon */
-    text-align: center; /* Center the icon in its space */
 }
 
 .skill-header h3 {
     color: var(--text-color);
     margin: 0;
     font-size: 1.1rem;
-    flex: 0 1 auto; /* Prevent text from pushing to right */
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .skill-tags {

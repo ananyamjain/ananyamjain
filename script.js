@@ -284,9 +284,11 @@ automation and scalability.</li>
                             <div class="project-actions">
                                 <a href="https://github.com/ananyamjain/openg2p-voucher-scanner-app" target="_blank" class="project-action">
                                     <i class="fab fa-github"></i>
+                                    <span>View Code</span>
                                 </a>
                                 <a href="https://www.openg2p.org/" target="_blank" class="project-action">
                                     <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
                                 </a>
                             </div>
                         </div>
@@ -328,6 +330,11 @@ automation and scalability.</li>
                             <div class="project-actions">
                                 <a href="https://github.com/csc301-2024-s/27-united-for-literacy" target="_blank" class="project-action">
                                     <i class="fab fa-github"></i>
+                                    <span>View Code</span>
+                                </a>
+                                <a href="https://www.unitedforliteracy.org/" target="_blank" class="project-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
                                 </a>
                             </div>
                         </div>
@@ -369,6 +376,11 @@ automation and scalability.</li>
                             <div class="project-actions">
                                 <a href="https://github.com/CSC207-2022F-UofT/course-project-ryde" target="_blank" class="project-action">
                                     <i class="fab fa-github"></i>
+                                    <span>View Code</span>
+                                </a>
+                                <a href="https://www.ryde.com/" target="_blank" class="project-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
                                 </a>
                             </div>
                         </div>
@@ -514,6 +526,7 @@ automation and scalability.</li>
                             <span class="skill-tag">Kotlin</span>
                             <span class="skill-tag">SQL</span>
                             <span class="skill-tag">SPARQL</span>
+                            <span class="skill-tag">Go</span>
                         </div>
                     </div>
                     <div class="skill-category">
@@ -527,6 +540,7 @@ automation and scalability.</li>
                             <span class="skill-tag">PyTorch</span>
                             <span class="skill-tag">Tensorflow</span>
                             <span class="skill-tag">dimod</span>
+                            <span class="skill-tag">pandas</span>
                         </div>
                     </div>
                 </div>
@@ -676,6 +690,7 @@ automation and scalability.</li>
                             <div class="project-actions">
                                 <a href="https://github.com/ananyamjain/QUBO-Problems" target="_blank" class="project-action">
                                     <i class="fab fa-github"></i>
+                                    <span>View Code</span>
                                 </a>
                             </div>
                         </div>
@@ -710,9 +725,11 @@ automation and scalability.</li>
                             <div class="project-actions">
                                 <a href="https://github.com/ananyamjain/CSC413-Final-Project" target="_blank" class="project-action">
                                     <i class="fab fa-github"></i>
+                                    <span>View Code</span>
                                 </a>
                                 <a href="https://arxiv.org/abs/2406.00237" target="_blank" class="project-action">
                                     <i class="fas fa-file-alt"></i>
+                                    <span>Read Paper</span>
                                 </a>
                             </div>
                         </div>

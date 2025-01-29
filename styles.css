@@ -2676,3 +2676,55 @@ body.modal-open .project-item.expanded {
 .project-item.expanded {
     z-index: 1000; /* Already set, but ensuring it's above overlay */
 }
+
+/* Project action buttons styling */
+.project-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.project-action {
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    background: rgba(136, 192, 208, 0.1);
+    border: 1px solid var(--card-border);
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-action i {
+    font-size: 1rem;
+}
+
+.project-action:hover {
+    transform: translateY(-2px);
+    background: rgba(136, 192, 208, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .project-action {
+    background: rgba(41, 128, 185, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .project-action:hover {
+    background: rgba(41, 128, 185, 0.2);
+}
+
+/* Adjust for list view */
+.list-view .project-actions {
+    margin-top: 0.5rem;
+}
+
+/* Adjust for expanded view */
+.project-item.expanded .project-actions {
+    margin-top: 1.5rem;
+    justify-content: flex-end;
+}

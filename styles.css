@@ -303,6 +303,11 @@ body {
     text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
 }
 
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
 /* Light theme adjustments */
 [data-theme="light"] .command-text {
     color: var(--text-color);

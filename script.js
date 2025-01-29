@@ -502,29 +502,82 @@ automation and scalability.</li>
     function generateSkills() {
         addToTerminal('output', `
             <div class="skills-section">
-                <div class="skills-header">
-                    <i class="fas fa-folder-open"></i> ./skills/
-                </div>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3>Languages</h3>
-                        <ul>
-                            <li>Python</li>
-                            <li>Java</li>
-                            <li>Kotlin</li>
-                            <li>SQL</li>
-                            <li>SPARQL</li>
-                        </ul>
+                        <div class="skill-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Languages</h3>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Java</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Kotlin</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">SQL</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">SPARQL</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Technologies and Libraries</h3>
-                        <ul>
-                            <li>React</li>
-                            <li>Numpy</li>
-                            <li>PyTorch</li>
-                            <li>Tensorflow</li>
-                            <li>dimod</li>
-                        </ul>
+                        <div class="skill-header">
+                            <i class="fas fa-tools"></i>
+                            <h3>Technologies & Libraries</h3>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">React</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Numpy</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">PyTorch</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Tensorflow</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">dimod</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

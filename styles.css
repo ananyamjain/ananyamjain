@@ -2440,23 +2440,16 @@ body.modal-open .project-item.expanded {
 
 /* Skills section styling */
 .skills-section {
-    padding: 20px;
-    border-radius: 8px;
-    background: var(--terminal-bg);
-    border: 1px solid var(--card-border);
-}
-
-.skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    padding: 1rem;
 }
 
 .skill-category {
-    padding: 1.5rem;
     background: rgba(28, 28, 28, 0.4);
     border-radius: 8px;
-    border: 1px solid var(--card-border);
+    padding: 1.5rem;
 }
 
 .skill-header {
@@ -2502,7 +2495,6 @@ body.modal-open .project-item.expanded {
 /* Light theme adjustments */
 [data-theme="light"] .skill-category {
     background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .skill-tag {
@@ -2516,7 +2508,7 @@ body.modal-open .project-item.expanded {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .skills-grid {
+    .skills-section {
         grid-template-columns: 1fr;
     }
 }

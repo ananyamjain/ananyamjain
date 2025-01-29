@@ -510,34 +510,32 @@ automation and scalability.</li>
     function generateSkills() {
         addToTerminal('output', `
             <div class="skills-section">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <i class="fas fa-code"></i>
-                            <h3>Languages</h3>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">Kotlin</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">SPARQL</span>
-                            <span class="skill-tag">Go</span>
-                        </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Languages</h3>
                     </div>
-                    <div class="skill-category">
-                        <div class="skill-header">
-                            <i class="fas fa-tools"></i>
-                            <h3>Technologies & Libraries</h3>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Numpy</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">Tensorflow</span>
-                            <span class="skill-tag">dimod</span>
-                            <span class="skill-tag">pandas</span>
-                        </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">SPARQL</span>
+                        <span class="skill-tag">Go</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Technologies & Libraries</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Numpy</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Tensorflow</span>
+                        <span class="skill-tag">dimod</span>
+                        <span class="skill-tag">pandas</span>
                     </div>
                 </div>
             </div>

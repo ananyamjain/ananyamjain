@@ -508,37 +508,12 @@ automation and scalability.</li>
                             <i class="fas fa-code"></i>
                             <h3>Languages</h3>
                         </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <span class="skill-name">Python</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">Java</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">Kotlin</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">SQL</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 80%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">SPARQL</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 75%"></div>
-                                </div>
-                            </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Kotlin</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">SPARQL</span>
                         </div>
                     </div>
                     <div class="skill-category">
@@ -546,37 +521,12 @@ automation and scalability.</li>
                             <i class="fas fa-tools"></i>
                             <h3>Technologies & Libraries</h3>
                         </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <span class="skill-name">React</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">Numpy</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">PyTorch</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 80%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">Tensorflow</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 75%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <span class="skill-name">dimod</span>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 70%"></div>
-                                </div>
-                            </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Numpy</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Tensorflow</span>
+                            <span class="skill-tag">dimod</span>
                         </div>
                     </div>
                 </div>

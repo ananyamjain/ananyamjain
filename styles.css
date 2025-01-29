@@ -304,10 +304,10 @@ body {
     display: inline-block;
 }
 
-@keyframes blink {
+/* @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
-}
+} */
 
 /* Light theme adjustments */
 [data-theme="light"] .command-text {

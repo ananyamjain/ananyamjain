@@ -288,7 +288,7 @@ automation and scalability.</li>
                                 </a>
                                 <a href="https://www.openg2p.org/" target="_blank" class="project-action">
                                     <i class="fas fa-external-link-alt"></i>
-                                    <span>Live Demo</span>
+                                    <span>Website</span>
                                 </a>
                             </div>
                         </div>
@@ -334,7 +334,7 @@ automation and scalability.</li>
                                 </a>
                                 <a href="https://www.unitedforliteracy.org/" target="_blank" class="project-action">
                                     <i class="fas fa-external-link-alt"></i>
-                                    <span>Live Demo</span>
+                                    <span>Website</span>
                                 </a>
                             </div>
                         </div>
@@ -377,10 +377,6 @@ automation and scalability.</li>
                                 <a href="https://github.com/CSC207-2022F-UofT/course-project-ryde" target="_blank" class="project-action">
                                     <i class="fab fa-github"></i>
                                     <span>View Code</span>
-                                </a>
-                                <a href="https://www.ryde.com/" target="_blank" class="project-action">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <span>Live Demo</span>
                                 </a>
                             </div>
                         </div>

@@ -2463,26 +2463,24 @@ body.modal-open .project-item.expanded {
 
 /* Skills section styling */
 .skills-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;  /* Change to flex instead of grid */
+    justify-content: space-between;  /* Space between the two categories */
     gap: 2rem;
     padding: 1rem;
 }
 
 .skill-category {
+    flex: 1;  /* Each category takes equal space */
     background: rgba(28, 28, 28, 0.4);
     border-radius: 8px;
     padding: 1.5rem;
 }
 
-/* Update the skill header styles */
 .skill-header {
     display: flex;
     align-items: center;
     gap: 0.8rem;
     margin-bottom: 1.5rem;
-    justify-content: center; /* Center the header content */
-    text-align: center; /* Center the text */
 }
 
 .skill-header i {
@@ -2494,7 +2492,6 @@ body.modal-open .project-item.expanded {
     color: var(--text-color);
     margin: 0;
     font-size: 1.1rem;
-    white-space: nowrap;
 }
 
 .skill-tags {

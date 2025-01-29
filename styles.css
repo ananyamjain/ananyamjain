@@ -2481,6 +2481,8 @@ body.modal-open .project-item.expanded {
     align-items: center;
     gap: 0.8rem;
     margin-bottom: 1.5rem;
+    justify-content: center; /* Center the header content */
+    text-align: center; /* Center the text */
 }
 
 .skill-header i {
@@ -2492,7 +2494,7 @@ body.modal-open .project-item.expanded {
     color: var(--text-color);
     margin: 0;
     font-size: 1.1rem;
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: nowrap;
 }
 
 .skill-tags {

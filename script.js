@@ -5,111 +5,111 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminal = document.querySelector('.terminal');
     let commandInputContainer;
 
-    const initialContent = `
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">whoami</span>
-        </div>
-        <div class="output">
-            <pre class="ascii-art">
- █████╗ ███╗   ██╗ █████╗ ███╗   ██╗██╗   ██╗ █████╗         ██╗ █████╗ ██╗███╗   ██╗
-██╔══██╗████╗  ██║██╔══██╗████╗  ██║╚██╗ ██╔╝██╔══██╗        ██║██╔══██╗██║████╗  ██║
-███████║██╔██╗ ██║███████║██╔██╗ ██║ ╚████╔╝ ███████║        ██║███████║██║██╔██╗ ██║
-██╔══██║██║╚██╗██║██╔══██║██║╚██╗██║  ╚██╔╝  ██╔══██║   ██   ██║██╔══██║██║██║╚██╗██║
-██║  ██║██║ ╚████║██║  ██║██║ ╚████║   ██║   ██║  ██║    █████╔╝██║  ██║██║██║ ╚████║
-╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝    ╚════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
-            </pre>
-            <p>Student • Developer • Researcher</p>
-        </div>
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">cat experience.txt</span>
-        </div>
-        <div class="output">
-            <div class="section">
-                <div class="experience-item">
-                    <div class="experience-content">
-                        <h2>Software Engineering Intern</h2>
-                        <p class="company">Uber</p>
-                        <p class="location">San Francisco, CA</p>
-                        <p class="date">Sep 2024 - Present</p>
-                        <ul>
-                            <li>Enhancing the end-to-end ML model development experience on Uber's Michelangelo platform by implementing
-a configurable integration testing pipeline.</li>
-                            <li>Designing and implementing the pipeline in Python, leveraging tools like Piper and Buildkite to ensure seamless
-automation and scalability.</li>
-                        </ul>
-                    </div>
-                    <img src="uber-logo.png" alt="Uber Logo" class="company-logo">
-                </div>
+//     const initialContent = `
+//         <div class="line">
+//             <span class="prompt">$</span>
+//             <span class="command">whoami</span>
+//         </div>
+//         <div class="output">
+//             <pre class="ascii-art">
+//  █████╗ ███╗   ██╗ █████╗ ███╗   ██╗██╗   ██╗ █████╗         ██╗ █████╗ ██╗███╗   ██╗
+// ██╔══██╗████╗  ██║██╔══██╗████╗  ██║╚██╗ ██╔╝██╔══██╗        ██║██╔══██╗██║████╗  ██║
+// ███████║██╔██╗ ██║███████║██╔██╗ ██║ ╚████╔╝ ███████║        ██║███████║██║██╔██╗ ██║
+// ██╔══██║██║╚██╗██║██╔══██║██║╚██╗██║  ╚██╔╝  ██╔══██║   ██   ██║██╔══██║██║██║╚██╗██║
+// ██║  ██║██║ ╚████║██║  ██║██║ ╚████║   ██║   ██║  ██║    █████╔╝██║  ██║██║██║ ╚████║
+// ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝    ╚════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+//             </pre>
+//             <p>Student • Developer • Researcher</p>
+//         </div>
+//         <div class="line">
+//             <span class="prompt">$</span>
+//             <span class="command">cat experience.txt</span>
+//         </div>
+//         <div class="output">
+//             <div class="section">
+//                 <div class="experience-item">
+//                     <div class="experience-content">
+//                         <h2>Software Engineering Intern</h2>
+//                         <p class="company">Uber</p>
+//                         <p class="location">San Francisco, CA</p>
+//                         <p class="date">Sep 2024 - Present</p>
+//                         <ul>
+//                             <li>Enhancing the end-to-end ML model development experience on Uber's Michelangelo platform by implementing
+// a configurable integration testing pipeline.</li>
+//                             <li>Designing and implementing the pipeline in Python, leveraging tools like Piper and Buildkite to ensure seamless
+// automation and scalability.</li>
+//                         </ul>
+//                     </div>
+//                     <img src="uber-logo.png" alt="Uber Logo" class="company-logo">
+//                 </div>
 
-                <div class="experience-item">
-                    <div class="experience-content">
-                        <h2>Data Engineering and AI Intern</h2>
-                        <p class="company">Bell Canada</p>
-                        <p class="location">Toronto, ON</p>
-                        <p class="date">May 2024 - August 2024</p>
-                        <ul>
-                            <li>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform.</li>
-                            <li>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</li>
-                            <li>Optimized data processing workflows to handle large-scale datasets effectively.</li>
-                            <li>Enhanced a churn prediction model, increasing detection rates and business impact.</li>
-                        </ul>
-                    </div>
-                    <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
-                </div>
-            </div>
-        </div>
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">cat education.txt</span>
-        </div>
-        <div class="output">
-            <div class="section">
-                <div class="experience-item">
-                    <div class="experience-content">
-                        <h2>University of Toronto</h2>
-                        <p class="company">Bachelor of Science in Computer Science</p>
-                        <p class="location">Toronto, ON</p>
-                        <p class="date">2021 - 2026</p>
-                        <ul>
-                            <li>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Analysis and Complexity</li>
-                        </ul>
-                    </div>
-                    <img src="uoft-logo.png" alt="University of Toronto Logo" class="company-logo">
-                </div>
-            </div>
-        </div>
+//                 <div class="experience-item">
+//                     <div class="experience-content">
+//                         <h2>Data Engineering and AI Intern</h2>
+//                         <p class="company">Bell Canada</p>
+//                         <p class="location">Toronto, ON</p>
+//                         <p class="date">May 2024 - August 2024</p>
+//                         <ul>
+//                             <li>Worked on the ML Eng team to productionize ML models on the Google Cloud Platform.</li>
+//                             <li>Streamlined model validation, testing, and deployment processes for efficiency and reliability.</li>
+//                             <li>Optimized data processing workflows to handle large-scale datasets effectively.</li>
+//                             <li>Enhanced a churn prediction model, increasing detection rates and business impact.</li>
+//                         </ul>
+//                     </div>
+//                     <img src="bell-logo.svg" alt="Bell Canada Logo" class="company-logo">
+//                 </div>
+//             </div>
+//         </div>
+//         <div class="line">
+//             <span class="prompt">$</span>
+//             <span class="command">cat education.txt</span>
+//         </div>
+//         <div class="output">
+//             <div class="section">
+//                 <div class="experience-item">
+//                     <div class="experience-content">
+//                         <h2>University of Toronto</h2>
+//                         <p class="company">Bachelor of Science in Computer Science</p>
+//                         <p class="location">Toronto, ON</p>
+//                         <p class="date">2021 - 2026</p>
+//                         <ul>
+//                             <li>Relevant Coursework: Data Structures, Algorithms, Machine Learning, Deep Learning, Analysis and Complexity</li>
+//                         </ul>
+//                     </div>
+//                     <img src="uoft-logo.png" alt="University of Toronto Logo" class="company-logo">
+//                 </div>
+//             </div>
+//         </div>
 
-        <div class="line">
-            <span class="prompt">$</span>
-            <span class="command">ls ./skills/</span>
-        </div>
-        <div class="output">
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>Kotlin</li>
-                        <li>SQL</li>
-                        <li>SPARQL</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Technologies and Libraries</h3>
-                    <ul>
-                        <li>React</li>
-                        <li>Numpy</li>
-                        <li>PyTorch</li>
-                        <li>Tensorflow</li>
-                        <li>dimod</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    `;
+//         <div class="line">
+//             <span class="prompt">$</span>
+//             <span class="command">ls ./skills/</span>
+//         </div>
+//         <div class="output">
+//             <div class="skills-grid">
+//                 <div class="skill-category">
+//                     <h3>Languages</h3>
+//                     <ul>
+//                         <li>Python</li>
+//                         <li>Java</li>
+//                         <li>Kotlin</li>
+//                         <li>SQL</li>
+//                         <li>SPARQL</li>
+//                     </ul>
+//                 </div>
+//                 <div class="skill-category">
+//                     <h3>Technologies and Libraries</h3>
+//                     <ul>
+//                         <li>React</li>
+//                         <li>Numpy</li>
+//                         <li>PyTorch</li>
+//                         <li>Tensorflow</li>
+//                         <li>dimod</li>
+//                     </ul>
+//                 </div>
+//             </div>
+//         </div>
+//     `;
 
     const commands = {
         'pwd': generatePwd,

@@ -289,14 +289,26 @@ body {
 
 .command-input {
     position: absolute;
+    left: -1000px; /* Hide the actual input */
     opacity: 0;
-    pointer-events: none;
+}
+
+.command-text {
+    color: var(--text-color); /* This ensures the text is visible in both themes */
 }
 
 .cursor {
-    color: #0f0;
+    color: var(--accent-color);
     animation: blink 1s step-end infinite;
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .command-text {
+    color: var(--text-color);
 }
 
 /* Add scrollbar styling */

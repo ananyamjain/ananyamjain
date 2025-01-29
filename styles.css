@@ -893,6 +893,10 @@ body {
     margin: 0;
 }
 
+.cert-header {
+    color: var(--text-color);
+}
+
 .certificate-item {
     opacity: 1;
     transform: translateX(0);

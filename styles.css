@@ -301,6 +301,7 @@ body {
     color: var(--accent-color);
     animation: blink 1s steps(1) infinite;
     text-shadow: 0 0 8px rgba(39, 174, 96, 0.4);
+    display: block;
 }
 
 @keyframes blink {

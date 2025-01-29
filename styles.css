@@ -298,14 +298,15 @@ body {
 }
 
 .cursor {
-    color: #0f0;
-    animation: blink 1s step-end infinite;
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
+    color: var(--accent-color);
+    display: inline-block;
+    animation: blink 0.8s step-end infinite;  /* Changed to step-end for sharper blink */
+    text-shadow: 0 0 8px rgba(39, 174, 96, 0.4);
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* Light theme adjustments */
@@ -900,6 +901,7 @@ body {
     padding: 0.5rem;
     border-left: 3px solid var(--accent-color);
     padding-left: 1rem;
+    color: var(--text-color);
 }
 
 .certificate-item.hidden {

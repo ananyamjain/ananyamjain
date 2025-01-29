@@ -298,16 +298,10 @@ body {
 }
 
 .cursor {
-    color: var(--accent-color);
-    animation: blink 1s steps(1) infinite;
-    text-shadow: 0 0 8px rgba(39, 174, 96, 0.4);
-    display: inline-block;
+    color: #0f0;
+    animation: blink 1s step-end infinite;
+    text-shadow: 0 0 8px rgba(0, 255, 0, 0.4);
 }
-
-/* @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-} */
 
 /* Light theme adjustments */
 [data-theme="light"] .command-text {
@@ -1851,12 +1845,6 @@ body.modal-open .project-item.expanded {
 /* Update command input styles for light theme */
 [data-theme="light"] .command-input-container:focus-within {
     background: rgba(0, 0, 0, 0.05);
-}
-
-/* Update cursor for light theme */
-[data-theme="light"] .cursor {
-    color: #27ae60;
-    text-shadow: 0 0 8px rgba(39, 174, 96, 0.4);
 }
 
 /* Update dance animation colors for light theme */

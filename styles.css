@@ -2767,14 +2767,24 @@ body.modal-open .project-item.expanded {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Mobile cheatsheet styles */
+/* Overlay only for mobile */
+.cheatsheet-overlay {
+    display: none;
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr;  /* Remove the side panel layout */
+        padding: 10px;
+    }
+
+    .terminal {
+        width: 100%;
+        max-width: 100%;
     }
 
     .cheatsheet {
-        display: none;  /* Hide the desktop cheatsheet */
+        display: none;  /* Initially hidden on mobile */
         position: fixed;
         top: 50%;
         left: 50%;
@@ -2795,8 +2805,8 @@ body.modal-open .project-item.expanded {
     }
 
     /* Overlay for mobile cheatsheet */
-    .cheatsheet-overlay {
-        display: none;
+    .cheatsheet-overlay.visible {
+        display: block;
         position: fixed;
         top: 0;
         left: 0;
@@ -2805,9 +2815,5 @@ body.modal-open .project-item.expanded {
         background: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(5px);
         z-index: 1000;
-    }
-
-    .cheatsheet-overlay.visible {
-        display: block;
     }
 }

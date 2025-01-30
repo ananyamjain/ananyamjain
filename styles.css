@@ -2784,7 +2784,7 @@ body.modal-open .project-item.expanded {
     }
 
     .cheatsheet {
-        display: none;  /* Initially hidden on mobile */
+        display: none;
         position: fixed;
         top: 50%;
         left: 50%;
@@ -2794,10 +2794,14 @@ body.modal-open .project-item.expanded {
         max-height: 80vh;
         z-index: 1001;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        background: var(--terminal-bg) !important; /* Force solid background */
+        backdrop-filter: none; /* Remove any backdrop filters */
+        opacity: 1; /* Ensure full opacity */
     }
 
-    .cheatsheet.mobile-visible {
-        display: block;
+    .cheatsheet-content {
+        background: var(--terminal-bg);
+        opacity: 1;
     }
 
     .cheatsheet-toggle {
@@ -2815,5 +2819,59 @@ body.modal-open .project-item.expanded {
         background: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(5px);
         z-index: 1000;
+    }
+}
+
+/* Existing skills styles remain the same for desktop */
+
+/* Mobile adjustments for skills section */
+@media (max-width: 768px) {
+    /* Adjust skills container */
+    .skills-section {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    /* Make skills grid stack vertically */
+    .project-container,
+    .skills-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    /* Adjust individual skill items */
+    .skill-category {
+        width: 100%;
+        text-align: left;
+        padding: 1rem;
+    }
+
+    /* Ensure skill tags don't overflow */
+    .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    /* Adjust the skills display */
+    .skill-header {
+        justify-content: flex-start;
+        margin-bottom: 1rem;
+    }
+
+    /* Make sure technologies and languages sections stack properly */
+    .languages-section,
+    .technologies-section {
+        width: 100%;
+    }
+
+    /* Ensure skill items are properly contained */
+    .skill-item {
+        width: auto;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        border-radius: 6px;
     }
 }

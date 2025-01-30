@@ -895,4 +895,33 @@ automation and scalability.</li>
     const overlay = document.createElement('div');
     overlay.className = 'modal-overlay';
     document.body.appendChild(overlay);
+
+    // Add this inside your DOMContentLoaded event listener
+    const cheatsheetToggle = document.querySelector('.cheatsheet-toggle');
+    const cheatsheet = document.querySelector('.cheatsheet');
+    const cheatsheetOverlay = document.querySelector('.cheatsheet-overlay');
+
+    if (cheatsheetToggle && cheatsheet && cheatsheetOverlay) {
+        cheatsheetToggle.addEventListener('click', () => {
+            cheatsheet.classList.toggle('mobile-visible');
+            cheatsheetOverlay.classList.toggle('visible');
+        });
+
+        // Close cheatsheet when clicking overlay
+        cheatsheetOverlay.addEventListener('click', () => {
+            cheatsheet.classList.remove('mobile-visible');
+            cheatsheetOverlay.classList.remove('visible');
+        });
+
+        // Close cheatsheet when clicking a command
+        const commandExamples = document.querySelectorAll('.command-example');
+        commandExamples.forEach(example => {
+            example.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {  // Only on mobile
+                    cheatsheet.classList.remove('mobile-visible');
+                    cheatsheetOverlay.classList.remove('visible');
+                }
+            });
+        });
+    }
 });

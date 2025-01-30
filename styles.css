@@ -2477,7 +2477,7 @@ body.modal-open .project-item.expanded {
 }
 
 .skill-header {
-    display: flex;
+    display: inline-flex; /* Change to inline-flex */
     align-items: center;
     gap: 0.8rem;
     margin-bottom: 1.5rem;
@@ -2486,12 +2486,14 @@ body.modal-open .project-item.expanded {
 .skill-header i {
     color: var(--accent-color);
     font-size: 1.2rem;
+    display: inline-block; /* Ensure icon stays inline */
 }
 
 .skill-header h3 {
     color: var(--text-color);
     margin: 0;
     font-size: 1.1rem;
+    display: inline-block; /* Ensure text stays inline */
 }
 
 .skill-tags {

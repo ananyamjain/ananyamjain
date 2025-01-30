@@ -2776,13 +2776,24 @@ body.modal-open .project-item.expanded {
 @media (max-width: 768px) {
     .container {
         padding: 10px;
+        width: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     .terminal {
         width: 100%;
         max-width: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
+    .terminal-content {
+        width: 100%;
+        padding: 1rem;
+        overflow-x: hidden;
+        word-wrap: break-word; /* Ensure text wraps */
+    }
+
+    /* Fix cheatsheet visibility */
     .cheatsheet {
         display: none;
         position: fixed;
@@ -2793,32 +2804,47 @@ body.modal-open .project-item.expanded {
         max-width: 350px;
         max-height: 80vh;
         z-index: 1001;
+        background-color: var(--terminal-bg);
+        border: 1px solid var(--card-border);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        background: var(--terminal-bg) !important; /* Force solid background */
-        backdrop-filter: none; /* Remove any backdrop filters */
-        opacity: 1; /* Ensure full opacity */
     }
 
-    .cheatsheet-content {
-        background: var(--terminal-bg);
-        opacity: 1;
+    .cheatsheet.mobile-visible {
+        display: flex !important; /* Force display when mobile-visible class is present */
+        flex-direction: column;
     }
 
-    .cheatsheet-toggle {
-        display: flex;  /* Show the toggle button */
+    /* Ensure all content stays within bounds */
+    .experience-item,
+    .project-item,
+    .section,
+    .skills-section,
+    .about-section {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        padding: 1rem;
     }
 
-    /* Overlay for mobile cheatsheet */
-    .cheatsheet-overlay.visible {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(5px);
-        z-index: 1000;
+    /* Handle long text and elements */
+    pre, code, .ascii-art {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        max-width: 100%;
+        font-size: 0.8rem; /* Smaller font for better fit */
+    }
+
+    /* Ensure images and logos fit */
+    img, .company-logo {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Adjust grid layouts to stack */
+    .grid-view, .list-view {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
